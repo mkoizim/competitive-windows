@@ -4,6 +4,18 @@
 **Author:** Matt Koizim
 **Locked:** September 20, 2026
 **Spec version at time of locking:** research-plan.md v0.8
+**Supersedes:** commit `2ddb3ac`, the v0.5 draft of this file
+
+**Why this file was revised after its first commit.** The v0.5 draft was committed earlier
+the same day, before any data was collected. Two predictions were then reworked: P3 moved
+from prior-behavior to in-window classification, and P4 was replaced entirely — from a
+cohort comparison of peak title probability to a per-club test of under-conversion against
+a reachable frontier. Both changes are documented in `decisions.md`.
+
+**No data existed in this repository at any point between the two commits.** The original
+draft remains in git history at `2ddb3ac` and can be diffed against this version. From this
+commit forward, this file is not edited; any change of position is recorded in
+`decisions.md` instead.
 
 This file is committed before any data is collected or examined. It is never edited after
 its first commit. Any change of position is recorded in `decisions.md` with a date and a

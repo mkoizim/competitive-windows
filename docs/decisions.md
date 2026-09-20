@@ -177,3 +177,19 @@ the exchange rate alone, logged here if triggered.
 per-club frontier, no registered prediction depends on cohort balance. The count is still worth
 reporting — *windows are preceded by net building in X% of cases* is a clean statement about how
 contention gets manufactured, and it sets up Post 3.
+
+## 2026-09-20 — predictions.md re-locked at v0.8
+
+**Question:** `predictions.md` was committed at v0.5 (`2ddb3ac`), then P3 and P4 were revised.
+Is re-committing it a violation of pre-registration?
+**Options:** Leave the v0.5 version as the registered one | Add v0.8 as a separate file |
+Re-commit with an explicit supersession note
+**Chose:** Re-commit, with the supersession, the reason, and the superseded hash written into
+the file header.
+**Why:** Pre-registration requires that predictions precede data, not that a first draft is
+never revised. No data had been collected at any point between the two commits, so nothing in
+the repository could have influenced the revisions. Git preserves `2ddb3ac` permanently, so the
+change is auditable by anyone who wants to diff it — which is a stronger artifact than a
+registered document with no visible drafting history. What would compromise the registration is
+revising after seeing results, or revising silently. Neither applies.
+**Revisit if:** never. From this commit forward the file is fixed; positions change only here.
