@@ -1,0 +1,19 @@
+# Raw data — some sources are paid; never commit
+data/raw/
+data/interim/
+
+# Credentials
+.env
+*.key
+*_token*
+cookies.txt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
