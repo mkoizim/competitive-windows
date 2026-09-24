@@ -420,3 +420,39 @@ the residual test weak. Realized qualification reported alongside, since it is w
 is defined on.
 **Status:** not decided. Decide before running §4b.
 
+ 2026-09-22 — No odds-space measure of offseason effect
+
+**Question:** v0.10 claimed a prior-close-to-Opening-Day odds delta measures what a club's
+offseason achieved. Does it?
+**Chose:** No. The claim is withdrawn.
+**Why:** End-of-season odds are degenerate — every club is at 0 or 1 for postseason access — so
+there is nothing to take a delta from. The only available year-over-year comparison is Opening
+Day to Opening Day, which spans a full year of development, aging, injury and rival activity in
+addition to the club's own winter. Reading it as offseason effect would attribute a year of
+league-wide movement to one club's transactions.
+**Retained as:** a plain descriptive covariate — change in ex-ante position, year over year —
+explicitly not interpreted as offseason effect. Conversion magnitude is measured by the horizon
+score alone.
+**Clarifies the snapshot roles:** Opening Day and pre-deadline establish *position* (is the club
+in a window, and what was visible when it could act). End of regular season establishes *outcome*
+(realized qualification, final record). Different questions; not substitutes.
+**Revisit if:** a pre-Opening-Day forward-looking projection series covering the panel is found.
+
+## 2026-09-22 — Lit review split into a duplication check and a full review
+
+**Question:** When does the lit review happen, given the risk that prior work already answers
+these questions?
+**Options:** Full review now | Full review at write-up | Split
+**Chose:** Split. A bounded **duplication check** runs in week 1; the full review runs alongside
+drafting.
+**Why:** The two serve different purposes. The duplication check is a go/no-go on the framing and
+is cheap and narrow — does published work already estimate an MLB contention hazard, test
+forecast efficiency on playoff odds, or measure conversion against a feasible frontier? The full
+review is positioning and citation work, and it is more useful once data constraints and actual
+results are known. Doing the full review first expands to fill available time and produces notes
+against a spec that may still move.
+**Known prior work to position against:** Jordan (SABR BRJ, Spring 2018) on typical window length;
+Gennaro on postseason NPV; RotoWire's window model on core age, contracts and farm depth. None
+estimates a hazard, tests forecast efficiency, or measures under-conversion.
+**Revisit if:** the duplication check finds work that directly answers P1 or P4, in which case the
+contribution is re-scoped here before any further data work.

@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.10
+## Research Plan v0.11
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@
 - v0.3 — **mode-switch reframe.** The claim is no longer that clubs act late; it is that they switch from building odds to converting odds late. Adds the net horizon score, forecast-efficiency testing, revision decomposition, and rival diagnoses. Corrects the horizon-score sign convention.
 - v0.3.1 — sign convention corrected to acquired − surrendered (converting is negative); YTC restated as duration.
 - v0.4 — FanGraphs confirmed daily back to Opening Day 2016. Added a two-period design, day-level public-signal dating, and daily-series upgrades to §4c.
+- v0.11 — Withdraws v0.10's claim that a prior-close-to-Opening-Day delta measures offseason effect; end-of-season odds are degenerate so no such delta exists. Year-over-year Opening Day change retained as descriptive covariate only. Lit review split into a duplication check and a full review (§7).
 - v0.10 — Three snapshots per season; **Opening Day reclassified as an outcome, not a signal**, with the prior-close-to-Opening-Day delta added as a second read on conversion magnitude. End of regular season added. P1's lag test is cleanest at the deadline; the offseason limitation is stated. No methodology break assumed — §4b tests for one empirically year by year instead.
 - v0.9 — Study period extended to 2014–2026 (archive begins 2014-03-29). Ranking variable, view and projection mode fixed. **R4 — rational non-conversion** added as a fourth rival diagnosis. Format regime handled as a hazard covariate plus a berth-relative robustness variant. Model-revision rule fixed in advance. 2020 split by rank-based vs. level-based use.
 - v0.8 — **P4 replaced.** Was "prior building caps the peak" (cohort-based, near-certain to be untestable); now "clubs under-convert," measured against a reachable frontier built from players who actually moved at prices actually paid (§4g). R2 promoted from rival diagnosis to P4's own test. §2.2 cohort contingency retired.
@@ -166,7 +167,7 @@ talent until late July.
 
 | Decision point | Behavior observed | Signal available at the time |
 |---|---|---|
-| Offseason | Net horizon shift across the winter, **plus the Opening Day odds delta** | Prior season's Opening Day odds rank *and* prior season's final record — both fully known before the winter begins |
+| Offseason | Net horizon shift across the winter | Prior season's Opening Day odds rank *and* prior season's final record — both fully known before the winter begins |
 | Deadline | Net horizon shift across the deadline | Odds ~1 week before the deadline |
 
 **Three snapshots per season:**
@@ -178,14 +179,22 @@ talent until late July.
 | **End of regular season** | Final record and realized qualification — the outcome variable for §4b. Also Win WS on the day the field is set, for the R4 probe |
 
 **Opening Day is an outcome, not a signal.** It already contains the winter's moves, so it
-cannot be the signal the offseason decision was made against. It has two other jobs: it
-fixes whether the club is in a window that season, and the **prior-close-to-Opening-Day
-delta** measures what the offseason actually achieved, in odds space — a second, independent
-read on conversion magnitude alongside the dollar-years horizon score.
+cannot be the signal the offseason decision was made against. Its job is to fix whether the
+club is in a window that season.
 
-*Caution on the delta:* odds move for reasons other than the club's own actions — rival
-moves, injuries, aging curves. The delta measures change in competitive position, not purely
-change caused by the club. Use it as a cross-check on the horizon score, not a substitute.
+**There is no odds-space measure of offseason effect, and v0.10's claim that there was is
+withdrawn.** End-of-season odds are degenerate — clubs are in or out — so no delta can be
+taken from them. The only year-over-year comparison available is Opening Day to Opening Day,
+which spans development, aging, injury and rival activity as well as the club's own winter.
+It is retained as a plain descriptive covariate — *change in ex-ante position, year over
+year* — and is explicitly **not** interpreted as what the offseason achieved. Conversion
+magnitude is measured by the horizon score alone (§3.1).
+
+**Why each snapshot exists, stated plainly.** Opening Day and pre-deadline establish whether
+the club is in a window and what signal was visible when it could act. End of regular season
+establishes what actually happened — realized qualification and final record. Those answer
+different questions and are not substitutes: the first two are about position, the third is
+about outcome.
 
 **Consequence for P1, stated plainly.** The offseason decision point has no clean
 forward-looking public signal in this dataset; the archive begins at Opening Day each year,
@@ -521,6 +530,7 @@ Modular. Each post stands alone. Ordered so cheap wins precede expensive work.
 
 | Weeks | Phase | Hours | Output |
 |---|---|---|---|
+| 1 | **Duplication check** | 2 | Bounded search for prior work that already answers P1–P4. Go/no-go on the framing, not a full review |
 | 1–2 | Spec + lit review | 12 | This document finalized; predictions committed; lit notes |
 | 2 | **Network review of the spec** | 2 | Feedback on definitions from 1–2 baseball contacts, before data work |
 | 3–4 | Data acquisition + audit | 12 | Cached local dataset, data dictionary, documented gaps |
