@@ -1,30 +1,54 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.11
+## Research Plan v0.26
 
 **Author:** Matt Koizim
 **Started:** September 2026
-**Soft target:** SABR Analytics Conference abstract (2025 deadline was Nov 21; 2024 was Nov 20 — confirm the 2027 call)
+**Soft target:** SABR Analytics Conference abstract, due **Wednesday, November 25, 2026, 11:59 pm MST** (1:59 am ET, Nov 26). Full Post 1 to follow on FanGraphs Community Research.
 **Cadence:** 4–8 hrs/week, no hard deadline
 
-**Version history**
-- v0.1 — window survival + exchange rate
-- v0.2 — reframed around self-observation asymmetry
-- v0.3 — **mode-switch reframe.** The claim is no longer that clubs act late; it is that they switch from building odds to converting odds late. Adds the net horizon score, forecast-efficiency testing, revision decomposition, and rival diagnoses. Corrects the horizon-score sign convention.
-- v0.3.1 — sign convention corrected to acquired − surrendered (converting is negative); YTC restated as duration.
-- v0.4 — FanGraphs confirmed daily back to Opening Day 2016. Added a two-period design, day-level public-signal dating, and daily-series upgrades to §4c.
-- v0.11 — Withdraws v0.10's claim that a prior-close-to-Opening-Day delta measures offseason effect; end-of-season odds are degenerate so no such delta exists. Year-over-year Opening Day change retained as descriptive covariate only. Lit review split into a duplication check and a full review (§7).
-- v0.10 — Three snapshots per season; **Opening Day reclassified as an outcome, not a signal**, with the prior-close-to-Opening-Day delta added as a second read on conversion magnitude. End of regular season added. P1's lag test is cleanest at the deadline; the offseason limitation is stated. No methodology break assumed — §4b tests for one empirically year by year instead.
-- v0.9 — Study period extended to 2014–2026 (archive begins 2014-03-29). Ranking variable, view and projection mode fixed. **R4 — rational non-conversion** added as a fourth rival diagnosis. Format regime handled as a hazard covariate plus a berth-relative robustness variant. Model-revision rule fixed in advance. 2020 split by rank-based vs. level-based use.
-- v0.8 — **P4 replaced.** Was "prior building caps the peak" (cohort-based, near-certain to be untestable); now "clubs under-convert," measured against a reachable frontier built from players who actually moved at prices actually paid (§4g). R2 promoted from rival diagnosis to P4's own test. §2.2 cohort contingency retired.
-- v0.7 — P3 moved to in-window classification (tests the sustainability orthodoxy directly). P4 made conditional on cohort balance (§2.2). Persistent contenders named as a reported category (§2.3).
-- v0.6 — Predictions table in §2 reconciled with `predictions.md` (four registered, three exploratory). §3.4 rewritten to separate in-window from prior-behavior classification.
-- v0.5 — **Parameters settled with the author.** Threshold moved to within-league top 6 of 15. Both switches dated at start-of-run, on a two-decision-point grid; parameter *D* retired. Strict consecutive windows with the grace rule demoted to robustness. Strategy classified at the window level. Break-even discount rate replaces an assumed rate. The ~2003 futures panel is dropped.
+**How this document works.** This plan states the study as it currently stands. It does not
+record how the design got here. Every choice that has closed — what was considered, what was
+rejected, and why — lives in `decisions.md`. Choices still genuinely open are marked
+**[OPEN]** where they appear and listed together in §13.
+
+**Version history** (one line each; detail in `decisions.md`)
+- v0.26 — Opening Day confirmed as the primary window definition; change between Opening Day and the deadline named as a write-up theme in §3.3b. Surprise patterns renamed. Post 1 reminder reworded.
+- v0.25 — Signal switch labeled primary. Reminder to sort by underlying components when judging rationality. Spec reviewers named. FanGraphs data-use email not sent.
+- v0.24 — SABR deadline set (Nov 25, 2026, 11:59 pm MST); phase plan replaced with a five-week timeline; FanGraphs added as the full-post venue.
+- v0.23 — One-year switch filter set: Pythagorean rank to date inside the threshold at the pre-deadline snapshot.
+- v0.22 — Surprise contenders broadened to six window patterns (E4), including the gap year. P1 adds a variant counting one-year signal switches backed by underlying performance.
+- v0.21 — Surprise contenders named as a group (E4), with a secondary check on whether the surprise is backed by underlying performance. Behavioral switch now counts a single converting deadline above a size floor; two straight deadlines reported with equal prominence.
+- v0.20 — Large off-grid moves listed by name. 2020 reconstruction confirmed. Post 1 reminder to state and defend the threshold rationale.
+- v0.19 — Partly reverses v0.18: P3 reporting table withdrawn (left open); revenue-sharing status is a candidate R3 measure, unverified, not adopted. P4 margin stands.
+- v0.18 — P4 margin set at 1.0 title-probability point, with the decision rule. P3 reporting table fixed in advance. R3 uses revenue-sharing status plus payroll/CBT position. Ghiroli citation confirmed. Bubble trap parked.
+- v0.17 — Farm-rankings study moved to optional, after the luck ledger. Posts renumbered: 1 hazard, 2 putting the roof on, 3 leaving it on the table, 4 luck ledger. Luck ledger becomes the cheap fallback.
+- v0.16 — Odds collected (Post 1 now exploratory). P3 downgraded to exploratory. P4 re-specified around the Doyle Number: club-specific willingness to pay vs. market price. R4 cutoff and P1's normative benchmark now use the Doyle Number. Ghiroli (2026) added as framing.
+- v0.15 — §1.3 reworded with a worked example of the frames disagreeing. Post 3 commits to naming sustainability as a deliberate trade-off if the evidence supports it; Post 5 adds a long-modest vs. short-tall comparison of expected titles.
+- v0.14 — §1.2 reframed: self-assessment failures are correctable process failures, not blameless; the study shows whether a lag exists, not its mechanism.
+- v0.13 — Blind-spot review applied. Conversion classified from per-season net surplus (now vs. later), replacing average timing. Offseason signal on Pythagorean standings. P1's primary test moved to the deadline series, with a permutation null, censoring, and a transaction-assignment rule. P2 demoted to an instrument check; editorial series cut. P3 re-specified as a time-varying exposure with core age and control; registration status **[OPEN]**. P4 re-specified against an optimal multi-season objective with a materiality margin **[OPEN]**. Valuation inputs as-of the transaction date.
+- v0.12 — History moved out of the spec; snapshot and comparison tables; 2020 reconstruction; P4 in two currencies.
+- v0.11 — Withdrew the odds-space offseason delta; lit review split.
+- v0.10 — Three snapshots per season; Opening Day treated as outcome; no methodology break assumed.
+- v0.9 — Study period 2014–2026; ranking variable and mode fixed; R4 added; format regime handling.
+- v0.8 — P4 replaced by under-conversion against a reachable frontier.
+- v0.7 — P3 moved to in-window classification; persistent contenders named.
+- v0.5–v0.6 — Parameters settled; predictions reconciled.
+- v0.1–v0.4 — Initial framing through the mode-switch reframe.
 
 ---
 
 ## 1. Objective
 
 Test whether MLB organizations switch from **building** competitive odds to **converting** them into championship probability later than public signal justifies — and whether that lag, or an equivalent failure to take the final step, costs them titles.
+
+**Framing.** Writers and fans have long observed that contention windows don't cooperate with
+the plans clubs make for them — see Brittany Ghiroli, "Competitive windows don't always
+cooperate. MLB teams should act like it.", *The Athletic*, 2026-08-06
+(https://www.nytimes.com/athletic/7494251/2026/08/06/mlb-competitive-window-trade-deadline/).
+This project puts data behind that observation, and is prepared to find where it doesn't hold.
+Several of her claims map onto tests here: secure contenders with improvable title odds who
+didn't buy (P4, the Doyle zone); what a club could actually have acquired (R1); whether "just get
+in and anything can happen" holds (Post 4).
 
 ### 1.1 Why "mode switch" and not "acting late"
 
@@ -37,11 +61,18 @@ The real question is when a club stops pouring concrete and puts a roof on. Two 
 
 Both are rational. The hypothesis is that the transition between them happens late.
 
-### 1.2 Why the non-adversarial framing
+### 1.2 Why the framing targets process, not people
 
-Clubs evaluate other organizations dispassionately and their own with sunk costs, internal advocates for players they drafted, private medicals, and an owner in the room. Self-assessment lag requires no one to be bad at their job. It is also the version a baseball-ops leader can forward internally without it reading as an accusation.
+Clubs evaluate rivals from the outside and themselves from the inside, with sunk costs,
+internal advocates for players they drafted, private information, and an owner in the room.
+Good decision-makers are expected to correct for these, and most try. But knowing about a bias
+doesn't remove it, which is why the fix is process (outside review, pre-committed switch
+criteria), not individual vigilance. If this study finds a lag, it shows the lag exists, not
+which of these mechanisms produced it.
 
-**Tone rule.** Neutral diagnosis, sharp recommendation. Critique decisions made under uncertainty, never decision-makers. Diagnosis sections stay clinical; the aggressive view belongs in the recommendation section, after the evidence is established.
+**Tone rule.** Neutral diagnosis, sharp recommendation. Critique decisions and processes, never
+named decision-makers. Diagnosis sections stay clinical; the aggressive view belongs in the
+recommendation section, after the evidence is established.
 
 ### 1.3 The two frames, and how they shape windows
 
@@ -50,26 +81,31 @@ Reported separately. Never blended.
 - **Frame A — Championship probability.** Rewards **peak height**. Titles are won at the top of the curve; a short tall window beats a long flat one.
 - **Frame B — Owner economics.** Rewards **area under the curve, with diminishing returns**. Gennaro's NPV estimates — roughly $20M for a first berth, $13M for a second consecutive, $9M for a third — mean relevance pays repeatedly but pays less each time. Revenue responds to *reaching* October far more than to winning it.
 
-**Consequence, and the theoretical backbone of P4:** sustainability is a Frame B strategy defended in Frame A language. The frames disagree about what "missing a window" means, so they must be fixed before any window is called missed.
+**Consequence, and the theoretical backbone of P3 and P4:** sustainability is a Frame B strategy defended in Frame A language. The frames give different verdicts on the same club: four wild-card berths and no title is a missed window under Frame A and a success under Frame B. Every result therefore states which frame it is in, and no window is called "missed" without naming the frame.
 
 ---
 
 ## 2. Pre-registered predictions
 
-Commit with real numbers before building anything. Publish in the appendix of Post 1.
+Registered in `predictions.md`, locked 2026-09-20 at commit `33dbb7d`, before any data was
+collected. Changes to how a prediction is measured are logged in `decisions.md`, each stating
+whether it alters the registered claim or only its operationalization.
 
-**Four registered, three exploratory.** Seven predictions all pointing one way invites the
-obvious read that something will be found regardless. The registered set is deliberately
-small; the rest are run and reported without a directional claim.
+**What has been seen.** All FanGraphs odds snapshots were collected by 2026-10-17. Analyses that
+rest only on the odds — windows and the Post 1 hazard — are therefore **exploratory**: their
+specifications were set before the data was collected, but changes made from here are made with
+the data in view. Transactions and valuations have not been pulled, so P1's behavioral side and
+P4 remain **confirmatory**. The author also lived through the period, as most readers did; the
+safeguard is fixing analysis choices before the transaction data is seen, not ignorance of
+baseball history.
 
 ### Registered
 
 | # | Prediction | Operational test | Falsified if |
 |---|---|---|---|
-| **P1** | **(Spine)** Clubs switch from building to converting later than public signal justifies | Lag between behavioral switch date and public-signal switch date (§4a), both dated at start-of-run on the decision grid | Behavioral switch leads or is contemporaneous with public signal |
-| **P2** | Preseason forecasts over-weight prior-season results | Forecast-efficiency test (§4b): prior-season record predicts forecast error | Prior-season record has no predictive power over the error |
-| **P3** | Converting during an open window does not shorten it | Window length and hazard, by **in-window** net horizon score, matched on payroll tier and ex-ante strength | Converter windows are materially shorter under matching |
-| **P4** | Clubs under-convert: title probability reached falls short of what was reachable | Reached vs. reachable title probability per open window, where reachable is built from players who actually changed hands that period at the prices actually paid, capped by the club's own tradeable surplus and payroll capacity (§4g) | Clubs reach or exceed the reachable frontier on average |
+| **P1** | **(Spine)** Clubs switch from building to converting later than public signal justifies | Lag, in seasons, between the public-signal switch and the behavioral switch on the **deadline series** (§3.2), tested against a permutation null, with censoring (§4a). Full decision-grid version secondary | Behavioral switch leads or is contemporaneous with public signal |
+| **P2** | **(Instrument check)** Preseason odds over-weight prior-season results | Does prior-season record predict the error in Opening Day Make Playoffs odds? (§4b) | Prior-season record has no predictive power over the error |
+| **P4** | Clubs under-convert relative to their standing | At each deadline, the club's Doyle Number (what it should pay for current wins, given its odds) against the market price that deadline; shortfall measured in title probability (§4g) | Mean shortfall is below 1.0 title-probability point, or its 95% interval includes zero (§2.4) |
 
 ### Exploratory — no direction claimed
 
@@ -78,49 +114,83 @@ small; the rest are run and reported without a directional claim.
 | **E1** | Whether the lag is asymmetric between window openings and closings. Contingent on P1 surviving. |
 | **E2** | Realized surplus value of retained top-100 prospects vs. their peak trade-market price. |
 | **E3** | Predictive power of organizational farm rank for contention at 2, 3, and 4 years out. |
+| **E4** | Window patterns (§3.3b): every club-season classified as surprise (one season), surprise (sustained), faded fast, gap year, fizzled, or sustained; what clubs did at the deadline in each; and whether each rise or dip was backed by underlying performance. |
+| **P3 (exploratory)** | Does converting during an open window shorten it? Estimated as a time-varying exposure in a hazard model, with core age and control as controls, and reported with a confidence interval. No pass/fail claim (§3.4). Downgraded from registered 2026-10-17. |
 
 ### 2.1 Rival diagnoses — test, don't assume away
 
-P1 attributes the gap to late recognition. Three alternatives produce the same surface pattern and must be tested in the same post:
+P1 attributes the gap to late recognition. Four alternatives can produce the same surface pattern:
 
 | Rival | What it claims | Test |
 |---|---|---|
-| **R1 — Supply constraint** | Timing was right; no workable deal existed | Was an impact player acquired by *someone* that period, at a price this club could have paid? If yes, supply wasn't binding for them (§4d) |
-| **R2 — Final-step under-investment** | Timing was right; the club converted, but never enough | The reached-vs-reachable frontier gap (§4g). This is now P4's own test — R2 is promoted from a rival explanation to a registered prediction |
-| **R3 — Payroll, not philosophy** | Clubs are "sustainable" because they're poor | Match on payroll tier and revenue; report matched and unmatched |
-| **R4 — Rational non-conversion** | Timing was right and supply existed, but the marginal title probability purchasable at that moment did not justify the price. *"We can qualify; we can't be a favorite."* | Compute Win WS and marginal Win WS per dollar of available surplus at each decision point. If non-converters systematically face low marginal return, R4 explains the behavior and P1 does not (§4d) |
+| **R1 — Supply constraint** | Timing was right; no workable deal existed | Was an impact player acquired by *someone* that period, at a price this club could have paid? Per-club counterfactual, holding other clubs' behavior fixed (§4d) |
+| **R2 — Final-step under-investment** | Timing was right; the club converted, but never enough | P4's shortfall (§4g) |
+| **R3 — Payroll, not philosophy** | Clubs are "sustainable" because they're poor | Control for revenue position and payroll/CBT position; report with and without (§4d) |
+| **R4 — Rational non-conversion** | Timing was right and supply existed, but the marginal title probability purchasable did not justify the price. *"We can qualify; we can't be a favorite."* | Non-conversion is explained by R4 when the club's Doyle Number was below the market price that deadline — buying wasn't worth it at the going rate (§4d) |
 
-R2 may turn out to be the dominant failure mode. That would be a better finding than R1 and should be reported as such, not buried.
+R4 and P4 both rest on the Doyle Number (Silver & Paine, FiveThirtyEight, 2015 on): optimal
+buyers are secure playoff teams with improvable title odds, not bubble teams. Some measured lag
+may be optimal behavior. R4 is the test of that.
 
-### 2.2 How windows are manufactured — a reported result, not a gate
+R2 may turn out to be the dominant failure mode. That would be a better finding than R1 and is
+reported as such, not buried.
 
-Earlier drafts made P4 conditional on finding enough window-openings preceded by
-*converting* rather than building. P4 no longer needs that cohort split, so the contingency
-is retired.
+### 2.2 How windows are manufactured
 
-The count is still reported in Post 1: *windows are preceded by net building in X% of
-cases.* It is expected to be lopsided toward building, and if it is, that is a clean
-empirical statement about how contention gets manufactured — build, then a window opens,
-then the conversion decision arrives. It sets up Post 3 rather than gating it.
+Reported in Post 1: *window openings are preceded by net transaction-channel building in X%
+of cases.* The measure sees trades only, not internal development — which is how most windows
+open — so it describes the transaction channel, not window formation as a whole. Where the
+value build allows, contrast it with growth in internally developed WAR.
 
 ### 2.3 Persistent contenders
 
-Some clubs — likely the Dodgers and Yankees — never fall below threshold across 2014–2026.
-They enter the survival model as right-censored spells, which is the statistically correct
-handling, but they contribute little to hazard estimation while having the most conversion
-capacity in the sample.
+Some clubs — likely the Dodgers and Yankees — may never fall below threshold across 2014–2026.
+They enter the survival model as right-censored spells, but contribute little to hazard
+estimation while having the most conversion capacity in the sample.
 
-**Report them as a named category**, with a count: *in eleven seasons, N clubs never left
-contention; the hazard describes the remainder.* That is more honest than a hazard curve
-that quietly excludes the most interesting clubs, and the count is itself a finding.
+They are reported as a named category with a count: *in thirteen seasons, N clubs never left
+contention; the hazard describes the remainder.* The count is itself a finding.
 
-### 2.4 Falsification
+### 2.4 Falsification and reporting
 
-**Primary (P1):** if the behavioral switch tracks or leads the public-signal switch, there is no blind spot. The series becomes a descriptive study of window duration — still publishable, headline claim gone. Say so plainly.
+**P1.** If the behavioral switch tracks or leads the public-signal switch, there is no blind
+spot. The series becomes a descriptive study of window duration — still publishable, headline
+claim gone. Say so plainly.
 
-**Secondary (Frame A):** if title probability purchased per $1 of surplus value spent is lower than the discounted title probability that surplus generates when retained, aggressive pursuit is the inferior strategy. Discount rate set up front: propose 8–12% annually, test across the range.
+**The threshold favors P1, and the paper says so.** A loose threshold fires the signal switch
+earlier, which lengthens measured lag. So the rank-6 baseline biases P1 toward confirmation,
+even though it biases Post 1's hazard the other way. P1 is therefore reported at ranks 3 and 4
+with the same prominence as rank 6.
 
-### 2.3 Author bias
+**So would requiring two converting deadlines.** A club with a one-year window that pushes its
+chips in once could never show two straight converting deadlines, and would be recorded as never
+converting — which counts as late. The primary rule therefore counts a single converting deadline
+(*k* = 1, above a size floor); *k* = 2 is reported with equal prominence.
+
+**P3.** Exploratory. The effect is estimated and reported with a confidence interval; the
+study does not claim to confirm or reject it (§3.4). **[OPEN]:** whether to fix the wording of
+each possible result in advance.
+
+**P4.** Margin: **1.0 title-probability point** per club-deadline in which buying was favorable —
+roughly the title odds one impact deadline acquisition adds (Ball; citation to verify). Anchored
+there because it is a miss a GM would recognize: when its standing justified it, the club passed
+up about one impact acquisition's worth of title odds.
+
+- **Test:** P4 holds if the mean shortfall is at least 1.0 point **and** its 95% interval excludes
+  zero.
+- **Reported alongside:** whether the stricter version also holds — the entire 95% interval above
+  1.0 point.
+- **Falsified** if the mean shortfall is below 1.0 point, or its interval includes zero.
+
+**Frame A.** The discount rate is not assumed. The study reports the **break-even rate** — the
+rate at which converting and building have equal expected value — so the finding reads
+"converting wins for any club whose required return exceeds X%." 8%, 10% and 12% are shown as
+reference points; 10% is the reference rate wherever one rate is needed.
+
+**Every robustness variant pre-specified in this plan is reported.** No variant is selected
+after results are seen.
+
+### 2.5 Author bias
 
 Most predictions point the same direction. Prior employment with LAD, MIA, BAL — three obvious case studies. Two rules, stated in the published piece:
 
@@ -131,360 +201,498 @@ Most predictions point the same direction. Prior employment with LAD, MIA, BAL �
 
 ## 3. Definitions
 
-Fix in the spec, before data. Each is a defensible choice; the point is to choose once, in public.
+These are the study's fixed definitions. Each was chosen over defensible alternatives; the
+alternatives and the reasons are in `decisions.md`. Choices still open are marked **[OPEN]**.
 
-### 3.1 Core measure
+### 3.1 Value measures
 
-Two separate quantities. Never combine them.
+#### Production value and surplus value
 
-**(1) Net surplus value** — dollars. Acquired minus surrendered. Did the club win the trade? Not what this study is about, but needed as a control.
+For every asset, project its **production value** by future season: projected WAR × $/WAR for
+that season. **Surplus value** in a season is production value minus what the club pays for it.
+Surplus can be negative in any season (arbitration raises, underwater contract years).
 
-**(2) Years to contribution (YTC)** — years. This is **Macaulay duration applied to surplus value**. For any asset, project surplus value by future season, then take the value-weighted average of the arrival years:
+No published table supplies these per player, per season, across 2014–2026. They are
+**built**, from components:
 
-> YTC = Σ(t × value in year t) ÷ Σ(value in all years)
+- **Major leaguers:** a projection available at the time of the transaction, extended to later
+  seasons by a pre-specified aging curve.
+- **Prospects:** contemporaneous prospect grades (Baseball America, owned) mapped to dollar
+  values through one published grade-to-value table.
+- **$/WAR:** one published series, by year, cited.
+- **Salary:** contract and arbitration data from Cot's Contracts.
 
-The denominator divides out the dollars entirely. What remains is a date, not an amount. A prospect does not become more valuable by being further away; its value simply arrives later. Index t from 0 for the current season.
+**As-of rule.** Every player-specific input — projections, grades, health, contract status — is
+taken as it stood on the transaction date. Generic mapping tables (grade to dollars, $/WAR) are
+fixed and cited. The aging curve is chosen and logged in `decisions.md` before any valuation is
+computed. **[OPEN]:** projection source, aging curve, grade-to-value table, $/WAR series.
 
-Reference points: deadline rental ≈ 0.2; 27-year-old with four years of control ≈ 1.8; Double-A arm ≈ 4.0; recent draft pick ≈ 5.
+This is the largest single build in the project.
 
-**(3) Net horizon shift** — dollar-years. Per club, per transaction period, using standard accounting order:
+#### What each decision point is measured by
 
-> Net horizon shift = Σ(acquired value × YTC) − Σ(surrendered value × YTC)
+For each club at each decision point, sum surplus across everything acquired and everything
+surrendered, season by season. Three numbers result:
 
-This is the change in the duration of the club's asset base. **Negative = converting** — value pulled toward the present, duration shortened. **Positive = building** — value pushed into the future, duration lengthened.
-
-Also report it divided by total value moved, which converts dollar-years into plain years: how much earlier or later the value ended up. Two transaction periods per year: offseason and deadline.
-
-*Caution:* published surplus-value tables already encode proximity partially. Check for double-counting against YTC.
-
-### 3.2 Dates and lag
-
-Both switch dates are measured on the same two-point-per-year grid, because that is when
-clubs can actually act. Daily odds exist, but a club with a hot May cannot add outside
-talent until late July.
-
-**The decision grid.** Two decision points per year, three snapshots per season.
-
-| Decision point | Behavior observed | Signal available at the time |
+| Measure | Definition | Question it answers |
 |---|---|---|
-| Offseason | Net horizon shift across the winter | Prior season's Opening Day odds rank *and* prior season's final record — both fully known before the winter begins |
-| Deadline | Net horizon shift across the deadline | Odds ~1 week before the deadline |
+| **ΔS_now** | Net surplus change in the current season (t = 0) | Did the club gain value this season? |
+| **ΔS_later** | Net surplus change summed over later seasons (t ≥ 1), undiscounted | Did the club gain or give up future value? |
+| **Total value moved** | Production value acquired + production value surrendered | How big was the activity? |
 
-**Three snapshots per season:**
+Net surplus value — the price question, "did they win the deal?" — is ΔS_now + ΔS_later.
 
-| Snapshot | What it is used for |
-|---|---|
-| **Opening Day** | The window threshold for that season (ex-ante position). Also the *consequence* of the offseason — see below |
-| **~1 week pre-deadline** | The deadline decision signal. Cleanly precedes the behavior it is compared against |
-| **End of regular season** | Final record and realized qualification — the outcome variable for §4b. Also Win WS on the day the field is set, for the R4 probe |
+#### Classifying a decision point
 
-**Opening Day is an outcome, not a signal.** It already contains the winter's moves, so it
-cannot be the signal the offseason decision was made against. Its job is to fix whether the
-club is in a window that season.
+| | ΔS_later < 0 (gave up future) | ΔS_later > 0 (gained future) |
+|---|---|---|
+| **ΔS_now > 0** (gained now) | **Converting** | **Net acquisition** |
+| **ΔS_now < 0** (gave up now) | **Net subtraction** | **Building** |
 
-**There is no odds-space measure of offseason effect, and v0.10's claim that there was is
-withdrawn.** End-of-season odds are degenerate — clubs are in or out — so no delta can be
-taken from them. The only year-over-year comparison available is Opening Day to Opening Day,
-which spans development, aging, injury and rival activity as well as the club's own winter.
-It is retained as a plain descriptive covariate — *change in ex-ante position, year over
-year* — and is explicitly **not** interpreted as what the offseason achieved. Conversion
-magnitude is measured by the horizon score alone (§3.1).
+This matches the definition in §1.1 exactly: converting means surrendering future value for
+present value.
 
-**Why each snapshot exists, stated plainly.** Opening Day and pre-deadline establish whether
-the club is in a window and what signal was visible when it could act. End of regular season
-establishes what actually happened — realized qualification and final record. Those answer
-different questions and are not substitutes: the first two are about position, the third is
-about outcome.
+**Link to the registered language.** `predictions.md` defines the behavioral switch as the
+point where the "net horizon shift turns negative." A decision point classified **converting**
+is what that phrase now means.
 
-**Consequence for P1, stated plainly.** The offseason decision point has no clean
-forward-looking public signal in this dataset; the archive begins at Opening Day each year,
-and end-of-season odds are degenerate (clubs are in or out). The offseason signal is
-therefore backward-looking: prior Opening Day rank plus realized record. **The deadline is
-where P1's lag test is cleanest**, because the pre-deadline snapshot genuinely precedes the
-behavior. The offseason result is reported alongside, with this limitation stated.
+**Variants:** "now" as t ≤ 1 instead of t = 0; and a looser *present-oriented* classification in
+which any period with ΔS_now > 0 counts.
 
-**Start-of-run dating.** Both switches are dated at the **start of the run that later
-confirms them**, never at the moment of confirmation.
+**[OPEN] — Free agency.** A signing at market price adds roughly zero surplus by construction,
+so this measure cannot see payroll-funded conversion, one of the two main conversion channels.
+It needs its own measure — for example, current-season payroll added relative to the club's
+prior level. Options: trade channel only, stated as a scope limit; a parallel payroll-channel
+measure; or treat draft picks surrendered under qualifying-offer rules as the surrendered side.
+Resolve before Post 2. The deadline test is largely unaffected, since free agency is effectively
+closed then.
 
-- **Behavioral switch:** the first period where the net horizon shift turns negative
-  (converting) and stays negative for *k* consecutive periods. The date is that first
-  period, not the *k*-th.
-- **Public-signal switch:** the first decision point where the club's odds cross the
-  window threshold and stay crossed at the following decision point. The date is the first
-  crossing.
+**[OPEN] — Non-classified periods.** A decision point with trivial activity should not define a
+mode. Needs a minimum total value moved for a period to count, and a rule for how net
+acquisition, net subtraction and inactive periods are treated in a *k*-run (break it, or skip).
+Resolve before Post 2 and before any transaction data is examined.
 
-Confirmation rules decide whether a switch was *real*. They must not decide *when* it
-happened. Dating at confirmation would bake a lag of up to a year into the measurement
-before any data was examined, and P1 would be half-proven by construction.
+### 3.2 Time, snapshots, and dating
 
-**Parameter *D* is retired.** It existed to filter noise out of a daily series. Sampling at
-decision points removes the noise instead, so there is nothing left for *D* to do.
+#### Two units of time
 
-- **Lag:** decision points between the signal switch and the behavioral switch. Minimum
-  meaningful lag is one full period; anything less is contemporaneous.
-- **Daily series, secondary use.** The daily odds remain useful descriptively — *by the day
-  of the trade, the club had been below threshold for N straight days* — but they are
-  reported as color, not as the parameter that dates anything.
-- **Robustness:** a changepoint model on the horizon-score series (PELT or binary
-  segmentation on the mean) as a second dating method. Report both. Disagreement is a
-  finding about transition noise and belongs in the paper.
+| Unit | What it is | Used for |
+|---|---|---|
+| **Season** | One regular season | Windows. A window is a run of consecutive seasons above threshold |
+| **Decision point** | The offseason, or the trade deadline — two per year | Behavior, signal, and the lag. The only times a club can add outside talent |
+
+#### Three snapshots per season
+
+| Snapshot | Date rule | What it establishes | Confirmed by |
+|---|---|---|---|
+| **Opening Day (OD)** | First archived date of the season, from the page's own date list | Ex-ante position: is the club in a window this season? | 15 clubs per league; Make Playoffs sums to the season's berth count; any gap between first archived date and actual Opening Day logged |
+| **Pre-deadline (PD)** | Archived date nearest to 7 days before the deadline | What was publicly visible when the club had to decide | Date falls before the deadline; Make Playoffs sums to berth count |
+| **End of season (EOS)** | Last archived regular-season date | What actually happened: final record, realized qualification | Clubs at 100% Make Playoffs match the actual postseason field; final W-L matches Baseball-Reference |
+
+**Deadline dates:** July 31 (2014–2019, 2025); Aug 31 (2020); July 30 (2021, 2024); Aug 1
+(2023); Aug 1 or 2 (2022 — sources conflict by one day, immaterial); Aug 3 (2026).
+
+#### Which transactions belong to which decision point
+
+| Decision point | Window | Notes |
+|---|---|---|
+| **Offseason** | Day after the World Series through the day before Opening Day | |
+| **Deadline — primary** | PD snapshot date through the deadline, **plus** the August revocable-waiver trade period (Aug 1–31) in 2014–2018 | August waiver deals were part of the deadline market until 2019 |
+| **Deadline — variant** | June 1 through the deadline (plus August 2014–2018) | Moves before PD are compared against a signal measured after them; flagged as signal-contaminated |
+| **Off-grid** | Opening Day to the start of the deadline window; September onward | Excluded from classification. Share of total value moved off-grid is reported. **Large off-grid moves are listed by name** — any single move above a value threshold — so that significant conversions outside both windows (e.g. the June 2019 Kimbrel and Keuchel signings) are visible in the write-up even though they are not classified. **[OPEN]:** the threshold |
+
+If more than a quarter of each season's deadline-market value moves before the PD snapshot,
+the PD date is revisited and the change logged.
+
+#### What gets compared to what
+
+| Compare | Against | Question | Feeds |
+|---|---|---|---|
+| OD rank, season S | Threshold | Is the club in a window in S? | Windows, hazard (Post 1), P3 |
+| OD Make Playoffs, S | Realized qualification, S | Did the preseason odds lean too hard on last season? | P2 (primary) |
+| OD projected W%, S | Final W%, S | Same question, continuous version | P2 (secondary) |
+| PD rank, S | Threshold | At the deadline, did public information say "contender"? | P1 — primary signal |
+| Pythagorean standings rank, S−1 | Threshold | Going into the winter, did public information say "contender"? | P1 — secondary (offseason) signal |
+| Signal switch | Behavioral switch | Did behavior lag the signal? | P1 |
+| OD, S | PD, S | How far did the outlook move in-season, and was it luck or information? | §4c |
+| Win WS at OD, PD, EOS | Each other | Does title equity separate once the field is set? | R4 probe |
+| OD, S | OD, S−1 | Change in ex-ante position year over year | Descriptive covariate only — not a measure of what the offseason achieved |
+
+**Opening Day does two jobs at different points in the chain.** As a level, it is the club's
+ex-ante position entering the season. As the first snapshot after the winter, it already
+contains the offseason's moves — which is why it can never be the signal the offseason decision
+was made against.
+
+#### The signal at each decision point
+
+- **Deadline:** the club's within-league rank by **Make Playoffs at the pre-deadline snapshot**.
+- **Offseason:** the club's within-league rank in **Pythagorean standings** (run differential)
+  at the prior season's close. Raw-record rank and BaseRuns rank are reported as variants.
+  Run differential is used because raw record carries more luck — the very thing P2 tests
+  whether forecasters over-weight. End-of-season *odds* are uninformative (every club at 0% or
+  100%), so standings are used at this one point.
+
+#### Switch dating
+
+**Primary test — the deadline series.** Both signal and behavior are read at deadlines only, so
+each is measured on one instrument throughout.
+
+- **Behavioral switch:** the first deadline classified converting, provided the move clears a
+  minimum size (*k* = 1). A club that converts is changing behavior whatever it does at the next
+  deadline. **[OPEN]:** the size floor. *k* = 2 (two straight converting deadlines) is reported
+  with equal prominence; *k* = 3 as a variant.
+- **Public-signal switch (primary):** the first deadline at which PD rank crosses the threshold and stays
+  crossed at the next deadline. Dated at the first crossing.
+- **Variant — one-year switches.** Also counts a crossing that does not hold at the next deadline,
+  provided underlying performance supports the club's rank at that deadline. This brings one-season
+  windows (§3.3b) into P1: a club whose window lasted one season and never converted is recorded as
+  not having acted before the window closed. The filter keeps out hot-streak flukes, for which not
+  buying may have been correct. **Filter:** the club's within-league rank by Pythagorean
+  (run-differential) record to date at the pre-deadline snapshot is also inside the threshold —
+  the same threshold used for the signal, so it moves with the threshold variants. Reported
+  alongside the primary test.
+- **Lag:** in seasons. Less than one season is contemporaneous.
+
+**Secondary test — the full decision grid.** Offseason and deadline together, with each
+crossing confirmed **within its own instrument**: an offseason crossing by the next offseason,
+a deadline crossing by the next deadline. The switch is the earliest confirmed crossing.
+
+Both switches are dated at the **start of the run that later confirms them**. Confirmation
+rules decide whether a switch was real; they never decide when it happened.
+
+**Robustness:** a changepoint model on the classification series as a second dating method.
+Disagreement is a finding about transition noise.
 
 ### 3.3 Windows
 
-**Threshold is within-league.** The postseason field is set inside each league — three
-division winners and three wild cards per side. Ranking across all 30 clubs would import
-parity differences between leagues into a measure that has nothing to do with them.
-
-- **Window (observed):** a season where the club ranks in the **top 6 of 15 within its
-  league** by ex-ante postseason odds. Tested at 3, 4, 5, 7, 8, and 9 (equivalently 6
-  through 18 across both leagues).
-- **Why a loose baseline.** Top-6-per-league is deliberately generous. A club just outside
-  the tercile is within striking distance and could reasonably conclude that converting
-  would lift it into contention. A looser threshold also produces longer measured windows
-  and a flatter hazard, which works *against* the thesis. Say so in the paper.
-- **Division path comes free.** Simulation-based playoff odds already price in division
-  strength, so ranking those odds handles the stacked-division problem without a separate
-  control.
-- **Two different measures, two different jobs.** Contention is within-league
-  (postseason access). Title probability is cross-league (the World Series is
-  inter-league). Post 1's hazard uses the access measure; Frame A's exchange rate uses
-  title probability. Do not substitute one for the other.
-- **Window length:** strictly consecutive qualifying seasons. A one-year window is a window
-  of length 1 and enters the hazard model as such.
-- **Grace rule is the robustness variant, not the default.** Smoothing one-year windows
-  away would delete the left tail of exactly the distribution Post 1 is estimating. Run the
-  one-season-dip variant as a check and report both.
-- **Short windows get a descriptive section, not a category.** The 2013 Red Sox — last
-  place either side of a title — are interesting *because* the window was short. Did anyone
-  see it coming? Did they convert? That is a P1 case study. Building "real vs. fluke" into
-  the definition would be circular, since whether it was knowable is the thing being
-  measured.
-- **Ranking variable:** **Make Playoffs**, League view, `fg` projection mode. Ties broken by
+- **Window (observed):** a season in which the club ranks in the **top 6 of 15 within its
+  league** by Opening Day Make Playoffs odds. Tested at 3, 4, 5, 7, 8, 9.
+- **Why within league.** The postseason field is set inside each league. Ranking across all
+  30 would import inter-league parity differences into a measure that has nothing to do
+  with them.
+- **Why a loose baseline, and what it costs.** A club just outside the top tercile is within
+  striking distance and could reasonably convert its way into contention. For Post 1, a looser
+  threshold produces longer windows and a flatter hazard, which works *against* the thesis.
+  For P1 it does the opposite — it fires the signal earlier and lengthens measured lag — so P1
+  is reported at ranks 3 and 4 with equal prominence (§2.4).
+- **Ranking variable:** Make Playoffs, League view, `fg` projection mode. Ties broken by
   projected wins, then run differential.
-- **Why not Win WS as the threshold.** Make Playoffs is the entry condition; Win WS is the
-  outcome P4 measures. Defining the window by title probability would mean clubs that reached
-  October without becoming favorites never enter a window at all — making the exact failure
-  the study is about invisible, and collapsing P4 into a tautology. Win WS is also heavily
-  skewed and nearly flat across ranks 6–12, and it is convex in team strength, so it is more
-  contaminated by the conversion behavior being studied.
-- **Covariates captured alongside:** Win WS (Frame A outcome), Clinch Bye post-2022 (the
-  first-round bye is a large title-probability lever, so "top 2 in league" is a
-  qualitatively different window), and the Make Playoffs-to-Win WS rank gap (R4).
-- **Hazard:** *given a club has been a contender for n consecutive seasons, the probability
-  it stops being one in season n+1.*
-- **Contention:** deliberately not "made the playoffs." Berths are outcomes; this study is
-  about ex-ante position.
+- **Why Make Playoffs and not Win WS.** Make Playoffs is the entry condition; Win WS is the
+  outcome P4 measures. Defining windows by title probability would exclude clubs that reached
+  October without becoming favorites — hiding the failure the study is about.
+- **Division path is priced in.** Simulated playoff odds already account for division strength.
+- **Two measures, two jobs.** Contention is within-league (postseason access). Title
+  probability is cross-league. Post 1 uses access; Frame A and P4 use title probability.
+- **Covariates captured alongside:** Win WS; Clinch Bye from 2022; the gap between Make
+  Playoffs rank and Win WS rank (R4).
+- **Window length:** strictly consecutive qualifying seasons. A one-year window is a window of
+  length 1. A one-season-dip grace rule runs as a robustness variant.
+- **Short windows** get a descriptive section, not a category.
+- **Hazard:** *given a club has been a contender for n consecutive seasons, the probability it
+  stops being one in season n+1.*
+- **Contention** is ex-ante position, not "made the playoffs." Berths are outcomes.
 
-### 3.3a Study period
+### 3.3a Study period and playoff formats
 
-**2014–2026, single period.** The FanGraphs playoff-odds archive begins 2014-03-29, two
-years earlier than v0.8 assumed. Schema is identical across 2014, 2016, 2020, 2023 and
-2026, 30 clubs every year, and no membership is required to view the pages.
+**2014–2026.** The FanGraphs playoff-odds archive begins 2014-03-29. Schema is identical across
+the period, 30 clubs every year, no membership required.
 
-*v0.4 proposed a second panel back to ~2003 built on de-vigged World Series futures. That
-remains dropped.* Futures are cross-league title odds and cannot express a within-league
-postseason-access threshold.
+**Four playoff formats sit inside the sample:** 10 berths 2014–2019, 16 in 2020, 10 in 2021,
+12 from 2022. Handled three ways:
 
-**Four playoff formats sit inside the sample:** 10 berths 2014–2019, 16 in 2020, 10 again in
-2021, 12 from 2022. This is handled three ways rather than defined away:
-
-1. **Format regime as a covariate** in the hazard model. The change is modeled, not
-   absorbed. Whether the hazard itself shifted in 2022 is a more interesting output than a
-   threshold that hides it.
-2. **Berth-relative threshold** as the pre-specified robustness variant — top 5 of 15
-   through 2021, top 6 from 2022. Both values sit inside the registered test range.
+1. **Format regime as a covariate** in the hazard model. Whether the hazard shifted in 2022 is
+   itself an output.
+2. **Berth-relative threshold** as a robustness variant — rank equal to berths per league:
+   5 (2014–2019, 2021), 8 (2020), 6 (2022 on).
 3. **Era-stratified fitting** as a secondary check where power allows.
 
-**Consequence, stated plainly.** Thirteen seasons means windows longer than roughly seven
-years are right-censored and their hazard is not estimable. Survival methods handle
-censoring correctly, but the paper must say what the data cannot support.
+**2020.** The Make Playoffs column on 2020 pages prices the old 10-team field. The correct 2020
+postseason probability is reconstructed as **Win Div + Win Div 2nd place + Clinch Wild Card**
+(the 2020 "Clinch Bye" field holds the second-place probability). Used for 2020 in both
+rank-based and level-based analysis, **provided it sums to 8 per league** at each 2020
+snapshot. The author confirmed the 2020 data on 2026-10-18. 2020 stays flagged throughout for the 60-game season.
 
-**2020 is split by use.** The 2020-07-23 odds page prices 10 berths while 16 clubs qualified
-— the expanded field was agreed the day the season opened. Since the threshold is a
-within-league *rank*, mispriced levels do not change the ordering, so 2020 is retained for
-rank-based analysis. It is excluded from any level-based analysis (Frame A title
-probability, the P4 frontier).
+**Censoring.** Thirteen seasons cannot estimate the hazard for windows longer than roughly seven
+years. The paper states the limit rather than extrapolating past it.
 
 **Optional descriptive context.** Realized postseason qualification going back decades is
-free and complete from Retrosheet or Baseball Reference. It is an *outcome* measure, not
-ex-ante, so it cannot carry the hazard model — but it can bound the question descriptively
-in a clearly labeled section.
+available from Retrosheet or Baseball-Reference — an outcome, not ex-ante, so it cannot carry
+the hazard model, but it can bound the question in a labeled section.
 
-### 3.4 Strategy classification
+### 3.3b Window patterns
 
-**Three measurements from one horizon series. They must not be confused.**
+**Why.** Windows are defined on Opening Day, and P1's primary signal requires a crossing to hold
+at the next deadline. Short and irregular windows — the stars-align case, a contender's down year
+— can fall through both rules. Windows stay defined on Opening Day (the cleaner measure of a
+club's starting position); this section is where the study shows **how contention changes
+between Opening Day and the deadline** — a planned theme of the write-up. It classifies every
+club-season so none are lost, and
+asks what clubs did in each pattern.
 
-| | Measures | Window used | Feeds |
+**Classification.** Each club-season is placed by three readings: Opening Day rank, pre-deadline
+rank, and the following season's status, each against the window threshold.
+
+| Pattern | Opening Day | Deadline | Next year | Plain description |
+|---|---|---|---|---|
+| **Surprise, one season** | Below | Above | Gone | Contention arrived unexpectedly and lasted one season |
+| **Surprise, sustained** | Below | Above | Still above | Below the line on Opening Day, above it at the deadline, and still above the next year |
+| **Faded fast** | Above | Above | Gone | An expected contender whose window lasted one season |
+| **Gap year** | Above | Below | Back above | A contender with one down year between contending seasons |
+| **Fizzled** | Above | Below | — | An expected contender that fell out of contention by the deadline |
+| **Sustained** | Above | Above | Still above | The ordinary multi-year window |
+
+The first two together are the **surprise contenders**: below the line on Opening Day, above it at
+the deadline.
+
+**What is asked of each pattern (E4, exploratory):**
+- **Behavior at the deadline:** Did surprise contenders push their chips in, or
+  wait for proof? Did fizzled clubs sell? Did gap-year clubs sell off in the down year, or hold?
+  Compared with sustained contenders at similar pre-deadline odds.
+- **Against standing:** P4's Doyle comparison applies unchanged. The Doyle Number does not depend
+  on whether a window was planned.
+- **Was it luck?** Using the §4c split, how much of each rise or dip is explained by record to date
+  (largely luck) vs. underlying performance (run differential, peripherals). Do clubs respond
+  differently to changes the underlying numbers support?
+- **Gap years and the window definition:** the strict rule splits a gap year into two windows; the
+  grace rule merges them. Describing the pattern directly shows what actually happened in those
+  seasons, alongside both rules.
+
+**Status.** Classification uses only the odds, so it is exploratory. The behavior side needs trades,
+which have not been seen. Reported in Post 2, with the Doyle comparison in Post 3.
+
+### 3.4 Conversion as an exposure
+
+**Three uses of the classification series. They must not be confused.**
+
+| | Measures | Built from | Feeds |
 |---|---|---|---|
-| **Switch dating** | When the club changed mode | Unsmoothed, across the open window | P1 |
-| **In-window profile** | What the club did *once the window was open* | Mean net horizon score during the open window | P3 |
-| **Prior profile** | How the club arrived at the window | Trailing 3-year mean, ending at window open | Descriptive only (§2.2) — no registered prediction depends on it |
+| **Switch dating** | When the club changed mode | Classification at each decision point | P1 |
+| **Conversion exposure** | How much the club has converted since its window opened | Cumulative future surplus surrendered in converting periods (−ΔS_later), from window open through the deadline of season n | P3 |
+| **Prior profile** | How the club arrived at the window | Classifications over the three years before it opened | Descriptive only (§2.2) |
 
-**P3 uses in-window behavior.** The question is whether converting during an open window
-shortens it. This is not circular: converting does not mechanically extend or shorten a
-window, and the industry's own belief is that it *shortens* one by depleting the farm. P3
-therefore tests the sustainability orthodoxy directly.
+**P3 is a time-varying exposure, not a window-level label.** Conversion exposure through season
+n predicts window exit at n+1 in a discrete-time hazard model. A one-season-lagged exposure and
+a count of converting decision points run as variants. This uses only behavior that happened
+before the outcome it predicts. Labeling a whole window by its average behavior would not:
+longer windows contribute more periods, and short windows over-weight a final-season sell-off,
+which reads as building.
 
-**P4 uses neither.** P4 no longer compares cohorts at all. It compares each club against its
-own feasible frontier (§4g), which removes the need for a builder/converter split and the
-cohort-balance problem that came with it. The prior profile survives as a descriptive
-statistic: how often windows are preceded by building.
+**Converting does mechanically trade later odds for current odds.** That is what converting
+means. P3 is therefore a question of magnitude: does converting shorten windows by enough to
+matter?
 
-**Window level, not club level.** A club can be a prior-builder entering its 2017 window and
-a prior-converter entering its 2023 window. Two observations, not a contradiction — and P1
-asserts clubs switch modes, so labeling a club once for a decade would average away the
-behavior being studied.
+**Controls:**
+- **Core age and remaining team control** — the age and control years of the top 10
+  contributors by projected WAR, as of Opening Day. This is P3's main confound: clubs convert
+  *because* they can see the core aging and control running out, so converter windows would be
+  shorter even if converting had no effect. The inputs come from the value build.
+- **Payroll tier, a revenue measure and ex-ante strength** (R3).
 
-**Hard rule:** no classification uses outcomes. Window length and peak title probability
-never enter any cohort definition.
+**Why P3 is exploratory.** P3 predicts *no* effect. With roughly 40–70 spells, minus persistent
+contenders, a real shortening effect would usually go undetected, so a pass/fail version would
+"pass" by default. It is estimated in full and written up — its themes are central to Post 2 —
+but reported as an estimate with a confidence interval, not a verdict.
 
-**Cohorts:** terciles of the relevant mean where a narrative needs them, matched within
-ex-ante strength band and payroll tier. Report continuous and cohort versions; if they
-disagree, trust the continuous one.
+**Window level, not club level.** A club can arrive at its 2017 window by building and its 2023
+window by converting. Two observations, not a contradiction.
 
-**Sample caution:** eleven seasons yields roughly one to two windows per club, minus the
-persistent contenders who yield one censored spell each. Window-level N will be small —
-check spell counts before committing to any cohort split.
+**Hard rule:** no classification or exposure uses outcomes. Window length and peak title
+probability never enter any classification.
 
 ### 3.5 Structural aggression
 
-Accepting knowingly underwater contract tail years to buy present CBT relief. Applies only to clubs near the threshold — stratify by payroll tier. Tracked alongside the horizon score, not inside it.
+Accepting knowingly underwater contract tail years to buy present CBT relief. Applies only to
+clubs near the threshold — stratified by payroll tier. Tracked alongside the conversion
+measures, not inside them.
 
 ### 3.6 Explicitly rejected
 
-- **Buy/sell binary.** Selling is buying for the future. Allocation is continuous, not categorical.
-- **Contract length as a duration signal.** Long deals are frequently AAV instruments for CBT purposes with tail years known to be underwater. Length reveals payroll structure, not contention horizon.
-- **Cost-side-only measurement (v0.2).** Surrendering a near-MLB arm for a rental is a present bet; surrendering the same arm for another controllable 23-year-old is lateral. Cost alone doesn't disambiguate direction. Both sides, netted.
+- **Buy/sell binary.** Selling is buying for the future. Allocation is continuous.
+- **Contract length as a duration signal.** Long deals are often AAV instruments for CBT
+  purposes with tail years known to be underwater.
+- **Cost-side-only measurement.** Both sides of a move are needed.
+- **A single dollar-years composite.** Multiplying value by timing lets the bigger side of a
+  trade dominate the sign.
+- **Average timing of value moved as the conversion classifier.** Comparing when, on average,
+  acquired and surrendered value arrives measures the *composition* of a trade, not whether the
+  club gave up future value. A club that trades a small prospect for a large controllable star
+  gains value in every season, yet average timing would label it converting.
 
 ---
 
 ## 4. Measurement
 
-### 4a. Behavioral switch — the net horizon score
+### 4a. P1 — the mode-switch lag
 
-Compute the score (§3.1) for every club-period. Date the switch by the *k*-period sign rule, with changepoint detection as robustness (§3.2). Include offseason activity, not just the deadline.
+**Inputs:**
 
-Separately, record the **magnitude** of the largest present-oriented move during each open window. This is the R2 test and is independent of timing.
-
-### 4b. Forecast efficiency — is persistence actually excessive?
-
-Persistence must be *proven* excessive, not assumed. Three regressions:
-
-| # | Regression | Yields |
+| Input | Source | Status |
 |---|---|---|
-| 1 | Preseason odds at *t* on prior-season results, with roster-change and aging controls | **Assumed** persistence |
-| 2 | Actual outcome at *t* on the same prior-season results, same controls | **Realized** persistence |
-| 3 | Difference | The gap |
+| Deadline signal | Pre-deadline snapshots | Collecting |
+| Offseason signal | Runs scored and allowed, Baseball-Reference (Pythagorean) | Not started — trivial |
+| Trades, both sides, by decision point | Retrosheet / Baseball-Reference transactions | Not started |
+| Surplus by season, per asset, as-of | The value build (§3.1) | Not started — largest task in the project |
+| Free-agent signings | Cot's / Baseball-Reference | Not started; treatment **[OPEN]** |
+| Payroll and CBT position at each decision point | Cot's | Not started — also needed for P4 |
 
-Equivalently and preferably, run the direct form: regress outcome on forecast and test whether prior-season record still predicts the residual. If it does, the forecast leaned on last season too hard. This is Mincer–Zarnowitz — citable, and recognizable to a referee.
+**Procedure.** Classify every club-decision point (§3.1). Date signal and behavioral switches on
+the deadline series (primary) and the full grid (secondary) (§3.2).
 
-*This replaces v0.2's approach of implying optimal persistence from the hazard model, which invited a circularity complaint.*
+**Lag as time-to-event.** For each window opening, the lag is the time from signal switch to
+behavioral switch. A club that opens a window and never converts before the window closes or
+the panel ends is **right-censored** — not dropped. These are the strongest evidence for P1,
+and dropping them would bias the test toward the null. Windows already open at the start of
+2014 are **left-censored** and reported separately.
 
-**Test for model breaks empirically, do not enumerate them.** Rather than cataloguing every
-FanGraphs model change from the outside, estimate the persistence coefficient **year by
-year** and look for a discontinuity. This inverts the problem usefully: a model change only
-matters if it moved the parameter being measured. If the year-by-year coefficient is stable,
-the changes did not matter for this purpose, whatever they were. If there is a jump, a break
-that matters has been found — regardless of its cause, and without needing to identify it
-from outside the model. Report the year-by-year series as a figure.
+**Null distribution by permutation.** Under the null of no relationship, the lag distribution
+depends on how often clubs convert and how often they cross the threshold — not on a 50/50
+coin. The null is built by shuffling behavioral series across clubs within era and recomputing
+lags. The observed lag distribution is compared against it.
 
-**Run two series separately:**
-- **FanGraphs playoff odds** — built from player projections, closer to a model baseline.
-- **Editorial tiers** (The Athletic previews and similar) — closer to belief actually circulating, since editorial coverage is partly club-sourced.
+**Resolution limit, stated in advance.** Lag on the deadline series is measured in whole
+seasons. A true lag shorter than one season is undetectable by design. If P1 comes back null,
+the paper distinguishes "no lag" from "lag below resolution."
 
-The gap between them is the sentiment layer on top of the math. Because editorial coverage is partly club-sourced, editorial over-persistence is evidence of *shared industry* over-persistence, not simply media bias.
+**Collect for P4 at the same time.** When transactions are pulled, capture both sides of every
+deal and the club's payroll position. Same pull, and exactly what P4 needs.
 
-### 4c. Midseason revisions — decompose before interpreting
+### 4b. P2 — instrument check
 
-A midseason odds jump may be information, or may be a good first half that was mostly luck. As a raw series it cannot distinguish them. Decompose each revision into:
+**Purpose.** P1 measures behavior against FanGraphs odds. If those odds lean too hard on last
+season, the public signal is itself slow to register a closing window, and P1 would understate
+the lag at closings. P2 checks whether the ruler is biased.
+
+**Prior work.** The behavioral finding is established: Woodland (2016) for MLB win-total
+betting markets, and Bennett (2019) and the preseason-poll literature in other sports. P2 is
+not presented as new. Its contribution is narrower: whether *model-based published playoff
+odds* show the same bias. Reported in Post 2's appendix.
+
+**Primary test.** Realized qualification on Opening Day Make Playoffs odds, with prior-season
+record added, using Franses's logit-based bias test for binary outcomes (*Applied Economics
+Letters* 28(15), 2021). The standard Mincer–Zarnowitz Wald test is oversized for binary
+outcomes. This tests the registered object — preseason odds — directly.
+
+**Secondary test.** Final W% on Opening Day projected W%, with prior-season record added, in the
+standard Mincer–Zarnowitz form. Same units on both sides; more statistical power.
+
+**Inference.** Outcomes within a season are dependent: berths are fixed, and league-wide shocks
+are shared. Standard errors are clustered by season, with a wild-cluster bootstrap given only
+thirteen clusters.
+
+**Model changes are tested, not enumerated.** The persistence coefficient is estimated year by
+year and inspected for a discontinuity. If a jump appears, the test splits at it, the hazard
+model carries a regime indicator as a time-varying covariate, and no seasons are dropped.
+
+**Editorial tiers are not used.** The second belief series is cut.
+
+### 4c. In-season revisions — decompose before interpreting
+
+The move from Opening Day to pre-deadline odds may be information, or a lucky first half.
+Decompose each revision into:
 
 - The part explained by **record to date** — largely noise.
-- The part explained by **underlying components** — run differential, peripherals, health, playing-time changes.
+- The part explained by **underlying components** — run differential, peripherals, health,
+  playing time.
 
-Only the component-driven part counts as evidence the signal existed. For the lag test, what matters is whether the information was *knowable then*, not whether the outcome later validated it. Judging by outcomes is hindsight and a referee will say so.
-
-**What the daily series adds.** With odds posted every day since 2016, this stops being a three-point chain and becomes a continuous trajectory. Three things become available that a preseason/midseason snapshot could not support:
-
-- **Odds on the day of each transaction.** Every acquisition and non-acquisition can be scored against the club's title probability at that exact moment, rather than against a season-level average.
-- **Persistence before the decision.** How many consecutive days the club had already been below (or above) threshold when it acted. This is the core knowability measure.
-- **Slope, not just level.** A club at 20% and falling is in a different position than a club at 20% and rising. Include the trailing 30-day slope as a covariate in the lag model.
-
-**No methodology break is assumed.** The strength-of-schedule column appears at the start of
-2018 and is absent through the end of 2017, but SOS is interpretive display — projected
-neutral-opponent win percentage for remaining opponents — and does not feed the forecast.
-Known changes within the sample are an enhancement of playing-time inputs (hard-coded depth
-charts to daily roster-management data, somewhere between 2018 and 2021), playoff-format
-adjustments, and a simulation count raised from 10,000 to 20,000. The last is variance
-reduction, not a change in expectation. None is a documented forecast-methodology break.
-
-**Instead of enumerating changes, test for them.** §4b estimates the persistence coefficient
-year by year and inspects it for a discontinuity. A model change matters only if it moved
-the parameter being measured; this detects that directly, without needing to reconstruct
-FanGraphs' internals. If a jump appears, the forecast-efficiency test splits at it, the
-hazard model carries a regime indicator entered as a **time-varying covariate** so that
-spells spanning the break are not assigned arbitrarily, and no seasons are dropped.
+Only the component-driven part counts as evidence the signal existed. What matters is whether
+the information was *knowable then*, not whether the outcome later validated it.
 
 ### 4d. Rival diagnoses
 
-- **R1 (supply):** per transaction period, count impact players actually moved and their acquisition price. If a club near the threshold didn't move while comparable talent changed hands at a payable price, supply wasn't binding for them.
-- **R2 (final step):** measured by the reached-vs-reachable frontier in §4g, which is P4's own test. Reported as the magnitude of under-conversion, in title-probability points left on the table.
-- **R3 (payroll):** all cohort comparisons matched on payroll tier and revenue proxy; unmatched results reported alongside.
-- **R4 (rational non-conversion):** at each decision point, record the club's Win WS and the
-  marginal Win WS purchasable per dollar of available surplus, using the same win curve as
-  §4g. R4 is supported if clubs that did not convert were systematically those facing a flat
-  marginal return. This is a sharper, quantitative version of §4e's decision-rule fallback:
-  it does not require anyone's math to be wrong, only that the decision rule is defensible.
-  **Covariate it generates:** the gap between a club's Make Playoffs rank and its Win WS
-  rank — how much postseason access converts into title equity.
+- **R1 (supply):** per decision point, count impact players actually moved and their price. If
+  a club near the threshold didn't move while comparable talent changed hands at a price it
+  could have paid, supply wasn't binding for it. Framed per club, holding others' behavior
+  fixed. **[OPEN]:** definition of "impact player."
+- **R2 (final step):** P4's shortfall (§4g).
+- **R3 (payroll):** controlled throughout, with results reported with and without. Two parts:
+  **revenue position** and **capacity at the deadline** (payroll and CBT position). A rich club at
+  the tax line can be more constrained in July than a poor club with room, so both are needed.
+  **[OPEN]:** the revenue measure. Candidate: revenue-sharing payor/payee status as determined by
+  the league under the CBA — unverified; the author needs to confirm whether it is publicly
+  available by year before it is adopted.
+- **R4 (rational non-conversion):** non-conversion at a deadline is explained by R4 when the
+  club's Doyle Number was below the market price that deadline (§4g). A club that wasn't
+  supposed to buy at the going rate, and didn't, was being rational, not timid.
+- **Reminder — sort by underlying components when judging rationality.** When asking whether the
+  public signal was supported and whether a club's restraint was rational, group club-deadlines by
+  underlying performance (run differential, peripherals), not only by playoff odds. A club with
+  high odds but poor underlying numbers may be rationally holding back. Applies to P1, R4, P4 and
+  the window patterns (§3.3b). How exactly to build the grouping is to be worked out before
+  analysis.
 
-### 4g. The reachable frontier (P4)
+### 4e. Front-office convergence and the fallback thesis
 
-For each open window, compute the title probability the club **reached** and the title
-probability it could have **reached** with the talent that was actually available to it.
+Clubs run better versions of the same machinery. For single-season assessment, public odds are
+a defensible proxy for front-office belief, with two caveats: clubs are systematically more
+optimistic about their own players, concentrated at the margin; and single-season agreement
+implies nothing about multi-year agreement.
 
-**Constructing the feasible set.** Reachable is built only from what really happened that
-period:
+**The threshold is a proxy, not an optimum.** "Later than public signal justifies" uses a
+threshold crossing as the benchmark. It does not claim the crossing is the optimal moment to
+convert. P1 is also reported against a normative benchmark: the first deadline at which the
+club's Doyle Number exceeded the market price (§4g).
 
-- **Players who actually changed hands.** If a player moved, he was gettable — another club
-  got him. Players who stayed put are excluded; there is no evidence they were available at
-  any price.
-- **At the prices actually paid.** The acquiring club's outgoing package defines the price.
-  Do not substitute your own valuation of the player — that turns the finding into an
-  argument about your model rather than about club behavior. Test a premium band (paying
-  10% and 25% over observed price) as robustness, since outbidding costs more than matching.
-- **Capped by the club's own tradeable surplus** at that moment, and by payroll and CBT
-  capacity. A club cannot spend what it does not have.
-- **Converted to title probability** through the same win-curve and bracket simulation used
-  for the exchange rate (Post 4).
-
-**The measure:** frontier gap = reachable title probability − reached title probability, in
-probability points, per open window.
-
-**What kills this analysis, stated in advance:**
-- If tradeable surplus cannot be estimated reliably from public data, the cap is
-  unenforceable and the frontier becomes fantasy. Go/no-go before Post 4 begins.
-- If too few impact players move in a given period, the feasible set is empty and that
-  period is evidence for R1 (supply constraint), not for P4. Report those periods
-  separately — they are the honest answer to "there was nothing to do."
-
-**Documented fallback.** If the frontier proves infeasible, P4 downgrades to the exchange
-rate alone: does converting buy more title probability per dollar than retaining that
-surplus generates in discounted future title probability? Weaker, because it compares
-converting against holding rather than against converting *more*. Log the downgrade in
-`decisions.md` if it happens.
-
-### 4e. Front-office vs. public convergence
-
-Clubs run better versions of the same machinery — proprietary projections, medicals, internal development data. For single-season assessment, public odds are a defensible proxy for front-office belief. Two caveats:
-
-- Divergence is systematic, not random. Clubs are consistently more optimistic about their own players, and that optimism concentrates exactly where the thesis lives: teams on the margin.
-- Single-season convergence implies nothing about multi-year agreement. Nobody consults a public four-year team forecast; clubs maintain internal multi-year depth charts.
-
-**Fallback thesis.** If beliefs converge, the claim becomes "teams apply a different decision rule to the same odds," not "teams miscalculate." Two clubs at identical 25% title probability behave completely differently. That version requires proving no one's math was wrong — only that the decision rule is miscalibrated against the value function. More defensible, and the fallback if P1 weakens.
+**Fallback thesis.** If beliefs converge, the claim becomes "teams apply a different decision
+rule to the same odds," not "teams miscalculate." Given P1's resolution limit (§4a), this
+framing may end up carrying more weight than P1 itself.
 
 ### 4f. Speculative
 
-**ZiPS multi-year team outlooks.** If consistent archived team-level multi-year forecasts exist, that is a directly contemporaneous duration instrument. Existence unverified — allocate 30 minutes, no more.
+**ZiPS multi-year team outlooks.** If consistent archived team-level multi-year forecasts
+exist, they are a directly contemporaneous duration instrument. Unverified — 30 minutes, no
+more.
+
+### 4g. P4 — conversion relative to standing (the Doyle Number)
+
+**The idea.** A club's standing determines how much a win this season is worth to it. A secure
+contender with improvable title odds gains a lot from one more win; a long shot or a bubble team
+gains little. So each club, at each deadline, has its own price it should be willing to pay for
+current wins. Under-conversion is a club whose standing said "buy" at a time when the market was
+selling below that price, and that didn't buy enough.
+
+**Three quantities per club-deadline:**
+
+| Quantity | What it is | Built from |
+|---|---|---|
+| **Doyle Number (D)** | Future WAR the club should give up for one WAR this season, given its standing | Marginal title probability of one added win now (from the club's odds and a simulated bracket), divided by the title probability one future WAR buys on average, discounted at the 10% reference rate |
+| **Market price (M)** | Future WAR clubs actually gave up per current-season WAR acquired, that deadline | Trades that actually happened, both sides, valued in WAR as of the trade date |
+| **Actual conversion** | Current-season WAR the club acquired, net | The club's own deadline trades |
+
+**Classifying each club-deadline:**
+- **D > M — buying was favorable.** The club should have acquired current WAR until its
+  marginal D fell to M, subject to its tradeable future WAR and payroll and CBT capacity.
+- **D ≤ M — buying was not favorable.** Not buying is rational (R4).
+
+**The measure.** For favorable club-deadlines: shortfall = title probability the club would have
+added by buying up to that point − title probability it actually added. For unfavorable ones, a
+club that bought anyway has a negative shortfall (over-conversion). Both directions are reported.
+
+**Why this replaces the full feasible-set optimization.** It is normative — it says what a club
+should have done given its odds — and much cheaper. It needs WAR projections and control years,
+not dollar valuations, so $/WAR drops out of P4 entirely. It also makes R4 concrete and gives P1 a
+normative benchmark. Its limit is that D measures willingness to pay, not supply; the market price
+M carries the supply check (R1): if no comparable player moved, M is undefined and that
+club-deadline is reported under R1.
+
+**Per-club counterfactual.** Each club's shortfall holds other clubs' behavior fixed. Clubs cannot
+all buy more at once without moving prices. "Clubs under-convert" is the average of per-club
+shortfalls, not a league-wide claim.
+
+**Replication, not borrowing.** The Silver & Paine method is rebuilt from its published
+description on FanGraphs odds for 2014–2026, and the replication is checked against their published
+numbers for overlapping seasons where possible.
+
+**What prior evidence says about magnitude.** Paine (2025) found net deadline WAR adds no
+significant World Series probability once pre-deadline strength is controlled. Ball estimates the
+best single acquisitions add roughly one to two points. True shortfalls may be small, which is why
+the margin is fixed in advance (§2.4).
+
+**What kills this analysis, stated in advance:** if the mapping from future WAR to future title
+probability proves too model-dependent to defend, D is unstable. Report it across the 8–12% range
+and the break-even rate; if conclusions flip within that range, say so.
+
+**Two currencies.** Win WS primary; Make Playoffs secondary. The difference shows clubs that could
+buy access but not favoritism.
 
 ---
 
@@ -493,71 +701,115 @@ Clubs run better versions of the same machinery — proprietary projections, med
 Modular. Each post stands alone. Ordered so cheap wins precede expensive work.
 
 **Post 1 — The hazard of contention.** How long windows last and what governs length.
-- Report the **hazard**, not an average. Length is likely bimodal — a few perennials, a long tail of short bursts — and an average pools two populations and describes neither. The hazard is also the question a decision-maker actually faces.
-- **Model the full distribution, then illustrate with outliers.** Studying only long windows to learn what makes windows long selects on the dependent variable.
-- Covariates: core age, committed payroll, farm rank, division strength, market size.
-- This is the SABR abstract.
+- Report the **hazard**, not an average. Length is likely bimodal, and an average pools two
+  populations and describes neither.
+- **Model the full distribution, then illustrate with outliers.**
+- Covariates: core age, committed payroll, farm rank, division strength, market size, format
+  regime.
+- Report an ex-post comparison with Jordan (2018) and Reinhart (2018) to show what the ex-ante
+  definition changes.
+- This is the SABR abstract. It needs only the odds snapshots.
+- **Reminder for the write-up:** state clearly why the threshold is what it is, and defend it.
+  Frame the deadline difference between favorites and bubble clubs as **the same goal (titles)
+  producing different returns**, not different goals. A favorite's playoff odds are already near
+  the ceiling, so any gain shows up in title odds; a bubble club gains a lot of playoff odds and
+  little title odds. Note that a bubble club buying its way into October may be making an
+  owner-economics decision (Frame B), and that after 2022 favorites also buy for the first-round
+  bye, which is about seeding.
 
-**Post 2 — Farm rankings as a leading indicator.** Runs E3. Cheap, self-contained, uses Baseball America data already in hand. Publish first if Post 1 bogs down in cleaning.
+**Post 2 — Putting the roof on.** The spine: P1 (§4a), in-season revisions (§4c), rivals R1, R3
+and R4 (§4d), P3 (§3.4), and E1. P2 in the appendix. Requires the value build.
+- **Sustainability as a deliberate choice.** If the evidence shows sustainability buys many
+  postseason chances but no measurable gain in title probability, the post says so directly:
+  it is a legitimate choice — Frame B pays for it — but it is a choice to accept many modest
+  chances in place of a real shot, and that trade-off should be made knowingly, not defended as
+  a championship strategy. If the evidence shows the opposite, that is reported with equal
+  prominence.
 
-**Post 3 — Putting the roof on.** The spine. Mode-switch lag (§4a), forecast efficiency (§4b), revision decomposition (§4c), and all three rival diagnoses (§4d). P1, P2, and E1 live here.
+**Post 3 — Leaving it on the table.** P4 (§4g). Rebuilds the Doyle Number for 2014–2026 on
+FanGraphs odds, measures each deadline's market price from actual trades, and compares. Requires
+simulating the bracket on historical strengths.
 
-**Post 4 — Leaving it on the table.** Tests P4. Builds the exchange rate (title probability purchased per unit of surplus surrendered, with the break-even discount rate), then the reachable frontier on top of it (§4g). Requires simulating the 12-team bracket on historical strengths, since 2022–25 gives only four postseasons.
+**Post 4 — The luck ledger.** Expected titles (sum of ex-ante title odds) vs. actual, by
+organization. Likely the most shareable output; uses only data already collected, so it can be published early if Post 1 stalls.
+- **Do many chances add up?** Compare cumulative expected titles (summed Win WS) for long,
+  modest windows against short, tall ones. Convexity of title odds predicts the tall windows
+  win, but it is an empirical question, and the answer bears directly on the sustainability
+  claim in Post 2.
 
-**Post 5 — The luck ledger.** Expected titles (sum of ex-ante title odds) vs. actual, by organization. Answers "who did the right things and got unlucky." Likely the most shareable output; cheap once Post 1's data exists.
+**Optional — Farm rankings as a leading indicator.** Runs E3. Self-contained, uses Baseball
+America data already in hand. Scheduled after the luck ledger, if at all.
 
-**Optional — Owner economics.** Frame B. Weak data: Forbes estimates, attendance, and Atlanta Braves Holdings filings — the only publicly traded club and therefore the only real revenue series for calibration. Directional only. Do not let this consume the project.
+**Optional — Owner economics.** Frame B. Weak data: Forbes estimates, attendance, and Atlanta
+Braves Holdings filings. Directional only.
 
-**Deliverables per post:** essay, technical appendix, public repo. Once Post 3 or 4 lands, add a 2-page decision memo with one chart — the artifact that actually gets forwarded inside a front office.
+**Deliverables per post:** essay, technical appendix, public repo. Once Post 2 or 3 lands, a
+2-page decision memo with one chart.
 
 ---
 
 ## 6. Rules fixed before analysis
 
-- **Case selection by rule**, not by interest. Write the rule down. If LAD, MIA, or BAL appear, they appear because the rule selected them.
-- **The bias wall** (§2.3): no non-public knowledge in the evidence sections.
-- **No number in any write-up is typed by hand.** Every figure is generated by code into `results.json` and read from there.
-- **Robustness checks** on every headline result: alternative thresholds, eras, window definitions, both dating methods.
-- **Endogeneity.** Teams convert when they believe they're good. Any builder-vs-converter comparison must be matched on ex-ante strength and payroll tier.
-- **No selecting on the dependent variable.** Applies to outlier analysis in Post 1 and cohort construction throughout.
-- **Era caution.** CBA expires after 2026 with a possible lockout. Keep conclusions structural — odds math, aging curves, supply — rather than tied to current rules.
+- **Case selection by rule**, not by interest. If LAD, MIA, or BAL appear, the rule selected them.
+- **The bias wall** (§2.5): no non-public knowledge in the evidence sections.
+- **No number in any write-up is typed by hand.** Every figure comes from `results.json`.
+- **Every pre-specified robustness variant is reported.** None is chosen after results are seen.
+- **As-of valuation.** No player-specific information from after a transaction date enters its
+  valuation.
+- **Endogeneity.** Clubs convert when they believe they're good and when they see the core
+  aging. Every conversion comparison controls ex-ante strength, payroll tier, and core age and
+  control.
+- **No selecting on the dependent variable.**
+- **Era caution.** The CBA expires after 2026. Keep conclusions structural.
 
 ---
 
 ## 7. Phase plan to the SABR abstract
 
-~60 hours across 10 weeks at 6 hrs/week. Post 1 only.
+**Deadline:** Wednesday, November 25, 2026, 11:59 pm MST (1:59 am ET, November 26). About five
+and a half weeks from October 18, at 4–8 hours a week — roughly 25–45 hours. Post 1 only; it
+needs only the odds, which are collected.
 
-| Weeks | Phase | Hours | Output |
-|---|---|---|---|
-| 1 | **Duplication check** | 2 | Bounded search for prior work that already answers P1–P4. Go/no-go on the framing, not a full review |
-| 1–2 | Spec + lit review | 12 | This document finalized; predictions committed; lit notes |
-| 2 | **Network review of the spec** | 2 | Feedback on definitions from 1–2 baseball contacts, before data work |
-| 3–4 | Data acquisition + audit | 12 | Cached local dataset, data dictionary, documented gaps |
-| 5–7 | Post 1 analysis | 18 | Hazard model, covariates, robustness |
-| 8–9 | Write-up + abstract | 12 | Post 1 draft; 500-word abstract |
-| 10 | Referee pass + revise | 6 | Submitted abstract, near-final post |
+| Week | Dates | Goal |
+|---|---|---|
+| 1 | Oct 19–25 | Clean the odds; build the window table; count spells (go/no-go); classify window patterns |
+| 2 | Oct 26–Nov 1 | Hazard model with the cheap covariates: format regime, persistent contenders, payroll from Cot's |
+| 3 | Nov 2–8 | Robustness (thresholds 3–9, grace rule, berth-relative); comparison with Jordan and Reinhart |
+| 4 | Nov 9–15 | Draft the abstract; send to one or two reviewers |
+| 5 | Nov 16–22 | Revise; referee pass in a fresh chat |
+| Buffer | Nov 23–25 | Target submission by November 22; don't rely on Thanksgiving week |
 
-Posts 2–5: 25–40 hours each. Total project: 150–250 hours.
-**Fallback if November slips:** SABR national convention abstracts run in February (Feb 22 in 2026).
+**Deferred until after the abstract:** trades, the value build, the Doyle Number, the re-lock of
+`predictions.md`, and Post 1 covariates that need the value build (core age and control, farm rank).
+The abstract needs a clean hazard result and an honest description of what follows, not the series.
+
+**FanGraphs.** The full Post 1 goes to FanGraphs Community Research after the abstract.
+**[OPEN]:** check whether the SABR call accepts work already published elsewhere; if not, hold the
+FanGraphs piece until after the conference or publish a narrower piece first.
+
+Posts 2–4: 25–40 hours each; Post 2 more, because of the value build. Total project:
+150–250 hours. **Fallback if November slips:** SABR national convention abstracts run in
+February.
 
 ---
 
 ## 8. Data inventory
 
-| Source | Use | Cost | Risk |
+| Source | Use | Cost | Notes |
 |---|---|---|---|
-| FanGraphs playoff odds | Window threshold (Make Playoffs), Frame A outcome (Win WS), signal dating | Free — no membership needed | Archive from 2014-03-29. ToS §17 restricts non-interface access; collect through a real browser session at reading pace, ~35 pages total. Model revision inside the sample — identify the break. |
-| Preseason World Series futures (Sports Odds History) | Post 5 luck ledger only — expected vs. actual titles | Free | Vig removal required. No longer used as a window threshold. |
-| The Athletic previews / editorial tiers | Industry-circulating belief series | Subscription | Tier framing inconsistent year to year; likely manual coding |
-| Baseball America Top 100 + org rankings | Farm covariate; prospect valuation | Owned | Methodology changes across years |
-| Retrosheet / Baseball Reference transactions | Horizon scores, switch dating | Free | Rate-limited; cache once |
-| Cot's Contracts | Payroll, CBT position, contract structure | Free | Manual cleanup likely |
+| FanGraphs playoff odds | Windows (Make Playoffs), Frame A (Win WS), deadline signal, P2 | Free | Archive from 2014-03-29. Collected through a browser session at reading pace, ~40 pages. Raw tables not republished (ToS) |
+| Baseball-Reference standings | Final W-L, runs scored and allowed (Pythagorean) at season's end and as of each pre-deadline date, realized postseason field | Free | Offseason signal; one-year switch filter; end-of-season cross-check |
+| Retrosheet / Baseball-Reference transactions | Trades by decision point, both sides, including August waiver trades 2014–2018 | Free | Cache once |
+| Cot's Contracts | Salary, arbitration, payroll, CBT position | Free | Manual cleanup likely |
+| Player projections, as-of | Surplus by season, major leaguers | TBD | Multi-year archives scarce; likely one-year projection plus a pre-specified aging curve |
+| Grade-to-value table | Surplus, prospects | Free | One published table, cited |
+| $/WAR series by year | Converts WAR to dollars | Free | One series, cited |
+| Baseball America Top 100 + org rankings | Contemporaneous prospect grades; farm covariate | Owned | Methodology changes across years |
 | Lahman database | Rosters, ages, service proxies | Free | — |
-| Published surplus-value tables | YTC inputs, exchange-rate denominator | Free | Methodology varies; pick one, cite it, check proximity double-counting |
-| Forbes valuations / Braves Holdings filings | Frame B only | Free | Estimates, not audited, except Braves |
+| Preseason World Series futures | Post 4 luck ledger only | Free | Vig removal required |
+| Forbes valuations / Braves Holdings filings | Frame B only | Free | Estimates, except Braves |
 
-**Standing rule:** pull once, cache locally, version the cache.
+**Standing rule:** pull once, cache locally, version the cache. `data/raw/` is never committed.
 
 ---
 
@@ -567,33 +819,25 @@ Posts 2–5: 25–40 hours each. Total project: 150–250 hours.
 competitive-windows/
   CLAUDE.md
   docs/
-    research-plan.md      # this file, versioned in-place
-    predictions.md        # first commit; never edited after
-    decisions.md          # dated log of every settled question
+    competitive-windows-research-plan.md   # this file
+    predictions.md                         # locked; never edited
+    decisions.md                           # dated, append-only log
     data-dictionary.md
     lit-notes.md
-  data/raw/               # cached pulls, never edited
+  data/raw/          # cached pulls, never edited, never committed
   data/interim/
   data/processed/
   src/scrape/  src/clean/  src/analysis/
   results/figures/  results/tables/
-  results/results.json    # every number that appears in prose
+  results/results.json   # every number that appears in prose
   posts/post1-hazard/
 ```
 
 Two conventions matter more than the structure:
 
 1. **`results.json` is the only source of numbers in writing.**
-2. **`decisions.md` gets an entry whenever a methodological question closes:**
-
-```
-## 2026-09-19 — Behavioral switch dating
-Question: how to date the mode switch objectively
-Options: changepoint detection | k-period sign persistence | first positive period
-Chose: k-period sign persistence, k=2; changepoint as robustness
-Why: pre-registrable, symmetric with the public-signal rule
-Revisit if: methods disagree by >1 period for >20% of clubs
-```
+2. **`decisions.md` gets an entry whenever a methodological question closes**, in the format
+   shown at the top of that file.
 
 ---
 
@@ -601,26 +845,26 @@ Revisit if: methods disagree by >1 period for >20% of clubs
 
 Usage limits are the binding constraint; Code and chat draw from the same pool.
 
-| Phase | Surface | Model | Notes |
-|---|---|---|---|
-| Spec, definitions, identification strategy | Project chat | Opus 5, **extended thinking on** | For any choice between defensible options |
-| Drafting prose, quick lookups | Project chat | Opus 5, **thinking off** | Don't burn usage on work that doesn't need it |
-| Lit review | Deep research | — | 3–4 scoped runs: window duration; deadline-acquisition outcomes; prospect surplus-value methods; forecast-efficiency tests in sports. Verify every citation by hand. |
-| Scraping, cleaning, plotting | Claude Code, local | Sonnet 5 | Required — the chat sandbox has no network access to FanGraphs or Baseball Reference |
-| Referee pass | Fresh Incognito chat, no project, no memory | Opus 5 | Journal-style referee report plus a steelman of the opposite conclusion |
+| Phase | Surface | Notes |
+|---|---|---|
+| Spec, definitions, identification strategy | Project chat, extended thinking on | For any choice between defensible options |
+| Drafting prose, quick lookups | Project chat, thinking off | Don't spend usage on work that doesn't need it |
+| Lit review | Deep research | Scoped runs only. Verify every citation by hand |
+| Odds collection | Claude Code with browser tools | Reading pace, no parallel requests |
+| Cleaning, analysis, plotting | Claude Code, local | Reusable scripts, not analysis in conversation |
+| Referee pass | Fresh Incognito chat, no project, no memory | Referee report plus a steelman of the opposite conclusion |
 
-**Project setup:** Claude Project "Competitive Windows." Knowledge: research-plan.md, predictions.md, data-dictionary.md — re-upload when they change. Instructions: §3 definitions verbatim, plus "flag every embedded assumption" and "when a methodological question closes, output a decisions.md entry in the standard format."
-
-**Usage discipline:** one task per Code session; short CLAUDE.md; have Code write reusable scripts rather than iterating analysis in conversation. Consider Max for one or two months *only* if limits bind during Posts 3–4. Don't buy up front. Skip Cowork — it splits context without adding capability.
+**Project:** "MLB Competitive Windows." Knowledge: the plan, `predictions.md`, `decisions.md`,
+data dictionary — re-upload when they change.
 
 ---
 
 ## 11. Review and distribution
 
-1. **Spec review** (week 2) — 1–2 baseball contacts, on definitions.
+1. **Spec review** — former colleagues [reviewer] and [reviewer], possibly others, on definitions.
 2. **Referee pass** — fresh Incognito chat.
 3. **Human technical review** — someone who will check the model, not just the prose.
-4. **Publish:** personal site as permanent home; FanGraphs Community Research for industry readership; SABR abstract for the room where team staff are.
+4. **Publish:** personal site as permanent home; FanGraphs Community Research; SABR.
 
 ---
 
@@ -628,35 +872,58 @@ Usage limits are the binding constraint; Code and chat draw from the same pool.
 
 | Risk | Severity | Mitigation |
 |---|---|---|
-| Horizon-score dating too noisy → P1 untestable | **High** | Go/no-go end of week 4. Fallback: decision-rule framing (§4e), which survives without dating |
-| Short panel — 11 seasons cannot estimate hazards for windows beyond ~6 years | **High** | State the censoring limit explicitly; do not extrapolate. Optional descriptive context from realized qualification history (§3.3a) |
-| Tradeable surplus not reliably estimable from public data → the reachable frontier is unenforceable | **High** | Go/no-go before Post 4. Documented fallback to the exchange rate alone (§4g) |
-| Too few impact players move in a period → empty feasible set | Medium | Report those periods separately as evidence for R1, not as P4 failures |
-| Too few window spells for stable hazard estimation | High | Count spells in week 3. If thin, widen the threshold within the pre-registered test range rather than inventing a new one |
-| FanGraphs odds methodology revised mid-sample | High | Identify break points; test robustness to excluding pre-break seasons |
-| 2020 (60 games) and the 2022 format change sit inside the sample | Medium | Flag 2020 throughout; test with and without it. Keep conclusions structural |
-| Circularity — belief and outcome from the same series | High | §4b tests forecast efficiency directly; §3.4 bars outcomes from cohort definitions |
-| Payroll confound masquerading as philosophy (R3) | High | Match on payroll tier and revenue; report both |
-| Confirmation bias | High | Pre-registration; rule-based selection; adversarial referee pass |
-| Surplus-value tables double-count proximity | Medium | Audit before computing YTC |
-| Tone reads as adversarial to ops readers | Medium | §1.2 tone rule; network reviewer reads specifically for tone |
-| Four postseasons under the current format | Medium | Simulate the 12-team bracket; don't lean on observed outcomes |
-| Scope creep across five posts | Medium | Each ships independently; no post starts before the prior is published |
-| Project death during data cleaning | Medium | Post 2 is cheap — publish it first if Post 1 stalls |
+| Value build (§3.1) is larger than planned; no historical per-asset table exists | **High** | Scope it before Post 2. Start with deadline trades only, where the free-agency gap barely applies |
+| Look-ahead bias in valuations | **High** | As-of rule (§3.1); aging curve logged before any valuation is computed |
+| Free agency invisible to the surplus measures | **High** | Resolve before Post 2 (§3.1) |
+| Lag measured in whole seasons on the primary test | **High** | Stated in advance (§4a); fallback thesis (§4e) survives without dating |
+| Loose threshold biases P1 toward confirmation | **High** | P1 reported at ranks 3 and 4 with equal prominence (§2.4) |
+| Requiring two converting deadlines biases P1 against short windows | **High** | Single converting deadline (*k* = 1) is primary; *k* = 2 reported with equal prominence (§3.2) |
+| Short and irregular windows invisible to window-based analyses | Medium | Window patterns classify every club-season (§3.3b); one-year signal switches enter P1 as a variant (§3.2) |
+| P3 underpowered and confounded | **High** | Downgraded to exploratory; time-varying exposure with core age and control |
+| Thirteen seasons cannot estimate hazards for windows beyond ~7 years | **High** | State the censoring limit; do not extrapolate |
+| Too few window spells | **High** | Count spells first. If thin, widen within the registered range |
+| Doyle Number unstable because the future-WAR-to-title mapping is model-dependent | **High** | Report across 8–12% and the break-even rate; state if conclusions flip (§4g) |
+| Post 1 analyzed with the odds already in view | Medium | Labeled exploratory; any specification change from here logged with date |
+| Confirmation bias | **High** | Pre-registration; rule-based selection; all variants reported; adversarial referee pass |
+| True P4 shortfalls are small (Paine 2025; Ball) | Medium | Materiality margin fixed in advance; a small shortfall is a valid, reportable result |
+| Undetected FanGraphs model change | Medium | Year-by-year persistence coefficient (§4b) |
+| 2020 reconstruction fails to sum to 8 per league | Medium | Fall back to rank-only use of 2020 |
+| Empty feasible set in thin markets | Medium | Report those periods separately as evidence for R1 |
+| Tone reads as adversarial to ops readers | Medium | §1.2: critique process, not named people; a reviewer reads specifically for tone |
+| Four postseasons under the current format | Medium | Simulate the 12-team bracket |
+| Scope creep across five posts | Medium | Each ships independently |
+| Project death during data work | Medium | The luck ledger (Post 4) uses only data already collected — publish it early if Post 1 stalls |
 | Frame B data too weak | Low | Label directional; cap time spent |
 
 ---
 
 ## 13. Open items
 
-- [ ] Choose a single surplus-value methodology; audit it for proximity double-counting
-- [ ] Confirm FanGraphs daily odds are scrapeable, and check site terms before any bulk pull
-- [ ] Confirm FanGraphs publishes **within-league** postseason odds, or that team odds can be ranked within league
-- [ ] Probe: Win WS spread at end of regular season vs. at the two decision points (2 seasons)
-- [ ] Decide the §4b outcome variable — final W%, realized qualification, or both
-- [ ] Count window spells under the baseline threshold before committing to the hazard model
-- [ ] Confirm 2027 SABR Analytics call and deadline
+**Decide now (registration)**
+- [x] P4 margin: 1.0 title-probability point (2026-10-17)
+- [ ] Re-lock `predictions.md` before any transaction data is pulled
+- [ ] P3: decide whether to fix the wording of each possible result in advance
+
+**Before Post 1**
+- [x] Collect the three snapshots per season, 2014–2026 (done by 2026-10-17)
+- [x] 2020 reconstruction confirmed by the author (2026-10-18)
+- [ ] Count window spells under the baseline threshold — Post 1 go/no-go
+- [ ] Probe: Win WS dispersion at OD, PD and EOS (two seasons)
+- [x] Spec reviewers identified: [reviewer], [reviewer] (possibly others)
+- [x] SABR Analytics abstract deadline: Nov 25, 2026, 11:59 pm MST
+- [ ] Check whether the SABR call accepts work published elsewhere first (affects FanGraphs timing)
+
+**Before Post 2**
+- [ ] Value build: projection source, aging curve, grade-to-value table, $/WAR series — logged before any valuation is computed
+- [ ] Free-agency treatment (§3.1)
+- [ ] Non-classified periods: activity floor, and how net acquisition, net subtraction and inactive periods enter a *k*-run (§3.1)
+- [ ] Size floor for a single converting deadline to count as a behavioral switch (§3.2)
+- [ ] Define "impact player" for R1
+- [ ] Locate the Silver & Paine Doyle Number methodology and their published values for replication checks
+- [ ] Verify Ball's "1–2 points per best acquisition" figure and get a full citation (anchors the P4 margin)
+- [ ] Confirm public availability of revenue-sharing payor/payee status by year (R3 candidate; not adopted until confirmed)
+- [ ] Fix payroll tiers and structural-aggression thresholds
 - [ ] 30-minute check: archived ZiPS multi-year team outlooks (§4f)
-- [ ] Define "impact player" for the R1 supply test
-- [ ] Fix structural-aggression thresholds and payroll tiers
-- [ ] Identify the 1–2 spec reviewers
+
+**Parked ideas — revisit after working with the data**
+- [ ] **The bubble trap.** At each deadline the Doyle Number correctly tells a bubble team not to buy, so it stays on the bubble and gets the same answer next year: every decision rational, no championship. The way off is a leap big enough to reach secure status in one move, mostly an offseason move, which a one-deadline calculation can't see. Possible tests: bubble persistence from tier-to-tier transitions in the odds (exploratory), and whether bubble clubs that made a big offseason conversion reached secure status more often (needs trades). May also be where offseason under-conversion lives.
