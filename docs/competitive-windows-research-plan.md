@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.26
+## Research Plan v0.27
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.27 — Corrections from the data audit: 2020 second-place field, 2016 deadline (Aug 1), `data/processed/` never committed.
 - v0.26 — Opening Day confirmed as the primary window definition; change between Opening Day and the deadline named as a write-up theme in §3.3b. Surprise patterns renamed. Post 1 reminder reworded.
 - v0.25 — Signal switch labeled primary. Reminder to sort by underlying components when judging rationality. Spec reviewers named. FanGraphs data-use email not sent.
 - v0.24 — SABR deadline set (Nov 25, 2026, 11:59 pm MST); phase plan replaced with a five-week timeline; FanGraphs added as the full-post venue.
@@ -289,8 +290,8 @@ Resolve before Post 2 and before any transaction data is examined.
 | **Pre-deadline (PD)** | Archived date nearest to 7 days before the deadline | What was publicly visible when the club had to decide | Date falls before the deadline; Make Playoffs sums to berth count |
 | **End of season (EOS)** | Last archived regular-season date | What actually happened: final record, realized qualification | Clubs at 100% Make Playoffs match the actual postseason field; final W-L matches Baseball-Reference |
 
-**Deadline dates:** July 31 (2014–2019, 2025); Aug 31 (2020); July 30 (2021, 2024); Aug 1
-(2023); Aug 1 or 2 (2022 — sources conflict by one day, immaterial); Aug 3 (2026).
+**Deadline dates:** July 31 (2014–2015, 2017–2019, 2025); Aug 1 (2016 — July 31 was a Sunday); Aug 31 (2020);
+July 30 (2021, 2024); Aug 1 (2023); Aug 1 or 2 (2022 — sources conflict by one day, immaterial); Aug 3 (2026).
 
 #### Which transactions belong to which decision point
 
@@ -408,7 +409,7 @@ the period, 30 clubs every year, no membership required.
 
 **2020.** The Make Playoffs column on 2020 pages prices the old 10-team field. The correct 2020
 postseason probability is reconstructed as **Win Div + Win Div 2nd place + Clinch Wild Card**
-(the 2020 "Clinch Bye" field holds the second-place probability). Used for 2020 in both
+(second place comes from its own field, `win_div_2nd`; the Clinch Bye field is blank in 2020). Used for 2020 in both
 rank-based and level-based analysis, **provided it sums to 8 per league** at each 2020
 snapshot. The author confirmed the 2020 data on 2026-10-18. 2020 stays flagged throughout for the 60-game season.
 
@@ -809,7 +810,7 @@ February.
 | Preseason World Series futures | Post 4 luck ledger only | Free | Vig removal required |
 | Forbes valuations / Braves Holdings filings | Frame B only | Free | Estimates, except Braves |
 
-**Standing rule:** pull once, cache locally, version the cache. `data/raw/` is never committed.
+**Standing rule:** pull once, cache locally, version the cache. `data/raw/` and `data/processed/` are never committed — processed files are close copies of the FanGraphs tables.
 
 ---
 
@@ -826,7 +827,7 @@ competitive-windows/
     lit-notes.md
   data/raw/          # cached pulls, never edited, never committed
   data/interim/
-  data/processed/
+  data/processed/    # derived from raw; never committed
   src/scrape/  src/clean/  src/analysis/
   results/figures/  results/tables/
   results/results.json   # every number that appears in prose

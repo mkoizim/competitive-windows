@@ -1101,3 +1101,18 @@ different returns, not different goals; note the Frame B reading of bubble clubs
 the post-2022 first-round bye.
 **Why:** The goals framing invites the reply that bubble clubs should still aim for titles; the
 returns framing follows from the odds and is harder to dispute.
+
+## 2026-10-18 — Corrections from the odds audit
+
+**Record:** The cleaning script's checks all passed (13 seasons × 3 snapshots × 30 clubs; berth sums
+correct every snapshot; 2020 reconstruction sums to 8 per league at all three snapshots). Three plan
+corrections followed:
+- **2020:** second place comes from its own field (`win_div_2nd`), not Clinch Bye, which is blank in
+  2020. The reconstruction itself was always computed correctly.
+- **2016 deadline:** August 1, not July 31 (July 31 was a Sunday). The pre-deadline snapshot (July 25)
+  was already correct.
+- **`data/processed/`** is never committed, alongside `data/raw/`, because processed files are close
+  copies of the FanGraphs tables.
+**Also noted:** end-of-season projected records differ from actual for a few clubs (unplayed games,
+a 2023 FanGraphs glitch, 2018 tiebreakers). Final records use actual W-L; end-of-season projections
+are not used. The Baseball-Reference cross-check of final records is deferred.
