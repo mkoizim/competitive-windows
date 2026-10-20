@@ -1116,3 +1116,18 @@ corrections followed:
 **Also noted:** end-of-season projected records differ from actual for a few clubs (unplayed games,
 a 2023 FanGraphs glitch, 2018 tiebreakers). Final records use actual W-L; end-of-season projections
 are not used. The Baseball-Reference cross-check of final records is deferred.
+
+## 2026-10-20 — Spell count (go/no-go): proceed
+
+**Record:** Baseline (top 6, strictly consecutive seasons): 53 spells — 21 of 1 season, 12 of 2,
+7 of 3, 13 of 4 or more. Top 5: 42. Top 8: 54. Top 6 with the grace rule: 43. All four consistency
+checks passed (156 in-window club-seasons at top 6; spell lengths sum to the in-window total at every
+threshold; no spell over 13 seasons; the only 13-season spell is LAD's, in a window every season).
+**Chose:** Proceed at the baseline (above the 40-spell cutoff).
+**Also noted:** 12 spells were already open in 2014 and 12 are still open in 2026 (always 2k at
+threshold k, by construction). Under the grace rule, 10 of 41 completed spells return after a
+one-season dip.
+**Convention:** A grace-rule spell's length is its full span, including the dip season; the
+in-window count (`in_window_seasons`) is reported alongside.
+**Open for Week 2:** treatment of spells already open in 2014 (left-censored, and they include most
+long spells); pooling the hazard at lengths 4 and up.
