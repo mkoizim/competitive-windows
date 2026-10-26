@@ -1206,3 +1206,41 @@ projections and sees no offseason moves. Its historical odds were generated afte
 The author reviewed this and chose to proceed. Not legal advice.
 **Parked:** using the 2014–2026 B-Ref ranks as a P2 benchmark and as a windows robustness check
 (Week 3 at earliest), and a long-panel version (after the abstract).
+
+## 2026-10-26 — Hazard model specification (Post 1)
+
+**Question:** How does the hazard model represent window duration, given 30 exits in the flow sample?
+**Chose:**
+- **M1 (description):** duration bins 1, 2, 3, 4+, no covariates.
+- **M2 (primary):** log duration (capped at 4) + era + Opening Day strength + payroll. Five estimated
+  numbers.
+- **M2b (pre-specified variant):** M2 with a first-year indicator (duration 1 vs. 2+) in place of log
+  duration.
+- **Bins vs. log check:** likelihood-ratio test of M1's bins against log duration alone. If p < 0.05,
+  the write-up says the smooth form misses structure. M2 is not changed after the fact.
+- **Life tables by entry strength:** windows split at the median of Opening Day strength in their
+  first season. Description only.
+- **Link:** logit, with coefficients reported as odds ratios. Complementary log-log not run.
+- **Definitions:** era = 1 when the deciding Opening Day is 2022 or later; 2020 is grouped with the
+  10-berth seasons. Strength = Opening Day projected W% minus that of the 7th-ranked club in the
+  league. Standard errors clustered by club.
+**Why:** Bins plus covariates would need about 7 estimated numbers from 30 exits, above the usual
+5–10 exits per number. M2b asks whether new windows are more fragile than established ones; the life
+table does not obviously favor it, so it was not chosen to fit a seen pattern. Strength is included
+because strong clubs survive into long durations, which would otherwise make windows look sturdier
+with age.
+**Rejected:** shrunken bins (hard to explain in an abstract; possible after it), a Cox model (sets
+aside the duration question), club random effects (too few clubs and exits), and dropping payroll to
+make room for bins.
+**Seen when deciding:** the life tables in "Left-censored spells" (2026-10-26).
+**Open:** the payroll measure, decided separately.
+
+## 2026-10-26 — Backcast validation failed; sample B not used
+
+**Record:** Baseball-Reference preseason odds collected for 2011–2026 (480 club-seasons). All parsing
+checks passed. Top-6 agreement with FanGraphs' Opening Day top 6, 2014–2026: 302 of 390 (77.4%),
+below the 85% gate fixed before collection. By season: 67%–93%. Among the 12 clubs whose spells were
+open in 2014: 9 of 12 in 2014.
+**Consequence:** Sample B is not used. Left-censored spells are handled by the flow sample (primary)
+with L and H as bounds, as decided earlier today. Backcast entry durations remain on disk, unused.
+**Retained:** 2014–2026 B-Ref ranks, for the parked P2 benchmark and windows robustness check.
