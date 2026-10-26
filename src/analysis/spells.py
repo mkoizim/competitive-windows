@@ -1,10 +1,9 @@
 """Count window spells from data/processed/windows.csv and write results/results.json.
 
 A spell is a run of consecutive seasons in which a club is in a window. Clubs are keyed by
-team_id, so OAK and ATH are one club. Four variants, per §3.3 of the research plan:
+team_id, so OAK and ATH are one club. Variants, per §3.3 of the research plan:
 
-- top6        strict consecutive, threshold 6 (the baseline)
-- top5, top8  strict consecutive, thresholds 5 and 8
+- top3 ... top9  strict consecutive, thresholds 3 to 9 (top6 is the baseline)
 - top6_grace  threshold 6, one-season-dip grace rule: a single out-of-window season between
               two in-window seasons does not end the spell. A grace spell's length is its
               span, first season to last inclusive, so the dip season counts toward it;
@@ -14,7 +13,8 @@ For each variant: the number of spells, the distribution of spell lengths, persi
 contenders (clubs with one spell covering all 13 seasons), and spells open in 2014
 (left-censored) or 2026 (right-censored).
 
-Nothing is written if any check fails.
+Only the "seasons" and "variants" keys of results.json are updated; other keys (such as
+"patterns" from patterns.py) are kept. Nothing is written if any check fails.
 
 Run from the repo root: python3 src/analysis/spells.py
 """
@@ -31,14 +31,12 @@ OUT = ROOT / "results" / "results.json"
 
 FIRST, LAST = 2014, 2026
 SEASONS = list(range(FIRST, LAST + 1))
+THRESHOLDS = range(3, 10)
 BASELINE_IN_WINDOW = 156  # 6 clubs x 2 leagues x 13 seasons
 
-VARIANTS = {
-    "top6": ("window_top6", False),
-    "top5": ("window_top5", False),
-    "top8": ("window_top8", False),
-    "top6_grace": ("window_top6", True),
-}
+VARIANTS = {f"top{k}": (f"window_top{k}", False) for k in THRESHOLDS}
+VARIANTS["top6_grace"] = ("window_top6", True)
+WINDOW_COLUMNS = [f"window_top{k}" for k in THRESHOLDS]
 
 
 def find_spells(in_window, grace):
@@ -103,7 +101,7 @@ def main():
         club = clubs[r["team_id"]]
         if season in club["rows"]:
             failures.append(f"{season} team {r['team_id']}: duplicate row")
-        club["rows"][season] = {c: int(r[c]) for c in ("window_top5", "window_top6", "window_top8")}
+        club["rows"][season] = {c: int(r[c]) for c in WINDOW_COLUMNS}
         if season == LAST:
             club["team"] = r["team"]  # current abbreviation, e.g. ATH not OAK
     for team_id, club in clubs.items():
@@ -128,6 +126,11 @@ def main():
     if n != BASELINE_IN_WINDOW:
         failures.append(f"top6: {n} in-window club-seasons, expected {BASELINE_IN_WINDOW}")
     for name, res in results.items():
+        # (1b) the same count at every threshold: k clubs x 2 leagues x 13 seasons
+        k = int(res["column"].removeprefix("window_top"))
+        if res["in_window_club_seasons"] != 2 * k * len(SEASONS):
+            failures.append(f"{name}: {res['in_window_club_seasons']} in-window club-seasons, "
+                            f"expected {2 * k * len(SEASONS)}")
         spells = res["spells"]
         # (2) strict spell lengths add up to the in-window count; grace spells add up when
         # dip seasons are left out
@@ -154,8 +157,11 @@ def main():
         sys.exit(1)
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
+    existing = json.loads(OUT.read_text()) if OUT.exists() else {}
+    existing["seasons"] = [FIRST, LAST]
+    existing.setdefault("variants", {}).update(results)
     with open(OUT, "w") as f:
-        json.dump({"seasons": [FIRST, LAST], "variants": results}, f, indent=2)
+        json.dump(existing, f, indent=2)
         f.write("\n")
 
     print("All checks passed.")

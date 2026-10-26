@@ -2484,6 +2484,3979 @@
         }
       ],
       "length_note": "Grace spell length is the full span, first season to last inclusive, so a one-season dip inside the spell counts toward its length (and toward length_distribution, persistent_contenders and the 13-season cap). in_window_seasons on each spell counts only the seasons actually in the window; those sum to in_window_club_seasons."
+    },
+    "top3": {
+      "column": "window_top3",
+      "grace": false,
+      "in_window_club_seasons": 78,
+      "n_spells": 30,
+      "length_distribution": {
+        "1": 15,
+        "2": 6,
+        "3": 1,
+        "4": 4,
+        "5": 1,
+        "9": 3
+      },
+      "persistent_contenders": {
+        "count": 0,
+        "clubs": []
+      },
+      "left_censored": {
+        "count": 6,
+        "spells": [
+          {
+            "team_id": "3",
+            "team": "BOS",
+            "first": 2014,
+            "last": 2017,
+            "length": 4,
+            "in_window_seasons": 4
+          },
+          {
+            "team_id": "6",
+            "team": "DET",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "22",
+            "team": "LAD",
+            "first": 2014,
+            "last": 2022,
+            "length": 9,
+            "in_window_seasons": 9
+          },
+          {
+            "team_id": "28",
+            "team": "STL",
+            "first": 2014,
+            "last": 2015,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "13",
+            "team": "TEX",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "24",
+            "team": "WSN",
+            "first": 2014,
+            "last": 2015,
+            "length": 2,
+            "in_window_seasons": 2
+          }
+        ]
+      },
+      "right_censored": {
+        "count": 6,
+        "spells": [
+          {
+            "team_id": "16",
+            "team": "ATL",
+            "first": 2022,
+            "last": 2026,
+            "length": 5,
+            "in_window_seasons": 5
+          },
+          {
+            "team_id": "3",
+            "team": "BOS",
+            "first": 2025,
+            "last": 2026,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "22",
+            "team": "LAD",
+            "first": 2024,
+            "last": 2026,
+            "length": 3,
+            "in_window_seasons": 3
+          },
+          {
+            "team_id": "25",
+            "team": "NYM",
+            "first": 2026,
+            "last": 2026,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "9",
+            "team": "NYY",
+            "first": 2018,
+            "last": 2026,
+            "length": 9,
+            "in_window_seasons": 9
+          },
+          {
+            "team_id": "11",
+            "team": "SEA",
+            "first": 2026,
+            "last": 2026,
+            "length": 1,
+            "in_window_seasons": 1
+          }
+        ]
+      },
+      "spells": [
+        {
+          "team_id": "16",
+          "team": "ATL",
+          "first": 2020,
+          "last": 2020,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "16",
+          "team": "ATL",
+          "first": 2022,
+          "last": 2026,
+          "length": 5,
+          "in_window_seasons": 5
+        },
+        {
+          "team_id": "3",
+          "team": "BOS",
+          "first": 2014,
+          "last": 2017,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "3",
+          "team": "BOS",
+          "first": 2025,
+          "last": 2026,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "17",
+          "team": "CHC",
+          "first": 2016,
+          "last": 2019,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "5",
+          "team": "CLE",
+          "first": 2016,
+          "last": 2019,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "6",
+          "team": "DET",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "21",
+          "team": "HOU",
+          "first": 2016,
+          "last": 2024,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "1",
+          "team": "LAA",
+          "first": 2015,
+          "last": 2015,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "22",
+          "team": "LAD",
+          "first": 2014,
+          "last": 2022,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "22",
+          "team": "LAD",
+          "first": 2024,
+          "last": 2026,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "23",
+          "team": "MIL",
+          "first": 2022,
+          "last": 2022,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "8",
+          "team": "MIN",
+          "first": 2020,
+          "last": 2021,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "8",
+          "team": "MIN",
+          "first": 2024,
+          "last": 2024,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2016,
+          "last": 2016,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2021,
+          "last": 2021,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2023,
+          "last": 2023,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2026,
+          "last": 2026,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "9",
+          "team": "NYY",
+          "first": 2018,
+          "last": 2026,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "26",
+          "team": "PHI",
+          "first": 2024,
+          "last": 2025,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "29",
+          "team": "SDP",
+          "first": 2021,
+          "last": 2021,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "29",
+          "team": "SDP",
+          "first": 2023,
+          "last": 2023,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "11",
+          "team": "SEA",
+          "first": 2015,
+          "last": 2015,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "11",
+          "team": "SEA",
+          "first": 2026,
+          "last": 2026,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "28",
+          "team": "STL",
+          "first": 2014,
+          "last": 2015,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "13",
+          "team": "TEX",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "13",
+          "team": "TEX",
+          "first": 2025,
+          "last": 2025,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "14",
+          "team": "TOR",
+          "first": 2022,
+          "last": 2023,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "24",
+          "team": "WSN",
+          "first": 2014,
+          "last": 2015,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "24",
+          "team": "WSN",
+          "first": 2017,
+          "last": 2020,
+          "length": 4,
+          "in_window_seasons": 4
+        }
+      ]
+    },
+    "top4": {
+      "column": "window_top4",
+      "grace": false,
+      "in_window_club_seasons": 104,
+      "n_spells": 38,
+      "length_distribution": {
+        "1": 21,
+        "2": 5,
+        "3": 4,
+        "5": 2,
+        "6": 1,
+        "7": 2,
+        "9": 2,
+        "13": 1
+      },
+      "persistent_contenders": {
+        "count": 1,
+        "clubs": [
+          "LAD"
+        ]
+      },
+      "left_censored": {
+        "count": 8,
+        "spells": [
+          {
+            "team_id": "10",
+            "team": "ATH",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "3",
+            "team": "BOS",
+            "first": 2014,
+            "last": 2019,
+            "length": 6,
+            "in_window_seasons": 6
+          },
+          {
+            "team_id": "6",
+            "team": "DET",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "22",
+            "team": "LAD",
+            "first": 2014,
+            "last": 2026,
+            "length": 13,
+            "in_window_seasons": 13
+          },
+          {
+            "team_id": "30",
+            "team": "SFG",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "28",
+            "team": "STL",
+            "first": 2014,
+            "last": 2015,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "13",
+            "team": "TEX",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "24",
+            "team": "WSN",
+            "first": 2014,
+            "last": 2020,
+            "length": 7,
+            "in_window_seasons": 7
+          }
+        ]
+      },
+      "right_censored": {
+        "count": 8,
+        "spells": [
+          {
+            "team_id": "16",
+            "team": "ATL",
+            "first": 2020,
+            "last": 2026,
+            "length": 7,
+            "in_window_seasons": 7
+          },
+          {
+            "team_id": "3",
+            "team": "BOS",
+            "first": 2025,
+            "last": 2026,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "6",
+            "team": "DET",
+            "first": 2026,
+            "last": 2026,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "22",
+            "team": "LAD",
+            "first": 2014,
+            "last": 2026,
+            "length": 13,
+            "in_window_seasons": 13
+          },
+          {
+            "team_id": "25",
+            "team": "NYM",
+            "first": 2025,
+            "last": 2026,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "9",
+            "team": "NYY",
+            "first": 2018,
+            "last": 2026,
+            "length": 9,
+            "in_window_seasons": 9
+          },
+          {
+            "team_id": "26",
+            "team": "PHI",
+            "first": 2024,
+            "last": 2026,
+            "length": 3,
+            "in_window_seasons": 3
+          },
+          {
+            "team_id": "11",
+            "team": "SEA",
+            "first": 2024,
+            "last": 2026,
+            "length": 3,
+            "in_window_seasons": 3
+          }
+        ]
+      },
+      "spells": [
+        {
+          "team_id": "10",
+          "team": "ATH",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "16",
+          "team": "ATL",
+          "first": 2020,
+          "last": 2026,
+          "length": 7,
+          "in_window_seasons": 7
+        },
+        {
+          "team_id": "3",
+          "team": "BOS",
+          "first": 2014,
+          "last": 2019,
+          "length": 6,
+          "in_window_seasons": 6
+        },
+        {
+          "team_id": "3",
+          "team": "BOS",
+          "first": 2025,
+          "last": 2026,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "17",
+          "team": "CHC",
+          "first": 2016,
+          "last": 2020,
+          "length": 5,
+          "in_window_seasons": 5
+        },
+        {
+          "team_id": "4",
+          "team": "CHW",
+          "first": 2022,
+          "last": 2022,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "5",
+          "team": "CLE",
+          "first": 2015,
+          "last": 2019,
+          "length": 5,
+          "in_window_seasons": 5
+        },
+        {
+          "team_id": "6",
+          "team": "DET",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "6",
+          "team": "DET",
+          "first": 2026,
+          "last": 2026,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "21",
+          "team": "HOU",
+          "first": 2016,
+          "last": 2024,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "1",
+          "team": "LAA",
+          "first": 2015,
+          "last": 2015,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "22",
+          "team": "LAD",
+          "first": 2014,
+          "last": 2026,
+          "length": 13,
+          "in_window_seasons": 13
+        },
+        {
+          "team_id": "23",
+          "team": "MIL",
+          "first": 2022,
+          "last": 2022,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "8",
+          "team": "MIN",
+          "first": 2020,
+          "last": 2021,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "8",
+          "team": "MIN",
+          "first": 2024,
+          "last": 2024,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2016,
+          "last": 2016,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2021,
+          "last": 2021,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2023,
+          "last": 2023,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2025,
+          "last": 2026,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "9",
+          "team": "NYY",
+          "first": 2018,
+          "last": 2026,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "26",
+          "team": "PHI",
+          "first": 2019,
+          "last": 2019,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "26",
+          "team": "PHI",
+          "first": 2024,
+          "last": 2026,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "27",
+          "team": "PIT",
+          "first": 2015,
+          "last": 2015,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "29",
+          "team": "SDP",
+          "first": 2021,
+          "last": 2023,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "11",
+          "team": "SEA",
+          "first": 2015,
+          "last": 2015,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "11",
+          "team": "SEA",
+          "first": 2024,
+          "last": 2026,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "30",
+          "team": "SFG",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "30",
+          "team": "SFG",
+          "first": 2017,
+          "last": 2017,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "28",
+          "team": "STL",
+          "first": 2014,
+          "last": 2015,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "28",
+          "team": "STL",
+          "first": 2018,
+          "last": 2018,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "28",
+          "team": "STL",
+          "first": 2024,
+          "last": 2024,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "12",
+          "team": "TBR",
+          "first": 2020,
+          "last": 2020,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "12",
+          "team": "TBR",
+          "first": 2023,
+          "last": 2023,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "13",
+          "team": "TEX",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "13",
+          "team": "TEX",
+          "first": 2025,
+          "last": 2025,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "14",
+          "team": "TOR",
+          "first": 2016,
+          "last": 2017,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "14",
+          "team": "TOR",
+          "first": 2021,
+          "last": 2023,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "24",
+          "team": "WSN",
+          "first": 2014,
+          "last": 2020,
+          "length": 7,
+          "in_window_seasons": 7
+        }
+      ]
+    },
+    "top7": {
+      "column": "window_top7",
+      "grace": false,
+      "in_window_club_seasons": 182,
+      "n_spells": 56,
+      "length_distribution": {
+        "1": 19,
+        "2": 12,
+        "3": 7,
+        "4": 7,
+        "5": 1,
+        "6": 1,
+        "7": 3,
+        "8": 1,
+        "9": 3,
+        "10": 1,
+        "13": 1
+      },
+      "persistent_contenders": {
+        "count": 1,
+        "clubs": [
+          "LAD"
+        ]
+      },
+      "left_censored": {
+        "count": 14,
+        "spells": [
+          {
+            "team_id": "10",
+            "team": "ATH",
+            "first": 2014,
+            "last": 2015,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "16",
+            "team": "ATL",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "3",
+            "team": "BOS",
+            "first": 2014,
+            "last": 2022,
+            "length": 9,
+            "in_window_seasons": 9
+          },
+          {
+            "team_id": "5",
+            "team": "CLE",
+            "first": 2014,
+            "last": 2020,
+            "length": 7,
+            "in_window_seasons": 7
+          },
+          {
+            "team_id": "6",
+            "team": "DET",
+            "first": 2014,
+            "last": 2017,
+            "length": 4,
+            "in_window_seasons": 4
+          },
+          {
+            "team_id": "1",
+            "team": "LAA",
+            "first": 2014,
+            "last": 2015,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "22",
+            "team": "LAD",
+            "first": 2014,
+            "last": 2026,
+            "length": 13,
+            "in_window_seasons": 13
+          },
+          {
+            "team_id": "23",
+            "team": "MIL",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "27",
+            "team": "PIT",
+            "first": 2014,
+            "last": 2017,
+            "length": 4,
+            "in_window_seasons": 4
+          },
+          {
+            "team_id": "30",
+            "team": "SFG",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "28",
+            "team": "STL",
+            "first": 2014,
+            "last": 2019,
+            "length": 6,
+            "in_window_seasons": 6
+          },
+          {
+            "team_id": "12",
+            "team": "TBR",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "13",
+            "team": "TEX",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "24",
+            "team": "WSN",
+            "first": 2014,
+            "last": 2020,
+            "length": 7,
+            "in_window_seasons": 7
+          }
+        ]
+      },
+      "right_censored": {
+        "count": 14,
+        "spells": [
+          {
+            "team_id": "16",
+            "team": "ATL",
+            "first": 2019,
+            "last": 2026,
+            "length": 8,
+            "in_window_seasons": 8
+          },
+          {
+            "team_id": "3",
+            "team": "BOS",
+            "first": 2025,
+            "last": 2026,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "17",
+            "team": "CHC",
+            "first": 2024,
+            "last": 2026,
+            "length": 3,
+            "in_window_seasons": 3
+          },
+          {
+            "team_id": "6",
+            "team": "DET",
+            "first": 2026,
+            "last": 2026,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "7",
+            "team": "KCR",
+            "first": 2026,
+            "last": 2026,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "22",
+            "team": "LAD",
+            "first": 2014,
+            "last": 2026,
+            "length": 13,
+            "in_window_seasons": 13
+          },
+          {
+            "team_id": "23",
+            "team": "MIL",
+            "first": 2026,
+            "last": 2026,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "25",
+            "team": "NYM",
+            "first": 2025,
+            "last": 2026,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "9",
+            "team": "NYY",
+            "first": 2018,
+            "last": 2026,
+            "length": 9,
+            "in_window_seasons": 9
+          },
+          {
+            "team_id": "26",
+            "team": "PHI",
+            "first": 2022,
+            "last": 2026,
+            "length": 5,
+            "in_window_seasons": 5
+          },
+          {
+            "team_id": "27",
+            "team": "PIT",
+            "first": 2026,
+            "last": 2026,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "11",
+            "team": "SEA",
+            "first": 2024,
+            "last": 2026,
+            "length": 3,
+            "in_window_seasons": 3
+          },
+          {
+            "team_id": "13",
+            "team": "TEX",
+            "first": 2025,
+            "last": 2026,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "14",
+            "team": "TOR",
+            "first": 2026,
+            "last": 2026,
+            "length": 1,
+            "in_window_seasons": 1
+          }
+        ]
+      },
+      "spells": [
+        {
+          "team_id": "15",
+          "team": "ARI",
+          "first": 2018,
+          "last": 2018,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "15",
+          "team": "ARI",
+          "first": 2024,
+          "last": 2025,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "10",
+          "team": "ATH",
+          "first": 2014,
+          "last": 2015,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "10",
+          "team": "ATH",
+          "first": 2019,
+          "last": 2020,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "16",
+          "team": "ATL",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "16",
+          "team": "ATL",
+          "first": 2019,
+          "last": 2026,
+          "length": 8,
+          "in_window_seasons": 8
+        },
+        {
+          "team_id": "2",
+          "team": "BAL",
+          "first": 2024,
+          "last": 2025,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "3",
+          "team": "BOS",
+          "first": 2014,
+          "last": 2022,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "3",
+          "team": "BOS",
+          "first": 2025,
+          "last": 2026,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "17",
+          "team": "CHC",
+          "first": 2015,
+          "last": 2021,
+          "length": 7,
+          "in_window_seasons": 7
+        },
+        {
+          "team_id": "17",
+          "team": "CHC",
+          "first": 2024,
+          "last": 2026,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "4",
+          "team": "CHW",
+          "first": 2021,
+          "last": 2022,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "5",
+          "team": "CLE",
+          "first": 2014,
+          "last": 2020,
+          "length": 7,
+          "in_window_seasons": 7
+        },
+        {
+          "team_id": "5",
+          "team": "CLE",
+          "first": 2023,
+          "last": 2023,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "6",
+          "team": "DET",
+          "first": 2014,
+          "last": 2017,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "6",
+          "team": "DET",
+          "first": 2026,
+          "last": 2026,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "21",
+          "team": "HOU",
+          "first": 2016,
+          "last": 2025,
+          "length": 10,
+          "in_window_seasons": 10
+        },
+        {
+          "team_id": "7",
+          "team": "KCR",
+          "first": 2026,
+          "last": 2026,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "1",
+          "team": "LAA",
+          "first": 2014,
+          "last": 2015,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "1",
+          "team": "LAA",
+          "first": 2017,
+          "last": 2018,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "1",
+          "team": "LAA",
+          "first": 2021,
+          "last": 2023,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "22",
+          "team": "LAD",
+          "first": 2014,
+          "last": 2026,
+          "length": 13,
+          "in_window_seasons": 13
+        },
+        {
+          "team_id": "23",
+          "team": "MIL",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "23",
+          "team": "MIL",
+          "first": 2020,
+          "last": 2023,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "23",
+          "team": "MIL",
+          "first": 2026,
+          "last": 2026,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "8",
+          "team": "MIN",
+          "first": 2018,
+          "last": 2021,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "8",
+          "team": "MIN",
+          "first": 2023,
+          "last": 2025,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2015,
+          "last": 2023,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2025,
+          "last": 2026,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "9",
+          "team": "NYY",
+          "first": 2016,
+          "last": 2016,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "9",
+          "team": "NYY",
+          "first": 2018,
+          "last": 2026,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "26",
+          "team": "PHI",
+          "first": 2019,
+          "last": 2019,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "26",
+          "team": "PHI",
+          "first": 2022,
+          "last": 2026,
+          "length": 5,
+          "in_window_seasons": 5
+        },
+        {
+          "team_id": "27",
+          "team": "PIT",
+          "first": 2014,
+          "last": 2017,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "27",
+          "team": "PIT",
+          "first": 2026,
+          "last": 2026,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "29",
+          "team": "SDP",
+          "first": 2015,
+          "last": 2015,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "29",
+          "team": "SDP",
+          "first": 2020,
+          "last": 2023,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "29",
+          "team": "SDP",
+          "first": 2025,
+          "last": 2025,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "11",
+          "team": "SEA",
+          "first": 2015,
+          "last": 2017,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "11",
+          "team": "SEA",
+          "first": 2024,
+          "last": 2026,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "30",
+          "team": "SFG",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "30",
+          "team": "SFG",
+          "first": 2016,
+          "last": 2018,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "30",
+          "team": "SFG",
+          "first": 2022,
+          "last": 2022,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "30",
+          "team": "SFG",
+          "first": 2024,
+          "last": 2024,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "28",
+          "team": "STL",
+          "first": 2014,
+          "last": 2019,
+          "length": 6,
+          "in_window_seasons": 6
+        },
+        {
+          "team_id": "28",
+          "team": "STL",
+          "first": 2021,
+          "last": 2021,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "28",
+          "team": "STL",
+          "first": 2023,
+          "last": 2024,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "12",
+          "team": "TBR",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "12",
+          "team": "TBR",
+          "first": 2019,
+          "last": 2020,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "12",
+          "team": "TBR",
+          "first": 2022,
+          "last": 2024,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "13",
+          "team": "TEX",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "13",
+          "team": "TEX",
+          "first": 2025,
+          "last": 2026,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "14",
+          "team": "TOR",
+          "first": 2015,
+          "last": 2018,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "14",
+          "team": "TOR",
+          "first": 2021,
+          "last": 2024,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "14",
+          "team": "TOR",
+          "first": 2026,
+          "last": 2026,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "24",
+          "team": "WSN",
+          "first": 2014,
+          "last": 2020,
+          "length": 7,
+          "in_window_seasons": 7
+        }
+      ]
+    },
+    "top9": {
+      "column": "window_top9",
+      "grace": false,
+      "in_window_club_seasons": 234,
+      "n_spells": 54,
+      "length_distribution": {
+        "1": 12,
+        "2": 10,
+        "3": 6,
+        "4": 4,
+        "5": 5,
+        "6": 4,
+        "7": 2,
+        "8": 3,
+        "9": 4,
+        "10": 1,
+        "11": 2,
+        "13": 1
+      },
+      "persistent_contenders": {
+        "count": 1,
+        "clubs": [
+          "LAD"
+        ]
+      },
+      "left_censored": {
+        "count": 18,
+        "spells": [
+          {
+            "team_id": "10",
+            "team": "ATH",
+            "first": 2014,
+            "last": 2015,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "16",
+            "team": "ATL",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "3",
+            "team": "BOS",
+            "first": 2014,
+            "last": 2022,
+            "length": 9,
+            "in_window_seasons": 9
+          },
+          {
+            "team_id": "5",
+            "team": "CLE",
+            "first": 2014,
+            "last": 2020,
+            "length": 7,
+            "in_window_seasons": 7
+          },
+          {
+            "team_id": "19",
+            "team": "COL",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "6",
+            "team": "DET",
+            "first": 2014,
+            "last": 2017,
+            "length": 4,
+            "in_window_seasons": 4
+          },
+          {
+            "team_id": "1",
+            "team": "LAA",
+            "first": 2014,
+            "last": 2023,
+            "length": 10,
+            "in_window_seasons": 10
+          },
+          {
+            "team_id": "22",
+            "team": "LAD",
+            "first": 2014,
+            "last": 2026,
+            "length": 13,
+            "in_window_seasons": 13
+          },
+          {
+            "team_id": "23",
+            "team": "MIL",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "27",
+            "team": "PIT",
+            "first": 2014,
+            "last": 2017,
+            "length": 4,
+            "in_window_seasons": 4
+          },
+          {
+            "team_id": "29",
+            "team": "SDP",
+            "first": 2014,
+            "last": 2015,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "11",
+            "team": "SEA",
+            "first": 2014,
+            "last": 2018,
+            "length": 5,
+            "in_window_seasons": 5
+          },
+          {
+            "team_id": "30",
+            "team": "SFG",
+            "first": 2014,
+            "last": 2018,
+            "length": 5,
+            "in_window_seasons": 5
+          },
+          {
+            "team_id": "28",
+            "team": "STL",
+            "first": 2014,
+            "last": 2024,
+            "length": 11,
+            "in_window_seasons": 11
+          },
+          {
+            "team_id": "12",
+            "team": "TBR",
+            "first": 2014,
+            "last": 2015,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "13",
+            "team": "TEX",
+            "first": 2014,
+            "last": 2014,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "14",
+            "team": "TOR",
+            "first": 2014,
+            "last": 2019,
+            "length": 6,
+            "in_window_seasons": 6
+          },
+          {
+            "team_id": "24",
+            "team": "WSN",
+            "first": 2014,
+            "last": 2021,
+            "length": 8,
+            "in_window_seasons": 8
+          }
+        ]
+      },
+      "right_censored": {
+        "count": 18,
+        "spells": [
+          {
+            "team_id": "15",
+            "team": "ARI",
+            "first": 2024,
+            "last": 2026,
+            "length": 3,
+            "in_window_seasons": 3
+          },
+          {
+            "team_id": "16",
+            "team": "ATL",
+            "first": 2019,
+            "last": 2026,
+            "length": 8,
+            "in_window_seasons": 8
+          },
+          {
+            "team_id": "2",
+            "team": "BAL",
+            "first": 2024,
+            "last": 2026,
+            "length": 3,
+            "in_window_seasons": 3
+          },
+          {
+            "team_id": "3",
+            "team": "BOS",
+            "first": 2025,
+            "last": 2026,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "17",
+            "team": "CHC",
+            "first": 2024,
+            "last": 2026,
+            "length": 3,
+            "in_window_seasons": 3
+          },
+          {
+            "team_id": "6",
+            "team": "DET",
+            "first": 2025,
+            "last": 2026,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "21",
+            "team": "HOU",
+            "first": 2016,
+            "last": 2026,
+            "length": 11,
+            "in_window_seasons": 11
+          },
+          {
+            "team_id": "7",
+            "team": "KCR",
+            "first": 2026,
+            "last": 2026,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "22",
+            "team": "LAD",
+            "first": 2014,
+            "last": 2026,
+            "length": 13,
+            "in_window_seasons": 13
+          },
+          {
+            "team_id": "23",
+            "team": "MIL",
+            "first": 2018,
+            "last": 2026,
+            "length": 9,
+            "in_window_seasons": 9
+          },
+          {
+            "team_id": "25",
+            "team": "NYM",
+            "first": 2025,
+            "last": 2026,
+            "length": 2,
+            "in_window_seasons": 2
+          },
+          {
+            "team_id": "9",
+            "team": "NYY",
+            "first": 2018,
+            "last": 2026,
+            "length": 9,
+            "in_window_seasons": 9
+          },
+          {
+            "team_id": "26",
+            "team": "PHI",
+            "first": 2022,
+            "last": 2026,
+            "length": 5,
+            "in_window_seasons": 5
+          },
+          {
+            "team_id": "27",
+            "team": "PIT",
+            "first": 2026,
+            "last": 2026,
+            "length": 1,
+            "in_window_seasons": 1
+          },
+          {
+            "team_id": "11",
+            "team": "SEA",
+            "first": 2022,
+            "last": 2026,
+            "length": 5,
+            "in_window_seasons": 5
+          },
+          {
+            "team_id": "30",
+            "team": "SFG",
+            "first": 2022,
+            "last": 2026,
+            "length": 5,
+            "in_window_seasons": 5
+          },
+          {
+            "team_id": "13",
+            "team": "TEX",
+            "first": 2023,
+            "last": 2026,
+            "length": 4,
+            "in_window_seasons": 4
+          },
+          {
+            "team_id": "14",
+            "team": "TOR",
+            "first": 2021,
+            "last": 2026,
+            "length": 6,
+            "in_window_seasons": 6
+          }
+        ]
+      },
+      "spells": [
+        {
+          "team_id": "15",
+          "team": "ARI",
+          "first": 2016,
+          "last": 2016,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "15",
+          "team": "ARI",
+          "first": 2018,
+          "last": 2018,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "15",
+          "team": "ARI",
+          "first": 2024,
+          "last": 2026,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "10",
+          "team": "ATH",
+          "first": 2014,
+          "last": 2015,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "10",
+          "team": "ATH",
+          "first": 2018,
+          "last": 2021,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "16",
+          "team": "ATL",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "16",
+          "team": "ATL",
+          "first": 2019,
+          "last": 2026,
+          "length": 8,
+          "in_window_seasons": 8
+        },
+        {
+          "team_id": "2",
+          "team": "BAL",
+          "first": 2024,
+          "last": 2026,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "3",
+          "team": "BOS",
+          "first": 2014,
+          "last": 2022,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "3",
+          "team": "BOS",
+          "first": 2025,
+          "last": 2026,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "17",
+          "team": "CHC",
+          "first": 2015,
+          "last": 2021,
+          "length": 7,
+          "in_window_seasons": 7
+        },
+        {
+          "team_id": "17",
+          "team": "CHC",
+          "first": 2024,
+          "last": 2026,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "4",
+          "team": "CHW",
+          "first": 2016,
+          "last": 2016,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "4",
+          "team": "CHW",
+          "first": 2020,
+          "last": 2022,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "18",
+          "team": "CIN",
+          "first": 2020,
+          "last": 2021,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "5",
+          "team": "CLE",
+          "first": 2014,
+          "last": 2020,
+          "length": 7,
+          "in_window_seasons": 7
+        },
+        {
+          "team_id": "5",
+          "team": "CLE",
+          "first": 2023,
+          "last": 2024,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "19",
+          "team": "COL",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "19",
+          "team": "COL",
+          "first": 2017,
+          "last": 2019,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "6",
+          "team": "DET",
+          "first": 2014,
+          "last": 2017,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "6",
+          "team": "DET",
+          "first": 2025,
+          "last": 2026,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "21",
+          "team": "HOU",
+          "first": 2016,
+          "last": 2026,
+          "length": 11,
+          "in_window_seasons": 11
+        },
+        {
+          "team_id": "7",
+          "team": "KCR",
+          "first": 2026,
+          "last": 2026,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "1",
+          "team": "LAA",
+          "first": 2014,
+          "last": 2023,
+          "length": 10,
+          "in_window_seasons": 10
+        },
+        {
+          "team_id": "22",
+          "team": "LAD",
+          "first": 2014,
+          "last": 2026,
+          "length": 13,
+          "in_window_seasons": 13
+        },
+        {
+          "team_id": "20",
+          "team": "MIA",
+          "first": 2015,
+          "last": 2017,
+          "length": 3,
+          "in_window_seasons": 3
+        },
+        {
+          "team_id": "20",
+          "team": "MIA",
+          "first": 2022,
+          "last": 2023,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "23",
+          "team": "MIL",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "23",
+          "team": "MIL",
+          "first": 2018,
+          "last": 2026,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "8",
+          "team": "MIN",
+          "first": 2018,
+          "last": 2025,
+          "length": 8,
+          "in_window_seasons": 8
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2015,
+          "last": 2023,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "25",
+          "team": "NYM",
+          "first": 2025,
+          "last": 2026,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "9",
+          "team": "NYY",
+          "first": 2015,
+          "last": 2016,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "9",
+          "team": "NYY",
+          "first": 2018,
+          "last": 2026,
+          "length": 9,
+          "in_window_seasons": 9
+        },
+        {
+          "team_id": "26",
+          "team": "PHI",
+          "first": 2019,
+          "last": 2019,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "26",
+          "team": "PHI",
+          "first": 2022,
+          "last": 2026,
+          "length": 5,
+          "in_window_seasons": 5
+        },
+        {
+          "team_id": "27",
+          "team": "PIT",
+          "first": 2014,
+          "last": 2017,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "27",
+          "team": "PIT",
+          "first": 2026,
+          "last": 2026,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "29",
+          "team": "SDP",
+          "first": 2014,
+          "last": 2015,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "29",
+          "team": "SDP",
+          "first": 2020,
+          "last": 2025,
+          "length": 6,
+          "in_window_seasons": 6
+        },
+        {
+          "team_id": "11",
+          "team": "SEA",
+          "first": 2014,
+          "last": 2018,
+          "length": 5,
+          "in_window_seasons": 5
+        },
+        {
+          "team_id": "11",
+          "team": "SEA",
+          "first": 2022,
+          "last": 2026,
+          "length": 5,
+          "in_window_seasons": 5
+        },
+        {
+          "team_id": "30",
+          "team": "SFG",
+          "first": 2014,
+          "last": 2018,
+          "length": 5,
+          "in_window_seasons": 5
+        },
+        {
+          "team_id": "30",
+          "team": "SFG",
+          "first": 2022,
+          "last": 2026,
+          "length": 5,
+          "in_window_seasons": 5
+        },
+        {
+          "team_id": "28",
+          "team": "STL",
+          "first": 2014,
+          "last": 2024,
+          "length": 11,
+          "in_window_seasons": 11
+        },
+        {
+          "team_id": "12",
+          "team": "TBR",
+          "first": 2014,
+          "last": 2015,
+          "length": 2,
+          "in_window_seasons": 2
+        },
+        {
+          "team_id": "12",
+          "team": "TBR",
+          "first": 2017,
+          "last": 2017,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "12",
+          "team": "TBR",
+          "first": 2019,
+          "last": 2024,
+          "length": 6,
+          "in_window_seasons": 6
+        },
+        {
+          "team_id": "13",
+          "team": "TEX",
+          "first": 2014,
+          "last": 2014,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "13",
+          "team": "TEX",
+          "first": 2017,
+          "last": 2017,
+          "length": 1,
+          "in_window_seasons": 1
+        },
+        {
+          "team_id": "13",
+          "team": "TEX",
+          "first": 2023,
+          "last": 2026,
+          "length": 4,
+          "in_window_seasons": 4
+        },
+        {
+          "team_id": "14",
+          "team": "TOR",
+          "first": 2014,
+          "last": 2019,
+          "length": 6,
+          "in_window_seasons": 6
+        },
+        {
+          "team_id": "14",
+          "team": "TOR",
+          "first": 2021,
+          "last": 2026,
+          "length": 6,
+          "in_window_seasons": 6
+        },
+        {
+          "team_id": "24",
+          "team": "WSN",
+          "first": 2014,
+          "last": 2021,
+          "length": 8,
+          "in_window_seasons": 8
+        }
+      ]
+    }
+  },
+  "patterns": {
+    "definition": "Readings at threshold k: Opening Day od_rank, deadline pd_rank, and the same club's od_rank the following season; above means rank <= k. 2026 rows get partial labels and are excluded from 2014-2025 counts.",
+    "baseline": "top6",
+    "by_threshold": {
+      "top3": {
+        "k": 3,
+        "counts_2014_2025": {
+          "Surprise, not carried forward": 24,
+          "Surprise, carried forward": 9,
+          "Held, not carried forward": 5,
+          "Held, carried forward": 34,
+          "Gap year": 14,
+          "Fizzled": 19,
+          "Out of contention": 255
+        },
+        "counts_by_season": {
+          "2014": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 2,
+            "Gap year": 2,
+            "Fizzled": 1,
+            "Out of contention": 21
+          },
+          "2015": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 1,
+            "Gap year": 1,
+            "Fizzled": 3,
+            "Out of contention": 20
+          },
+          "2016": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 4,
+            "Gap year": 1,
+            "Fizzled": 1,
+            "Out of contention": 22
+          },
+          "2017": {
+            "Surprise, not carried forward": 0,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 5,
+            "Gap year": 0,
+            "Fizzled": 0,
+            "Out of contention": 24
+          },
+          "2018": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 4,
+            "Gap year": 2,
+            "Fizzled": 0,
+            "Out of contention": 22
+          },
+          "2019": {
+            "Surprise, not carried forward": 0,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 4,
+            "Gap year": 0,
+            "Fizzled": 2,
+            "Out of contention": 22
+          },
+          "2020": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 3,
+            "Gap year": 1,
+            "Fizzled": 2,
+            "Out of contention": 21
+          },
+          "2021": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 2,
+            "Gap year": 1,
+            "Fizzled": 2,
+            "Out of contention": 21
+          },
+          "2022": {
+            "Surprise, not carried forward": 0,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 4,
+            "Gap year": 0,
+            "Fizzled": 1,
+            "Out of contention": 23
+          },
+          "2023": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 1,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 19
+          },
+          "2024": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 3,
+            "Gap year": 1,
+            "Fizzled": 2,
+            "Out of contention": 21
+          },
+          "2025": {
+            "Surprise, not carried forward": 5,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 1,
+            "Gap year": 3,
+            "Fizzled": 2,
+            "Out of contention": 19
+          }
+        },
+        "partial_2026": {
+          "Surprise (next unknown)": 2,
+          "Held (next unknown)": 4,
+          "Fell out (next unknown)": 2,
+          "Out of contention": 22
+        }
+      },
+      "top4": {
+        "k": 4,
+        "counts_2014_2025": {
+          "Surprise, not carried forward": 21,
+          "Surprise, carried forward": 14,
+          "Held, not carried forward": 12,
+          "Held, carried forward": 49,
+          "Gap year": 17,
+          "Fizzled": 18,
+          "Out of contention": 229
+        },
+        "counts_by_season": {
+          "2014": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 2,
+            "Gap year": 2,
+            "Fizzled": 1,
+            "Out of contention": 19
+          },
+          "2015": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 2,
+            "Gap year": 2,
+            "Fizzled": 1,
+            "Out of contention": 19
+          },
+          "2016": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 6,
+            "Gap year": 1,
+            "Fizzled": 1,
+            "Out of contention": 20
+          },
+          "2017": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 6,
+            "Gap year": 0,
+            "Fizzled": 2,
+            "Out of contention": 20
+          },
+          "2018": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 6,
+            "Gap year": 1,
+            "Fizzled": 1,
+            "Out of contention": 20
+          },
+          "2019": {
+            "Surprise, not carried forward": 0,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 5,
+            "Gap year": 0,
+            "Fizzled": 2,
+            "Out of contention": 20
+          },
+          "2020": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 4,
+            "Gap year": 1,
+            "Fizzled": 1,
+            "Out of contention": 20
+          },
+          "2021": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 3,
+            "Gap year": 3,
+            "Fizzled": 2,
+            "Out of contention": 17
+          },
+          "2022": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 5,
+            "Gap year": 1,
+            "Fizzled": 1,
+            "Out of contention": 20
+          },
+          "2023": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 3,
+            "Gap year": 1,
+            "Fizzled": 3,
+            "Out of contention": 18
+          },
+          "2024": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 4,
+            "Gap year": 1,
+            "Fizzled": 2,
+            "Out of contention": 19
+          },
+          "2025": {
+            "Surprise, not carried forward": 4,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 3,
+            "Gap year": 4,
+            "Fizzled": 1,
+            "Out of contention": 17
+          }
+        },
+        "partial_2026": {
+          "Surprise (next unknown)": 4,
+          "Held (next unknown)": 4,
+          "Fell out (next unknown)": 4,
+          "Out of contention": 18
+        }
+      },
+      "top5": {
+        "k": 5,
+        "counts_2014_2025": {
+          "Surprise, not carried forward": 29,
+          "Surprise, carried forward": 12,
+          "Held, not carried forward": 11,
+          "Held, carried forward": 68,
+          "Gap year": 20,
+          "Fizzled": 21,
+          "Out of contention": 199
+        },
+        "counts_by_season": {
+          "2014": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 5,
+            "Gap year": 2,
+            "Fizzled": 1,
+            "Out of contention": 17
+          },
+          "2015": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 3,
+            "Gap year": 3,
+            "Fizzled": 1,
+            "Out of contention": 16
+          },
+          "2016": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 8,
+            "Gap year": 1,
+            "Fizzled": 1,
+            "Out of contention": 18
+          },
+          "2017": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 6,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 16
+          },
+          "2018": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 6,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 16
+          },
+          "2019": {
+            "Surprise, not carried forward": 0,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 7,
+            "Gap year": 0,
+            "Fizzled": 2,
+            "Out of contention": 18
+          },
+          "2020": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 5,
+            "Gap year": 1,
+            "Fizzled": 2,
+            "Out of contention": 17
+          },
+          "2021": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 6,
+            "Gap year": 3,
+            "Fizzled": 1,
+            "Out of contention": 16
+          },
+          "2022": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 7,
+            "Gap year": 0,
+            "Fizzled": 1,
+            "Out of contention": 19
+          },
+          "2023": {
+            "Surprise, not carried forward": 4,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 5,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 15
+          },
+          "2024": {
+            "Surprise, not carried forward": 4,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 5,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 16
+          },
+          "2025": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 5,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 15
+          }
+        },
+        "partial_2026": {
+          "Surprise (next unknown)": 3,
+          "Held (next unknown)": 7,
+          "Fell out (next unknown)": 3,
+          "Out of contention": 17
+        }
+      },
+      "top6": {
+        "k": 6,
+        "counts_2014_2025": {
+          "Surprise, not carried forward": 22,
+          "Surprise, carried forward": 24,
+          "Held, not carried forward": 16,
+          "Held, carried forward": 82,
+          "Gap year": 21,
+          "Fizzled": 25,
+          "Out of contention": 170
+        },
+        "counts_by_season": {
+          "2014": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 5,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 14
+          },
+          "2015": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 5,
+            "Gap year": 3,
+            "Fizzled": 2,
+            "Out of contention": 13
+          },
+          "2016": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 10,
+            "Gap year": 1,
+            "Fizzled": 1,
+            "Out of contention": 16
+          },
+          "2017": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 7,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 13
+          },
+          "2018": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 7,
+            "Gap year": 3,
+            "Fizzled": 1,
+            "Out of contention": 14
+          },
+          "2019": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 7,
+            "Gap year": 2,
+            "Fizzled": 1,
+            "Out of contention": 15
+          },
+          "2020": {
+            "Surprise, not carried forward": 0,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 7,
+            "Gap year": 0,
+            "Fizzled": 2,
+            "Out of contention": 16
+          },
+          "2021": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 7,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 13
+          },
+          "2022": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 9,
+            "Gap year": 0,
+            "Fizzled": 2,
+            "Out of contention": 16
+          },
+          "2023": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 4,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 5,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 13
+          },
+          "2024": {
+            "Surprise, not carried forward": 4,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 6,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 13
+          },
+          "2025": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 7,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 14
+          }
+        },
+        "partial_2026": {
+          "Surprise (next unknown)": 3,
+          "Held (next unknown)": 9,
+          "Fell out (next unknown)": 3,
+          "Out of contention": 15
+        },
+        "listed": {
+          "Surprise, not carried forward": [
+            {
+              "season": 2014,
+              "team_id": "2",
+              "team": "BAL",
+              "od_rank": 12,
+              "pd_rank": 4,
+              "next_od_rank": 10
+            },
+            {
+              "season": 2014,
+              "team_id": "23",
+              "team": "MIL",
+              "od_rank": 7,
+              "pd_rank": 4,
+              "next_od_rank": 10
+            },
+            {
+              "season": 2015,
+              "team_id": "7",
+              "team": "KCR",
+              "od_rank": 11,
+              "pd_rank": 1,
+              "next_od_rank": 14
+            },
+            {
+              "season": 2015,
+              "team_id": "8",
+              "team": "MIN",
+              "od_rank": 14,
+              "pd_rank": 6,
+              "next_od_rank": 13
+            },
+            {
+              "season": 2016,
+              "team_id": "13",
+              "team": "TEX",
+              "od_rank": 11,
+              "pd_rank": 5,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2016,
+              "team_id": "2",
+              "team": "BAL",
+              "od_rank": 15,
+              "pd_rank": 3,
+              "next_od_rank": 10
+            },
+            {
+              "season": 2017,
+              "team_id": "12",
+              "team": "TBR",
+              "od_rank": 9,
+              "pd_rank": 6,
+              "next_od_rank": 12
+            },
+            {
+              "season": 2017,
+              "team_id": "19",
+              "team": "COL",
+              "od_rank": 9,
+              "pd_rank": 5,
+              "next_od_rank": 9
+            },
+            {
+              "season": 2017,
+              "team_id": "7",
+              "team": "KCR",
+              "od_rank": 13,
+              "pd_rank": 5,
+              "next_od_rank": 13
+            },
+            {
+              "season": 2018,
+              "team_id": "11",
+              "team": "SEA",
+              "od_rank": 8,
+              "pd_rank": 5,
+              "next_od_rank": 10
+            },
+            {
+              "season": 2018,
+              "team_id": "23",
+              "team": "MIL",
+              "od_rank": 8,
+              "pd_rank": 3,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2019,
+              "team_id": "23",
+              "team": "MIL",
+              "od_rank": 8,
+              "pd_rank": 6,
+              "next_od_rank": 7
+            },
+            {
+              "season": 2021,
+              "team_id": "10",
+              "team": "OAK",
+              "od_rank": 8,
+              "pd_rank": 5,
+              "next_od_rank": 14
+            },
+            {
+              "season": 2021,
+              "team_id": "30",
+              "team": "SFG",
+              "od_rank": 11,
+              "pd_rank": 2,
+              "next_od_rank": 7
+            },
+            {
+              "season": 2022,
+              "team_id": "11",
+              "team": "SEA",
+              "od_rank": 9,
+              "pd_rank": 4,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2023,
+              "team_id": "13",
+              "team": "TEX",
+              "od_rank": 9,
+              "pd_rank": 5,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2024,
+              "team_id": "23",
+              "team": "MIL",
+              "od_rank": 9,
+              "pd_rank": 3,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2024,
+              "team_id": "29",
+              "team": "SDP",
+              "od_rank": 8,
+              "pd_rank": 5,
+              "next_od_rank": 7
+            },
+            {
+              "season": 2024,
+              "team_id": "5",
+              "team": "CLE",
+              "od_rank": 9,
+              "pd_rank": 3,
+              "next_od_rank": 12
+            },
+            {
+              "season": 2024,
+              "team_id": "7",
+              "team": "KCR",
+              "od_rank": 13,
+              "pd_rank": 6,
+              "next_od_rank": 10
+            },
+            {
+              "season": 2025,
+              "team_id": "23",
+              "team": "MIL",
+              "od_rank": 8,
+              "pd_rank": 3,
+              "next_od_rank": 7
+            },
+            {
+              "season": 2025,
+              "team_id": "29",
+              "team": "SDP",
+              "od_rank": 7,
+              "pd_rank": 6,
+              "next_od_rank": 10
+            }
+          ],
+          "Surprise, carried forward": [
+            {
+              "season": 2014,
+              "team_id": "11",
+              "team": "SEA",
+              "od_rank": 8,
+              "pd_rank": 6,
+              "next_od_rank": 1
+            },
+            {
+              "season": 2014,
+              "team_id": "14",
+              "team": "TOR",
+              "od_rank": 9,
+              "pd_rank": 5,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2015,
+              "team_id": "21",
+              "team": "HOU",
+              "od_rank": 12,
+              "pd_rank": 3,
+              "next_od_rank": 3
+            },
+            {
+              "season": 2015,
+              "team_id": "30",
+              "team": "SFG",
+              "od_rank": 9,
+              "pd_rank": 6,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2015,
+              "team_id": "9",
+              "team": "NYY",
+              "od_rank": 8,
+              "pd_rank": 2,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2017,
+              "team_id": "15",
+              "team": "ARI",
+              "od_rank": 10,
+              "pd_rank": 4,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2017,
+              "team_id": "9",
+              "team": "NYY",
+              "od_rank": 11,
+              "pd_rank": 4,
+              "next_od_rank": 3
+            },
+            {
+              "season": 2018,
+              "team_id": "10",
+              "team": "OAK",
+              "od_rank": 9,
+              "pd_rank": 6,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2018,
+              "team_id": "26",
+              "team": "PHI",
+              "od_rank": 10,
+              "pd_rank": 4,
+              "next_od_rank": 4
+            },
+            {
+              "season": 2019,
+              "team_id": "12",
+              "team": "TBR",
+              "od_rank": 7,
+              "pd_rank": 5,
+              "next_od_rank": 4
+            },
+            {
+              "season": 2019,
+              "team_id": "16",
+              "team": "ATL",
+              "od_rank": 7,
+              "pd_rank": 2,
+              "next_od_rank": 3
+            },
+            {
+              "season": 2020,
+              "team_id": "28",
+              "team": "STL",
+              "od_rank": 9,
+              "pd_rank": 5,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2020,
+              "team_id": "4",
+              "team": "CHW",
+              "od_rank": 8,
+              "pd_rank": 6,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2021,
+              "team_id": "12",
+              "team": "TBR",
+              "od_rank": 9,
+              "pd_rank": 4,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2021,
+              "team_id": "26",
+              "team": "PHI",
+              "od_rank": 10,
+              "pd_rank": 6,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2021,
+              "team_id": "3",
+              "team": "BOS",
+              "od_rank": 7,
+              "pd_rank": 3,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2022,
+              "team_id": "28",
+              "team": "STL",
+              "od_rank": 8,
+              "pd_rank": 6,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2023,
+              "team_id": "15",
+              "team": "ARI",
+              "od_rank": 10,
+              "pd_rank": 6,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2023,
+              "team_id": "2",
+              "team": "BAL",
+              "od_rank": 12,
+              "pd_rank": 2,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2023,
+              "team_id": "26",
+              "team": "PHI",
+              "od_rank": 7,
+              "pd_rank": 4,
+              "next_od_rank": 3
+            },
+            {
+              "season": 2023,
+              "team_id": "30",
+              "team": "SFG",
+              "od_rank": 8,
+              "pd_rank": 5,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2024,
+              "team_id": "25",
+              "team": "NYM",
+              "od_rank": 11,
+              "pd_rank": 6,
+              "next_od_rank": 4
+            },
+            {
+              "season": 2025,
+              "team_id": "14",
+              "team": "TOR",
+              "od_rank": 9,
+              "pd_rank": 2,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2025,
+              "team_id": "6",
+              "team": "DET",
+              "od_rank": 8,
+              "pd_rank": 1,
+              "next_od_rank": 4
+            }
+          ],
+          "Gap year": [
+            {
+              "season": 2014,
+              "team_id": "27",
+              "team": "PIT",
+              "od_rank": 5,
+              "pd_rank": 7,
+              "next_od_rank": 4
+            },
+            {
+              "season": 2014,
+              "team_id": "3",
+              "team": "BOS",
+              "od_rank": 2,
+              "pd_rank": 11,
+              "next_od_rank": 2
+            },
+            {
+              "season": 2015,
+              "team_id": "11",
+              "team": "SEA",
+              "od_rank": 1,
+              "pd_rank": 10,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2015,
+              "team_id": "3",
+              "team": "BOS",
+              "od_rank": 2,
+              "pd_rank": 12,
+              "next_od_rank": 1
+            },
+            {
+              "season": 2015,
+              "team_id": "5",
+              "team": "CLE",
+              "od_rank": 4,
+              "pd_rank": 7,
+              "next_od_rank": 2
+            },
+            {
+              "season": 2016,
+              "team_id": "11",
+              "team": "SEA",
+              "od_rank": 5,
+              "pd_rank": 8,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2017,
+              "team_id": "14",
+              "team": "TOR",
+              "od_rank": 4,
+              "pd_rank": 11,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2017,
+              "team_id": "25",
+              "team": "NYM",
+              "od_rank": 5,
+              "pd_rank": 9,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2018,
+              "team_id": "25",
+              "team": "NYM",
+              "od_rank": 5,
+              "pd_rank": 12,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2018,
+              "team_id": "28",
+              "team": "STL",
+              "od_rank": 4,
+              "pd_rank": 10,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2018,
+              "team_id": "8",
+              "team": "MIN",
+              "od_rank": 6,
+              "pd_rank": 7,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2019,
+              "team_id": "10",
+              "team": "OAK",
+              "od_rank": 6,
+              "pd_rank": 7,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2019,
+              "team_id": "25",
+              "team": "NYM",
+              "od_rank": 6,
+              "pd_rank": 10,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2021,
+              "team_id": "14",
+              "team": "TOR",
+              "od_rank": 4,
+              "pd_rank": 7,
+              "next_od_rank": 1
+            },
+            {
+              "season": 2021,
+              "team_id": "16",
+              "team": "ATL",
+              "od_rank": 4,
+              "pd_rank": 8,
+              "next_od_rank": 2
+            },
+            {
+              "season": 2023,
+              "team_id": "28",
+              "team": "STL",
+              "od_rank": 5,
+              "pd_rank": 12,
+              "next_od_rank": 4
+            },
+            {
+              "season": 2023,
+              "team_id": "9",
+              "team": "NYY",
+              "od_rank": 1,
+              "pd_rank": 8,
+              "next_od_rank": 2
+            },
+            {
+              "season": 2024,
+              "team_id": "11",
+              "team": "SEA",
+              "od_rank": 4,
+              "pd_rank": 7,
+              "next_od_rank": 4
+            },
+            {
+              "season": 2024,
+              "team_id": "15",
+              "team": "ARI",
+              "od_rank": 5,
+              "pd_rank": 8,
+              "next_od_rank": 5
+            },
+            {
+              "season": 2025,
+              "team_id": "13",
+              "team": "TEX",
+              "od_rank": 2,
+              "pd_rank": 7,
+              "next_od_rank": 6
+            },
+            {
+              "season": 2025,
+              "team_id": "16",
+              "team": "ATL",
+              "od_rank": 2,
+              "pd_rank": 11,
+              "next_od_rank": 3
+            }
+          ],
+          "Fizzled": [
+            {
+              "season": 2014,
+              "team_id": "12",
+              "team": "TBR",
+              "od_rank": 6,
+              "pd_rank": 10,
+              "next_od_rank": 9
+            },
+            {
+              "season": 2014,
+              "team_id": "13",
+              "team": "TEX",
+              "od_rank": 3,
+              "pd_rank": 15,
+              "next_od_rank": 15
+            },
+            {
+              "season": 2015,
+              "team_id": "29",
+              "team": "SDP",
+              "od_rank": 6,
+              "pd_rank": 8,
+              "next_od_rank": 11
+            },
+            {
+              "season": 2015,
+              "team_id": "6",
+              "team": "DET",
+              "od_rank": 5,
+              "pd_rank": 8,
+              "next_od_rank": 7
+            },
+            {
+              "season": 2016,
+              "team_id": "9",
+              "team": "NYY",
+              "od_rank": 6,
+              "pd_rank": 9,
+              "next_od_rank": 11
+            },
+            {
+              "season": 2017,
+              "team_id": "1",
+              "team": "LAA",
+              "od_rank": 5,
+              "pd_rank": 8,
+              "next_od_rank": 7
+            },
+            {
+              "season": 2017,
+              "team_id": "11",
+              "team": "SEA",
+              "od_rank": 6,
+              "pd_rank": 7,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2017,
+              "team_id": "30",
+              "team": "SFG",
+              "od_rank": 4,
+              "pd_rank": 14,
+              "next_od_rank": 7
+            },
+            {
+              "season": 2018,
+              "team_id": "14",
+              "team": "TOR",
+              "od_rank": 5,
+              "pd_rank": 10,
+              "next_od_rank": 9
+            },
+            {
+              "season": 2019,
+              "team_id": "26",
+              "team": "PHI",
+              "od_rank": 4,
+              "pd_rank": 7,
+              "next_od_rank": 10
+            },
+            {
+              "season": 2020,
+              "team_id": "24",
+              "team": "WSN",
+              "od_rank": 2,
+              "pd_rank": 11,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2020,
+              "team_id": "5",
+              "team": "CLE",
+              "od_rank": 5,
+              "pd_rank": 7,
+              "next_od_rank": 10
+            },
+            {
+              "season": 2021,
+              "team_id": "1",
+              "team": "LAA",
+              "od_rank": 6,
+              "pd_rank": 8,
+              "next_od_rank": 7
+            },
+            {
+              "season": 2021,
+              "team_id": "28",
+              "team": "STL",
+              "od_rank": 6,
+              "pd_rank": 9,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2021,
+              "team_id": "8",
+              "team": "MIN",
+              "od_rank": 3,
+              "pd_rank": 11,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2022,
+              "team_id": "26",
+              "team": "PHI",
+              "od_rank": 6,
+              "pd_rank": 7,
+              "next_od_rank": 7
+            },
+            {
+              "season": 2022,
+              "team_id": "3",
+              "team": "BOS",
+              "od_rank": 5,
+              "pd_rank": 9,
+              "next_od_rank": 10
+            },
+            {
+              "season": 2023,
+              "team_id": "1",
+              "team": "LAA",
+              "od_rank": 6,
+              "pd_rank": 10,
+              "next_od_rank": 12
+            },
+            {
+              "season": 2023,
+              "team_id": "25",
+              "team": "NYM",
+              "od_rank": 3,
+              "pd_rank": 10,
+              "next_od_rank": 11
+            },
+            {
+              "season": 2023,
+              "team_id": "29",
+              "team": "SDP",
+              "od_rank": 2,
+              "pd_rank": 9,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2024,
+              "team_id": "12",
+              "team": "TBR",
+              "od_rank": 5,
+              "pd_rank": 9,
+              "next_od_rank": 11
+            },
+            {
+              "season": 2024,
+              "team_id": "28",
+              "team": "STL",
+              "od_rank": 4,
+              "pd_rank": 7,
+              "next_od_rank": 10
+            },
+            {
+              "season": 2024,
+              "team_id": "30",
+              "team": "SFG",
+              "od_rank": 6,
+              "pd_rank": 10,
+              "next_od_rank": 9
+            },
+            {
+              "season": 2025,
+              "team_id": "15",
+              "team": "ARI",
+              "od_rank": 5,
+              "pd_rank": 10,
+              "next_od_rank": 8
+            },
+            {
+              "season": 2025,
+              "team_id": "8",
+              "team": "MIN",
+              "od_rank": 5,
+              "pd_rank": 10,
+              "next_od_rank": 11
+            }
+          ]
+        }
+      },
+      "top7": {
+        "k": 7,
+        "counts_2014_2025": {
+          "Surprise, not carried forward": 22,
+          "Surprise, carried forward": 26,
+          "Held, not carried forward": 17,
+          "Held, carried forward": 103,
+          "Gap year": 23,
+          "Fizzled": 25,
+          "Out of contention": 144
+        },
+        "counts_by_season": {
+          "2014": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 7,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 12
+          },
+          "2015": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 8,
+            "Gap year": 3,
+            "Fizzled": 2,
+            "Out of contention": 11
+          },
+          "2016": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 11,
+            "Gap year": 2,
+            "Fizzled": 1,
+            "Out of contention": 13
+          },
+          "2017": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 7,
+            "Gap year": 4,
+            "Fizzled": 1,
+            "Out of contention": 11
+          },
+          "2018": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 8,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 11
+          },
+          "2019": {
+            "Surprise, not carried forward": 0,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 11,
+            "Gap year": 1,
+            "Fizzled": 0,
+            "Out of contention": 15
+          },
+          "2020": {
+            "Surprise, not carried forward": 0,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 9,
+            "Gap year": 1,
+            "Fizzled": 1,
+            "Out of contention": 14
+          },
+          "2021": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 9,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 11
+          },
+          "2022": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 10,
+            "Gap year": 1,
+            "Fizzled": 2,
+            "Out of contention": 13
+          },
+          "2023": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 7,
+            "Gap year": 2,
+            "Fizzled": 4,
+            "Out of contention": 10
+          },
+          "2024": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 8,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 11
+          },
+          "2025": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 8,
+            "Gap year": 1,
+            "Fizzled": 3,
+            "Out of contention": 12
+          }
+        },
+        "partial_2026": {
+          "Surprise (next unknown)": 4,
+          "Held (next unknown)": 10,
+          "Fell out (next unknown)": 4,
+          "Out of contention": 12
+        }
+      },
+      "top8": {
+        "k": 8,
+        "counts_2014_2025": {
+          "Surprise, not carried forward": 20,
+          "Surprise, carried forward": 25,
+          "Held, not carried forward": 18,
+          "Held, carried forward": 129,
+          "Gap year": 25,
+          "Fizzled": 20,
+          "Out of contention": 123
+        },
+        "counts_by_season": {
+          "2014": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 9,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 10
+          },
+          "2015": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 11,
+            "Gap year": 3,
+            "Fizzled": 1,
+            "Out of contention": 10
+          },
+          "2016": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 0,
+            "Held, carried forward": 14,
+            "Gap year": 1,
+            "Fizzled": 1,
+            "Out of contention": 12
+          },
+          "2017": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 9,
+            "Gap year": 3,
+            "Fizzled": 3,
+            "Out of contention": 8
+          },
+          "2018": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 10,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 10
+          },
+          "2019": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 12,
+            "Gap year": 1,
+            "Fizzled": 0,
+            "Out of contention": 13
+          },
+          "2020": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 11,
+            "Gap year": 2,
+            "Fizzled": 1,
+            "Out of contention": 11
+          },
+          "2021": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 11,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 10
+          },
+          "2022": {
+            "Surprise, not carried forward": 0,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 13,
+            "Gap year": 1,
+            "Fizzled": 1,
+            "Out of contention": 12
+          },
+          "2023": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 9,
+            "Gap year": 3,
+            "Fizzled": 3,
+            "Out of contention": 8
+          },
+          "2024": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 10,
+            "Gap year": 2,
+            "Fizzled": 3,
+            "Out of contention": 9
+          },
+          "2025": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 10,
+            "Gap year": 3,
+            "Fizzled": 1,
+            "Out of contention": 10
+          }
+        },
+        "partial_2026": {
+          "Surprise (next unknown)": 5,
+          "Held (next unknown)": 11,
+          "Fell out (next unknown)": 5,
+          "Out of contention": 9
+        }
+      },
+      "top9": {
+        "k": 9,
+        "counts_2014_2025": {
+          "Surprise, not carried forward": 22,
+          "Surprise, carried forward": 20,
+          "Held, not carried forward": 21,
+          "Held, carried forward": 153,
+          "Gap year": 27,
+          "Fizzled": 15,
+          "Out of contention": 102
+        },
+        "counts_by_season": {
+          "2014": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 11,
+            "Gap year": 3,
+            "Fizzled": 2,
+            "Out of contention": 7
+          },
+          "2015": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 12,
+            "Gap year": 3,
+            "Fizzled": 1,
+            "Out of contention": 8
+          },
+          "2016": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 14,
+            "Gap year": 1,
+            "Fizzled": 2,
+            "Out of contention": 9
+          },
+          "2017": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 11,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 8
+          },
+          "2018": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 3,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 12,
+            "Gap year": 3,
+            "Fizzled": 1,
+            "Out of contention": 8
+          },
+          "2019": {
+            "Surprise, not carried forward": 3,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 14,
+            "Gap year": 1,
+            "Fizzled": 2,
+            "Out of contention": 9
+          },
+          "2020": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 14,
+            "Gap year": 3,
+            "Fizzled": 0,
+            "Out of contention": 9
+          },
+          "2021": {
+            "Surprise, not carried forward": 1,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 13,
+            "Gap year": 1,
+            "Fizzled": 2,
+            "Out of contention": 9
+          },
+          "2022": {
+            "Surprise, not carried forward": 0,
+            "Surprise, carried forward": 1,
+            "Held, not carried forward": 2,
+            "Held, carried forward": 15,
+            "Gap year": 1,
+            "Fizzled": 0,
+            "Out of contention": 11
+          },
+          "2023": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 13,
+            "Gap year": 2,
+            "Fizzled": 2,
+            "Out of contention": 8
+          },
+          "2024": {
+            "Surprise, not carried forward": 2,
+            "Surprise, carried forward": 2,
+            "Held, not carried forward": 3,
+            "Held, carried forward": 11,
+            "Gap year": 4,
+            "Fizzled": 0,
+            "Out of contention": 8
+          },
+          "2025": {
+            "Surprise, not carried forward": 4,
+            "Surprise, carried forward": 0,
+            "Held, not carried forward": 1,
+            "Held, carried forward": 13,
+            "Gap year": 3,
+            "Fizzled": 1,
+            "Out of contention": 8
+          }
+        },
+        "partial_2026": {
+          "Surprise (next unknown)": 6,
+          "Held (next unknown)": 12,
+          "Fell out (next unknown)": 6,
+          "Out of contention": 6
+        }
+      }
+    },
+    "sequences": {
+      "threshold": "top6",
+      "seasons": [
+        2014,
+        2025
+      ],
+      "note": "Clubs with labels from the set in two or more consecutive seasons, 2014-2025 (2026 partial labels excluded). Null: labels shuffled across clubs within each season, 10000 times, seed 20261024; p95 uses linear interpolation.",
+      "surprise_either_kind": {
+        "observed": 2,
+        "null_mean": 4.351,
+        "null_p95": 7.0,
+        "share_null_at_least_observed": 0.9707,
+        "clubs": [
+          "MIL",
+          "SDP"
+        ]
+      },
+      "held_not_carried_forward_or_fizzled": {
+        "observed": 0,
+        "null_mean": 3.631,
+        "null_p95": 6.0,
+        "share_null_at_least_observed": 1.0,
+        "clubs": []
+      },
+      "grid_file": "results/label_grid.csv"
     }
   }
 }

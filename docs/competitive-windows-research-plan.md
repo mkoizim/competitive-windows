@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.27
+## Research Plan v0.28
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.28 — Window patterns fixed after the first run: next year = next Opening Day rank; gap year and fizzled separated; Out of contention added; patterns renamed by whether the next Opening Day carried them forward; thresholds 3–9. Persistent club-specific forecast error added to P2 (exploratory). Spell count done.
 - v0.27 — Corrections from the data audit: 2020 second-place field, 2016 deadline (Aug 1), `data/processed/` never committed.
 - v0.26 — Opening Day confirmed as the primary window definition; change between Opening Day and the deadline named as a write-up theme in §3.3b. Surprise patterns renamed. Post 1 reminder reworded.
 - v0.25 — Signal switch labeled primary. Reminder to sort by underlying components when judging rationality. Spec reviewers named. FanGraphs data-use email not sent.
@@ -115,7 +116,7 @@ baseball history.
 | **E1** | Whether the lag is asymmetric between window openings and closings. Contingent on P1 surviving. |
 | **E2** | Realized surplus value of retained top-100 prospects vs. their peak trade-market price. |
 | **E3** | Predictive power of organizational farm rank for contention at 2, 3, and 4 years out. |
-| **E4** | Window patterns (§3.3b): every club-season classified as surprise (one season), surprise (sustained), faded fast, gap year, fizzled, or sustained; what clubs did at the deadline in each; and whether each rise or dip was backed by underlying performance. |
+| **E4** | Window patterns (§3.3b): every club-season classified into seven patterns (surprise or held, each carried forward or not; gap year; fizzled; out of contention); what clubs did at the deadline in each; and whether each rise or dip was backed by underlying performance. |
 | **P3 (exploratory)** | Does converting during an open window shorten it? Estimated as a time-varying exposure in a hazard model, with core age and control as controls, and reported with a confidence interval. No pass/fail claim (§3.4). Downgraded from registered 2026-10-17. |
 
 ### 2.1 Rival diagnoses — test, don't assume away
@@ -132,6 +133,10 @@ P1 attributes the gap to late recognition. Four alternatives can produce the sam
 R4 and P4 both rest on the Doyle Number (Silver & Paine, FiveThirtyEight, 2015 on): optimal
 buyers are secure playoff teams with improvable title odds, not bubble teams. Some measured lag
 may be optimal behavior. R4 is the test of that.
+
+A further candidate, **persistent club-specific forecast error**, can mimic a lag: if the public
+signal is consistently wrong about a club and the club knows it, ignoring the signal is rational.
+Tested in §4b (exploratory).
 
 R2 may turn out to be the dominant failure mode. That would be a better finding than R1 and is
 reported as such, not buried.
@@ -430,20 +435,38 @@ between Opening Day and the deadline** — a planned theme of the write-up. It c
 club-season so none are lost, and
 asks what clubs did in each pattern.
 
-**Classification.** Each club-season is placed by three readings: Opening Day rank, pre-deadline
-rank, and the following season's status, each against the window threshold.
+**Classification.** Each club-season is placed by three readings against threshold *k*: Opening
+Day rank, pre-deadline rank, and the **next season's Opening Day rank** (consistent with windows
+being defined on Opening Day). Baseline *k* = 6; reported at every *k* from 3 to 9.
 
-| Pattern | Opening Day | Deadline | Next year | Plain description |
+| Pattern | Opening Day | Deadline | Next Opening Day | Plain description |
 |---|---|---|---|---|
-| **Surprise, one season** | Below | Above | Gone | Contention arrived unexpectedly and lasted one season |
-| **Surprise, sustained** | Below | Above | Still above | Below the line on Opening Day, above it at the deadline, and still above the next year |
-| **Faded fast** | Above | Above | Gone | An expected contender whose window lasted one season |
-| **Gap year** | Above | Below | Back above | A contender with one down year between contending seasons |
-| **Fizzled** | Above | Below | — | An expected contender that fell out of contention by the deadline |
-| **Sustained** | Above | Above | Still above | The ordinary multi-year window |
+| **Surprise, not carried forward** | Below | Above | Below | Contention arrived unexpectedly; the next projection didn't believe it |
+| **Surprise, carried forward** | Below | Above | Above | Contention arrived unexpectedly; the next projection kept the club above the line |
+| **Held, not carried forward** | Above | Above | Below | An expected contender held through the deadline but started next season below the line |
+| **Held, carried forward** | Above | Above | Above | The ordinary multi-year window |
+| **Gap year** | Above | Below | Above | An expected contender fell out by the deadline and was back above the line next season |
+| **Fizzled** | Above | Below | Below | An expected contender fell out by the deadline and stayed below |
+| **Out of contention** | Below | Below | either | Below the line at both readings |
 
-The first two together are the **surprise contenders**: below the line on Opening Day, above it at
-the deadline.
+Labels describe a **club-season**, not a club: the names refer to what the next Opening Day
+projection did, not to the club's whole history. A club's history is its sequence of labels. For
+2026, next season is unknown, and club-seasons get partial labels from Opening Day and the deadline
+only, reported separately.
+
+The two surprise patterns together are the **surprise contenders**: below the line on Opening Day,
+above it at the deadline.
+
+**First run (2026-10-24, 2014–2025, k = 6).** About a third of contention changes hands between
+Opening Day and the deadline: 46 of 144 Opening Day contenders fell below the line by the deadline,
+and 46 clubs rose to replace them (the two counts are equal by construction; the size is the
+finding). About half of each group was carried forward by the next Opening Day projection (24 of
+46 surprises; 21 of 46 fallers, the gap years). This turnover is the motivating fact for the
+Opening Day-to-deadline theme. Counts are stable between *k* = 6 and 7.
+
+**Not used:** comparing label sequences against a within-season shuffle. Adjacent labels share next
+season's Opening Day rank, so some sequences are impossible by definition and that null is
+invalid. Club-level persistence is tested on signed forecast error instead (§4b).
 
 **What is asked of each pattern (E4, exploratory):**
 - **Behavior at the deadline:** Did surprise contenders push their chips in, or
@@ -458,7 +481,8 @@ the deadline.
   grace rule merges them. Describing the pattern directly shows what actually happened in those
   seasons, alongside both rules.
 
-**Status.** Classification uses only the odds, so it is exploratory. The behavior side needs trades,
+**Status.** Classification uses only the odds, so it is exploratory. Labels were reviewed after
+the first run against triggers set beforehand, and kept. The behavior side needs trades,
 which have not been seen. Reported in Post 2, with the Doyle comparison in Post 3.
 
 ### 3.4 Conversion as an exposure
@@ -585,6 +609,14 @@ year and inspected for a discontinuity. If a jump appears, the test splits at it
 model carries a regime indicator as a time-varying covariate, and no seasons are dropped.
 
 **Editorial tiers are not used.** The second belief series is cut.
+
+**Persistent club-specific forecast error (exploratory).** A forecast can be unbiased across the
+league and still be biased for particular clubs. For each club-season, take the signed error:
+Opening Day projected wins minus actual wins. Test (a) whether clubs have a
+persistent average error and (b) whether one season's error predicts the next, each against a
+permutation null. Why it matters: a club the projections consistently underrate, that knows it,
+is rational to ignore the public signal; P1 would score it as lagging when it isn't. It is
+therefore also a rival to P1 (§2.1). Same data as the secondary test; no direction claimed.
 
 ### 4c. In-season revisions — decompose before interpreting
 
@@ -908,7 +940,8 @@ data dictionary — re-upload when they change.
 **Before Post 1**
 - [x] Collect the three snapshots per season, 2014–2026 (done by 2026-10-17)
 - [x] 2020 reconstruction confirmed by the author (2026-10-18)
-- [ ] Count window spells under the baseline threshold — Post 1 go/no-go
+- [x] Count window spells under the baseline threshold — Post 1 go/no-go: 53 spells, proceed (2026-10-20)
+- [x] Spell counts and window patterns at every threshold *k* = 3–9 (2026-10-24)
 - [ ] Probe: Win WS dispersion at OD, PD and EOS (two seasons)
 - [x] Spec reviewers identified: [reviewer], [reviewer] (possibly others)
 - [x] SABR Analytics abstract deadline: Nov 25, 2026, 11:59 pm MST

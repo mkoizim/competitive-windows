@@ -1131,3 +1131,43 @@ one-season dip.
 in-window count (`in_window_seasons`) is reported alongside.
 **Open for Week 2:** treatment of spells already open in 2014 (left-censored, and they include most
 long spells); pooling the hazard at lengths 4 and up.
+
+## 2026-10-24 — Window patterns (E4, exploratory)
+
+**Record:** Every club-season 2014–2025 classified at k = 3–9 (baseline 6) from Opening Day rank,
+deadline rank and next season's Opening Day rank. All checks passed at every k. Baseline counts:
+Surprise one season 22, Surprise sustained 24, Faded fast 16, Sustained 82, Gap year 21, Fizzled 25,
+Out of contention 170. About 32% of Opening Day contenders fall below the line by the deadline (equal
+to the number who rise, by construction).
+**Chose:** Keep the seven labels; definitions fixed before the run (next season = next Opening Day
+rank; gap year and fizzled separate; Out of contention added). Labels reviewed after seeing counts
+against triggers set in advance; no changes.
+**Dropped:** The label-sequence chance comparison. Adjacent labels share next season's Opening Day
+rank, so the within-season shuffle null is invalid (two consecutive fades are impossible by
+definition). Persistent club-specific forecast error moves to P2 as a signed-error test (projected
+minus actual wins), exploratory.
+**Also:** spells.py extended to k = 3–9 and now merges into results.json instead of overwriting it.
+
+## 2026-10-25 — Window pattern definitions and renames (plan v0.28)
+
+**Chose:**
+- "Next year" in §3.3b means next season's Opening Day rank (consistent with windows defined on
+  Opening Day), not next season's deadline rank.
+- Gap year and fizzled are separate: an expected contender that falls out by the deadline is a gap
+  year if back above the line next Opening Day, fizzled if not. The v0.22 table let them overlap.
+- Seventh pattern, Out of contention (below at both readings), so every club-season has one label.
+- Patterns reported at every *k* from 3 to 9; baseline 6.
+- Renamed by what the next Opening Day projection did: Surprise, one season → **Surprise, not
+  carried forward**; Surprise, sustained → **Surprise, carried forward**; Faded fast → **Held, not
+  carried forward**; Sustained → **Held, carried forward**. Gap year and Fizzled unchanged.
+- Labels describe a club-season; a club's history is its sequence of labels.
+- Persistent club-specific forecast error added to P2 (§4b) and as a rival to P1 (§2.1),
+  exploratory: signed error in wins, tested for a persistent club average and season-to-season
+  carryover against permutation nulls.
+**Why:** The old names implied a club-level history the labels don't measure. A club the public
+signal consistently misjudges can rationally ignore it, which P1 would score as a lag.
+**Note:** The label names in `patterns.py`, `results.json` and `label_grid.csv` still use the old
+names; mapping above. **[RESOLVED 2026-10-25]** Code and outputs renamed to the new names, with
+counts verified unchanged against the previous output (every k, by season, 2026 partials, club
+lists, sequence results; label grid cell for cell). Printed short codes: S-NC, S-CF, H-NC, H-CF.
+The sequence key in `results.json` is now `held_not_carried_forward_or_fizzled`.
