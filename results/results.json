@@ -6458,5 +6458,413 @@
       },
       "grid_file": "results/label_grid.csv"
     }
+  },
+  "backcast": {
+    "source": "Baseball-Reference preseason playoff odds (earliest row per club-season)",
+    "seasons": [
+      2011,
+      2026
+    ],
+    "preseason_date": {
+      "2011": "2011-03-30",
+      "2012": "2012-03-27",
+      "2013": "2013-03-30",
+      "2014": "2014-03-21",
+      "2015": "2015-04-04",
+      "2016": "2016-04-02",
+      "2017": "2017-04-01",
+      "2018": "2018-03-28",
+      "2019": "2019-03-19",
+      "2020": "2020-07-22",
+      "2021": "2021-03-31",
+      "2022": "2022-04-06",
+      "2023": "2023-03-29",
+      "2024": "2024-03-19",
+      "2025": "2025-03-17",
+      "2026": "2026-03-24"
+    },
+    "post_sum_by_league": {
+      "2011 AL": 4.0,
+      "2011 NL": 4.0,
+      "2012 AL": 5.0,
+      "2012 NL": 4.999,
+      "2013 AL": 5.0,
+      "2013 NL": 5.0,
+      "2014 AL": 5.0,
+      "2014 NL": 5.001,
+      "2015 AL": 5.0,
+      "2015 NL": 5.0,
+      "2016 AL": 5.0,
+      "2016 NL": 5.0,
+      "2017 AL": 5.001,
+      "2017 NL": 5.0,
+      "2018 AL": 4.997,
+      "2018 NL": 5.001,
+      "2019 AL": 4.999,
+      "2019 NL": 5.0,
+      "2020 AL": 8.0,
+      "2020 NL": 8.0,
+      "2021 AL": 5.0,
+      "2021 NL": 5.0,
+      "2022 AL": 6.001,
+      "2022 NL": 6.001,
+      "2023 AL": 5.999,
+      "2023 NL": 5.999,
+      "2024 AL": 6.0,
+      "2024 NL": 5.999,
+      "2025 AL": 5.998,
+      "2025 NL": 6.001,
+      "2026 AL": 6.002,
+      "2026 NL": 6.0
+    },
+    "unmatched_bref_clubs": [
+      "2011 FLA"
+    ],
+    "validation": {
+      "seasons": [
+        2014,
+        2026
+      ],
+      "top6_agreement": {
+        "agree": 302,
+        "n": 390,
+        "rate": 0.7744
+      },
+      "top6_agreement_by_season": {
+        "2014": {
+          "agree": 24,
+          "n": 30,
+          "rate": 0.8
+        },
+        "2015": {
+          "agree": 20,
+          "n": 30,
+          "rate": 0.6667
+        },
+        "2016": {
+          "agree": 26,
+          "n": 30,
+          "rate": 0.8667
+        },
+        "2017": {
+          "agree": 26,
+          "n": 30,
+          "rate": 0.8667
+        },
+        "2018": {
+          "agree": 26,
+          "n": 30,
+          "rate": 0.8667
+        },
+        "2019": {
+          "agree": 22,
+          "n": 30,
+          "rate": 0.7333
+        },
+        "2020": {
+          "agree": 28,
+          "n": 30,
+          "rate": 0.9333
+        },
+        "2021": {
+          "agree": 20,
+          "n": 30,
+          "rate": 0.6667
+        },
+        "2022": {
+          "agree": 22,
+          "n": 30,
+          "rate": 0.7333
+        },
+        "2023": {
+          "agree": 24,
+          "n": 30,
+          "rate": 0.8
+        },
+        "2024": {
+          "agree": 22,
+          "n": 30,
+          "rate": 0.7333
+        },
+        "2025": {
+          "agree": 20,
+          "n": 30,
+          "rate": 0.6667
+        },
+        "2026": {
+          "agree": 22,
+          "n": 30,
+          "rate": 0.7333
+        }
+      },
+      "spearman_bref_rank_od_rank_by_season": {
+        "2014": 0.7339,
+        "2015": 0.5875,
+        "2016": 0.6018,
+        "2017": 0.8429,
+        "2018": 0.7589,
+        "2019": 0.7339,
+        "2020": 0.8018,
+        "2021": 0.6982,
+        "2022": 0.6714,
+        "2023": 0.8071,
+        "2024": 0.6446,
+        "2025": 0.5929,
+        "2026": 0.6125
+      },
+      "spearman_bref_rank_od_rank_by_season_league": {
+        "2014 AL": 0.8036,
+        "2014 NL": 0.6643,
+        "2015 AL": 0.4964,
+        "2015 NL": 0.6786,
+        "2016 AL": 0.3607,
+        "2016 NL": 0.8429,
+        "2017 AL": 0.8786,
+        "2017 NL": 0.8071,
+        "2018 AL": 0.7893,
+        "2018 NL": 0.7286,
+        "2019 AL": 0.8714,
+        "2019 NL": 0.5964,
+        "2020 AL": 0.8536,
+        "2020 NL": 0.75,
+        "2021 AL": 0.625,
+        "2021 NL": 0.7714,
+        "2022 AL": 0.7107,
+        "2022 NL": 0.6321,
+        "2023 AL": 0.7571,
+        "2023 NL": 0.8571,
+        "2024 AL": 0.6857,
+        "2024 NL": 0.6036,
+        "2025 AL": 0.4429,
+        "2025 NL": 0.7429,
+        "2026 AL": 0.725,
+        "2026 NL": 0.5
+      },
+      "open_2014_agreement": {
+        "agree": 9,
+        "n": 12,
+        "rate": 0.75,
+        "clubs": {
+          "DET": {
+            "window_top6": 1,
+            "bref_top6": 1,
+            "bref_rank": 3,
+            "od_rank": 1
+          },
+          "BOS": {
+            "window_top6": 1,
+            "bref_top6": 1,
+            "bref_rank": 1,
+            "od_rank": 2
+          },
+          "TEX": {
+            "window_top6": 1,
+            "bref_top6": 1,
+            "bref_rank": 5,
+            "od_rank": 3
+          },
+          "OAK": {
+            "window_top6": 1,
+            "bref_top6": 1,
+            "bref_rank": 2,
+            "od_rank": 4
+          },
+          "LAA": {
+            "window_top6": 1,
+            "bref_top6": 0,
+            "bref_rank": 8,
+            "od_rank": 5
+          },
+          "TBR": {
+            "window_top6": 1,
+            "bref_top6": 0,
+            "bref_rank": 9,
+            "od_rank": 6
+          },
+          "LAD": {
+            "window_top6": 1,
+            "bref_top6": 1,
+            "bref_rank": 1,
+            "od_rank": 1
+          },
+          "WSN": {
+            "window_top6": 1,
+            "bref_top6": 1,
+            "bref_rank": 5,
+            "od_rank": 2
+          },
+          "STL": {
+            "window_top6": 1,
+            "bref_top6": 1,
+            "bref_rank": 2,
+            "od_rank": 3
+          },
+          "SFG": {
+            "window_top6": 1,
+            "bref_top6": 0,
+            "bref_rank": 10,
+            "od_rank": 4
+          },
+          "PIT": {
+            "window_top6": 1,
+            "bref_top6": 1,
+            "bref_rank": 6,
+            "od_rank": 5
+          },
+          "ATL": {
+            "window_top6": 1,
+            "bref_top6": 1,
+            "bref_rank": 3,
+            "od_rank": 6
+          }
+        }
+      },
+      "gate_threshold": 0.85,
+      "gate_passed": false
+    },
+    "entry_2014": {
+      "cap": 4,
+      "gate_passed": false,
+      "spells": [
+        {
+          "team_id": "10",
+          "team": "ATH",
+          "spell_start": 2014,
+          "spell_end": 2014,
+          "bref_top6_2011": 1,
+          "bref_top6_2012": 0,
+          "bref_top6_2013": 1,
+          "entry_2014": 2,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "16",
+          "team": "ATL",
+          "spell_start": 2014,
+          "spell_end": 2014,
+          "bref_top6_2011": 1,
+          "bref_top6_2012": 0,
+          "bref_top6_2013": 1,
+          "entry_2014": 2,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "3",
+          "team": "BOS",
+          "spell_start": 2014,
+          "spell_end": 2019,
+          "bref_top6_2011": 0,
+          "bref_top6_2012": 1,
+          "bref_top6_2013": 0,
+          "entry_2014": 1,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "6",
+          "team": "DET",
+          "spell_start": 2014,
+          "spell_end": 2015,
+          "bref_top6_2011": 0,
+          "bref_top6_2012": 1,
+          "bref_top6_2013": 1,
+          "entry_2014": 3,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "1",
+          "team": "LAA",
+          "spell_start": 2014,
+          "spell_end": 2015,
+          "bref_top6_2011": 0,
+          "bref_top6_2012": 0,
+          "bref_top6_2013": 1,
+          "entry_2014": 2,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "22",
+          "team": "LAD",
+          "spell_start": 2014,
+          "spell_end": 2026,
+          "bref_top6_2011": 0,
+          "bref_top6_2012": 1,
+          "bref_top6_2013": 0,
+          "entry_2014": 1,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "27",
+          "team": "PIT",
+          "spell_start": 2014,
+          "spell_end": 2015,
+          "bref_top6_2011": 0,
+          "bref_top6_2012": 0,
+          "bref_top6_2013": 0,
+          "entry_2014": 1,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "30",
+          "team": "SFG",
+          "spell_start": 2014,
+          "spell_end": 2014,
+          "bref_top6_2011": 1,
+          "bref_top6_2012": 0,
+          "bref_top6_2013": 1,
+          "entry_2014": 2,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "28",
+          "team": "STL",
+          "spell_start": 2014,
+          "spell_end": 2019,
+          "bref_top6_2011": 1,
+          "bref_top6_2012": 1,
+          "bref_top6_2013": 1,
+          "entry_2014": 4,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "12",
+          "team": "TBR",
+          "spell_start": 2014,
+          "spell_end": 2014,
+          "bref_top6_2011": 1,
+          "bref_top6_2012": 1,
+          "bref_top6_2013": 1,
+          "entry_2014": 4,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "13",
+          "team": "TEX",
+          "spell_start": 2014,
+          "spell_end": 2014,
+          "bref_top6_2011": 1,
+          "bref_top6_2012": 1,
+          "bref_top6_2013": 0,
+          "entry_2014": 1,
+          "gate_passed": 0
+        },
+        {
+          "team_id": "24",
+          "team": "WSN",
+          "spell_start": 2014,
+          "spell_end": 2020,
+          "bref_top6_2011": 0,
+          "bref_top6_2012": 0,
+          "bref_top6_2013": 1,
+          "entry_2014": 2,
+          "gate_passed": 0
+        }
+      ],
+      "distribution": {
+        "1": 4,
+        "2": 5,
+        "3": 1,
+        "4": 2
+      }
+    }
   }
 }
