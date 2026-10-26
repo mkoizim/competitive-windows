@@ -1244,3 +1244,22 @@ open in 2014: 9 of 12 in 2014.
 **Consequence:** Sample B is not used. Left-censored spells are handled by the flow sample (primary)
 with L and H as bounds, as decided earlier today. Backcast entry durations remain on disk, unused.
 **Retained:** 2014–2026 B-Ref ranks, for the parked P2 benchmark and windows robustness check.
+
+## 2026-10-26 — Payroll covariate for the Post 1 hazard
+
+**Chose:** Opening Day payroll from Cot's (active roster and injured list), for season n, predicting
+exit at n+1. Scaled as log₂ of payroll relative to the MLB mean that season, so one unit is double the
+league average.
+**Collected but not used now:** year-end 40-man payroll and CBT payroll, 2011–2026, for R3, P4 and P3
+later. Opening Day CBT figures too, where Cot's shows them.
+**Rejected:**
+- Year-end payroll: includes deadline acquisitions, the behavior Post 2 studies.
+- CBT payroll as the primary measure: it handles deferrals better, but Cot's reports it at year-end,
+  after transactions.
+- Season n+1 payroll: clubs cut payroll after deciding to rebuild.
+- Raw dollars (salary inflation) and rank (loses magnitude).
+**Interpretation:** with Opening Day strength in the model, payroll's coefficient compares clubs with
+the same projection. It measures capacity beyond the current roster, mixed with commitment to the
+window. It is not described as market size or as ability to spend alone.
+**Known limit:** Opening Day cash payroll understates clubs with heavily deferred contracts.
+**Deferred:** committed future payroll, to the value build.
