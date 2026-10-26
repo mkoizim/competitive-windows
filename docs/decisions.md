@@ -1279,3 +1279,19 @@ equals the Marlins' figure; it needs a second source before R3 or P4 use it. Red
 missing comma (parsed correctly). Cot's printed MLB ranks disagree with its dollar figures 105 times;
 dollar figures are used, ranks never.
 **2026:** year-end and CBT figures are Cot's projections; Opening Day figures appear to be actuals.
+
+## 2026-10-26 — Deadline status in the Post 1 hazard: description only
+
+**Question:** Should falling below the line by the deadline enter the hazard model?
+**Chose:** No. It is reported as a cross-tabulation of exit at n+1 against deadline status in season
+n, for each sample. Across all 144 Opening Day contender club-seasons, 2014–2025 (sample L), the cells
+are the window patterns: held, carried forward 82; held, not carried forward 16; gap year 21;
+fizzled 25. Of the 41 exits, 25 had already fallen below the line by the deadline.
+**Why:** Post 1 asks how long windows last as judged from Opening Day. Deadline status is information
+from after that point, so adding it changes the question to one conditional on the first half. It
+would also be a sixth estimated number from 30 exits.
+**Corrected in discussion:** the first half does not determine the next Opening Day projection.
+Projections are built player by player, and 21 of 46 deadline fallers were back above the line the
+next Opening Day. Gap years include temporary setbacks such as injuries, and the write-up says so.
+Whether a drop was backed by underlying performance is tested in the window-pattern analysis (§4c,
+E4, Post 2), not here.
