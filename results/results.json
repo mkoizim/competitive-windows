@@ -6866,5 +6866,1491 @@
         "4": 2
       }
     }
+  },
+  "hazard": {
+    "definition": "window_top6, strict consecutive spells. One row per spell per season n, 2014-2025 (2026 excluded: 2027 not observed). event = 1 if out of the window at season n+1's Opening Day. era12 = 1 if n+1 >= 2022. strength = 162 x (Opening Day proj_w/(proj_w+proj_l) minus that of the league's od_rank-7 club), season n. od_log2_rel from payroll.csv, season n. pd_above = pd_rank <= 6 in season n.",
+    "samples": {
+      "F": "Left-censored spells dropped; duration = duration_obs. Primary.",
+      "L": "All spells; left-censored spells enter in 2014 at duration 1.",
+      "H": "All spells; left-censored spells enter in 2014 at the top bin (4+) and stay there: bin 4+, ln(duration capped at 4) = ln 4, duration-1 indicator 0. In the exact-duration life table they enter at duration 4 and count up (duration_obs + 3); 'entered' counts these delayed entries."
+    },
+    "pp_file": "data/processed/hazard_pp.csv",
+    "rows_events": {
+      "F": {
+        "rows": 102,
+        "events": 30,
+        "spells": 38,
+        "clubs": 22
+      },
+      "L": {
+        "rows": 144,
+        "events": 41,
+        "spells": 50,
+        "clubs": 26
+      },
+      "H": {
+        "rows": 144,
+        "events": 41,
+        "spells": 50,
+        "clubs": 26
+      }
+    },
+    "binned": {
+      "F": {
+        "1": {
+          "rows": 38,
+          "events": 13,
+          "hazard": 0.34210526315789475
+        },
+        "2": {
+          "rows": 21,
+          "events": 5,
+          "hazard": 0.23809523809523808
+        },
+        "3": {
+          "rows": 14,
+          "events": 5,
+          "hazard": 0.35714285714285715
+        },
+        "4+": {
+          "rows": 29,
+          "events": 7,
+          "hazard": 0.2413793103448276
+        }
+      },
+      "L": {
+        "1": {
+          "rows": 50,
+          "events": 18,
+          "hazard": 0.36
+        },
+        "2": {
+          "rows": 28,
+          "events": 8,
+          "hazard": 0.2857142857142857
+        },
+        "3": {
+          "rows": 18,
+          "events": 5,
+          "hazard": 0.2777777777777778
+        },
+        "4+": {
+          "rows": 48,
+          "events": 10,
+          "hazard": 0.20833333333333334
+        }
+      },
+      "H": {
+        "1": {
+          "rows": 38,
+          "events": 13,
+          "hazard": 0.34210526315789475
+        },
+        "2": {
+          "rows": 21,
+          "events": 5,
+          "hazard": 0.23809523809523808
+        },
+        "3": {
+          "rows": 14,
+          "events": 5,
+          "hazard": 0.35714285714285715
+        },
+        "4+": {
+          "rows": 71,
+          "events": 18,
+          "hazard": 0.2535211267605634
+        }
+      }
+    },
+    "life_tables": {
+      "small_at_risk_threshold": 10,
+      "F": [
+        {
+          "duration": 1,
+          "at_risk": 38,
+          "entered": 0,
+          "exits": 13,
+          "censored": 4,
+          "hazard": 0.34210526315789475,
+          "survival": 0.6578947368421053,
+          "small": false
+        },
+        {
+          "duration": 2,
+          "at_risk": 21,
+          "entered": 0,
+          "exits": 5,
+          "censored": 2,
+          "hazard": 0.23809523809523808,
+          "survival": 0.5012531328320802,
+          "small": false
+        },
+        {
+          "duration": 3,
+          "at_risk": 14,
+          "entered": 0,
+          "exits": 5,
+          "censored": 0,
+          "hazard": 0.35714285714285715,
+          "survival": 0.32223415682062295,
+          "small": false
+        },
+        {
+          "duration": 4,
+          "at_risk": 9,
+          "entered": 0,
+          "exits": 3,
+          "censored": 0,
+          "hazard": 0.3333333333333333,
+          "survival": 0.21482277121374865,
+          "small": true
+        },
+        {
+          "duration": 5,
+          "at_risk": 6,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.21482277121374865,
+          "small": true
+        },
+        {
+          "duration": 6,
+          "at_risk": 6,
+          "entered": 0,
+          "exits": 2,
+          "censored": 1,
+          "hazard": 0.3333333333333333,
+          "survival": 0.1432151808091658,
+          "small": true
+        },
+        {
+          "duration": 7,
+          "at_risk": 3,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.1432151808091658,
+          "small": true
+        },
+        {
+          "duration": 8,
+          "at_risk": 3,
+          "entered": 0,
+          "exits": 1,
+          "censored": 1,
+          "hazard": 0.3333333333333333,
+          "survival": 0.09547678720611054,
+          "small": true
+        },
+        {
+          "duration": 9,
+          "at_risk": 1,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.09547678720611054,
+          "small": true
+        },
+        {
+          "duration": 10,
+          "at_risk": 1,
+          "entered": 0,
+          "exits": 1,
+          "censored": 0,
+          "hazard": 1.0,
+          "survival": 0.0,
+          "small": true
+        }
+      ],
+      "L": [
+        {
+          "duration": 1,
+          "at_risk": 50,
+          "entered": 0,
+          "exits": 18,
+          "censored": 4,
+          "hazard": 0.36,
+          "survival": 0.64,
+          "small": false
+        },
+        {
+          "duration": 2,
+          "at_risk": 28,
+          "entered": 0,
+          "exits": 8,
+          "censored": 2,
+          "hazard": 0.2857142857142857,
+          "survival": 0.4571428571428572,
+          "small": false
+        },
+        {
+          "duration": 3,
+          "at_risk": 18,
+          "entered": 0,
+          "exits": 5,
+          "censored": 0,
+          "hazard": 0.2777777777777778,
+          "survival": 0.3301587301587302,
+          "small": false
+        },
+        {
+          "duration": 4,
+          "at_risk": 13,
+          "entered": 0,
+          "exits": 3,
+          "censored": 0,
+          "hazard": 0.23076923076923078,
+          "survival": 0.253968253968254,
+          "small": false
+        },
+        {
+          "duration": 5,
+          "at_risk": 10,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.253968253968254,
+          "small": false
+        },
+        {
+          "duration": 6,
+          "at_risk": 10,
+          "entered": 0,
+          "exits": 4,
+          "censored": 1,
+          "hazard": 0.4,
+          "survival": 0.1523809523809524,
+          "small": false
+        },
+        {
+          "duration": 7,
+          "at_risk": 5,
+          "entered": 0,
+          "exits": 1,
+          "censored": 0,
+          "hazard": 0.2,
+          "survival": 0.12190476190476192,
+          "small": true
+        },
+        {
+          "duration": 8,
+          "at_risk": 4,
+          "entered": 0,
+          "exits": 1,
+          "censored": 1,
+          "hazard": 0.25,
+          "survival": 0.09142857142857144,
+          "small": true
+        },
+        {
+          "duration": 9,
+          "at_risk": 2,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.09142857142857144,
+          "small": true
+        },
+        {
+          "duration": 10,
+          "at_risk": 2,
+          "entered": 0,
+          "exits": 1,
+          "censored": 0,
+          "hazard": 0.5,
+          "survival": 0.04571428571428572,
+          "small": true
+        },
+        {
+          "duration": 11,
+          "at_risk": 1,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.04571428571428572,
+          "small": true
+        },
+        {
+          "duration": 12,
+          "at_risk": 1,
+          "entered": 0,
+          "exits": 0,
+          "censored": 1,
+          "hazard": 0.0,
+          "survival": 0.04571428571428572,
+          "small": true
+        }
+      ],
+      "H": [
+        {
+          "duration": 1,
+          "at_risk": 38,
+          "entered": 0,
+          "exits": 13,
+          "censored": 4,
+          "hazard": 0.34210526315789475,
+          "survival": 0.6578947368421053,
+          "small": false
+        },
+        {
+          "duration": 2,
+          "at_risk": 21,
+          "entered": 0,
+          "exits": 5,
+          "censored": 2,
+          "hazard": 0.23809523809523808,
+          "survival": 0.5012531328320802,
+          "small": false
+        },
+        {
+          "duration": 3,
+          "at_risk": 14,
+          "entered": 0,
+          "exits": 5,
+          "censored": 0,
+          "hazard": 0.35714285714285715,
+          "survival": 0.32223415682062295,
+          "small": false
+        },
+        {
+          "duration": 4,
+          "at_risk": 21,
+          "entered": 12,
+          "exits": 8,
+          "censored": 0,
+          "hazard": 0.38095238095238093,
+          "survival": 0.19947828755562375,
+          "small": false
+        },
+        {
+          "duration": 5,
+          "at_risk": 13,
+          "entered": 0,
+          "exits": 3,
+          "censored": 0,
+          "hazard": 0.23076923076923078,
+          "survival": 0.15344483658124902,
+          "small": false
+        },
+        {
+          "duration": 6,
+          "at_risk": 10,
+          "entered": 0,
+          "exits": 2,
+          "censored": 1,
+          "hazard": 0.2,
+          "survival": 0.12275586926499922,
+          "small": false
+        },
+        {
+          "duration": 7,
+          "at_risk": 7,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.12275586926499922,
+          "small": true
+        },
+        {
+          "duration": 8,
+          "at_risk": 7,
+          "entered": 0,
+          "exits": 1,
+          "censored": 1,
+          "hazard": 0.14285714285714285,
+          "survival": 0.10521931651285649,
+          "small": true
+        },
+        {
+          "duration": 9,
+          "at_risk": 5,
+          "entered": 0,
+          "exits": 2,
+          "censored": 0,
+          "hazard": 0.4,
+          "survival": 0.06313158990771389,
+          "small": true
+        },
+        {
+          "duration": 10,
+          "at_risk": 3,
+          "entered": 0,
+          "exits": 2,
+          "censored": 0,
+          "hazard": 0.6666666666666666,
+          "survival": 0.0210438633025713,
+          "small": true
+        },
+        {
+          "duration": 11,
+          "at_risk": 1,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.0210438633025713,
+          "small": true
+        },
+        {
+          "duration": 12,
+          "at_risk": 1,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.0210438633025713,
+          "small": true
+        },
+        {
+          "duration": 13,
+          "at_risk": 1,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.0210438633025713,
+          "small": true
+        },
+        {
+          "duration": 14,
+          "at_risk": 1,
+          "entered": 0,
+          "exits": 0,
+          "censored": 0,
+          "hazard": 0.0,
+          "survival": 0.0210438633025713,
+          "small": true
+        },
+        {
+          "duration": 15,
+          "at_risk": 1,
+          "entered": 0,
+          "exits": 0,
+          "censored": 1,
+          "hazard": 0.0,
+          "survival": 0.0210438633025713,
+          "small": true
+        }
+      ]
+    },
+    "entry_strength": {
+      "sample": "F",
+      "median_first_season_strength": 1.6886500000000106,
+      "n_spells": {
+        "at_or_above_median": 19,
+        "below_median": 19
+      },
+      "life_tables": {
+        "at_or_above_median": [
+          {
+            "duration": 1,
+            "at_risk": 19,
+            "entered": 0,
+            "exits": 4,
+            "censored": 2,
+            "hazard": 0.21052631578947367,
+            "survival": 0.7894736842105263,
+            "small": false
+          },
+          {
+            "duration": 2,
+            "at_risk": 13,
+            "entered": 0,
+            "exits": 2,
+            "censored": 2,
+            "hazard": 0.15384615384615385,
+            "survival": 0.6680161943319838,
+            "small": false
+          },
+          {
+            "duration": 3,
+            "at_risk": 9,
+            "entered": 0,
+            "exits": 3,
+            "censored": 0,
+            "hazard": 0.3333333333333333,
+            "survival": 0.4453441295546559,
+            "small": true
+          },
+          {
+            "duration": 4,
+            "at_risk": 6,
+            "entered": 0,
+            "exits": 0,
+            "censored": 0,
+            "hazard": 0.0,
+            "survival": 0.4453441295546559,
+            "small": true
+          },
+          {
+            "duration": 5,
+            "at_risk": 6,
+            "entered": 0,
+            "exits": 0,
+            "censored": 0,
+            "hazard": 0.0,
+            "survival": 0.4453441295546559,
+            "small": true
+          },
+          {
+            "duration": 6,
+            "at_risk": 6,
+            "entered": 0,
+            "exits": 2,
+            "censored": 1,
+            "hazard": 0.3333333333333333,
+            "survival": 0.29689608636977066,
+            "small": true
+          },
+          {
+            "duration": 7,
+            "at_risk": 3,
+            "entered": 0,
+            "exits": 0,
+            "censored": 0,
+            "hazard": 0.0,
+            "survival": 0.29689608636977066,
+            "small": true
+          },
+          {
+            "duration": 8,
+            "at_risk": 3,
+            "entered": 0,
+            "exits": 1,
+            "censored": 1,
+            "hazard": 0.3333333333333333,
+            "survival": 0.19793072424651378,
+            "small": true
+          },
+          {
+            "duration": 9,
+            "at_risk": 1,
+            "entered": 0,
+            "exits": 0,
+            "censored": 0,
+            "hazard": 0.0,
+            "survival": 0.19793072424651378,
+            "small": true
+          },
+          {
+            "duration": 10,
+            "at_risk": 1,
+            "entered": 0,
+            "exits": 1,
+            "censored": 0,
+            "hazard": 1.0,
+            "survival": 0.0,
+            "small": true
+          }
+        ],
+        "below_median": [
+          {
+            "duration": 1,
+            "at_risk": 19,
+            "entered": 0,
+            "exits": 9,
+            "censored": 2,
+            "hazard": 0.47368421052631576,
+            "survival": 0.5263157894736843,
+            "small": false
+          },
+          {
+            "duration": 2,
+            "at_risk": 8,
+            "entered": 0,
+            "exits": 3,
+            "censored": 0,
+            "hazard": 0.375,
+            "survival": 0.32894736842105265,
+            "small": true
+          },
+          {
+            "duration": 3,
+            "at_risk": 5,
+            "entered": 0,
+            "exits": 2,
+            "censored": 0,
+            "hazard": 0.4,
+            "survival": 0.19736842105263158,
+            "small": true
+          },
+          {
+            "duration": 4,
+            "at_risk": 3,
+            "entered": 0,
+            "exits": 3,
+            "censored": 0,
+            "hazard": 1.0,
+            "survival": 0.0,
+            "small": true
+          }
+        ]
+      },
+      "spells": [
+        {
+          "spell_id": "CLE-2015",
+          "first_season_strength": 2.9496999999999893,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "SEA-2015",
+          "first_season_strength": 5.938399999999983,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "SDP-2015",
+          "first_season_strength": 1.1038999999999837,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "TOR-2015",
+          "first_season_strength": 0.030899999999986605,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "CHC-2015",
+          "first_season_strength": 2.2895999999999814,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "HOU-2016",
+          "first_season_strength": 6.846799999999989,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "NYY-2016",
+          "first_season_strength": 1.108100000000002,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "NYM-2016",
+          "first_season_strength": 8.640900000000007,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "SFG-2016",
+          "first_season_strength": 4.806800000000015,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "LAA-2017",
+          "first_season_strength": 1.0025000000000028,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "MIN-2018",
+          "first_season_strength": 0.36890000000000667,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "NYY-2018",
+          "first_season_strength": 11.908799999999996,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "ARI-2018",
+          "first_season_strength": -0.012799999999993927,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "ATH-2019",
+          "first_season_strength": 0.5000000000000022,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "PHI-2019",
+          "first_season_strength": 1.7362000000000073,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "TBR-2020",
+          "first_season_strength": 7.263809999999997,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "ATL-2020",
+          "first_season_strength": 1.9242899999999985,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "SDP-2020",
+          "first_season_strength": 0.2105999999999948,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "MIL-2021",
+          "first_season_strength": 3.3101000000000127,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "LAA-2021",
+          "first_season_strength": -0.3016999999999981,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "CHW-2021",
+          "first_season_strength": 0.8947999999999987,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "TOR-2021",
+          "first_season_strength": 1.952900000000006,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "STL-2021",
+          "first_season_strength": 1.2210000000000045,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "TBR-2022",
+          "first_season_strength": 1.500200000000008,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "BOS-2022",
+          "first_season_strength": 2.89240000000001,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "PHI-2022",
+          "first_season_strength": 1.9328000000000003,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "STL-2023",
+          "first_season_strength": 1.9993000000000043,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "MIN-2023",
+          "first_season_strength": 0.7186999999999961,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "LAA-2023",
+          "first_season_strength": 1.6411000000000138,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "ARI-2024",
+          "first_season_strength": 1.327699999999993,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "BAL-2024",
+          "first_season_strength": 0.32950000000001833,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "PHI-2024",
+          "first_season_strength": 2.7302000000000084,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "SEA-2024",
+          "first_season_strength": 1.8092,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "SFG-2024",
+          "first_season_strength": 1.0094999999999947,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "CHC-2025",
+          "first_season_strength": 2.2272000000000043,
+          "group": "at_or_above_median"
+        },
+        {
+          "spell_id": "BOS-2025",
+          "first_season_strength": 1.3423999999999994,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "TEX-2025",
+          "first_season_strength": 1.2071000000000123,
+          "group": "below_median"
+        },
+        {
+          "spell_id": "NYM-2025",
+          "first_season_strength": 4.14160000000001,
+          "group": "at_or_above_median"
+        }
+      ]
+    },
+    "models": {
+      "F": {
+        "M1": {
+          "n_rows": 102,
+          "n_events": 30,
+          "n_clusters": 22,
+          "bins": {
+            "1": {
+              "rows": 38,
+              "events": 13,
+              "hazard": 0.3421052631578948,
+              "ci95_model": [
+                0.21013212382256763,
+                0.5040689745164666
+              ],
+              "ci95_cluster": [
+                0.2020364520400115,
+                0.5164345390601225
+              ]
+            },
+            "2": {
+              "rows": 21,
+              "events": 5,
+              "hazard": 0.23809523809523803,
+              "ci95_model": [
+                0.10272084243834013,
+                0.46034604423469005
+              ],
+              "ci95_cluster": [
+                0.0951612751699958,
+                0.48147898244870124
+              ]
+            },
+            "3": {
+              "rows": 14,
+              "events": 5,
+              "hazard": 0.3571428571428571,
+              "ci95_model": [
+                0.1569601293777192,
+                0.6237390335555132
+              ],
+              "ci95_cluster": [
+                0.175397244581883,
+                0.5920085989018901
+              ]
+            },
+            "4+": {
+              "rows": 29,
+              "events": 7,
+              "hazard": 0.24137931034482762,
+              "ci95_model": [
+                0.11965805843954141,
+                0.4268799527196413
+              ],
+              "ci95_cluster": [
+                0.12481548617752439,
+                0.41516192049733136
+              ]
+            }
+          },
+          "loglik": -61.090264783837284,
+          "notes": [],
+          "ci_note": "Hazard = logistic(bin coefficient), no intercept. ci95_model uses the ordinary ML standard error; ci95_cluster clusters by team_id. Both are Wald intervals on the logit scale, transformed."
+        },
+        "M2": {
+          "n_rows": 102,
+          "n_events": 30,
+          "n_clusters": 22,
+          "notes": [],
+          "terms": {
+            "const": {
+              "coef": -0.08503422329601473,
+              "se_cluster": 0.5801675893494869,
+              "z": -0.14656837930460642,
+              "p": 0.8834727137445066,
+              "odds_ratio": 0.9184808504215454,
+              "or_ci95": [
+                0.294592363045492,
+                2.8636420301934717
+              ]
+            },
+            "ln_dur": {
+              "coef": 0.5436040207812857,
+              "se_cluster": 0.5110290403857775,
+              "z": 1.063743892853755,
+              "p": 0.287444734649948,
+              "odds_ratio": 1.7222025445547184,
+              "or_ci95": [
+                0.63253931742553,
+                4.689007501608684
+              ]
+            },
+            "era12": {
+              "coef": 0.1922123868583771,
+              "se_cluster": 0.4424274416543701,
+              "z": 0.4344495136640639,
+              "p": 0.6639620489842143,
+              "odds_ratio": 1.211927887189446,
+              "or_ci95": [
+                0.5091842219261387,
+                2.884553645812953
+              ]
+            },
+            "strength": {
+              "coef": -0.3249914786545043,
+              "se_cluster": 0.09811264334958686,
+              "z": -3.312432195884495,
+              "p": 0.0009248854228237966,
+              "odds_ratio": 0.7225335105735153,
+              "or_ci95": [
+                0.5961325367034415,
+                0.8757359173659651
+              ]
+            },
+            "od_log2_rel": {
+              "coef": -0.055285835272534486,
+              "se_cluster": 0.39474652124260046,
+              "z": -0.14005401516523389,
+              "p": 0.8886173129794598,
+              "odds_ratio": 0.9462146477743566,
+              "or_ci95": [
+                0.436490347692499,
+                2.0511843260586624
+              ]
+            }
+          },
+          "loglik": -52.098320350913454,
+          "converged": true
+        },
+        "M2b": {
+          "n_rows": 102,
+          "n_events": 30,
+          "n_clusters": 22,
+          "notes": [],
+          "terms": {
+            "const": {
+              "coef": 0.5048611791911057,
+              "se_cluster": 0.5500722057797769,
+              "z": 0.9178089237855956,
+              "p": 0.3587189095228762,
+              "odds_ratio": 1.6567555123558992,
+              "or_ci95": [
+                0.5636733600307293,
+                4.869555707887313
+              ]
+            },
+            "dur1": {
+              "coef": -0.6031872305116985,
+              "se_cluster": 0.5100673496553111,
+              "z": -1.1825638926296993,
+              "p": 0.23698202963660275,
+              "odds_ratio": 0.5470652314777268,
+              "or_ci95": [
+                0.20130799388242643,
+                1.4866790022584646
+              ]
+            },
+            "era12": {
+              "coef": 0.18608040520902785,
+              "se_cluster": 0.4347846706178875,
+              "z": 0.4279829023056001,
+              "p": 0.6686635684379771,
+              "odds_ratio": 1.204519106094631,
+              "or_ci95": [
+                0.5137093968439906,
+                2.824293824213664
+              ]
+            },
+            "strength": {
+              "coef": -0.326179487477259,
+              "se_cluster": 0.09899060565983295,
+              "z": -3.295054973177234,
+              "p": 0.0009840242770860431,
+              "odds_ratio": 0.721675644065605,
+              "or_ci95": [
+                0.5944010170240586,
+                0.8762026314238719
+              ]
+            },
+            "od_log2_rel": {
+              "coef": 0.05052833818595268,
+              "se_cluster": 0.39370034985421715,
+              "z": 0.12834212162794054,
+              "p": 0.8978782324748587,
+              "odds_ratio": 1.0518266697924297,
+              "or_ci95": [
+                0.4862052848145315,
+                2.2754572561025506
+              ]
+            }
+          },
+          "loglik": -52.1610470876413,
+          "converged": true
+        },
+        "lr_bins_vs_log": {
+          "loglik_bins": -61.090264783837284,
+          "loglik_log": -61.52131548757623,
+          "lr_stat": 0.8621014074778941,
+          "df": 2,
+          "p": 0.6498259613335222,
+          "notes": []
+        }
+      },
+      "L": {
+        "M1": {
+          "n_rows": 144,
+          "n_events": 41,
+          "n_clusters": 26,
+          "bins": {
+            "1": {
+              "rows": 50,
+              "events": 18,
+              "hazard": 0.3600000000000001,
+              "ci95_model": [
+                0.2399716975987199,
+                0.5005265980716582
+              ],
+              "ci95_cluster": [
+                0.24681109284968925,
+                0.4912420312120369
+              ]
+            },
+            "2": {
+              "rows": 28,
+              "events": 8,
+              "hazard": 0.28571428571428564,
+              "ci95_model": [
+                0.149794012520197,
+                0.47592764864256953
+              ],
+              "ci95_cluster": [
+                0.1458682573150695,
+                0.4837058009424434
+              ]
+            },
+            "3": {
+              "rows": 18,
+              "events": 5,
+              "hazard": 0.2777777777777778,
+              "ci95_model": [
+                0.120581854710227,
+                0.5189680892226018
+              ],
+              "ci95_cluster": [
+                0.13089834281880178,
+                0.49550417047631073
+              ]
+            },
+            "4+": {
+              "rows": 48,
+              "events": 10,
+              "hazard": 0.20833333333333331,
+              "ci95_model": [
+                0.11592450021713786,
+                0.34560858553136
+              ],
+              "ci95_cluster": [
+                0.11487721821860808,
+                0.3479324856597578
+              ]
+            }
+          },
+          "loglik": -84.62114217706842,
+          "notes": [],
+          "ci_note": "Hazard = logistic(bin coefficient), no intercept. ci95_model uses the ordinary ML standard error; ci95_cluster clusters by team_id. Both are Wald intervals on the logit scale, transformed."
+        },
+        "M2": {
+          "n_rows": 144,
+          "n_events": 41,
+          "n_clusters": 26,
+          "notes": [],
+          "terms": {
+            "const": {
+              "coef": 0.3971114444869891,
+              "se_cluster": 0.47996952495984585,
+              "z": 0.8273680386691454,
+              "p": 0.4080284903881183,
+              "odds_ratio": 1.487521696906631,
+              "or_ci95": [
+                0.5806373935611228,
+                3.8108479118044487
+              ]
+            },
+            "ln_dur": {
+              "coef": 0.419697070821683,
+              "se_cluster": 0.37524151207876155,
+              "z": 1.1184718569559287,
+              "p": 0.26336551969006294,
+              "odds_ratio": 1.5215005788803377,
+              "or_ci95": [
+                0.72922256422165,
+                3.1745644267112394
+              ]
+            },
+            "era12": {
+              "coef": -0.21149554939303639,
+              "se_cluster": 0.38163637906194914,
+              "z": -0.554180788301383,
+              "p": 0.5794551249480802,
+              "odds_ratio": 0.8093728832453002,
+              "or_ci95": [
+                0.38308328759680726,
+                1.710031435310962
+              ]
+            },
+            "strength": {
+              "coef": -0.3384688808853562,
+              "se_cluster": 0.0840699283847352,
+              "z": -4.026039838364046,
+              "p": 5.672408271544509e-05,
+              "odds_ratio": 0.7128609626457459,
+              "or_ci95": [
+                0.6045650890565015,
+                0.8405558992122466
+              ]
+            },
+            "od_log2_rel": {
+              "coef": -0.11302162615364948,
+              "se_cluster": 0.3703860698367688,
+              "z": -0.3051454559386068,
+              "p": 0.7602553722174663,
+              "odds_ratio": 0.8931313449114653,
+              "or_ci95": [
+                0.43215181751858667,
+                1.8458411301927584
+              ]
+            }
+          },
+          "loglik": -69.99541116148907,
+          "converged": true
+        },
+        "M2b": {
+          "n_rows": 144,
+          "n_events": 41,
+          "n_clusters": 26,
+          "notes": [],
+          "terms": {
+            "const": {
+              "coef": 0.8870359424600218,
+              "se_cluster": 0.5244062205125687,
+              "z": 1.691505378393508,
+              "p": 0.09074032144097458,
+              "odds_ratio": 2.4279224734077527,
+              "or_ci95": [
+                0.8686628099870675,
+                6.78607103827339
+              ]
+            },
+            "dur1": {
+              "coef": -0.520687656001021,
+              "se_cluster": 0.3828351334821355,
+              "z": -1.360083258986778,
+              "p": 0.17380357811436553,
+              "odds_ratio": 0.5941118628811339,
+              "or_ci95": [
+                0.28053844134221423,
+                1.258183740978025
+              ]
+            },
+            "era12": {
+              "coef": -0.21208822131140992,
+              "se_cluster": 0.3803630922108295,
+              "z": -0.5575941137681483,
+              "p": 0.5771215768245597,
+              "odds_ratio": 0.8088933327879897,
+              "or_ci95": [
+                0.3838129777884756,
+                1.7047584675197183
+              ]
+            },
+            "strength": {
+              "coef": -0.3425980059778306,
+              "se_cluster": 0.08947528930773124,
+              "z": -3.828967848313265,
+              "p": 0.00012868181519584983,
+              "odds_ratio": 0.7099235392253244,
+              "or_ci95": [
+                0.5957289048554482,
+                0.8460080204913049
+              ]
+            },
+            "od_log2_rel": {
+              "coef": -0.04578595084227406,
+              "se_cluster": 0.3726881308878693,
+              "z": -0.12285325731516168,
+              "p": 0.9022233003996506,
+              "odds_ratio": 0.9552464099984744,
+              "or_ci95": [
+                0.4601261042555214,
+                1.983142654536805
+              ]
+            }
+          },
+          "loglik": -69.90939576065374,
+          "converged": true
+        },
+        "lr_bins_vs_log": {
+          "loglik_bins": -84.62114217706842,
+          "loglik_log": -84.68832902879728,
+          "lr_stat": 0.13437370345772592,
+          "df": 2,
+          "p": 0.9350204748210666,
+          "notes": []
+        }
+      },
+      "H": {
+        "M1": {
+          "n_rows": 144,
+          "n_events": 41,
+          "n_clusters": 26,
+          "bins": {
+            "1": {
+              "rows": 38,
+              "events": 13,
+              "hazard": 0.3421052631578948,
+              "ci95_model": [
+                0.21013212382256763,
+                0.5040689745164666
+              ],
+              "ci95_cluster": [
+                0.20297698510902598,
+                0.5149800209654668
+              ]
+            },
+            "2": {
+              "rows": 21,
+              "events": 5,
+              "hazard": 0.23809523809523803,
+              "ci95_model": [
+                0.10272084243834013,
+                0.46034604423469005
+              ],
+              "ci95_cluster": [
+                0.09592280262111749,
+                0.4792792251686714
+              ]
+            },
+            "3": {
+              "rows": 14,
+              "events": 5,
+              "hazard": 0.35714285714285715,
+              "ci95_model": [
+                0.15696012937771925,
+                0.6237390335555133
+              ],
+              "ci95_cluster": [
+                0.1765237282414223,
+                0.5901307946069945
+              ]
+            },
+            "4+": {
+              "rows": 71,
+              "events": 18,
+              "hazard": 0.2535211267605633,
+              "ci95_model": [
+                0.16594800445965727,
+                0.36697432880875885
+              ],
+              "ci95_cluster": [
+                0.15349557294095387,
+                0.3887911028843904
+              ]
+            }
+          },
+          "loglik": -85.26109894103968,
+          "notes": [],
+          "ci_note": "Hazard = logistic(bin coefficient), no intercept. ci95_model uses the ordinary ML standard error; ci95_cluster clusters by team_id. Both are Wald intervals on the logit scale, transformed."
+        },
+        "M2": {
+          "n_rows": 144,
+          "n_events": 41,
+          "n_clusters": 26,
+          "notes": [],
+          "terms": {
+            "const": {
+              "coef": 0.08413635440796646,
+              "se_cluster": 0.5802666861349722,
+              "z": 0.14499601031446432,
+              "p": 0.8847140218103081,
+              "odds_ratio": 1.0877772069140716,
+              "or_ci95": [
+                0.3488244993622849,
+                3.3921334483242838
+              ]
+            },
+            "ln_dur": {
+              "coef": 0.7172837915613894,
+              "se_cluster": 0.4571415331968389,
+              "z": 1.5690628382535017,
+              "p": 0.11663329776629687,
+              "odds_ratio": 2.048860513550192,
+              "or_ci95": [
+                0.8363453831263181,
+                5.01925339540152
+              ]
+            },
+            "era12": {
+              "coef": 0.0024767784899307897,
+              "se_cluster": 0.41831084863621554,
+              "z": 0.005920904270127411,
+              "p": 0.9952758294995151,
+              "odds_ratio": 1.0024798482396151,
+              "or_ci95": [
+                0.4415727537594258,
+                2.27587829541231
+              ]
+            },
+            "strength": {
+              "coef": -0.3650535294395694,
+              "se_cluster": 0.09164897824046694,
+              "z": -3.983170750488331,
+              "p": 6.80018602073841e-05,
+              "odds_ratio": 0.6941594919148645,
+              "or_ci95": [
+                0.5800241567205006,
+                0.8307540205565922
+              ]
+            },
+            "od_log2_rel": {
+              "coef": -0.1603772119260203,
+              "se_cluster": 0.3882085482667353,
+              "z": -0.41312127886433425,
+              "p": 0.6795177599965744,
+              "odds_ratio": 0.8518224107839815,
+              "or_ci95": [
+                0.39801484853019,
+                1.8230511303620274
+              ]
+            }
+          },
+          "loglik": -68.84823999921707,
+          "converged": true
+        },
+        "M2b": {
+          "n_rows": 144,
+          "n_events": 41,
+          "n_clusters": 26,
+          "notes": [],
+          "terms": {
+            "const": {
+              "coef": 0.9401517697532256,
+              "se_cluster": 0.4888387878480872,
+              "z": 1.9232348028106754,
+              "p": 0.05445056831398276,
+              "odds_ratio": 2.5603699755622653,
+              "or_ci95": [
+                0.982188283354978,
+                6.674376515028593
+              ]
+            },
+            "dur1": {
+              "coef": -0.8164894455949647,
+              "se_cluster": 0.5059129919607248,
+              "z": -1.6138930183045204,
+              "p": 0.10655063330484027,
+              "odds_ratio": 0.44198053090758477,
+              "or_ci95": [
+                0.1639688333383134,
+                1.1913653694070967
+              ]
+            },
+            "era12": {
+              "coef": -0.0802220486446343,
+              "se_cluster": 0.3898316395253494,
+              "z": -0.2057863972824549,
+              "p": 0.8369577671893351,
+              "odds_ratio": 0.9229113924087995,
+              "or_ci95": [
+                0.4298615658060253,
+                1.9814877765143288
+              ]
+            },
+            "strength": {
+              "coef": -0.36236702128181036,
+              "se_cluster": 0.093064325674222,
+              "z": -3.8937263946907086,
+              "p": 9.871598659728509e-05,
+              "odds_ratio": 0.6960268642851133,
+              "or_ci95": [
+                0.5799733645978732,
+                0.8353028352301406
+              ]
+            },
+            "od_log2_rel": {
+              "coef": -0.03396147330315318,
+              "se_cluster": 0.37817000956608543,
+              "z": -0.0898047768042759,
+              "p": 0.9284423521905095,
+              "odds_ratio": 0.9666087441621999,
+              "or_ci95": [
+                0.4606233067390969,
+                2.02840900714571
+              ]
+            }
+          },
+          "loglik": -69.14217134066652,
+          "converged": true
+        },
+        "lr_bins_vs_log": {
+          "loglik_bins": -85.26109894103968,
+          "loglik_log": -85.67571527521541,
+          "lr_stat": 0.8292326683514659,
+          "df": 2,
+          "p": 0.6605936793101603,
+          "notes": []
+        }
+      }
+    },
+    "model_notes": "Discrete-time logit. M2/M2b: standard errors clustered by team_id (statsmodels cluster, default small-sample correction G/(G-1) x (N-1)/(N-K)); intervals are Wald, normal reference. LR test uses the ordinary likelihood: M1 (4 bin parameters) vs. intercept + ln(duration capped at 4), df 2.",
+    "persistent_contenders": {
+      "seasons": [
+        2014,
+        2026
+      ],
+      "count": 1,
+      "clubs": [
+        "LAD"
+      ]
+    },
+    "deadline": {
+      "F": {
+        "cells": {
+          "above_no_exit": 55,
+          "above_exit": 9,
+          "below_no_exit": 17,
+          "below_exit": 21
+        },
+        "share_closing": {
+          "above": 0.140625,
+          "below": 0.5526315789473685
+        },
+        "share_of_exits_below": 0.7
+      },
+      "L": {
+        "cells": {
+          "above_no_exit": 82,
+          "above_exit": 16,
+          "below_no_exit": 21,
+          "below_exit": 25
+        },
+        "share_closing": {
+          "above": 0.16326530612244897,
+          "below": 0.5434782608695652
+        },
+        "share_of_exits_below": 0.6097560975609756
+      },
+      "H": {
+        "cells": {
+          "above_no_exit": 82,
+          "above_exit": 16,
+          "below_no_exit": 21,
+          "below_exit": 25
+        },
+        "share_closing": {
+          "above": 0.16326530612244897,
+          "below": 0.5434782608695652
+        },
+        "share_of_exits_below": 0.6097560975609756
+      }
+    },
+    "figures": [
+      "results/figures/hazard_lifetable.png",
+      "results/figures/survival_by_entry_strength.png"
+    ]
   }
 }
