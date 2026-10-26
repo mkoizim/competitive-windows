@@ -1263,3 +1263,19 @@ the same projection. It measures capacity beyond the current roster, mixed with 
 window. It is not described as market size or as ability to spend alone.
 **Known limit:** Opening Day cash payroll understates clubs with heavily deferred contracts.
 **Deferred:** committed future payroll, to the value build.
+
+## 2026-10-26 — Payroll data: collection notes and 2020
+
+**Record:** Cot's club pages collected for 2011–2026 (480 club-seasons). All checks passed for
+2014–2026. Collection used the built-in browser, one page at a time, 31 page loads. No Opening Day CBT
+figures exist on Cot's, so there is no CBT variant.
+**2020:** Opening Day figures are prorated for all 30 clubs. Cot's gives no note, and the proration may
+be uneven (2020 as a share of the 2019–2021 average ranges from 0.35 to 0.65). Kept as published: the
+club-level correlation of relative payroll is 0.82 for 2019→2020 and 0.88 for 2020→2021, inside the
+0.79–0.94 range for other adjacent seasons. Interpolating from 2021 was rejected because 2021 payroll
+reflects decisions made after 2020.
+**Cot's errors noted, not corrected:** Brewers 2020 listed twice (copy dropped). Brewers 2024 year-end
+equals the Marlins' figure; it needs a second source before R3 or P4 use it. Reds 2021 year-end has a
+missing comma (parsed correctly). Cot's printed MLB ranks disagree with its dollar figures 105 times;
+dollar figures are used, ranks never.
+**2026:** year-end and CBT figures are Cot's projections; Opening Day figures appear to be actuals.
