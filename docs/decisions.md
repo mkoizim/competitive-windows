@@ -1295,3 +1295,18 @@ Projections are built player by player, and 21 of 46 deadline fallers were back 
 next Opening Day. Gap years include temporary setbacks such as injuries, and the write-up says so.
 Whether a drop was backed by underlying performance is tested in the window-pattern analysis (§4c,
 E4, Post 2), not here.
+
+## 2026-10-26 — Hazard run: implementation choices
+
+**Record:** All seven checks passed (F: 102 rows, 30 events, 22 clubs; L and H: 144 rows, 41 events).
+Choices made in implementation, accepted on review:
+- In H's exact-duration life table, left-censored spells enter at duration 4 and count up; in the
+  models they stay in bin 4+.
+- M1 intervals are reported both unclustered and clustered by club.
+- Clustered standard errors use statsmodels' default small-sample correction, with Wald intervals.
+- Analysis packages live in a local `.venv`, not committed; versions are pinned in `requirements.txt`
+  (commit `1f152ea`).
+
+**Independent check:** M2 in F and the bins-vs-log test were refit in the planning chat from
+`hazard_pp.csv`, with identical results.
+**Planned for Week 3:** wild-cluster bootstrap intervals for M2 (inference only; not a new variant).
