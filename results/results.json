@@ -8352,5 +8352,249 @@
       "results/figures/hazard_lifetable.png",
       "results/figures/survival_by_entry_strength.png"
     ]
+  },
+  "forecasts_2027": {
+    "definition": "P(window_top6 window open on 2026 Opening Day is closed on 2027 Opening Day), M2 in sample F as estimated (hazard.models.F.M2), 2026 Opening Day inputs, era12 = 1. ci95: Wald interval on the logit scale with the club-clustered covariance, both ends transformed. Text: docs/forecasts-2027.md.",
+    "covariance_cluster": {
+      "terms": [
+        "const",
+        "ln_dur",
+        "era12",
+        "strength",
+        "od_log2_rel"
+      ],
+      "matrix": [
+        [
+          0.3365944317315948,
+          -0.16312776028769177,
+          -0.18925783359515846,
+          -0.017014936222301068,
+          0.05509906575414523
+        ],
+        [
+          -0.1631277602876917,
+          0.2611506801176086,
+          0.04583804426588352,
+          -0.014509898449096854,
+          -0.03406000228372564
+        ],
+        [
+          -0.18925783359515846,
+          0.04583804426588354,
+          0.19574204112883106,
+          0.0023788704459585994,
+          -0.00469261150594556
+        ],
+        [
+          -0.01701493622230106,
+          -0.014509898449096864,
+          0.0023788704459586038,
+          0.00962609078504323,
+          -0.009827961915110347
+        ],
+        [
+          0.05509906575414522,
+          -0.03406000228372569,
+          -0.004692611505945559,
+          -0.009827961915110347,
+          0.15582481603313483
+        ]
+      ]
+    },
+    "expected_closed": 3.712116940846542,
+    "clubs": [
+      {
+        "team": "TEX",
+        "team_id": 13,
+        "league": "AL",
+        "spell_start": 2025,
+        "duration_capped": 2,
+        "strength": 0.7268999999999959,
+        "od_log2_rel": 0.091972,
+        "p_closed": 0.5603677550727846,
+        "logit": 0.24265470323231705,
+        "se_logit_cluster": 0.301352705111329,
+        "ci95": [
+          0.41386832481451713,
+          0.6970535131276153
+        ]
+      },
+      {
+        "team": "PIT",
+        "team_id": 27,
+        "league": "NL",
+        "spell_start": 2026,
+        "duration_capped": 1,
+        "strength": 0.6111999999999933,
+        "od_log2_rel": -0.731018,
+        "p_closed": 0.4872423477578013,
+        "logit": -0.05104168746201085,
+        "se_logit_cluster": 0.39734448484437135,
+        "ci95": [
+          0.3036795626213915,
+          0.674312100781436
+        ]
+      },
+      {
+        "team": "CHC",
+        "team_id": 17,
+        "league": "NL",
+        "spell_start": 2025,
+        "duration_capped": 2,
+        "strength": 1.8952000000000058,
+        "od_log2_rel": 0.35021,
+        "p_closed": 0.4622445694056553,
+        "logit": -0.1513097448088523,
+        "se_logit_cluster": 0.287236733122629,
+        "ci95": [
+          0.32865077534417153,
+          0.6014892650699813
+        ]
+      },
+      {
+        "team": "TOR",
+        "team_id": 14,
+        "league": "AL",
+        "spell_start": 2026,
+        "duration_capped": 1,
+        "strength": 1.8932999999999933,
+        "od_log2_rel": 0.670715,
+        "p_closed": 0.366976614055071,
+        "logit": -0.5452092419790264,
+        "se_logit_cluster": 0.4956419270318514,
+        "ci95": [
+          0.1799527832263556,
+          0.6049775939312009
+        ]
+      },
+      {
+        "team": "BOS",
+        "team_id": 3,
+        "league": "AL",
+        "spell_start": 2025,
+        "duration_capped": 2,
+        "strength": 3.2633999999999945,
+        "od_log2_rel": 0.132028,
+        "p_closed": 0.3580355346890085,
+        "logit": -0.5839007117925092,
+        "se_logit_cluster": 0.24364441428615063,
+        "ci95": [
+          0.2570336462484654,
+          0.47343562157961727
+        ]
+      },
+      {
+        "team": "DET",
+        "team_id": 6,
+        "league": "AL",
+        "spell_start": 2026,
+        "duration_capped": 1,
+        "strength": 2.257200000000003,
+        "od_log2_rel": 0.232839,
+        "p_closed": 0.34541263806188927,
+        "logit": -0.6392653006556073,
+        "se_logit_cluster": 0.39797340734011183,
+        "ci95": [
+          0.19477241473350881,
+          0.5351326534120827
+        ]
+      },
+      {
+        "team": "PHI",
+        "team_id": 26,
+        "league": "NL",
+        "spell_start": 2024,
+        "duration_capped": 3,
+        "strength": 4.623399999999983,
+        "od_log2_rel": 0.698783,
+        "p_closed": 0.30220702126873233,
+        "logit": -0.8368101832783998,
+        "se_logit_cluster": 0.4062869419739246,
+        "ci95": [
+          0.16340167965002428,
+          0.489879438229267
+        ]
+      },
+      {
+        "team": "NYY",
+        "team_id": 9,
+        "league": "AL",
+        "spell_start": 2018,
+        "duration_capped": 4,
+        "strength": 5.568600000000006,
+        "od_log2_rel": 0.769347,
+        "p_closed": 0.27061428536751936,
+        "logit": -0.9915081872913347,
+        "se_logit_cluster": 0.5048818607096002,
+        "ci95": [
+          0.12120411483934042,
+          0.49951506507692145
+        ]
+      },
+      {
+        "team": "ATL",
+        "team_id": 16,
+        "league": "NL",
+        "spell_start": 2020,
+        "duration_capped": 4,
+        "strength": 6.615799999999997,
+        "od_log2_rel": 0.51563,
+        "p_closed": 0.21118249877055092,
+        "logit": -1.3178123074704868,
+        "se_logit_cluster": 0.519311151493947,
+        "ci95": [
+          0.08821218775210814,
+          0.42556666249102043
+        ]
+      },
+      {
+        "team": "SEA",
+        "team_id": 11,
+        "league": "AL",
+        "spell_start": 2024,
+        "duration_capped": 3,
+        "strength": 6.6617999999999915,
+        "od_log2_rel": -0.103762,
+        "p_closed": 0.1892480682942145,
+        "logit": -1.4549034426989478,
+        "se_logit_cluster": 0.49364206423150864,
+        "ci95": [
+          0.08147732066459731,
+          0.38051450322679353
+        ]
+      },
+      {
+        "team": "NYM",
+        "team_id": 25,
+        "league": "NL",
+        "spell_start": 2025,
+        "duration_capped": 2,
+        "strength": 6.869,
+        "od_log2_rel": 1.028243,
+        "p_closed": 0.1412146441626939,
+        "logit": -1.805237982087966,
+        "se_logit_cluster": 0.5591719404185803,
+        "ci95": [
+          0.05209353468886117,
+          0.3297621574054037
+        ]
+      },
+      {
+        "team": "LAD",
+        "team_id": 22,
+        "league": "NL",
+        "spell_start": 2014,
+        "duration_capped": 4,
+        "strength": 14.918099999999997,
+        "od_log2_rel": 0.867303,
+        "p_closed": 0.017370963940621247,
+        "logit": -4.035431596251576,
+        "se_logit_cluster": 1.1420940391953163,
+        "ci95": [
+          0.0018812498021258276,
+          0.14222551693521165
+        ]
+      }
+    ]
   }
 }

@@ -1310,3 +1310,20 @@ Choices made in implementation, accepted on review:
 **Independent check:** M2 in F and the bins-vs-log test were refit in the planning chat from
 `hazard_pp.csv`, with identical results.
 **Planned for Week 3:** wild-cluster bootstrap intervals for M2 (inference only; not a new variant).
+
+## 2026-10-26 — 2027 window forecasts timestamped
+
+**Chose:** Forecast the probability that each of the 12 windows open on 2026 Opening Day is closed on
+2027 Opening Day. M2 in the flow sample, as estimated, with 2026 Opening Day inputs. Written to
+`docs/forecasts-2027.md`, committed and pushed before the 2026–27 free-agent market opens, and never
+edited afterward.
+**Outcome:** closed = below 6th in its league by FanGraphs Make Playoffs on the first archived 2027
+date (same rules as `windows.csv`).
+**Scoring, fixed in advance:** Brier score against a constant forecast of 30/102 = 0.294; log loss
+reported alongside. With 12 forecasts, the result is reported as a single-season check, not a
+validation.
+**Contingency:** the CBA expires December 1, 2026. If 2027 Opening Day odds are archived, score against
+them regardless of playoff format. If no 2027 regular season starts by December 31, 2027, the
+forecasts are void.
+**Limit stated in the file:** forecasts use 2026 Opening Day information only. Nothing from the 2026
+season, deadline or offseason is in them.
