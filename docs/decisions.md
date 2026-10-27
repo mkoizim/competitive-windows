@@ -1327,3 +1327,9 @@ them regardless of playoff format. If no 2027 regular season starts by December 
 forecasts are void.
 **Limit stated in the file:** forecasts use 2026 Opening Day information only. Nothing from the 2026
 season, deadline or offseason is in them.
+
+## 2026-10-26 — Forecast lock record
+
+**Record:** `docs/forecasts-2027.md` was committed and pushed at
+`3fdc13969042cc8709cc19c79df91002cb3fd253` (`3fdc139`), 2026-10-26 20:15:33 −0400. This entry is the
+authoritative lock record.
