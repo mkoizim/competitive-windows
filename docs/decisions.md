@@ -1333,3 +1333,16 @@ season, deadline or offseason is in them.
 **Record:** `docs/forecasts-2027.md` was committed and pushed at
 `3fdc13969042cc8709cc19c79df91002cb3fd253` (`3fdc139`), 2026-10-26 20:15:33 −0400. This entry is the
 authoritative lock record.
+
+## 2026-10-31 — OD Make Playoffs vs. realized qualification: descriptive count
+
+**Record:** Opening Day Make Playoffs odds against realized qualification (P2's dataset) are being
+examined for a descriptive count, before any analysis is run. For each season 2014–2026 except 2020:
+clubs with OD Make Playoffs below 50%, how many qualified (actual), the sum of their OD odds
+(expected), and a 5th–95th percentile range from 10,000 simulated seasons treating each club's OD odds
+as an independent Bernoulli.
+**Not a test of P2.** P2 is about whether prior-season record predicts the forecast error (a
+Mincer–Zarnowitz-form efficiency test). This count conditions on nothing from the prior season and
+does not test that claim; it does not count toward P2's result either way.
+**Output:** a new key in `results/results.json` (per-season aggregates only; no team-level odds) and a
+figure in `results/figures/`.
