@@ -1346,3 +1346,16 @@ Mincer–Zarnowitz-form efficiency test). This count conditions on nothing from 
 does not test that claim; it does not count toward P2's result either way.
 **Output:** a new key in `results/results.json` (per-season aggregates only; no team-level odds) and a
 figure in `results/figures/`.
+
+## 2026-10-31 — Descriptive count: 2020 included; berth-relative variant added
+
+**Changes the entry above, before anything was committed from it.** Two changes, both still
+descriptive and not a test of P2:
+- **2020 is shown.** It uses the 16-team field: OD odds are the rebuilt Win Div 1st + Win Div 2nd +
+  Clinch Wild Card (§3.3a), and 16 clubs qualify. It is marked as its own era in the figure.
+- **Second variant: not favored on Opening Day.** A club is in the count if it was outside the top N
+  in its league by OD Make Playoffs, where N is that season's berths per league (5 in 2014–2019 and
+  2021, 8 in 2020, 6 from 2022). This is `window_berth` = 0 in `windows.csv`. The below-50% variant
+  is kept alongside it.
+**Why:** a fixed 50% cutoff means something different when the field size changes (in 2020 more
+than half the league qualifies). The berth-relative cut uses the field size each season.
