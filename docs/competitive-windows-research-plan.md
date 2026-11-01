@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.28
+## Research Plan v0.29
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.29 — Post 1 hazard specified and fit: flow sample primary with L/H bounds; bins 1, 2, 3, 4+; M2 = log duration + era + Opening Day strength + payroll. Baseball-Reference backcast failed its gate. Cot's payroll collected. Deadline table added. 2027 forecasts timestamped (`3fdc139`). Descriptive count of Opening Day underdogs vs. realized qualification (three variants; not a test of P2).
 - v0.28 — Window patterns fixed after the first run: next year = next Opening Day rank; gap year and fizzled separated; Out of contention added; patterns renamed by whether the next Opening Day carried them forward; thresholds 3–9. Persistent club-specific forecast error added to P2 (exploratory). Spell count done.
 - v0.27 — Corrections from the data audit: 2020 second-place field, 2016 deadline (Aug 1), `data/processed/` never committed.
 - v0.26 — Opening Day confirmed as the primary window definition; change between Opening Day and the deadline named as a write-up theme in §3.3b. Surprise patterns renamed. Post 1 reminder reworded.
@@ -101,6 +102,13 @@ P4 remain **confirmatory**. The author also lived through the period, as most re
 safeguard is fixing analysis choices before the transaction data is seen, not ignorance of
 baseball history.
 
+By 2026-10-26, Baseball-Reference preseason odds and Cot's payrolls (both 2011–2026) had also been
+collected, and the Post 1 hazard had been fit with its results seen. On 2026-10-31 to 11-01,
+Opening Day Make Playoffs odds were set against realized qualification for a descriptive count of
+Opening Day underdogs (three variants, logged in `decisions.md`). That pairing is P2's dataset. The
+count is not a test of P2, but P2's data has now been looked at in this form, and readers should
+know it. Transactions have still not been pulled.
+
 ### Registered
 
 | # | Prediction | Operational test | Falsified if |
@@ -150,9 +158,10 @@ value build allows, contrast it with growth in internally developed WAR.
 
 ### 2.3 Persistent contenders
 
-Some clubs — likely the Dodgers and Yankees — may never fall below threshold across 2014–2026.
-They enter the survival model as right-censored spells, but contribute little to hazard
-estimation while having the most conversion capacity in the sample.
+**Result (2026-10-26):** one club, LAD, was in a window every season 2014–2026. Its spell was
+open in 2014, so it is outside the primary (flow) sample and enters only the L and H bounds
+(§3.3a). Persistent contenders contribute little to hazard estimation while having the most
+conversion capacity in the sample.
 
 They are reported as a named category with a count: *in thirteen seasons, N clubs never left
 contention; the hazard describes the remainder.* The count is itself a finding.
@@ -202,6 +211,14 @@ Most predictions point the same direction. Prior employment with LAD, MIA, BAL �
 
 - Case selection by pre-registered rule, with outcomes unexamined at the time of selection.
 - **No non-public knowledge from inside those organizations appears anywhere in the evidence.** Insider judgment is an asset in the recommendation section and a liability in the evidence section. Keep the wall visible to the reader.
+
+### 2.6 2027 window forecasts
+
+`docs/forecasts-2027.md`, locked at `3fdc139` (2026-10-26): the probability that each of the 12
+windows open on 2026 Opening Day is closed on 2027 Opening Day, from M2 in the flow sample (§5).
+Scored by Brier score against a constant 0.294, with log loss alongside; void if no 2027 regular
+season starts by December 31, 2027. A single-season check, not a validation. The file is never
+edited; scoring is logged in `decisions.md`.
 
 ---
 
@@ -420,6 +437,11 @@ snapshot. The author confirmed the 2020 data on 2026-10-18. 2020 stays flagged t
 
 **Censoring.** Thirteen seasons cannot estimate the hazard for windows longer than roughly seven
 years. The paper states the limit rather than extrapolating past it.
+
+**Left censoring.** The 12 spells open in 2014 have unknown start years. The primary (flow) sample
+drops them. Two bounds include them, entering at duration 1 (L) or at the top bin (H). A backcast
+of their start years from Baseball-Reference preseason odds failed its validation gate (77%
+agreement against 85% required) and is not used.
 
 **Optional descriptive context.** Realized postseason qualification going back decades is
 available from Retrosheet or Baseball-Reference — an outcome, not ex-ante, so it cannot carry
@@ -737,8 +759,21 @@ Modular. Each post stands alone. Ordered so cheap wins precede expensive work.
 - Report the **hazard**, not an average. Length is likely bimodal, and an average pools two
   populations and describes neither.
 - **Model the full distribution, then illustrate with outliers.**
-- Covariates: core age, committed payroll, farm rank, division strength, market size, format
-  regime.
+- **Models (fixed 2026-10-26):** M1 = duration bins 1, 2, 3, 4+. **M2 (primary)** = ln(duration,
+  capped at 4) + 12-team era + Opening Day strength (projected wins above the league's 7th-ranked
+  club) + Opening Day payroll (log₂ relative to the MLB mean). M2b = M2 with a first-year indicator
+  in place of ln duration. Logit, standard errors clustered by club, bins-vs-log likelihood-ratio
+  test. **Descriptive:** exact-duration life tables (F, L, H), life tables by entry strength, and
+  deadline status vs. closing.
+- **Not in the model:** core age and control, committed payroll and farm rank need the value build
+  (§7). **Division strength** is left out for the exit budget (it would be a sixth estimated number
+  from 30 exits). Window membership already prices the division path, but strength (projected win
+  percentage) does not, so a club in a weak division can hold a window with little strength; this
+  is stated as a limitation. **Market size** is deferred until after the abstract: it is a capacity
+  measure clubs don't choose, to be considered alongside R3's revenue measure (§4d).
+- **Write-up notes:** strength is in the model because surviving windows are disproportionately
+  strong, so duration is read with strength held fixed. Gap years include temporary setbacks such
+  as injuries; a weak first half does not determine the next projection.
 - Report an ex-post comparison with Jordan (2018) and Reinhart (2018) to show what the ex-ante
   definition changes.
 - This is the SABR abstract. It needs only the odds snapshots.
@@ -806,8 +841,8 @@ needs only the odds, which are collected.
 | Week | Dates | Goal |
 |---|---|---|
 | 1 | Oct 19–25 | Clean the odds; build the window table; count spells (go/no-go); classify window patterns |
-| 2 | Oct 26–Nov 1 | Hazard model with the cheap covariates: format regime, persistent contenders, payroll from Cot's |
-| 3 | Nov 2–8 | Robustness (thresholds 3–9, grace rule, berth-relative); comparison with Jordan and Reinhart |
+| 2 | Oct 26–Nov 1 | Done 2026-10-26: hazard model (F/L/H), format era, payroll from Cot's, persistent contenders; 2027 forecasts timestamped |
+| 3 | Nov 2–8 | Robustness (thresholds 3–9, grace rule, berth-relative); wild-cluster bootstrap intervals for M2; comparison with Jordan and Reinhart |
 | 4 | Nov 9–15 | Draft the abstract; send to one or two reviewers |
 | 5 | Nov 16–22 | Revise; referee pass in a fresh chat |
 | Buffer | Nov 23–25 | Target submission by November 22; don't rely on Thanksgiving week |
@@ -831,9 +866,10 @@ February.
 | Source | Use | Cost | Notes |
 |---|---|---|---|
 | FanGraphs playoff odds | Windows (Make Playoffs), Frame A (Win WS), deadline signal, P2 | Free | Archive from 2014-03-29. Collected through a browser session at reading pace, ~40 pages. Raw tables not republished (ToS) |
-| Baseball-Reference standings | Final W-L, runs scored and allowed (Pythagorean) at season's end and as of each pre-deadline date, realized postseason field | Free | Offseason signal; one-year switch filter; end-of-season cross-check |
+| Baseball-Reference standings | Final W-L, runs scored and allowed (Pythagorean) at season's end and as of each pre-deadline date, realized postseason field | Free | Offseason signal; one-year switch filter; end-of-season cross-check. Same Sports-Reference terms as the playoff-odds row |
 | Retrosheet / Baseball-Reference transactions | Trades by decision point, both sides, including August waiver trades 2014–2018 | Free | Cache once |
-| Cot's Contracts | Salary, arbitration, payroll, CBT position | Free | Manual cleanup likely |
+| Cot's Contracts | Salary, arbitration, payroll, CBT position | Free | Collected 2011–2026 from club pages. Opening Day payroll used; year-end and CBT kept for R3 and P4. Cot's publishes no Opening Day CBT. 2020 is prorated (see `decisions.md`) |
+| Baseball-Reference playoff odds | Preseason odds 2011–2026 | Free | Backcast failed its gate; retained for the P2 benchmark and a robustness check. Collected at under 20 requests/min; raw pages not committed. Sports-Reference's terms bar using content to prompt AI models; the author proceeded knowingly |
 | Player projections, as-of | Surplus by season, major leaguers | TBD | Multi-year archives scarce; likely one-year projection plus a pre-specified aging curve |
 | Grade-to-value table | Surplus, prospects | Free | One published table, cited |
 | $/WAR series by year | Converts WAR to dollars | Free | One series, cited |
@@ -854,9 +890,10 @@ competitive-windows/
   docs/
     competitive-windows-research-plan.md   # this file
     predictions.md                         # locked; never edited
+    forecasts-2027.md                      # locked at 3fdc139; never edited
     decisions.md                           # dated, append-only log
-    data-dictionary.md
-    lit-notes.md
+    data-dictionary.md                     # planned
+    lit-notes.md                           # planned
   data/raw/          # cached pulls, never edited, never committed
   data/interim/
   data/processed/    # derived from raw; never committed
@@ -864,6 +901,8 @@ competitive-windows/
   results/figures/  results/tables/
   results/results.json   # every number that appears in prose
   posts/post1-hazard/
+  requirements.txt   # pinned packages for hazard.py
+  .venv/             # local environment; never committed
 ```
 
 Two conventions matter more than the structure:
@@ -914,7 +953,10 @@ data dictionary — re-upload when they change.
 | Short and irregular windows invisible to window-based analyses | Medium | Window patterns classify every club-season (§3.3b); one-year signal switches enter P1 as a variant (§3.2) |
 | P3 underpowered and confounded | **High** | Downgraded to exploratory; time-varying exposure with core age and control |
 | Thirteen seasons cannot estimate hazards for windows beyond ~7 years | **High** | State the censoring limit; do not extrapolate |
-| Too few window spells | **High** | Count spells first. If thin, widen within the registered range |
+| Too few window spells | Resolved | 53 spells at baseline (2026-10-20) |
+| Few clusters (22 clubs in the primary sample) make clustered standard errors unreliable | Medium | Wild-cluster bootstrap (Week 3) |
+| Strength result partly reflects projections agreeing with themselves | Medium | State it in the write-up; the parked Baseball-Reference windows check offers a second instrument |
+| Sports-Reference terms (AI clause) | Low | Logged; only derived ranks published; Retrosheet as a fallback |
 | Doyle Number unstable because the future-WAR-to-title mapping is model-dependent | **High** | Report across 8–12% and the break-even rate; state if conclusions flip (§4g) |
 | Post 1 analyzed with the odds already in view | Medium | Labeled exploratory; any specification change from here logged with date |
 | Confirmation bias | **High** | Pre-registration; rule-based selection; all variants reported; adversarial referee pass |
@@ -946,6 +988,16 @@ data dictionary — re-upload when they change.
 - [x] Spec reviewers identified: [reviewer], [reviewer] (possibly others)
 - [x] SABR Analytics abstract deadline: Nov 25, 2026, 11:59 pm MST
 - [ ] Check whether the SABR call accepts work published elsewhere first (affects FanGraphs timing)
+- [x] Hazard model fit (2026-10-26)
+- [x] 2027 forecasts timestamped (`3fdc139`, 2026-10-26)
+- [ ] Add the closing-rate-by-cushion table to `hazard.py` and `results.json`
+- [ ] Fresh-install test of `requirements.txt`
+- [ ] Wild-cluster bootstrap for M2 (Week 3)
+- [ ] Heads-up to [reviewer] and [reviewer] that a draft is coming
+
+**After the abstract**
+- [ ] Score the 2027 forecasts on 2027 Opening Day
+- [ ] Second source for the Brewers' 2024 year-end payroll before R3 or P4 use it
 
 **Before Post 2**
 - [ ] Value build: projection source, aging curve, grade-to-value table, $/WAR series — logged before any valuation is computed
@@ -960,4 +1012,6 @@ data dictionary — re-upload when they change.
 - [ ] 30-minute check: archived ZiPS multi-year team outlooks (§4f)
 
 **Parked ideas — revisit after working with the data**
+- [ ] Baseball-Reference preseason ranks (2014–2026) as a P2 benchmark and a windows robustness check.
+- [ ] A long-panel version of the windows from Retrosheet game logs, to see longer windows and compare directly with Jordan (2018).
 - [ ] **The bubble trap.** At each deadline the Doyle Number correctly tells a bubble team not to buy, so it stays on the bubble and gets the same answer next year: every decision rational, no championship. The way off is a leap big enough to reach secure status in one move, mostly an offseason move, which a one-deadline calculation can't see. Possible tests: bubble persistence from tier-to-tier transitions in the odds (exploratory), and whether bubble clubs that made a big offseason conversion reached secure status more often (needs trades). May also be where offseason under-conversion lives.

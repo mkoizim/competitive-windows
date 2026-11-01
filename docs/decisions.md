@@ -1369,3 +1369,20 @@ is analyzed separately (actual, expected and a simulated range per league), and 
 the two leagues summed; the summed range comes from adding the per-league simulated counts.
 **Why:** this leaves out the clubs just outside the field, so it asks whether clubs priced as
 clear long shots qualify at the rate their odds imply.
+
+## 2026-11-01 — Plan v0.29; division strength and market size in Post 1
+
+**Record:** The plan moves to v0.29, carrying in the decisions logged 2026-10-26 to 2026-11-01. Edits
+that only carry logged decisions were applied without re-approval; the items below were new and
+decided by the author.
+**Chose:**
+- **Division strength:** not in M2. The reason is the exit budget (a sixth estimated number from 30
+  exits), not that it is already priced in: window membership prices the division path, but
+  strength (projected win percentage) does not. Stated as a limitation in the write-up.
+- **Market size:** deferred until after the abstract. It is a capacity measure clubs don't choose,
+  to be considered alongside R3's revenue measure; it is not treated as a substitute for that
+  measure.
+- **Risk register:** two rows added, for the strength result partly reflecting projections agreeing
+  with themselves (Medium) and for Sports-Reference's terms (Low).
+- **Repository layout:** `docs/data-dictionary.md` and `docs/lit-notes.md` marked as planned.
+  `CLAUDE.md` to be created before Week 3.
