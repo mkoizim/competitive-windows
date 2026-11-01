@@ -1359,3 +1359,13 @@ descriptive and not a test of P2:
   is kept alongside it.
 **Why:** a fixed 50% cutoff means something different when the field size changes (in 2020 more
 than half the league qualifies). The berth-relative cut uses the field size each season.
+
+## 2026-11-01 — Descriptive count: third variant, outside berths + 2
+
+**Adds to the two 2026-10-31 entries; still descriptive and not a test of P2.** Third variant: a club
+is in the count if its Opening Day rank in its league by Make Playoffs is worse than berths per
+league + 2 (outside the top 7 in 2014–2019 and 2021, top 10 in 2020, top 8 from 2022). Each league
+is analyzed separately (actual, expected and a simulated range per league), and the figure shows
+the two leagues summed; the summed range comes from adding the per-league simulated counts.
+**Why:** this leaves out the clubs just outside the field, so it asks whether clubs priced as
+clear long shots qualify at the rate their odds imply.
