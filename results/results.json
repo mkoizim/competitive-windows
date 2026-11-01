@@ -8596,5 +8596,590 @@
         ]
       }
     ]
+  },
+  "od_underdogs": {
+    "description": "Opening Day underdogs: realized qualifiers vs. sum of OD odds, with a 5th-95th percentile range from independent-Bernoulli simulation. Descriptive; does not test P2.",
+    "decision": "docs/decisions.md, 2026-10-31 (two entries) and 2026-11-01",
+    "n_sims": 10000,
+    "seed": 20261031,
+    "seeding": "numpy default_rng([seed, variant index, season(, league index)])",
+    "quantile_method": "inverted_cdf",
+    "note_2020": "16-team field; OD odds are Win Div 1st + Win Div 2nd + Clinch Wild Card",
+    "variants": {
+      "below50": {
+        "definition": "OD Make Playoffs below 50%",
+        "by_season": [
+          {
+            "season": 2014,
+            "berths_per_league": 5,
+            "n_clubs": 24,
+            "actual": 6,
+            "expected": 5.769,
+            "p05": 3,
+            "p95": 9
+          },
+          {
+            "season": 2015,
+            "berths_per_league": 5,
+            "n_clubs": 21,
+            "actual": 7,
+            "expected": 3.871,
+            "p05": 1,
+            "p95": 7
+          },
+          {
+            "season": 2016,
+            "berths_per_league": 5,
+            "n_clubs": 22,
+            "actual": 3,
+            "expected": 3.965,
+            "p05": 1,
+            "p95": 7
+          },
+          {
+            "season": 2017,
+            "berths_per_league": 5,
+            "n_clubs": 21,
+            "actual": 4,
+            "expected": 2.952,
+            "p05": 1,
+            "p95": 5
+          },
+          {
+            "season": 2018,
+            "berths_per_league": 5,
+            "n_clubs": 22,
+            "actual": 4,
+            "expected": 2.901,
+            "p05": 1,
+            "p95": 5
+          },
+          {
+            "season": 2019,
+            "berths_per_league": 5,
+            "n_clubs": 23,
+            "actual": 6,
+            "expected": 3.902,
+            "p05": 1,
+            "p95": 7
+          },
+          {
+            "season": 2020,
+            "berths_per_league": 8,
+            "n_clubs": 12,
+            "actual": 2,
+            "expected": 2.634,
+            "p05": 1,
+            "p95": 5
+          },
+          {
+            "season": 2021,
+            "berths_per_league": 5,
+            "n_clubs": 22,
+            "actual": 6,
+            "expected": 3.877,
+            "p05": 1,
+            "p95": 7
+          },
+          {
+            "season": 2022,
+            "berths_per_league": 6,
+            "n_clubs": 18,
+            "actual": 3,
+            "expected": 2.861,
+            "p05": 1,
+            "p95": 5
+          },
+          {
+            "season": 2023,
+            "berths_per_league": 6,
+            "n_clubs": 19,
+            "actual": 5,
+            "expected": 4.059,
+            "p05": 2,
+            "p95": 7
+          },
+          {
+            "season": 2024,
+            "berths_per_league": 6,
+            "n_clubs": 20,
+            "actual": 6,
+            "expected": 5.059,
+            "p05": 2,
+            "p95": 8
+          },
+          {
+            "season": 2025,
+            "berths_per_league": 6,
+            "n_clubs": 18,
+            "actual": 6,
+            "expected": 4.258,
+            "p05": 2,
+            "p95": 7
+          },
+          {
+            "season": 2026,
+            "berths_per_league": 6,
+            "n_clubs": 20,
+            "actual": 6,
+            "expected": 4.924,
+            "p05": 2,
+            "p95": 8
+          }
+        ]
+      },
+      "outside_berths": {
+        "definition": "outside the top N in the league on Opening Day (N = berths per league)",
+        "by_season": [
+          {
+            "season": 2014,
+            "berths_per_league": 5,
+            "n_clubs": 20,
+            "actual": 2,
+            "expected": 3.888,
+            "p05": 1,
+            "p95": 7
+          },
+          {
+            "season": 2015,
+            "berths_per_league": 5,
+            "n_clubs": 20,
+            "actual": 6,
+            "expected": 3.43,
+            "p05": 1,
+            "p95": 6
+          },
+          {
+            "season": 2016,
+            "berths_per_league": 5,
+            "n_clubs": 20,
+            "actual": 2,
+            "expected": 3.231,
+            "p05": 1,
+            "p95": 6
+          },
+          {
+            "season": 2017,
+            "berths_per_league": 5,
+            "n_clubs": 20,
+            "actual": 4,
+            "expected": 2.619,
+            "p05": 0,
+            "p95": 5
+          },
+          {
+            "season": 2018,
+            "berths_per_league": 5,
+            "n_clubs": 20,
+            "actual": 4,
+            "expected": 2.081,
+            "p05": 0,
+            "p95": 4
+          },
+          {
+            "season": 2019,
+            "berths_per_league": 5,
+            "n_clubs": 20,
+            "actual": 4,
+            "expected": 2.619,
+            "p05": 1,
+            "p95": 5
+          },
+          {
+            "season": 2020,
+            "berths_per_league": 8,
+            "n_clubs": 14,
+            "actual": 3,
+            "expected": 3.789,
+            "p05": 1,
+            "p95": 6
+          },
+          {
+            "season": 2021,
+            "berths_per_league": 5,
+            "n_clubs": 20,
+            "actual": 4,
+            "expected": 2.975,
+            "p05": 1,
+            "p95": 6
+          },
+          {
+            "season": 2022,
+            "berths_per_league": 6,
+            "n_clubs": 18,
+            "actual": 3,
+            "expected": 2.861,
+            "p05": 1,
+            "p95": 5
+          },
+          {
+            "season": 2023,
+            "berths_per_league": 6,
+            "n_clubs": 18,
+            "actual": 5,
+            "expected": 3.583,
+            "p05": 1,
+            "p95": 6
+          },
+          {
+            "season": 2024,
+            "berths_per_league": 6,
+            "n_clubs": 18,
+            "actual": 6,
+            "expected": 4.146,
+            "p05": 2,
+            "p95": 7
+          },
+          {
+            "season": 2025,
+            "berths_per_league": 6,
+            "n_clubs": 18,
+            "actual": 6,
+            "expected": 4.258,
+            "p05": 2,
+            "p95": 7
+          },
+          {
+            "season": 2026,
+            "berths_per_league": 6,
+            "n_clubs": 18,
+            "actual": 6,
+            "expected": 4.007,
+            "p05": 1,
+            "p95": 7
+          }
+        ]
+      },
+      "outside_berths_plus2": {
+        "definition": "outside the top N + 2 in the league on Opening Day (N = berths per league)",
+        "by_season": [
+          {
+            "season": 2014,
+            "berths_per_league": 5,
+            "n_clubs": 16,
+            "actual": 2,
+            "expected": 2.365,
+            "p05": 0,
+            "p95": 5,
+            "by_league": {
+              "AL": {
+                "n_clubs": 8,
+                "actual": 2,
+                "expected": 1.326,
+                "p05": 0,
+                "p95": 3
+              },
+              "NL": {
+                "n_clubs": 8,
+                "actual": 0,
+                "expected": 1.039,
+                "p05": 0,
+                "p95": 3
+              }
+            }
+          },
+          {
+            "season": 2015,
+            "berths_per_league": 5,
+            "n_clubs": 16,
+            "actual": 4,
+            "expected": 2.087,
+            "p05": 0,
+            "p95": 4,
+            "by_league": {
+              "AL": {
+                "n_clubs": 8,
+                "actual": 4,
+                "expected": 1.271,
+                "p05": 0,
+                "p95": 3
+              },
+              "NL": {
+                "n_clubs": 8,
+                "actual": 0,
+                "expected": 0.816,
+                "p05": 0,
+                "p95": 2
+              }
+            }
+          },
+          {
+            "season": 2016,
+            "berths_per_league": 5,
+            "n_clubs": 16,
+            "actual": 2,
+            "expected": 1.91,
+            "p05": 0,
+            "p95": 4,
+            "by_league": {
+              "AL": {
+                "n_clubs": 8,
+                "actual": 2,
+                "expected": 1.578,
+                "p05": 0,
+                "p95": 4
+              },
+              "NL": {
+                "n_clubs": 8,
+                "actual": 0,
+                "expected": 0.331,
+                "p05": 0,
+                "p95": 1
+              }
+            }
+          },
+          {
+            "season": 2017,
+            "berths_per_league": 5,
+            "n_clubs": 16,
+            "actual": 4,
+            "expected": 1.428,
+            "p05": 0,
+            "p95": 3,
+            "by_league": {
+              "AL": {
+                "n_clubs": 8,
+                "actual": 2,
+                "expected": 1.058,
+                "p05": 0,
+                "p95": 3
+              },
+              "NL": {
+                "n_clubs": 8,
+                "actual": 2,
+                "expected": 0.37,
+                "p05": 0,
+                "p95": 1
+              }
+            }
+          },
+          {
+            "season": 2018,
+            "berths_per_league": 5,
+            "n_clubs": 16,
+            "actual": 4,
+            "expected": 1.045,
+            "p05": 0,
+            "p95": 3,
+            "by_league": {
+              "AL": {
+                "n_clubs": 8,
+                "actual": 1,
+                "expected": 0.379,
+                "p05": 0,
+                "p95": 1
+              },
+              "NL": {
+                "n_clubs": 8,
+                "actual": 3,
+                "expected": 0.667,
+                "p05": 0,
+                "p95": 2
+              }
+            }
+          },
+          {
+            "season": 2019,
+            "berths_per_league": 5,
+            "n_clubs": 16,
+            "actual": 1,
+            "expected": 1.237,
+            "p05": 0,
+            "p95": 3,
+            "by_league": {
+              "AL": {
+                "n_clubs": 8,
+                "actual": 0,
+                "expected": 0.27,
+                "p05": 0,
+                "p95": 1
+              },
+              "NL": {
+                "n_clubs": 8,
+                "actual": 1,
+                "expected": 0.967,
+                "p05": 0,
+                "p95": 3
+              }
+            }
+          },
+          {
+            "season": 2020,
+            "berths_per_league": 8,
+            "n_clubs": 10,
+            "actual": 2,
+            "expected": 1.778,
+            "p05": 0,
+            "p95": 4,
+            "by_league": {
+              "AL": {
+                "n_clubs": 5,
+                "actual": 1,
+                "expected": 0.675,
+                "p05": 0,
+                "p95": 2
+              },
+              "NL": {
+                "n_clubs": 5,
+                "actual": 1,
+                "expected": 1.103,
+                "p05": 0,
+                "p95": 3
+              }
+            }
+          },
+          {
+            "season": 2021,
+            "berths_per_league": 5,
+            "n_clubs": 16,
+            "actual": 2,
+            "expected": 1.672,
+            "p05": 0,
+            "p95": 4,
+            "by_league": {
+              "AL": {
+                "n_clubs": 8,
+                "actual": 1,
+                "expected": 0.98,
+                "p05": 0,
+                "p95": 2
+              },
+              "NL": {
+                "n_clubs": 8,
+                "actual": 1,
+                "expected": 0.692,
+                "p05": 0,
+                "p95": 2
+              }
+            }
+          },
+          {
+            "season": 2022,
+            "berths_per_league": 6,
+            "n_clubs": 14,
+            "actual": 2,
+            "expected": 1.144,
+            "p05": 0,
+            "p95": 3,
+            "by_league": {
+              "AL": {
+                "n_clubs": 7,
+                "actual": 2,
+                "expected": 0.676,
+                "p05": 0,
+                "p95": 2
+              },
+              "NL": {
+                "n_clubs": 7,
+                "actual": 0,
+                "expected": 0.468,
+                "p05": 0,
+                "p95": 2
+              }
+            }
+          },
+          {
+            "season": 2023,
+            "berths_per_league": 6,
+            "n_clubs": 14,
+            "actual": 4,
+            "expected": 1.827,
+            "p05": 0,
+            "p95": 4,
+            "by_league": {
+              "AL": {
+                "n_clubs": 7,
+                "actual": 2,
+                "expected": 1.237,
+                "p05": 0,
+                "p95": 3
+              },
+              "NL": {
+                "n_clubs": 7,
+                "actual": 2,
+                "expected": 0.59,
+                "p05": 0,
+                "p95": 2
+              }
+            }
+          },
+          {
+            "season": 2024,
+            "berths_per_league": 6,
+            "n_clubs": 14,
+            "actual": 5,
+            "expected": 2.469,
+            "p05": 0,
+            "p95": 5,
+            "by_league": {
+              "AL": {
+                "n_clubs": 7,
+                "actual": 3,
+                "expected": 1.178,
+                "p05": 0,
+                "p95": 3
+              },
+              "NL": {
+                "n_clubs": 7,
+                "actual": 2,
+                "expected": 1.291,
+                "p05": 0,
+                "p95": 3
+              }
+            }
+          },
+          {
+            "season": 2025,
+            "berths_per_league": 6,
+            "n_clubs": 14,
+            "actual": 3,
+            "expected": 2.615,
+            "p05": 1,
+            "p95": 5,
+            "by_league": {
+              "AL": {
+                "n_clubs": 7,
+                "actual": 2,
+                "expected": 1.657,
+                "p05": 0,
+                "p95": 3
+              },
+              "NL": {
+                "n_clubs": 7,
+                "actual": 1,
+                "expected": 0.958,
+                "p05": 0,
+                "p95": 2
+              }
+            }
+          },
+          {
+            "season": 2026,
+            "berths_per_league": 6,
+            "n_clubs": 14,
+            "actual": 5,
+            "expected": 2.341,
+            "p05": 0,
+            "p95": 5,
+            "by_league": {
+              "AL": {
+                "n_clubs": 7,
+                "actual": 4,
+                "expected": 1.357,
+                "p05": 0,
+                "p95": 3
+              },
+              "NL": {
+                "n_clubs": 7,
+                "actual": 1,
+                "expected": 0.984,
+                "p05": 0,
+                "p95": 2
+              }
+            }
+          }
+        ]
+      }
+    }
   }
 }
