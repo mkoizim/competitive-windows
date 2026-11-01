@@ -756,6 +756,11 @@ buy access but not favoritism.
 Modular. Each post stands alone. Ordered so cheap wins precede expensive work.
 
 **Post 1 — The hazard of contention.** How long windows last and what governs length.
+- **Samples (glossary).** All three use the same windows and differ only in the 12 windows already
+  open on 2014 Opening Day, whose true age is unknown. **F (flow, primary):** those 12 are left
+  out, so every window's age is known. **L (low-age bound):** the 12 are included as if they opened
+  in 2014. **H (high-age bound):** the 12 are included as already in their 4th year or later. A
+  result that holds in all three doesn't depend on the 2014 assumption.
 - Report the **hazard**, not an average. Length is likely bimodal, and an average pools two
   populations and describes neither.
 - **Model the full distribution, then illustrate with outliers.**
@@ -997,6 +1002,7 @@ data dictionary — re-upload when they change.
 
 **After the abstract**
 - [ ] Score the 2027 forecasts on 2027 Opening Day
+- [ ] Install a current Python (3.12 or 3.13, from python.org), rebuild `.venv`, and rerun the fresh-install test
 - [ ] Second source for the Brewers' 2024 year-end payroll before R3 or P4 use it
 
 **Before Post 2**
