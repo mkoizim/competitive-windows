@@ -1453,3 +1453,72 @@ which windows does that cover?
   within 3–7%.
 **Why:** Applies F's existing rule (every window's age is known) to definitions in which one season
 out does not close a window. Fixed before any Week 3 result was seen.
+
+## 2026-11-02 — Robustness variants run (Post 1)
+
+**Record:** The eight variants (thresholds 3, 4, 5, 7, 8, 9; berth-relative; grace) were run in F
+as specified on 2026-11-01 and 2026-11-02. All six checks passed; every fit converged, with no
+separation. The generalized `hazard.py` reproduces the baseline byte for byte, and every
+pre-existing key in `results.json` is unchanged.
+
+**Implementation choices, accepted on review:**
+- Era under grace coded as at baseline (n+1 ≥ 2022). Eight rows with n = 2020 are coded 0
+  although their closing also depends on 2022 Opening Day. Footnoted in the write-up.
+- One zero-closing bin (top 3, duration 3: 0 of 6, exact 95% interval 0–0.459), reported as a raw
+  count and entered at its limit in the bins-vs-log test.
+- Grace life table: the number at risk can rise between durations. A dip season counts toward a
+  window's age but is not a row, because its outcome is already settled by the previous row (a
+  dip-season row could never record a closing). So a window that dips at age 3 is at risk at age 4
+  but not at age 3.
+- `data/processed/hazard_robustness_pp.csv` written for independent refits (not committed).
+- In `hazard_robustness`, the normal p-value key is `p_normal`, beside `p_t`; the `hazard` key keeps
+  `p`.
+
+**Independent check:** All nine definitions were rebuilt in the planning chat from `windows.csv`,
+`odds.csv` and `payroll.csv` with separate code. Person-period rows are identical in every
+variant, and every reported count, odds ratio, p-value, bin hazard, survival figure and bins-vs-log
+p-value reproduced. `window_berth` was confirmed to equal `window_top5` in 2014–2019 and 2021,
+`window_top8` in 2020 and `window_top6` from 2022, with no mismatches.
+
+**Results, for the record:**
+- **Strength:** odds ratio below 1 in all nine definitions (0.59–0.84 per projected win above the
+  first club out), with the 95% interval excluding 1 in eight (not top 4).
+- **Duration:** the odds ratio changes sign across definitions (below 1 at top 3, top 4 and grace;
+  above 1 elsewhere). Significant (t-p < 0.05) at top 5, top 8 and berth-relative. No definition
+  shows a significant protective effect; top 3 and top 4 lean protective with wide intervals.
+- **Berth-relative as a blend:** its estimates fall between top 5 and top 6 (duration 3.97 vs 7.38
+  and 1.72; strength 0.667 vs 0.615 and 0.723), as expected from a line that is top 5 in seven of
+  the twelve row seasons and top 6 in four.
+- **Era and payroll:** not significant in any definition. Baseline era 1.21 (0.51–2.88).
+- **Bins vs. log:** not rejected in any definition (lowest p = 0.07, top 5).
+- **t-correction:** changes no conclusion.
+
+**Chose (write-up):**
+- **The two lines, described for readers.** Berth-relative: "projected to make the playoffs on
+  Opening Day." Fixed top 6: "projected in the field or the first club out" before 2022, and exactly
+  the field from 2022. Fixed 6 stays primary because it was registered and its yardstick does not move
+  across formats, not because it matters more to readers. Equal prominence stands.
+- **Duration.** No claim in either direction. Stated instead: no definition shows a detectable
+  protective effect of age; under some definitions older windows are riskier, but that depends on
+  where the line is drawn. What reliably predicts survival is cushion, not age.
+- **Baseline vs. berth-relative on duration.** The difference comes mainly from 2014–2021, where
+  the berth-relative line sits inside the five-team field (top 5) and the baseline one spot outside
+  it (top 6); top 5 alone, which does not change at 2022, shows the same pattern. Windows carried
+  over from 2021 can differ in age between the two definitions, so the line's change at 2022
+  contributes a little, which is why "mainly" and not "entirely."
+- **Format.** The baseline era term is the format test, with one stated limit: rank 6 moved from one
+  spot outside the field to the last spot inside it, so the term asks whether a top-6 club's closing
+  risk changed once 6th became a playoff spot. No change detected; four seasons, wide interval. The
+  berth-relative era term (0.60) is not read as a format effect, because that line also loosens from
+  5 to 6 at 2022. No further analysis of the format question is added now.
+- **Cushion table for berth-relative.** Written to `results.json` under `hazard_robustness`, with
+  cushion measured against the first club out of the field (berths + 1), before any figure from it
+  appears in the write-up.
+
+**Revises:** the expectation in "Berth-count shift handled as a robustness variant" (2026-09-21) that
+a disagreement between the two lines would show how the 2022 format change moved the contention
+line. The disagreement found (on age) comes mainly from where the line sits in the five-team era
+(inside the field at 5th, or one spot outside at 6th), not from the change at 2022.
+
+**Correction:** strength is in projected wins per 162 (162 × the difference in projected W%), as §5
+states; the 2026-10-26 specification entry's "projected W%" wording is superseded.

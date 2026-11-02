@@ -15,6 +15,9 @@ test, persistent contenders, exit by deadline status, and closing by current-sea
 band (F only). M2/M2b standard errors are clustered by team_id (statsmodels' default small-sample
 correction, normal reference distribution).
 
+build_pp, strength_table and m1 also serve hazard_robustness.py (other thresholds, the grace
+rule, zero-closing bins); their defaults give the baseline.
+
 Only the "hazard" key of results.json is written; other keys are kept. Nothing is written if
 any check fails.
 
@@ -92,13 +95,18 @@ def load():
     return windows, odds, payroll
 
 
-def strength_table(windows, odds):
-    """{(season, team_id): wins per 162 above the league's od_rank-7 club}."""
+def at_season(x, season):
+    """x is an int or a {season: int} mapping (the berth-relative threshold varies by season)."""
+    return x[season] if isinstance(x, dict) else x
+
+
+def strength_table(windows, odds, ref_rank=REF_RANK):
+    """{(season, team_id): wins per 162 above the league's od_rank-ref_rank club}."""
     od = odds.set_index(["season", "team_id"])
     wpct = od["proj_w"] / (od["proj_w"] + od["proj_l"])
     out = {}
     for (season, league), g in windows.groupby(["season", "league"]):
-        ref = g.loc[g["od_rank"] == REF_RANK, "team_id"]
+        ref = g.loc[g["od_rank"] == at_season(ref_rank, season), "team_id"]
         if len(ref) != 1:
             continue  # reported by check 6
         ref_wpct = wpct[(season, int(ref.iloc[0]))]
@@ -107,17 +115,30 @@ def strength_table(windows, odds):
     return out
 
 
-def build_pp(windows, odds, payroll):
+def build_pp(windows, odds, payroll, column=COLUMN, k=K, grace=False):
+    """k is an int or a {season: int} mapping; strength is measured against the (k+1)th club.
+
+    Strict (grace=False): a window closes at the first Opening Day out. Grace: it closes after
+    two straight Opening Days out. Dip seasons are not rows but count toward duration_obs, the
+    event is recorded in the last in-window season, rows run to the last season whose outcome
+    is observed (LAST_PP strict, one earlier under grace), and spells starting within the gap
+    of 2014 are left-censored (2014 strict; 2014-2015 grace).
+    """
+    gap = 2 if grace else 1
+    last_pp = LAST_PP - (gap - 1)
+    ref_rank = {s: kk + 1 for s, kk in k.items()} if isinstance(k, dict) else k + 1
     current = windows[windows["season"] == SEASONS[-1]].set_index("team_id")["team"]
     w = windows.set_index(["season", "team_id"])
-    strength = strength_table(windows, odds)
+    strength = strength_table(windows, odds, ref_rank)
     pay = payroll.set_index(["season", "team_id"])["od_log2_rel"]
     rows = []
     for team_id, g in windows.groupby("team_id"):
-        flags = dict(zip(g["season"], g[COLUMN]))
+        flags = dict(zip(g["season"], g[column]))
         team = current[team_id]
-        for first, last in find_spells(flags, grace=False):
-            for n in range(first, min(last, LAST_PP) + 1):
+        for first, last in find_spells(flags, grace=grace):
+            for n in range(first, min(last, last_pp) + 1):
+                if not flags[n]:
+                    continue  # dip season (grace only)
                 r = w.loc[(n, team_id)]
                 rows.append({
                     "team_id": team_id,
@@ -126,13 +147,13 @@ def build_pp(windows, odds, payroll):
                     "spell_id": f"{team}-{first}",
                     "spell_start": first,
                     "season": n,
-                    "left_censored": int(first == FIRST),
+                    "left_censored": int(first < FIRST + gap),
                     "duration_obs": n - first + 1,
-                    "event": int(n == last and n < SEASONS[-1]),
+                    "event": int(n == last and n + gap <= SEASONS[-1]),
                     "era12": int(n + 1 >= ERA12_FROM),
                     "strength": strength.get((n, team_id), np.nan),
                     "od_log2_rel": pay.get((n, team_id), np.nan),
-                    "pd_above": int(r["pd_rank"] <= K),
+                    "pd_above": int(r["pd_rank"] <= at_season(k, n)),
                 })
     return pd.DataFrame(rows, columns=PP_COLUMNS).sort_values(["team", "season"],
                                                                ignore_index=True)
@@ -292,21 +313,45 @@ def fit_logit(d, cols, cluster):
     return res, notes
 
 
+def clopper_pearson(k, n, level=0.95):
+    a = (1 - level) / 2
+    lo = 0.0 if k == 0 else float(stats.beta.ppf(a, k, n - k + 1))
+    hi = 1.0 if k == n else float(stats.beta.ppf(1 - a, k + 1, n - k))
+    return [lo, hi]
+
+
 def m1(d):
+    """A bin with zero closings is not fitted (its ML hazard is 0, on the boundary): it is
+    reported as a raw count with an exact interval and flagged. Its rows leave the fit, which
+    matches the full-data log-likelihood at that limit (each contributes 0)."""
+    zero = [b for b in BINS if d.loc[d["bin"] == b, "event"].sum() == 0]
+    fitted = [b for b in BINS if b not in zero]
     X = pd.get_dummies(d["bin"]).reindex(columns=BINS, fill_value=0).astype(float)
     dd = d.assign(**{f"bin_{b}": X[b] for b in BINS})
-    cols = [f"bin_{b}" for b in BINS]
+    dd = dd[dd["bin"].isin(fitted)]
+    cols = [f"bin_{b}" for b in fitted]
     out = {"n_rows": len(d), "n_events": int(d["event"].sum()),
            "n_clusters": int(d["team_id"].nunique()), "bins": {}}
+    if zero:
+        out["zero_closing_bins"] = zero
+        out["n_rows_fitted"] = len(dd)
+        out["n_clusters_fitted"] = int(dd["team_id"].nunique())
     fits = {}
     for label, cluster in (("model", False), ("cluster", True)):
         res, notes = fit_logit(dd, cols, cluster)
         fits[label] = (res, notes)
     res_m, notes_m = fits["model"]
     res_c, notes_c = fits["cluster"]
-    for b, c in zip(BINS, cols):
+    for b in BINS:
         g = d[d["bin"] == b]
         entry = {"rows": len(g), "events": int(g["event"].sum())}
+        if b in zero:
+            entry["zero_closings"] = True
+            entry["hazard_raw"] = 0.0 if len(g) else None
+            entry["ci95_exact"] = clopper_pearson(0, len(g)) if len(g) else None
+            out["bins"][b] = entry
+            continue
+        c = f"bin_{b}"
         for label, res in (("model", res_m), ("cluster", res_c)):
             if res is None:
                 continue
@@ -320,6 +365,12 @@ def m1(d):
     out["ci_note"] = ("Hazard = logistic(bin coefficient), no intercept. ci95_model uses the "
                       "ordinary ML standard error; ci95_cluster clusters by team_id. Both are "
                       "Wald intervals on the logit scale, transformed.")
+    if zero:
+        out["zero_closing_note"] = (
+            f"Bin(s) {', '.join(zero)} had zero closings and were not fitted: hazard_raw = 0 "
+            "with an exact (Clopper-Pearson) 95% interval. Their rows were left out of the fit; "
+            "loglik equals the full-data log-likelihood at the limit (hazard 0, contribution 0). "
+            "Clustered SEs use n_clusters_fitted clubs.")
     return out
 
 
