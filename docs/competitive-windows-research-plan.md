@@ -427,6 +427,8 @@ the period, 30 clubs every year, no membership required.
    itself an output.
 2. **Berth-relative threshold** as a robustness variant — rank equal to berths per league:
    5 (2014–2019, 2021), 8 (2020), 6 (2022 on).
+   In Post 1 it is reported with equal prominence alongside the fixed rank-6 baseline (decided
+   2026-11-01, before its results were seen).
 3. **Era-stratified fitting** as a secondary check where power allows.
 
 **2020.** The Make Playoffs column on 2020 pages prices the old 10-team field. The correct 2020
@@ -1020,4 +1022,5 @@ data dictionary — re-upload when they change.
 **Parked ideas — revisit after working with the data**
 - [ ] Baseball-Reference preseason ranks (2014–2026) as a P2 benchmark and a windows robustness check.
 - [ ] A long-panel version of the windows from Retrosheet game logs, to see longer windows and compare directly with Jordan (2018).
+- [ ] Cushion measured in playoff odds rather than projected wins (odds minus the first club out's odds), at baseline, as a response to the division-strength limitation. Odds compress near 100% for strong clubs, which makes it harder to read.
 - [ ] **The bubble trap.** At each deadline the Doyle Number correctly tells a bubble team not to buy, so it stays on the bubble and gets the same answer next year: every decision rational, no championship. The way off is a leap big enough to reach secure status in one move, mostly an offseason move, which a one-deadline calculation can't see. Possible tests: bubble persistence from tier-to-tier transitions in the odds (exploratory), and whether bubble clubs that made a big offseason conversion reached secure status more often (needs trades). May also be where offseason under-conversion lives.

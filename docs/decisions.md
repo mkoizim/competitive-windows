@@ -1386,3 +1386,53 @@ decided by the author.
   with themselves (Medium) and for Sports-Reference's terms (Low).
 - **Repository layout:** `docs/data-dictionary.md` and `docs/lit-notes.md` marked as planned.
   `CLAUDE.md` to be created before Week 3.
+
+## 2026-11-01 — Week 3 robustness specification (Post 1)
+
+**Question:** How are the pre-specified robustness variants, the small-cluster inference and the
+Jordan comparison run? Fixed before any Week 3 result is seen.
+**Chose:**
+- **A. Samples:** the eight variants (thresholds 3, 4, 5, 7, 8, 9; berth-relative; grace rule) are
+  run in the flow sample (F) only. L and H remain baseline bounds.
+- **B. Strength in each variant:** measured against the first club out at that variant's threshold,
+  the (k+1)th club (berths + 1 for the berth-relative variant). At k = 6, including the grace
+  variant, this is the 7th club, as at baseline.
+- **C. Bins:** fixed at 1, 2, 3, 4+ in every variant. A bin with zero closings is reported as a raw
+  count with an exact binomial interval and flagged, not estimated by the model. The bins-vs-log test
+  runs in each variant.
+- **D. Grace variant:** a window closes after two straight Opening Days out. Dip seasons are not
+  rows but count toward a window's age (span length, as logged 2026-10-20). A closing is recorded in
+  the last in-window season before the two seasons out. Rows run through 2024 only, so every row's
+  outcome is known.
+- **E. Small-cluster inference:** every clustered result (M2 and M2b in F, L and H, and the variants)
+  also gets p-values against a t-distribution with G − 1 degrees of freedom (G = clubs). Strength in
+  M2, sample F, also gets a wild score bootstrap p-value (Kline & Santos, 2012; Webb weights; 9,999
+  draws), with an implementation check: 500 simulated datasets with a true null effect should be
+  rejected at about 5%. The planning chat rebuilds the bootstrap independently. This replaces the
+  "wild-cluster bootstrap intervals" planned on 2026-10-26; the clustered intervals stand.
+- **F. Jordan comparison:** Jordan's (2018) ex post rule applied to the same 2014–2025 seasons from
+  the end-of-season records already collected (division winner, wild card, 2nd or 3rd within 5
+  games, or 87+ wins; opens after two contending seasons; closes after two non-contending seasons).
+  2020 thresholds scaled to 60 games (.537; 1.85 games). Windows open in 2014 dropped, as in F.
+  Reported side by side with the strict and grace windows: club-season agreement, window counts,
+  length distributions and life tables. Description only; no hazard models. Reinhart (2018) cited,
+  not replicated.
+**Why:** each choice keeps the variants comparable with the baseline, avoids outcome-dependent
+censoring, or addresses the 22-cluster limitation without changing the model. The Jordan comparison
+holds the seasons fixed, so any difference comes from the definition, not the period.
+
+## 2026-11-01 — Berth-relative threshold reported with equal prominence in Post 1
+
+**Question:** Should Post 1's baseline be the berth-relative threshold (top 5 in 2014–2019 and 2021,
+top 8 in 2020, top 6 from 2022) instead of fixed rank 6?
+**Options:** Keep fixed 6 primary, berth-relative one of eight variants | Keep fixed 6 primary,
+berth-relative reported with equal prominence | Switch the primary to berth-relative
+**Chose:** Fixed rank 6 stays primary. The berth-relative variant gets its own line in every Post 1
+table and in the abstract, alongside the baseline.
+**Why:** The berth-relative line keeps the meaning of a window constant (inside the projected
+field), which is a real argument for it. But rank 6 is the registered baseline and is shared with
+P1; switching after the fixed-6 hazard results were seen is the move pre-registration exists to rule
+out; and with a fixed line the 12-team-era term measures the format change rather than a moving
+threshold. Equal prominence, decided before the berth-relative results are seen, takes the argument
+seriously without those costs. If the two disagree, the disagreement is a finding about the 2022
+format (as anticipated in "Berth-count shift handled as a robustness variant," 2026-09-21).
