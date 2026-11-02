@@ -997,8 +997,8 @@ data dictionary — re-upload when they change.
 - [ ] Check whether the SABR call accepts work published elsewhere first (affects FanGraphs timing)
 - [x] Hazard model fit (2026-10-26)
 - [x] 2027 forecasts timestamped (`3fdc139`, 2026-10-26)
-- [ ] Add the closing-rate-by-cushion table to `hazard.py` and `results.json`
-- [ ] Fresh-install test of `requirements.txt`
+- [x] Add the closing-rate-by-cushion table to `hazard.py` and `results.json` (2026-11-02)
+- [x] Fresh-install test of `requirements.txt`: passed, results reproduced byte for byte (2026-11-02)
 - [ ] Wild-cluster bootstrap for M2 (Week 3)
 - [ ] Heads-up to [reviewer] and [reviewer] that a draft is coming
 

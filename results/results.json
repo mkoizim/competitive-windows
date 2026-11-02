@@ -8348,6 +8348,36 @@
         "share_of_exits_below": 0.6097560975609756
       }
     },
+    "closing_by_strength_band": {
+      "sample": "F",
+      "definition": "Club-seasons by Opening Day strength in season n (wins per 162 above the league's od_rank-7 club); closings = event (out of the window at n+1's Opening Day); share = closings / club-seasons.",
+      "bands": {
+        "le_2": {
+          "label": "<= 2",
+          "club_seasons": 39,
+          "closings": 19,
+          "share": 0.48717948717948717
+        },
+        "gt_2_le_5": {
+          "label": "> 2 to 5",
+          "club_seasons": 25,
+          "closings": 7,
+          "share": 0.28
+        },
+        "gt_5_le_8": {
+          "label": "> 5 to 8",
+          "club_seasons": 15,
+          "closings": 3,
+          "share": 0.2
+        },
+        "gt_8": {
+          "label": "> 8",
+          "club_seasons": 23,
+          "closings": 1,
+          "share": 0.043478260869565216
+        }
+      }
+    },
     "figures": [
       "results/figures/hazard_lifetable.png",
       "results/figures/survival_by_entry_strength.png"

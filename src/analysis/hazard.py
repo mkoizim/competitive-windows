@@ -11,8 +11,9 @@ three samples per docs/decisions.md ("Left-censored spells", 2026-10-26):
 Reports life tables at exact durations, life tables by entry strength (F only), discrete-time
 logits M1 (bins 1, 2, 3, 4+), M2 (ln duration capped at 4 + era12 + strength + od_log2_rel) and
 M2b (M2 with a duration-1 indicator in place of ln duration), the bins vs. log likelihood-ratio
-test, persistent contenders, and exit by deadline status. M2/M2b standard errors are clustered
-by team_id (statsmodels' default small-sample correction, normal reference distribution).
+test, persistent contenders, exit by deadline status, and closing by current-season strength
+band (F only). M2/M2b standard errors are clustered by team_id (statsmodels' default small-sample
+correction, normal reference distribution).
 
 Only the "hazard" key of results.json is written; other keys are kept. Nothing is written if
 any check fails.
@@ -65,6 +66,8 @@ PP_COLUMNS = ["team_id", "team", "league", "spell_id", "spell_start", "season", 
 EXPECT_ROWS_EVENTS = {"F": (102, 30), "L": (144, 41), "H": (144, 41)}
 EXPECT_F_BINS = {"1": (38, 13), "2": (21, 5), "3": (14, 5), "4+": (29, 7)}
 EXPECT_DEADLINE_L = {"above_no_exit": 82, "above_exit": 16, "below_no_exit": 21, "below_exit": 25}
+EXPECT_F_STRENGTH_BANDS = {"le_2": (39, 19), "gt_2_le_5": (25, 7), "gt_5_le_8": (15, 3),
+                           "gt_8": (23, 1)}
 DEADLINE_PATTERNS = {"above_no_exit": "Held, carried forward",
                      "above_exit": "Held, not carried forward",
                      "below_no_exit": "Gap year",
@@ -212,6 +215,12 @@ def run_checks(pp, smp, windows, results_json):
         if patterns[DEADLINE_PATTERNS[cell]] != cells[cell]:
             failures.append(f"(7) L {cell}: {cells[cell]}, results.json "
                             f"'{DEADLINE_PATTERNS[cell]}' = {patterns[DEADLINE_PATTERNS[cell]]}")
+    # (8) F closing by current-season strength band
+    for band, (n_rows, n_ev) in EXPECT_F_STRENGTH_BANDS.items():
+        g = f[strength_band(f["strength"]) == band]
+        if (len(g), int(g["event"].sum())) != (n_rows, n_ev):
+            failures.append(f"(8) F band {band}: {len(g)} rows / {int(g['event'].sum())} events, "
+                            f"expected {n_rows} / {n_ev}")
     return failures
 
 
@@ -357,6 +366,25 @@ def deadline(d):
                               "below": c["below_exit"] / below if below else None},
             "share_of_exits_below": (c["below_exit"] / (c["above_exit"] + c["below_exit"])
                                      if c["above_exit"] + c["below_exit"] else None)}
+
+
+STRENGTH_BANDS = [("le_2", "<= 2"), ("gt_2_le_5", "> 2 to 5"), ("gt_5_le_8", "> 5 to 8"),
+                  ("gt_8", "> 8")]
+
+
+def strength_band(s):
+    return pd.cut(s, [-np.inf, 2, 5, 8, np.inf], right=True,
+                  labels=[b for b, _ in STRENGTH_BANDS]).astype(str)
+
+
+def closing_by_strength_band(d):
+    band = strength_band(d["strength"])
+    out = {}
+    for b, label in STRENGTH_BANDS:
+        g = d[band == b]
+        out[b] = {"label": label, "club_seasons": len(g), "closings": int(g["event"].sum()),
+                  "share": float(g["event"].mean()) if len(g) else None}
+    return out
 
 
 def persistent_contenders(windows):
@@ -505,6 +533,13 @@ def main():
                         "capped at 4), df 2."),
         "persistent_contenders": persistent_contenders(windows),
         "deadline": {s: deadline(smp[s]) for s in SAMPLES},
+        "closing_by_strength_band": {
+            "sample": "F",
+            "definition": ("Club-seasons by Opening Day strength in season n (wins per 162 above "
+                           "the league's od_rank-7 club); closings = event (out of the window at "
+                           "n+1's Opening Day); share = closings / club-seasons."),
+            "bands": closing_by_strength_band(smp["F"]),
+        },
         "figures": ["results/figures/hazard_lifetable.png",
                     "results/figures/survival_by_entry_strength.png"],
     }
