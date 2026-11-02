@@ -1436,3 +1436,20 @@ out; and with a fixed line the 12-team-era term measures the format change rathe
 threshold. Equal prominence, decided before the berth-relative results are seen, takes the argument
 seriously without those costs. If the two disagree, the disagreement is a finding about the 2022
 format (as anticipated in "Berth-count shift handled as a robustness variant," 2026-09-21).
+
+## 2026-11-02 — Week 3 prompts: left-censoring under gap-tolerant rules; Jordan reference
+
+**Question:** F drops windows whose age is unknown. Under rules that tolerate a one-season gap,
+which windows does that cover?
+**Chose:**
+- **Grace variant:** spells starting in 2014 or 2015 are left-censored. A club out on 2014 Opening
+  Day may have been in a one-season dip from a window open in 2013, which the archive does not
+  cover. Five spells start in 2015: CHC, CLE, SDP, SEA, TOR.
+- **Jordan windows:** a window is left-censored unless two straight non-contending seasons occur
+  between 2014 and the season before its first contending season.
+- **Jordan's games-behind rule:** "2nd or 3rd within 5 games" is measured against the division
+  winner, as his article specifies.
+- **Score bootstrap size check:** passes if the 5% rejection rate over 500 simulated datasets is
+  within 3–7%.
+**Why:** Applies F's existing rule (every window's age is known) to definitions in which one season
+out does not close a window. Fixed before any Week 3 result was seen.
