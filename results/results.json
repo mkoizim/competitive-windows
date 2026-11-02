@@ -13137,5 +13137,764 @@
       ]
     },
     "checks_passed": true
+  },
+  "jordan_comparison": {
+    "definition": "Jordan (2018) contending season, end_of_season snapshot, 2014-2025: division winner (division order by W%; ties for first broken by the actual division title, see ties_for_first; ties below first share the better rank); postseason as a non-division-winner (postseason_odds >= 0.999); 2nd or 3rd in the division with games behind the division winner <= 5 (games behind = ((leader W - W) + (L - leader L)) / 2); or W >= 87. 2020: W% >= .537 and <= 1.85 games. Window opens with the first of two straight contending seasons, survives one non-contending season, closes after two straight non-contending seasons and ends at the last contending season before them; length = full span. Left-censored unless two straight non-contending seasons occur in 2014 to the season before the window's first contending season. Right-censored: last contending season 2024 or 2025.",
+    "comparison_samples": {
+      "strict": "data/processed/hazard_pp.csv, left_censored = 0 (window_top6, strict).",
+      "grace": "data/processed/hazard_robustness_pp.csv, variant top6_grace, left_censored = 0 (spells starting 2014 or 2015 excluded)."
+    },
+    "life_table_note": "Jordan life table built as the grace variant's: one row per contending season in a window, duration = seasons since the window opened (gap seasons count toward it but are not rows), closing recorded in the last contending season, rows through 2023 (the last season whose outcome, two seasons on, is observed). windows_with_rows excludes windows opening after 2023. Strict and grace life tables are hazard.py's life_table on their person-period rows. survival_after j = product of (1 - hazard) over durations <= j; null where the table ends before j. Strict and grace windows are measured in Opening Day seasons, Jordan windows in end-of-season records.",
+    "min_length_note": "Jordan windows cannot be shorter than 2 seasons.",
+    "ties_for_first": [
+      {
+        "season": 2022,
+        "league": "NL",
+        "division": "E",
+        "tied": [
+          "ATL",
+          "NYM"
+        ],
+        "record": [
+          101,
+          61
+        ],
+        "division_winner": "ATL",
+        "rank_2": "NYM",
+        "resolution": "ATL won the NL East title on head-to-head over NYM"
+      },
+      {
+        "season": 2023,
+        "league": "AL",
+        "division": "W",
+        "tied": [
+          "HOU",
+          "TEX"
+        ],
+        "record": [
+          90,
+          72
+        ],
+        "division_winner": "HOU",
+        "rank_2": "TEX",
+        "resolution": "HOU won the AL West title on head-to-head over TEX"
+      },
+      {
+        "season": 2025,
+        "league": "AL",
+        "division": "E",
+        "tied": [
+          "NYY",
+          "TOR"
+        ],
+        "record": [
+          94,
+          68
+        ],
+        "division_winner": "TOR",
+        "rank_2": "NYY",
+        "resolution": "TOR won the AL East title on head-to-head over NYY"
+      }
+    ],
+    "club_seasons": {
+      "total": 360,
+      "contending": 147,
+      "by_criterion": {
+        "division_winner": 72,
+        "postseason_non_division_winner": 62,
+        "second_or_third_within_gb": 33,
+        "wins_87_or_wpct_537_2020": 130
+      }
+    },
+    "two_by_two": {
+      "rows": "Jordan contending (yes/no)",
+      "columns": "window_top6 (yes/no), Opening Day",
+      "seasons": [
+        2014,
+        2025
+      ],
+      "cells": {
+        "contending__window": 92,
+        "contending__no_window": 55,
+        "not_contending__window": 52,
+        "not_contending__no_window": 161
+      },
+      "margins": {
+        "contending": 147,
+        "not_contending": 213,
+        "window": 144,
+        "no_window": 216
+      },
+      "agreement": 0.7027777777777777
+    },
+    "definitions": {
+      "jordan": {
+        "label": "Jordan (2018), ex post",
+        "windows": 16,
+        "windows_with_rows": 14,
+        "closings": 7,
+        "right_censored": 9,
+        "left_censored_dropped": 13,
+        "rows": 45,
+        "completed_length": {
+          "n": 7,
+          "mean": 3.2857142857142856,
+          "median": 3,
+          "distribution": {
+            "2": 3,
+            "3": 2,
+            "5": 1,
+            "6": 1
+          }
+        },
+        "life_table": [
+          {
+            "duration": 1,
+            "at_risk": 14,
+            "entered": 0,
+            "exits": 0,
+            "censored": 2,
+            "hazard": 0.0,
+            "survival": 1.0,
+            "small": false
+          },
+          {
+            "duration": 2,
+            "at_risk": 12,
+            "entered": 0,
+            "exits": 3,
+            "censored": 1,
+            "hazard": 0.25,
+            "survival": 0.75,
+            "small": false
+          },
+          {
+            "duration": 3,
+            "at_risk": 8,
+            "entered": 0,
+            "exits": 2,
+            "censored": 1,
+            "hazard": 0.25,
+            "survival": 0.5625,
+            "small": true
+          },
+          {
+            "duration": 4,
+            "at_risk": 5,
+            "entered": 0,
+            "exits": 0,
+            "censored": 1,
+            "hazard": 0.0,
+            "survival": 0.5625,
+            "small": true
+          },
+          {
+            "duration": 5,
+            "at_risk": 3,
+            "entered": 0,
+            "exits": 1,
+            "censored": 0,
+            "hazard": 0.3333333333333333,
+            "survival": 0.37500000000000006,
+            "small": true
+          },
+          {
+            "duration": 6,
+            "at_risk": 3,
+            "entered": 0,
+            "exits": 1,
+            "censored": 2,
+            "hazard": 0.3333333333333333,
+            "survival": 0.25000000000000006,
+            "small": true
+          }
+        ],
+        "survival_after": {
+          "1": 1.0,
+          "2": 0.75,
+          "3": 0.5625,
+          "4": 0.5625,
+          "5": 0.37500000000000006,
+          "6": 0.25000000000000006
+        }
+      },
+      "strict": {
+        "label": "Strict ex ante, top 6 (F)",
+        "windows": 38,
+        "windows_with_rows": 38,
+        "closings": 30,
+        "right_censored": 8,
+        "left_censored_dropped": 12,
+        "rows": 102,
+        "completed_length": {
+          "n": 30,
+          "mean": 2.6666666666666665,
+          "median": 2.0,
+          "distribution": {
+            "1": 13,
+            "2": 5,
+            "3": 5,
+            "4": 3,
+            "6": 2,
+            "8": 1,
+            "10": 1
+          }
+        },
+        "life_table": [
+          {
+            "duration": 1,
+            "at_risk": 38,
+            "entered": 0,
+            "exits": 13,
+            "censored": 4,
+            "hazard": 0.34210526315789475,
+            "survival": 0.6578947368421053,
+            "small": false
+          },
+          {
+            "duration": 2,
+            "at_risk": 21,
+            "entered": 0,
+            "exits": 5,
+            "censored": 2,
+            "hazard": 0.23809523809523808,
+            "survival": 0.5012531328320802,
+            "small": false
+          },
+          {
+            "duration": 3,
+            "at_risk": 14,
+            "entered": 0,
+            "exits": 5,
+            "censored": 0,
+            "hazard": 0.35714285714285715,
+            "survival": 0.32223415682062295,
+            "small": false
+          },
+          {
+            "duration": 4,
+            "at_risk": 9,
+            "entered": 0,
+            "exits": 3,
+            "censored": 0,
+            "hazard": 0.3333333333333333,
+            "survival": 0.21482277121374865,
+            "small": true
+          },
+          {
+            "duration": 5,
+            "at_risk": 6,
+            "entered": 0,
+            "exits": 0,
+            "censored": 0,
+            "hazard": 0.0,
+            "survival": 0.21482277121374865,
+            "small": true
+          },
+          {
+            "duration": 6,
+            "at_risk": 6,
+            "entered": 0,
+            "exits": 2,
+            "censored": 1,
+            "hazard": 0.3333333333333333,
+            "survival": 0.1432151808091658,
+            "small": true
+          },
+          {
+            "duration": 7,
+            "at_risk": 3,
+            "entered": 0,
+            "exits": 0,
+            "censored": 0,
+            "hazard": 0.0,
+            "survival": 0.1432151808091658,
+            "small": true
+          },
+          {
+            "duration": 8,
+            "at_risk": 3,
+            "entered": 0,
+            "exits": 1,
+            "censored": 1,
+            "hazard": 0.3333333333333333,
+            "survival": 0.09547678720611054,
+            "small": true
+          },
+          {
+            "duration": 9,
+            "at_risk": 1,
+            "entered": 0,
+            "exits": 0,
+            "censored": 0,
+            "hazard": 0.0,
+            "survival": 0.09547678720611054,
+            "small": true
+          },
+          {
+            "duration": 10,
+            "at_risk": 1,
+            "entered": 0,
+            "exits": 1,
+            "censored": 0,
+            "hazard": 1.0,
+            "survival": 0.0,
+            "small": true
+          }
+        ],
+        "survival_after": {
+          "1": 0.6578947368421053,
+          "2": 0.5012531328320802,
+          "3": 0.32223415682062295,
+          "4": 0.21482277121374865,
+          "5": 0.21482277121374865,
+          "6": 0.1432151808091658
+        }
+      },
+      "grace": {
+        "label": "Grace ex ante, top 6 (F)",
+        "windows": 20,
+        "windows_with_rows": 20,
+        "closings": 12,
+        "right_censored": 8,
+        "left_censored_dropped": 17,
+        "rows": 65,
+        "completed_length": {
+          "n": 12,
+          "mean": 2.25,
+          "median": 2.0,
+          "distribution": {
+            "1": 5,
+            "2": 2,
+            "3": 3,
+            "4": 1,
+            "5": 1
+          }
+        },
+        "life_table": [
+          {
+            "duration": 1,
+            "at_risk": 20,
+            "entered": 0,
+            "exits": 5,
+            "censored": 2,
+            "hazard": 0.25,
+            "survival": 0.75,
+            "small": false
+          },
+          {
+            "duration": 2,
+            "at_risk": 9,
+            "entered": 0,
+            "exits": 2,
+            "censored": 0,
+            "hazard": 0.2222222222222222,
+            "survival": 0.5833333333333334,
+            "small": true
+          },
+          {
+            "duration": 3,
+            "at_risk": 11,
+            "entered": 0,
+            "exits": 3,
+            "censored": 1,
+            "hazard": 0.2727272727272727,
+            "survival": 0.42424242424242425,
+            "small": false
+          },
+          {
+            "duration": 4,
+            "at_risk": 7,
+            "entered": 0,
+            "exits": 1,
+            "censored": 0,
+            "hazard": 0.14285714285714285,
+            "survival": 0.36363636363636365,
+            "small": true
+          },
+          {
+            "duration": 5,
+            "at_risk": 5,
+            "entered": 0,
+            "exits": 1,
+            "censored": 1,
+            "hazard": 0.2,
+            "survival": 0.29090909090909095,
+            "small": true
+          },
+          {
+            "duration": 6,
+            "at_risk": 4,
+            "entered": 0,
+            "exits": 0,
+            "censored": 0,
+            "hazard": 0.0,
+            "survival": 0.29090909090909095,
+            "small": true
+          },
+          {
+            "duration": 7,
+            "at_risk": 4,
+            "entered": 0,
+            "exits": 0,
+            "censored": 1,
+            "hazard": 0.0,
+            "survival": 0.29090909090909095,
+            "small": true
+          },
+          {
+            "duration": 8,
+            "at_risk": 3,
+            "entered": 0,
+            "exits": 0,
+            "censored": 1,
+            "hazard": 0.0,
+            "survival": 0.29090909090909095,
+            "small": true
+          },
+          {
+            "duration": 9,
+            "at_risk": 2,
+            "entered": 0,
+            "exits": 0,
+            "censored": 2,
+            "hazard": 0.0,
+            "survival": 0.29090909090909095,
+            "small": true
+          }
+        ],
+        "survival_after": {
+          "1": 0.75,
+          "2": 0.5833333333333334,
+          "3": 0.42424242424242425,
+          "4": 0.36363636363636365,
+          "5": 0.29090909090909095,
+          "6": 0.29090909090909095
+        }
+      }
+    },
+    "jordan_windows": [
+      {
+        "team": "ARI",
+        "first": 2023,
+        "last": 2024,
+        "length": 2,
+        "gap_seasons": [],
+        "status": "right_censored"
+      },
+      {
+        "team": "ATH",
+        "first": 2018,
+        "last": 2020,
+        "length": 3,
+        "gap_seasons": [],
+        "status": "closed"
+      },
+      {
+        "team": "ATL",
+        "first": 2018,
+        "last": 2024,
+        "length": 7,
+        "gap_seasons": [],
+        "status": "right_censored"
+      },
+      {
+        "team": "BAL",
+        "first": 2023,
+        "last": 2024,
+        "length": 2,
+        "gap_seasons": [],
+        "status": "right_censored"
+      },
+      {
+        "team": "BOS",
+        "first": 2016,
+        "last": 2018,
+        "length": 3,
+        "gap_seasons": [],
+        "status": "closed"
+      },
+      {
+        "team": "CHW",
+        "first": 2020,
+        "last": 2021,
+        "length": 2,
+        "gap_seasons": [],
+        "status": "closed"
+      },
+      {
+        "team": "COL",
+        "first": 2017,
+        "last": 2018,
+        "length": 2,
+        "gap_seasons": [],
+        "status": "closed"
+      },
+      {
+        "team": "DET",
+        "first": 2024,
+        "last": 2025,
+        "length": 2,
+        "gap_seasons": [],
+        "status": "right_censored"
+      },
+      {
+        "team": "MIL",
+        "first": 2018,
+        "last": 2025,
+        "length": 8,
+        "gap_seasons": [
+          2022
+        ],
+        "status": "right_censored"
+      },
+      {
+        "team": "MIN",
+        "first": 2019,
+        "last": 2020,
+        "length": 2,
+        "gap_seasons": [],
+        "status": "closed"
+      },
+      {
+        "team": "PHI",
+        "first": 2022,
+        "last": 2025,
+        "length": 4,
+        "gap_seasons": [],
+        "status": "right_censored"
+      },
+      {
+        "team": "SDP",
+        "first": 2024,
+        "last": 2025,
+        "length": 2,
+        "gap_seasons": [],
+        "status": "right_censored"
+      },
+      {
+        "team": "SEA",
+        "first": 2021,
+        "last": 2025,
+        "length": 5,
+        "gap_seasons": [],
+        "status": "right_censored"
+      },
+      {
+        "team": "STL",
+        "first": 2018,
+        "last": 2022,
+        "length": 5,
+        "gap_seasons": [],
+        "status": "closed"
+      },
+      {
+        "team": "TBR",
+        "first": 2018,
+        "last": 2023,
+        "length": 6,
+        "gap_seasons": [],
+        "status": "closed"
+      },
+      {
+        "team": "TOR",
+        "first": 2020,
+        "last": 2025,
+        "length": 6,
+        "gap_seasons": [
+          2024
+        ],
+        "status": "right_censored"
+      }
+    ],
+    "jordan_left_censored": [
+      {
+        "team": "CHC",
+        "first": 2015,
+        "last": 2020,
+        "length": 6,
+        "gap_seasons": [
+          2019
+        ],
+        "reason": "first contending season 2014 or 2015: no room for two non-contending seasons after 2014"
+      },
+      {
+        "team": "CLE",
+        "first": 2016,
+        "last": 2025,
+        "length": 10,
+        "gap_seasons": [
+          2021,
+          2023
+        ],
+        "reason": "no two straight non-contending seasons in 2014-2015 (seasons before: C-)"
+      },
+      {
+        "team": "HOU",
+        "first": 2017,
+        "last": 2025,
+        "length": 9,
+        "gap_seasons": [],
+        "reason": "no two straight non-contending seasons in 2014-2016 (seasons before: -C-)"
+      },
+      {
+        "team": "KCR",
+        "first": 2014,
+        "last": 2015,
+        "length": 2,
+        "gap_seasons": [],
+        "reason": "first contending season 2014 or 2015: no room for two non-contending seasons after 2014"
+      },
+      {
+        "team": "LAA",
+        "first": 2014,
+        "last": 2015,
+        "length": 2,
+        "gap_seasons": [],
+        "reason": "first contending season 2014 or 2015: no room for two non-contending seasons after 2014"
+      },
+      {
+        "team": "LAD",
+        "first": 2014,
+        "last": 2025,
+        "length": 12,
+        "gap_seasons": [],
+        "reason": "first contending season 2014 or 2015: no room for two non-contending seasons after 2014"
+      },
+      {
+        "team": "NYM",
+        "first": 2015,
+        "last": 2016,
+        "length": 2,
+        "gap_seasons": [],
+        "reason": "first contending season 2014 or 2015: no room for two non-contending seasons after 2014"
+      },
+      {
+        "team": "NYY",
+        "first": 2017,
+        "last": 2025,
+        "length": 9,
+        "gap_seasons": [
+          2023
+        ],
+        "reason": "no two straight non-contending seasons in 2014-2016 (seasons before: -C-)"
+      },
+      {
+        "team": "PIT",
+        "first": 2014,
+        "last": 2015,
+        "length": 2,
+        "gap_seasons": [],
+        "reason": "first contending season 2014 or 2015: no room for two non-contending seasons after 2014"
+      },
+      {
+        "team": "STL",
+        "first": 2014,
+        "last": 2015,
+        "length": 2,
+        "gap_seasons": [],
+        "reason": "first contending season 2014 or 2015: no room for two non-contending seasons after 2014"
+      },
+      {
+        "team": "TEX",
+        "first": 2015,
+        "last": 2016,
+        "length": 2,
+        "gap_seasons": [],
+        "reason": "first contending season 2014 or 2015: no room for two non-contending seasons after 2014"
+      },
+      {
+        "team": "TOR",
+        "first": 2015,
+        "last": 2016,
+        "length": 2,
+        "gap_seasons": [],
+        "reason": "first contending season 2014 or 2015: no room for two non-contending seasons after 2014"
+      },
+      {
+        "team": "WSN",
+        "first": 2016,
+        "last": 2019,
+        "length": 4,
+        "gap_seasons": [
+          2018
+        ],
+        "reason": "no two straight non-contending seasons in 2014-2015 (seasons before: C-)"
+      }
+    ],
+    "jordan_contending_by_club": {
+      "ARI": "---C-----CC-",
+      "ATH": "C---CCC-----",
+      "ATL": "----CCCCCCC-",
+      "BAL": "C-C------CC-",
+      "BOS": "--CCC--C---C",
+      "CHC": "-CCCC-C----C",
+      "CHW": "------CC----",
+      "CIN": "------C----C",
+      "CLE": "C-CCCCC-C-CC",
+      "COL": "---CC-------",
+      "DET": "C---------CC",
+      "HOU": "-C-CCCCCCCCC",
+      "KCR": "CC--------C-",
+      "LAA": "CC----------",
+      "LAD": "CCCCCCCCCCCC",
+      "MIA": "------C--C--",
+      "MIL": "----CCCC-CCC",
+      "MIN": "---C-CC--C--",
+      "NYM": "-CC-----C-C-",
+      "NYY": "-C-CCCCCC-CC",
+      "PHI": "--------CCCC",
+      "PIT": "CC----------",
+      "SDP": "------C-C-CC",
+      "SEA": "C---C--CCCCC",
+      "SFG": "C-C----C----",
+      "STL": "CC--CCCCC---",
+      "TBR": "----CCCCCC--",
+      "TEX": "-CC------C--",
+      "TOR": "-CC---CCCC-C",
+      "WSN": "C-CC-C------"
+    },
+    "checks": {
+      "passed": true,
+      "club_seasons": 360,
+      "window_top6_club_seasons": 144
+    },
+    "figure": "results/figures/survival_three_definitions.png"
+  },
+  "cushion_berth": {
+    "sample": "F",
+    "rows": "data/processed/hazard_robustness_pp.csv, variant berth, left_censored = 0",
+    "definition": "Club-seasons by Opening Day strength in season n (wins per 162 above the league's first club out of the field, od_rank berths + 1); closings = event (out of the berth-relative window at n+1's Opening Day); share = closings / club-seasons. Bands as hazard.closing_by_strength_band.",
+    "club_seasons": 97,
+    "closings": 28,
+    "bands": {
+      "le_2": {
+        "label": "<= 2",
+        "club_seasons": 30,
+        "closings": 15,
+        "share": 0.5
+      },
+      "gt_2_le_5": {
+        "label": "> 2 to 5",
+        "club_seasons": 29,
+        "closings": 9,
+        "share": 0.3103448275862069
+      },
+      "gt_5_le_8": {
+        "label": "> 5 to 8",
+        "club_seasons": 16,
+        "closings": 3,
+        "share": 0.1875
+      },
+      "gt_8": {
+        "label": "> 8",
+        "club_seasons": 22,
+        "closings": 1,
+        "share": 0.045454545454545456
+      }
+    },
+    "checks": {
+      "passed": true
+    }
   }
 }

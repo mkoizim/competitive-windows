@@ -1550,3 +1550,53 @@ other term in M2 or M2b reaches 0.05 in any sample.
 strength in F); the bootstrap and the other p-values appear in the table. The bootstrap p is
 reported as computed (0.0003, 3 of 9,999), not replaced by the larger-draw figure. Strength's
 significance does not depend on 22-cluster asymptotics, and the write-up says so in one sentence.
+
+## 2026-11-02 — Jordan comparison: ties for a division title
+
+**Question:** From 2022 MLB settles division ties by formula, without a tiebreaker game, so the
+win-loss records show two clubs tied for first in three division-seasons (2022 NL East, 2023 AL
+West, 2025 AL East). Jordan's "won its division" needs one winner.
+**Chose:** Ties for first are broken by the actual division title (ATL 2022, HOU 2023, TOR 2025,
+each on head-to-head record), listed in `jordan.py` with sources. Check 2 (three division winners
+per league) unchanged. Ties below first share the better rank.
+**Why:** "Won its division" means the title. `clinch_bye` marks the same clubs here but is not
+defined as division winner. No contending flag changes: all six tied clubs made the postseason.
+Fixed before any Jordan result was seen; the run stopped at the check.
+**Correction:** the planning chat had said the season-end records needed no tie rule because they
+include the 2018 game-163 tiebreakers. That holds only through 2021.
+
+## 2026-11-02 — Jordan comparison and berth-relative cushion table run (Post 1)
+
+**Record:** Run as specified in item F of "Week 3 robustness specification" (2026-11-01), "Week 3
+prompts" (2026-11-02) and "Jordan comparison: ties for a division title" (2026-11-02). All checks
+passed after the tie rule was set. Two new keys, `jordan_comparison` and `cushion_berth`; every
+pre-existing key in `results.json` unchanged.
+**Implementation choices, accepted on review:**
+- Jordan life table built as the grace one: one row per contending season; gap seasons count toward
+  age but are not rows; the closing is recorded in the last contending season. Rows run through 2023,
+  since a closing needs two later seasons; 14 of 16 windows have rows.
+- "Within 5 games" is inclusive, matching Jordan's "five or fewer" (decides CLE 2014, 5.0 back).
+- The 2020 threshold (.537) is compared with unrounded W/(W+L).
+**Independent check:** Rebuilt in the planning chat from `odds.csv` with separate code. Contending
+count (147 of 360), division winners (72), the 2×2 table, the 16 Jordan windows (7 closed), the 13
+left-censored windows and completed lengths (mean 3.29, median 3) all match; the Jordan life table
+was recomputed by hand (year 5 depends on MIL 2022 as a gap year). Berth-relative cushion bands
+match the expected counts.
+**Results, for the record:**
+- Survival after 4 years: Jordan 0.56; strict 0.22; grace 0.36. Mean completed length 3.29, 2.67,
+  2.25. Jordan windows cannot be shorter than 2 seasons; among strict windows that survive their
+  first year, 0.33 are open after year 4.
+- 2×2 (Jordan contending × window_top6, 2014–2025): 92 both; 52 projected but not contending; 55
+  contending but not projected; 161 neither. 70% agreement.
+- Jordan: 16 windows in the flow sample after 13 were dropped as left-censored; 7 closed.
+- Berth-relative cushion: ≤ 2 wins, 15 of 30 closed; 2–5, 9 of 29; 5–8, 3 of 16; > 8, 1 of 22.
+**Chose (write-up):**
+- The comparison is reported as what the ex ante definition changes: judged from Opening Day, as
+  clubs plan, windows are shorter and less durable than a results-based count suggests, and about a
+  third of each definition's contenders are not contenders under the other. Description only.
+- Jordan uses season-end records through 2025, as specified, so no definition uses information from
+  the 2026 season: the ex ante windows judge closings by 2026 Opening Day projections. 2026 records
+  were available and not used.
+- The published survival figure stops at year 6, matching the life tables and the stated limit on
+  long windows; the year-6 point is labeled "still open after 6 seasons." Full life tables stay in
+  `results.json`. The repo figure is regenerated when the write-up figures are built (Week 4).
