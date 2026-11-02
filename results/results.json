@@ -12757,5 +12757,385 @@
     },
     "pp_file": "data/processed/hazard_robustness_pp.csv",
     "figure": "results/figures/robustness_or.png"
+  },
+  "hazard_inference": {
+    "definition": "Small-cluster inference per docs/decisions.md 2026-11-01 item E. t_correction: p_t = 2 x t_{G-1} tail at the clustered z in hazard.models (G = clubs); p_normal is hazard's normal-reference p. score_bootstrap: Kline & Santos (2012) wild score bootstrap for strength in M2, sample F, restricted fit M2 without strength, Webb weights by club, no refitting, H fixed at the restricted estimates; p_bootstrap = share of draws with |T*| >= |T|; p_normal = 2 x normal tail at T; no small-sample scaling. size_check: the same test on datasets simulated under the restricted model.",
+    "t_correction": {
+      "F": {
+        "M2": {
+          "n_clusters": 22,
+          "t_df": 21,
+          "terms": {
+            "const": {
+              "z": -0.14656837930460642,
+              "p_normal": 0.8834727137445066,
+              "p_t": 0.8848706431741888
+            },
+            "ln_dur": {
+              "z": 1.063743892853755,
+              "p_normal": 0.287444734649948,
+              "p_t": 0.29952424060886446
+            },
+            "era12": {
+              "z": 0.4344495136640639,
+              "p_normal": 0.6639620489842143,
+              "p_t": 0.6683934151647741
+            },
+            "strength": {
+              "z": -3.312432195884495,
+              "p_normal": 0.0009248854228237966,
+              "p_t": 0.003312242104746556
+            },
+            "od_log2_rel": {
+              "z": -0.14005401516523389,
+              "p_normal": 0.8886173129794598,
+              "p_t": 0.8899519240812841
+            }
+          }
+        },
+        "M2b": {
+          "n_clusters": 22,
+          "t_df": 21,
+          "terms": {
+            "const": {
+              "z": 0.9178089237855956,
+              "p_normal": 0.3587189095228762,
+              "p_t": 0.36914043966160215
+            },
+            "dur1": {
+              "z": -1.1825638926296993,
+              "p_normal": 0.23698202963660275,
+              "p_t": 0.25019878454478656
+            },
+            "era12": {
+              "z": 0.4279829023056001,
+              "p_normal": 0.6686635684379771,
+              "p_t": 0.6730207766728633
+            },
+            "strength": {
+              "z": -3.295054973177234,
+              "p_normal": 0.0009840242770860431,
+              "p_t": 0.0034494218280004523
+            },
+            "od_log2_rel": {
+              "z": 0.12834212162794054,
+              "p_normal": 0.8978782324748587,
+              "p_t": 0.8990994008057619
+            }
+          }
+        }
+      },
+      "L": {
+        "M2": {
+          "n_clusters": 26,
+          "t_df": 25,
+          "terms": {
+            "const": {
+              "z": 0.8273680386691454,
+              "p_normal": 0.4080284903881183,
+              "p_t": 0.4158564908372868
+            },
+            "ln_dur": {
+              "z": 1.1184718569559287,
+              "p_normal": 0.26336551969006294,
+              "p_t": 0.2739980481388149
+            },
+            "era12": {
+              "z": -0.554180788301383,
+              "p_normal": 0.5794551249480802,
+              "p_t": 0.5843788676210231
+            },
+            "strength": {
+              "z": -4.026039838364046,
+              "p_normal": 5.672408271544509e-05,
+              "p_t": 0.0004633812913588563
+            },
+            "od_log2_rel": {
+              "z": -0.3051454559386068,
+              "p_normal": 0.7602553722174663,
+              "p_t": 0.7627814882513403
+            }
+          }
+        },
+        "M2b": {
+          "n_clusters": 26,
+          "t_df": 25,
+          "terms": {
+            "const": {
+              "z": 1.691505378393508,
+              "p_normal": 0.09074032144097458,
+              "p_t": 0.10317067073909653
+            },
+            "dur1": {
+              "z": -1.360083258986778,
+              "p_normal": 0.17380357811436553,
+              "p_t": 0.18594305487167556
+            },
+            "era12": {
+              "z": -0.5575941137681483,
+              "p_normal": 0.5771215768245597,
+              "p_t": 0.5820805041741546
+            },
+            "strength": {
+              "z": -3.828967848313265,
+              "p_normal": 0.00012868181519584983,
+              "p_t": 0.0007676935302786729
+            },
+            "od_log2_rel": {
+              "z": -0.12285325731516168,
+              "p_normal": 0.9022233003996506,
+              "p_t": 0.9032056113611043
+            }
+          }
+        }
+      },
+      "H": {
+        "M2": {
+          "n_clusters": 26,
+          "t_df": 25,
+          "terms": {
+            "const": {
+              "z": 0.14499601031446432,
+              "p_normal": 0.8847140218103081,
+              "p_t": 0.8858766790450152
+            },
+            "ln_dur": {
+              "z": 1.5690628382535017,
+              "p_normal": 0.11663329776629687,
+              "p_t": 0.12920502712661502
+            },
+            "era12": {
+              "z": 0.005920904270127411,
+              "p_normal": 0.9952758294995151,
+              "p_t": 0.9953228244258742
+            },
+            "strength": {
+              "z": -3.983170750488331,
+              "p_normal": 6.80018602073841e-05,
+              "p_t": 0.0005173209258128661
+            },
+            "od_log2_rel": {
+              "z": -0.41312127886433425,
+              "p_normal": 0.6795177599965744,
+              "p_t": 0.6830397749061256
+            }
+          }
+        },
+        "M2b": {
+          "n_clusters": 26,
+          "t_df": 25,
+          "terms": {
+            "const": {
+              "z": 1.9232348028106754,
+              "p_normal": 0.05445056831398276,
+              "p_t": 0.06591120965681399
+            },
+            "dur1": {
+              "z": -1.6138930183045204,
+              "p_normal": 0.10655063330484027,
+              "p_t": 0.11910348620841472
+            },
+            "era12": {
+              "z": -0.2057863972824549,
+              "p_normal": 0.8369577671893351,
+              "p_t": 0.8386243423933911
+            },
+            "strength": {
+              "z": -3.8937263946907086,
+              "p_normal": 9.871598659728509e-05,
+              "p_t": 0.0006506033773271381
+            },
+            "od_log2_rel": {
+              "z": -0.0898047768042759,
+              "p_normal": 0.9284423521905095,
+              "p_t": 0.9291579693716691
+            }
+          }
+        }
+      }
+    },
+    "t_correction_F_max_rel_diff_vs_robustness_top6": 0.0,
+    "score_bootstrap": {
+      "sample": "F",
+      "model": "M2",
+      "term": "strength",
+      "n_rows": 102,
+      "n_events": 30,
+      "n_clusters": 22,
+      "master_seed": 20261102,
+      "draws": 9999,
+      "weights": "Webb six-point: +/-sqrt(3/2), +/-1, +/-sqrt(1/2), each 1/6; one per club per draw",
+      "rng": "numpy default_rng(SeedSequence(master_seed)); weights drawn as one (draws x clubs) array, clubs in ascending team_id order",
+      "T": -3.2758674970005526,
+      "n_extreme": 3,
+      "p_bootstrap": 0.00030003000300030005,
+      "p_normal": 0.0010533796890820595,
+      "restricted": {
+        "terms": [
+          "const",
+          "ln_dur",
+          "era12",
+          "od_log2_rel"
+        ],
+        "coef": {
+          "const": -0.9119456916969009,
+          "ln_dur": -0.21570323555789853,
+          "era12": 0.4200773783358526,
+          "od_log2_rel": -0.3574913221425468
+        },
+        "loglik": -60.9408583561545,
+        "converged": true,
+        "notes": []
+      },
+      "projection_H_tt_inv_H_tb": {
+        "const": 3.6947771892730628,
+        "ln_dur": 3.1598857516561836,
+        "era12": -1.9889552881984107,
+        "od_log2_rel": 1.5384304300989633
+      },
+      "restricted_score_max_abs": 1.5543122344752192e-15,
+      "S_g": [
+        {
+          "team_id": 1,
+          "team": "LAA",
+          "S_g": -4.6010696833421045
+        },
+        {
+          "team_id": 2,
+          "team": "BAL",
+          "S_g": -0.06748222195324588
+        },
+        {
+          "team_id": 3,
+          "team": "BOS",
+          "S_g": 0.5249732880658529
+        },
+        {
+          "team_id": 4,
+          "team": "CHW",
+          "S_g": 0.02060271599284408
+        },
+        {
+          "team_id": 5,
+          "team": "CLE",
+          "S_g": -6.589309503517381
+        },
+        {
+          "team_id": 8,
+          "team": "MIN",
+          "S_g": -1.6580993349039488
+        },
+        {
+          "team_id": 9,
+          "team": "NYY",
+          "S_g": -6.105771678725368
+        },
+        {
+          "team_id": 10,
+          "team": "ATH",
+          "S_g": -0.6986320077519454
+        },
+        {
+          "team_id": 11,
+          "team": "SEA",
+          "S_g": -4.3610193393114125
+        },
+        {
+          "team_id": 12,
+          "team": "TBR",
+          "S_g": 0.6762333307994044
+        },
+        {
+          "team_id": 13,
+          "team": "TEX",
+          "S_g": 0.3648957986093135
+        },
+        {
+          "team_id": 14,
+          "team": "TOR",
+          "S_g": -4.253422181310947
+        },
+        {
+          "team_id": 15,
+          "team": "ARI",
+          "S_g": -2.6389674229100746
+        },
+        {
+          "team_id": 16,
+          "team": "ATL",
+          "S_g": -6.0882259702647765
+        },
+        {
+          "team_id": 17,
+          "team": "CHC",
+          "S_g": -9.11885024801237
+        },
+        {
+          "team_id": 21,
+          "team": "HOU",
+          "S_g": -9.952062932538926
+        },
+        {
+          "team_id": 23,
+          "team": "MIL",
+          "S_g": -3.66664304791463
+        },
+        {
+          "team_id": 25,
+          "team": "NYM",
+          "S_g": -0.2520932118728924
+        },
+        {
+          "team_id": 26,
+          "team": "PHI",
+          "S_g": -2.220209416981709
+        },
+        {
+          "team_id": 28,
+          "team": "STL",
+          "S_g": -2.47635983489496
+        },
+        {
+          "team_id": 29,
+          "team": "SDP",
+          "S_g": -3.8169203144523856
+        },
+        {
+          "team_id": 30,
+          "team": "SFG",
+          "S_g": 0.7292760763589957
+        }
+      ],
+      "sum_S_g": -66.24915714083266,
+      "sum_S_g_sq": 408.98564089165
+    },
+    "size_check": {
+      "n_datasets": 500,
+      "draws_per_dataset": 999,
+      "dgp": "event ~ Bernoulli(p~), p~ = restricted-model fitted probabilities on the real F rows; same rows, clubs and covariates",
+      "seeding": "dataset k uses default_rng(SeedSequence(master_seed).spawn(500)[k]) for its outcomes, then its 999 weight draws",
+      "rejection": "p_bootstrap <= level",
+      "n_fit_failures": 0,
+      "fit_failures": [],
+      "n_successful_fits": 500,
+      "n_successful_fits_with_notes": 0,
+      "rejections": {
+        "5": 34,
+        "10": 53
+      },
+      "rejection_rate_successful": {
+        "5": 0.068,
+        "10": 0.106
+      },
+      "rejection_rate_all": {
+        "5": 0.068,
+        "10": 0.106
+      },
+      "band_5pct": [
+        0.03,
+        0.07
+      ]
+    },
+    "checks_passed": true
   }
 }

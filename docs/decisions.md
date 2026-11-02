@@ -1522,3 +1522,31 @@ line. The disagreement found (on age) comes mainly from where the line sits in t
 
 **Correction:** strength is in projected wins per 162 (162 × the difference in projected W%), as §5
 states; the 2026-10-26 specification entry's "projected W%" wording is superseded.
+
+## 2026-11-02 — Small-cluster inference run (Post 1)
+
+**Record:** Run as specified in item E of "Week 3 robustness specification" (2026-11-01) and in
+"Week 3 prompts" (2026-11-02). All checks passed.
+- **t-correction:** p-values against t with G − 1 df for every term of M2 and M2b in F, L and H
+  (G = 22 in F, 26 in L and H). F values match `hazard_robustness` (top 6) exactly.
+- **Wild score bootstrap** (strength, M2, F): master seed 20261102, 9,999 draws, Webb weights.
+  T = −3.276; bootstrap p = 0.0003 (3 of 9,999); normal-approximation p = 0.0011.
+- **Size check:** 500 simulated null datasets, 999 draws each, no fit failures. Rejection 6.8% at
+  the 5% level (inside the 3–7% band) and 10.6% at 10%.
+
+**Independent check:** The bootstrap was rebuilt in the planning chat from the formula in the
+prompt. Restricted coefficients, projection, all 22 club sums (largest difference 1.5e-14) and T are
+identical, and Claude Code's seed scheme reproduces 3 of 9,999 exactly. Further checks, not
+pre-specified and not used in the write-up: with 1,000,000 draws the bootstrap p is about 0.0001,
+so 0.0003 is within draw-to-draw noise at 9,999 draws; a 2,000-dataset size check gave 5.3% at 5%
+and 10.6% at 10%, so the 6.8% is consistent with noise; 17 of 22 clubs' score contributions share a
+sign, and dropping the largest (HOU, 24% of the sum of squares) leaves T = −3.20.
+
+**Results, for the record:** Strength in M2, F: clustered normal p 0.0009; t(21) 0.0033; score
+normal 0.0011; wild score bootstrap 0.0003. In L and H, strength's t-based p is below 0.001. No
+other term in M2 or M2b reaches 0.05 in any sample.
+
+**Chose (write-up):** Prose quotes the most conservative p-value, t with G − 1 df (0.0033 for
+strength in F); the bootstrap and the other p-values appear in the table. The bootstrap p is
+reported as computed (0.0003, 3 of 9,999), not replaced by the larger-draw figure. Strength's
+significance does not depend on 22-cluster asymptotics, and the write-up says so in one sentence.
