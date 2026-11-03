@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.30
+## Research Plan v0.31
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.31 — Review steps before the abstract: processed data rebuilt independently from raw (all files match); a five-value spot check against FanGraphs; the referee pass moved before drafting, with a second on the draft; human technical review before the full Post 1. Opening Day snapshot gaps logged for 2019, 2024 and 2025.
 - v0.30 — Week 3 run: robustness variants (thresholds 3–9, berth-relative, grace) in F; t(G − 1) p-values and a wild score bootstrap for strength; Jordan (2018) comparison; berth-relative cushion table. Left-censoring extended to gap-tolerant rules (grace, Jordan). Write-up framing set: cushion, not age, predicts survival; no duration-dependence claim; baseline vs. berth-relative difference traced to the five-team era.
 - v0.29 — Post 1 hazard specified and fit: flow sample primary with L/H bounds; bins 1, 2, 3, 4+; M2 = log duration + era + Opening Day strength + payroll. Baseball-Reference backcast failed its gate. Cot's payroll collected. Deadline table added. 2027 forecasts timestamped (`3fdc139`). Descriptive count of Opening Day underdogs vs. realized qualification (three variants; not a test of P2).
 - v0.28 — Window patterns fixed after the first run: next year = next Opening Day rank; gap year and fizzled separated; Out of contention added; patterns renamed by whether the next Opening Day carried them forward; thresholds 3–9. Persistent club-specific forecast error added to P2 (exploratory). Spell count done.
@@ -891,8 +892,8 @@ needs only the odds, which are collected.
 | 1 | Oct 19–25 | Clean the odds; build the window table; count spells (go/no-go); classify window patterns |
 | 2 | Oct 26–Nov 1 | Done 2026-10-26: hazard model (F/L/H), format era, payroll from Cot's, persistent contenders; 2027 forecasts timestamped |
 | 3 | Nov 2–8 | Done 2026-11-02: robustness variants (thresholds 3–9, berth-relative, grace); t-correction and wild score bootstrap for strength; Jordan comparison; berth-relative cushion table |
-| 4 | Nov 9–15 | Draft the abstract; build the write-up figures (survival cut at year 6); send to one or two reviewers |
-| 5 | Nov 16–22 | Revise; referee pass in a fresh chat |
+| 4 | Nov 9–15 | Before drafting: raw-data rebuild (done 2026-11-03), five-value spot check against FanGraphs, referee pass on the analysis in a fresh chat. Then the numbers manifest, write-up figures (survival cut at year 6) and abstract draft; send to one or two reviewers |
+| 5 | Nov 16–22 | Revise; second referee pass, on the draft, in a fresh chat |
 | Buffer | Nov 23–25 | Target submission by November 22; don't rely on Thanksgiving week |
 
 **Deferred until after the abstract:** trades, the value build, the Doyle Number, the re-lock of
@@ -981,10 +982,14 @@ data dictionary — re-upload when they change.
 
 ## 11. Review and distribution
 
-1. **Spec review** — former colleagues [reviewer] and [reviewer], possibly others, on definitions.
-2. **Referee pass** — fresh Incognito chat.
-3. **Human technical review** — someone who will check the model, not just the prose.
-4. **Publish:** personal site as permanent home; FanGraphs Community Research; SABR.
+1. **Data rebuild** — processed files rebuilt from `data/raw/` with separate code (done
+   2026-11-03), plus a hand spot check of five raw values against the FanGraphs pages.
+2. **Referee pass** — fresh Incognito chat, run twice: on the analysis before the abstract is
+   drafted, and on the draft.
+3. **Spec review** — former colleagues [reviewer] and [reviewer], possibly others, on definitions.
+4. **Human technical review** — someone who will check the model, not just the prose; after the
+   abstract, before the full Post 1. Not yet named.
+5. **Publish:** personal site as permanent home; FanGraphs Community Research; SABR.
 
 ---
 
@@ -1043,6 +1048,10 @@ data dictionary — re-upload when they change.
 - [x] Robustness variants run in F (2026-11-02)
 - [x] Small-cluster inference: t(G − 1) p-values for M2 and M2b, and a wild score bootstrap for strength, replacing the planned wild-cluster bootstrap intervals (2026-11-02)
 - [x] Jordan comparison and berth-relative cushion table (2026-11-02)
+- [x] Processed data rebuilt independently from raw (2026-11-03)
+- [ ] Spot-check five raw values against the FanGraphs pages (Week 4, before drafting)
+- [ ] Referee pass on the analysis, fresh chat (Week 4, before drafting)
+- [ ] Referee pass on the draft abstract, fresh chat (Week 5)
 - [ ] Build the write-up survival figure, cut at year 6 (Week 4)
 - [ ] Heads-up to [reviewer] and [reviewer] that a draft is coming
 
@@ -1051,6 +1060,7 @@ data dictionary — re-upload when they change.
 - [ ] Install a current Python (3.12 or 3.13, from python.org), rebuild `.venv`, and rerun the fresh-install test
 - [ ] Second source for the Brewers' 2024 year-end payroll before R3 or P4 use it
 - [ ] Baseball-Reference cross-check of final records (deferred 2026-10-18)
+- [ ] Name a human technical reviewer for the model (before the full Post 1)
 
 **Before Post 2**
 - [ ] Value build: projection source, aging curve, grade-to-value table, $/WAR series — logged before any valuation is computed

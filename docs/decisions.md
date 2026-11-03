@@ -1609,3 +1609,29 @@ match the expected counts.
 M2 fit within an era estimates four numbers (era drops out), about 3 closings per number in the
 earlier era, below the 5–10 used when M2 was specified (2026-10-26). Decided on these counts alone,
 with no stratified model fit.
+
+## 2026-11-03 — Review steps before the abstract
+
+**Question:** The plan had one referee pass, in Week 5 after reviewers read a draft, and no check of
+the processed data against the raw files. Is that enough before the abstract?
+**Chose:** Three steps before drafting: an independent rebuild of the processed files from
+`data/raw/`; a hand spot check of five raw values against the FanGraphs pages; a referee pass on the
+analysis in a fresh chat. A second referee pass runs on the draft in Week 5. A human technical
+reviewer reads the model after the abstract and before the full Post 1.
+**Why:** Every Week 1–3 check rebuilt results from the processed files, so an error in cleaning
+would have passed all of them. A referee pass after reviewers have read a draft finds a fatal
+objection too late to answer it cheaply.
+
+## 2026-11-03 — Processed data rebuilt from raw; Opening Day snapshot gaps
+
+**Record:** `odds.csv` (1,170 rows), `windows.csv` (390 rows) and `payroll.csv` (480 rows) were
+rebuilt in the planning chat from `data/raw/` with separate code, from the plan's definitions only.
+Every column matches; relative payroll matches to 5e-7 (rounding). All pre-deadline dates fall exactly
+7 days before the deadline. Every Opening Day snapshot has all clubs at 0–0, and every
+league-season's postseason odds sum to its berths.
+**Gap logged (§3.2):** the first archived date falls before an international opening series in
+2019 (Mar 19; Tokyo), 2024 (Mar 19; Seoul) and 2025 (Mar 17; Tokyo), about 9 days before most clubs'
+openers. The snapshot rule (first archived date, all clubs 0–0) is followed; those projections
+predate roughly a week of late-spring news. No change made.
+**Not covered:** both builds read the same raw columns, so a column mislabeled at collection would
+pass. The five-value spot check against FanGraphs addresses this.
