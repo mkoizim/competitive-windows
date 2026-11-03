@@ -1600,3 +1600,12 @@ match the expected counts.
 - The published survival figure stops at year 6, matching the life tables and the stated limit on
   long windows; the year-6 point is labeled "still open after 6 seasons." Full life tables stay in
   `results.json`. The repo figure is regenerated when the write-up figures are built (Week 4).
+
+## 2026-11-02 — Era-stratified fitting not run (Post 1)
+
+**Question:** §3.3a lists era-stratified fitting as a secondary check "where power allows." Does it?
+**Chose:** No; not run. The pooled era term remains the format test.
+**Why:** In F, 12 closings come from 10-team-era rows (47 rows) and 18 from 12-team-era rows (55).
+M2 fit within an era estimates four numbers (era drops out), about 3 closings per number in the
+earlier era, below the 5–10 used when M2 was specified (2026-10-26). Decided on these counts alone,
+with no stratified model fit.

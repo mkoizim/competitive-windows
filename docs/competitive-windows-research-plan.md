@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.29
+## Research Plan v0.30
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.30 — Week 3 run: robustness variants (thresholds 3–9, berth-relative, grace) in F; t(G − 1) p-values and a wild score bootstrap for strength; Jordan (2018) comparison; berth-relative cushion table. Left-censoring extended to gap-tolerant rules (grace, Jordan). Write-up framing set: cushion, not age, predicts survival; no duration-dependence claim; baseline vs. berth-relative difference traced to the five-team era.
 - v0.29 — Post 1 hazard specified and fit: flow sample primary with L/H bounds; bins 1, 2, 3, 4+; M2 = log duration + era + Opening Day strength + payroll. Baseball-Reference backcast failed its gate. Cot's payroll collected. Deadline table added. 2027 forecasts timestamped (`3fdc139`). Descriptive count of Opening Day underdogs vs. realized qualification (three variants; not a test of P2).
 - v0.28 — Window patterns fixed after the first run: next year = next Opening Day rank; gap year and fizzled separated; Out of contention added; patterns renamed by whether the next Opening Day carried them forward; thresholds 3–9. Persistent club-specific forecast error added to P2 (exploratory). Spell count done.
 - v0.27 — Corrections from the data audit: 2020 second-place field, 2016 deadline (Aug 1), `data/processed/` never committed.
@@ -107,7 +108,8 @@ collected, and the Post 1 hazard had been fit with its results seen. On 2026-10-
 Opening Day Make Playoffs odds were set against realized qualification for a descriptive count of
 Opening Day underdogs (three variants, logged in `decisions.md`). That pairing is P2's dataset. The
 count is not a test of P2, but P2's data has now been looked at in this form, and readers should
-know it. Transactions have still not been pulled.
+know it. On 2026-11-02 the Week 3 robustness variants, small-cluster inference and Jordan comparison
+were run, with their results seen (`decisions.md`, 2026-11-02). Transactions have still not been pulled.
 
 ### Registered
 
@@ -424,12 +426,18 @@ the period, 30 clubs every year, no membership required.
 12 from 2022. Handled three ways:
 
 1. **Format regime as a covariate** in the hazard model. Whether the hazard shifted in 2022 is
-   itself an output.
+   itself an output. With the line fixed at 6, the term asks whether a top-6 club's closing risk
+   changed once 6th became a playoff spot (rank 6 moved from one spot outside the field to the last
+   spot inside it). Under the berth-relative line it is not read as a format effect, because that
+   line also moves at 2022.
 2. **Berth-relative threshold** as a robustness variant — rank equal to berths per league:
    5 (2014–2019, 2021), 8 (2020), 6 (2022 on).
    In Post 1 it is reported with equal prominence alongside the fixed rank-6 baseline (decided
-   2026-11-01, before its results were seen).
-3. **Era-stratified fitting** as a secondary check where power allows.
+   2026-11-01, before its results were seen). It equals top 5 in 2014–2019 and 2021, top 8 in 2020
+   and top 6 from 2022, so where it differs from the baseline, the difference comes mainly from the
+   five-team era, not from the change at 2022.
+3. **Era-stratified fitting** was listed as a secondary check where power allows. It is not run: F
+   has 12 closings in the 10-team era and 18 in the 12-team era (`decisions.md`, 2026-11-02).
 
 **2020.** The Make Playoffs column on 2020 pages prices the old 10-team field. The correct 2020
 postseason probability is reconstructed as **Win Div + Win Div 2nd place + Clinch Wild Card**
@@ -443,7 +451,10 @@ years. The paper states the limit rather than extrapolating past it.
 **Left censoring.** The 12 spells open in 2014 have unknown start years. The primary (flow) sample
 drops them. Two bounds include them, entering at duration 1 (L) or at the top bin (H). A backcast
 of their start years from Baseball-Reference preseason odds failed its validation gate (77%
-agreement against 85% required) and is not used.
+agreement against 85% required) and is not used. Under rules that tolerate a one-season gap, the
+same principle drops more: grace-rule spells starting in 2015 (a club out on 2014 Opening Day may
+have been in a dip from a window open in 2013), and Jordan windows unless two straight
+non-contending seasons occur between 2014 and the window's first contending season.
 
 **Optional descriptive context.** Realized postseason qualification going back decades is
 available from Retrosheet or Baseball-Reference — an outcome, not ex-ante, so it cannot carry
@@ -781,8 +792,38 @@ Modular. Each post stands alone. Ordered so cheap wins precede expensive work.
 - **Write-up notes:** strength is in the model because surviving windows are disproportionately
   strong, so duration is read with strength held fixed. Gap years include temporary setbacks such
   as injuries; a weak first half does not determine the next projection.
-- Report an ex-post comparison with Jordan (2018) and Reinhart (2018) to show what the ex-ante
-  definition changes.
+- **Robustness (fixed 2026-11-01; run 2026-11-02).** The eight variants (thresholds 3, 4, 5, 7, 8, 9;
+  berth-relative; grace) run in F only. Strength in each is measured against the first club out at
+  its threshold; bins stay at 1, 2, 3, 4+, and a zero-closing bin is reported as a raw count with an
+  exact interval. Grace: a window closes after two straight Opening Days out; dip seasons count
+  toward age but are not rows; rows run through 2024. Every clustered result also gets t(G − 1)
+  p-values; strength in M2 (F) gets a wild score bootstrap (Kline & Santos, 2012; Webb weights;
+  9,999 draws) with a size check.
+- **Comparison with Jordan (2018).** His ex post rule (division winner, wild card, 2nd or 3rd within
+  5 games of the division winner, or 87+ wins; opens after two contending seasons; closes after two
+  non-contending) applied to the same 2014–2025 seasons from actual season-end records. 2020 scaled
+  to 60 games (.537; 1.85 games). Ties for a division title since 2022 are broken by the actual
+  title. Records stop at 2025, so no definition uses information from the 2026 season. Description
+  only. Reinhart (2018) cited, not replicated.
+- **Week 3 results (2026-11-02; detail in `decisions.md`).**
+  - Strength: odds ratio below 1 in all nine definitions (0.59–0.84 per projected win of cushion),
+    interval excluding 1 in eight (not top 4). Holds under small-cluster inference: p = 0.0033 on
+    t(21); wild score bootstrap 0.0003.
+  - Duration: changes sign across definitions; no definition shows a detectable protective effect of
+    age.
+  - Era and payroll: not detected in any definition.
+  - Jordan: ex post windows run longer (survival after 4 years 0.56 vs. 0.22 strict), and about a
+    third of each definition's contenders are not contenders under the other.
+- **Write-up framing (2026-11-02).**
+  - The two lines, for readers: berth-relative is "projected to make the playoffs on Opening Day";
+    fixed 6 is "projected in the field or the first club out" before 2022, and exactly the field
+    from 2022. Fixed 6 stays primary because it was registered and its yardstick does not move
+    across formats; equal prominence stands.
+  - Headline: cushion, not age, predicts whether a window survives. No duration-dependence claim in
+    either direction. Cushion tables are reported for both lines.
+  - Prose quotes the most conservative p-value (t with G − 1 df); the others appear in the table.
+  - The Jordan comparison is presented as what the ex ante definition changes.
+  - The published survival figure stops at year 6; full life tables stay in `results.json`.
 - This is the SABR abstract. It needs only the odds snapshots.
 - **Reminder for the write-up:** state clearly why the threshold is what it is, and defend it.
   Frame the deadline difference between favorites and bubble clubs as **the same goal (titles)
@@ -849,8 +890,8 @@ needs only the odds, which are collected.
 |---|---|---|
 | 1 | Oct 19–25 | Clean the odds; build the window table; count spells (go/no-go); classify window patterns |
 | 2 | Oct 26–Nov 1 | Done 2026-10-26: hazard model (F/L/H), format era, payroll from Cot's, persistent contenders; 2027 forecasts timestamped |
-| 3 | Nov 2–8 | Robustness (thresholds 3–9, grace rule, berth-relative); wild-cluster bootstrap intervals for M2; comparison with Jordan and Reinhart |
-| 4 | Nov 9–15 | Draft the abstract; send to one or two reviewers |
+| 3 | Nov 2–8 | Done 2026-11-02: robustness variants (thresholds 3–9, berth-relative, grace); t-correction and wild score bootstrap for strength; Jordan comparison; berth-relative cushion table |
+| 4 | Nov 9–15 | Draft the abstract; build the write-up figures (survival cut at year 6); send to one or two reviewers |
 | 5 | Nov 16–22 | Revise; referee pass in a fresh chat |
 | Buffer | Nov 23–25 | Target submission by November 22; don't rely on Thanksgiving week |
 
@@ -961,8 +1002,8 @@ data dictionary — re-upload when they change.
 | P3 underpowered and confounded | **High** | Downgraded to exploratory; time-varying exposure with core age and control |
 | Thirteen seasons cannot estimate hazards for windows beyond ~7 years | **High** | State the censoring limit; do not extrapolate |
 | Too few window spells | Resolved | 53 spells at baseline (2026-10-20) |
-| Few clusters (22 clubs in the primary sample) make clustered standard errors unreliable | Medium | Wild-cluster bootstrap (Week 3) |
-| Strength result partly reflects projections agreeing with themselves | Medium | State it in the write-up; the parked Baseball-Reference windows check offers a second instrument |
+| Few clusters (22 clubs in the primary sample) make clustered standard errors unreliable | Resolved | t(G − 1) p-values and a wild score bootstrap (2026-11-02): strength holds (0.0033; 0.0003) |
+| Strength result partly reflects projections agreeing with themselves | Medium | State it in the write-up; the parked Baseball-Reference windows check offers a second instrument. Robustness across thresholds does not address it |
 | Sports-Reference terms (AI clause) | Low | Logged; only derived ranks published; Retrosheet as a fallback |
 | Doyle Number unstable because the future-WAR-to-title mapping is model-dependent | **High** | Report across 8–12% and the break-even rate; state if conclusions flip (§4g) |
 | Post 1 analyzed with the odds already in view | Medium | Labeled exploratory; any specification change from here logged with date |
@@ -999,13 +1040,17 @@ data dictionary — re-upload when they change.
 - [x] 2027 forecasts timestamped (`3fdc139`, 2026-10-26)
 - [x] Add the closing-rate-by-cushion table to `hazard.py` and `results.json` (2026-11-02)
 - [x] Fresh-install test of `requirements.txt`: passed, results reproduced byte for byte (2026-11-02)
-- [ ] Wild-cluster bootstrap for M2 (Week 3)
+- [x] Robustness variants run in F (2026-11-02)
+- [x] Small-cluster inference: t(G − 1) p-values for M2 and M2b, and a wild score bootstrap for strength, replacing the planned wild-cluster bootstrap intervals (2026-11-02)
+- [x] Jordan comparison and berth-relative cushion table (2026-11-02)
+- [ ] Build the write-up survival figure, cut at year 6 (Week 4)
 - [ ] Heads-up to [reviewer] and [reviewer] that a draft is coming
 
 **After the abstract**
 - [ ] Score the 2027 forecasts on 2027 Opening Day
 - [ ] Install a current Python (3.12 or 3.13, from python.org), rebuild `.venv`, and rerun the fresh-install test
 - [ ] Second source for the Brewers' 2024 year-end payroll before R3 or P4 use it
+- [ ] Baseball-Reference cross-check of final records (deferred 2026-10-18)
 
 **Before Post 2**
 - [ ] Value build: projection source, aging curve, grade-to-value table, $/WAR series — logged before any valuation is computed
