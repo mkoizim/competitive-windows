@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.31
+## Research Plan v0.32
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.32 — Five-value spot check against FanGraphs done (all matched). Correction: strict survival after four years is 0.21, not 0.22. SABR call checked: silent on figures and prior publication; general-track presenters owe a full paper (requested Dec 18, due Jan 22, 2027).
 - v0.31 — Review steps before the abstract: processed data rebuilt independently from raw (all files match); a five-value spot check against FanGraphs; the referee pass moved before drafting, with a second on the draft; human technical review before the full Post 1. Opening Day snapshot gaps logged for 2019, 2024 and 2025.
 - v0.30 — Week 3 run: robustness variants (thresholds 3–9, berth-relative, grace) in F; t(G − 1) p-values and a wild score bootstrap for strength; Jordan (2018) comparison; berth-relative cushion table. Left-censoring extended to gap-tolerant rules (grace, Jordan). Write-up framing set: cushion, not age, predicts survival; no duration-dependence claim; baseline vs. berth-relative difference traced to the five-team era.
 - v0.29 — Post 1 hazard specified and fit: flow sample primary with L/H bounds; bins 1, 2, 3, 4+; M2 = log duration + era + Opening Day strength + payroll. Baseball-Reference backcast failed its gate. Cot's payroll collected. Deadline table added. 2027 forecasts timestamped (`3fdc139`). Descriptive count of Opening Day underdogs vs. realized qualification (three variants; not a test of P2).
@@ -813,7 +814,7 @@ Modular. Each post stands alone. Ordered so cheap wins precede expensive work.
   - Duration: changes sign across definitions; no definition shows a detectable protective effect of
     age.
   - Era and payroll: not detected in any definition.
-  - Jordan: ex post windows run longer (survival after 4 years 0.56 vs. 0.22 strict), and about a
+  - Jordan: ex post windows run longer (survival after 4 years 0.56 vs. 0.21 strict), and about a
     third of each definition's contenders are not contenders under the other.
 - **Write-up framing (2026-11-02).**
   - The two lines, for readers: berth-relative is "projected to make the playoffs on Opening Day";
@@ -892,7 +893,7 @@ needs only the odds, which are collected.
 | 1 | Oct 19–25 | Clean the odds; build the window table; count spells (go/no-go); classify window patterns |
 | 2 | Oct 26–Nov 1 | Done 2026-10-26: hazard model (F/L/H), format era, payroll from Cot's, persistent contenders; 2027 forecasts timestamped |
 | 3 | Nov 2–8 | Done 2026-11-02: robustness variants (thresholds 3–9, berth-relative, grace); t-correction and wild score bootstrap for strength; Jordan comparison; berth-relative cushion table |
-| 4 | Nov 9–15 | Before drafting: raw-data rebuild (done 2026-11-03), five-value spot check against FanGraphs, referee pass on the analysis in a fresh chat. Then the numbers manifest, write-up figures (survival cut at year 6) and abstract draft; send to one or two reviewers |
+| 4 | Nov 9–15 | Before drafting: raw-data rebuild (done 2026-11-03), five-value spot check against FanGraphs (done 2026-11-03), referee pass on the analysis in a fresh chat. Then the numbers manifest, write-up figures (survival cut at year 6) and abstract draft; send to one or two reviewers |
 | 5 | Nov 16–22 | Revise; second referee pass, on the draft, in a fresh chat |
 | Buffer | Nov 23–25 | Target submission by November 22; don't rely on Thanksgiving week |
 
@@ -901,8 +902,15 @@ needs only the odds, which are collected.
 The abstract needs a clean hazard result and an honest description of what follows, not the series.
 
 **FanGraphs.** The full Post 1 goes to FanGraphs Community Research after the abstract.
-**[OPEN]:** check whether the SABR call accepts work already published elsewhere; if not, hold the
-FanGraphs piece until after the conference or publish a narrower piece first.
+**[OPEN]:** whether the SABR call accepts work already published elsewhere; if not, hold the
+FanGraphs piece until after the conference or publish a narrower piece first. The 2027 call
+(checked 2026-11-03) does not address prior publication, or whether an abstract may include figures
+or tables; both questions go to SABR by email (analytics-presentations@sabr.org). The abstract is
+drafted as plain text in the meantime.
+
+**If the abstract advances (general track):** SABR requests a full research paper on December 18,
+due January 22, 2027. Finalists are notified February 19; the conference is March 12–14, 2027, in
+Phoenix. This sits over the holidays and bears on FanGraphs timing.
 
 Posts 2–4: 25–40 hours each; Post 2 more, because of the value build. Total project:
 150–250 hours. **Fallback if November slips:** SABR national convention abstracts run in
@@ -983,7 +991,8 @@ data dictionary — re-upload when they change.
 ## 11. Review and distribution
 
 1. **Data rebuild** — processed files rebuilt from `data/raw/` with separate code (done
-   2026-11-03), plus a hand spot check of five raw values against the FanGraphs pages.
+   2026-11-03), plus a hand spot check of five raw values against the FanGraphs pages (done 2026-11-03; all
+   five matched).
 2. **Referee pass** — fresh Incognito chat, run twice: on the analysis before the abstract is
    drafted, and on the draft.
 3. **Spec review** — former colleagues [reviewer] and [reviewer], possibly others, on definitions.
@@ -1040,7 +1049,7 @@ data dictionary — re-upload when they change.
 - [ ] Probe: Win WS dispersion at OD, PD and EOS (two seasons)
 - [x] Spec reviewers identified: [reviewer], [reviewer] (possibly others)
 - [x] SABR Analytics abstract deadline: Nov 25, 2026, 11:59 pm MST
-- [ ] Check whether the SABR call accepts work published elsewhere first (affects FanGraphs timing)
+- [ ] Check whether the SABR call accepts work published elsewhere first (affects FanGraphs timing). 2026-11-03: the call is silent on this and on figures; ask SABR by email
 - [x] Hazard model fit (2026-10-26)
 - [x] 2027 forecasts timestamped (`3fdc139`, 2026-10-26)
 - [x] Add the closing-rate-by-cushion table to `hazard.py` and `results.json` (2026-11-02)
@@ -1049,13 +1058,14 @@ data dictionary — re-upload when they change.
 - [x] Small-cluster inference: t(G − 1) p-values for M2 and M2b, and a wild score bootstrap for strength, replacing the planned wild-cluster bootstrap intervals (2026-11-02)
 - [x] Jordan comparison and berth-relative cushion table (2026-11-02)
 - [x] Processed data rebuilt independently from raw (2026-11-03)
-- [ ] Spot-check five raw values against the FanGraphs pages (Week 4, before drafting)
+- [x] Spot-check five raw values against the FanGraphs pages (2026-11-03: all five matched)
 - [ ] Referee pass on the analysis, fresh chat (Week 4, before drafting)
 - [ ] Referee pass on the draft abstract, fresh chat (Week 5)
 - [ ] Build the write-up survival figure, cut at year 6 (Week 4)
 - [ ] Heads-up to [reviewer] and [reviewer] that a draft is coming
 
 **After the abstract**
+- [ ] If the abstract advances: full paper requested Dec 18, due Jan 22, 2027 (general track)
 - [ ] Score the 2027 forecasts on 2027 Opening Day
 - [ ] Install a current Python (3.12 or 3.13, from python.org), rebuild `.venv`, and rerun the fresh-install test
 - [ ] Second source for the Brewers' 2024 year-end payroll before R3 or P4 use it

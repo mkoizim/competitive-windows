@@ -1635,3 +1635,32 @@ openers. The snapshot rule (first archived date, all clubs 0–0) is followed; t
 predate roughly a week of late-spring news. No change made.
 **Not covered:** both builds read the same raw columns, so a column mislabeled at collection would
 pass. The five-value spot check against FanGraphs addresses this.
+
+## 2026-11-03 — Five raw values spot-checked against FanGraphs
+
+**Record:** Checked by hand against the archived FanGraphs playoff-odds pages, all matching: 2014
+Opening Day TBR and CLE; 2025 Opening Day HOU and BAL; 2020 Opening Day CHW (the three components of
+the rebuilt postseason probability); 2023 pre-deadline MIA; 2019 end of season MIL. This closes the
+column-labeling gap noted under "Not covered" in the entry above.
+
+## 2026-11-03 — Correction: strict survival after four years
+
+**Record:** Strict (fixed top 6, sample F) survival after four years is 0.21:
+`hazard_robustness/variants/top6/survival_after/4` = 0.2148, matching
+`jordan_comparison/definitions/strict/survival_after/4`. "Jordan comparison and berth-relative cushion
+table run (Post 1)" (2026-11-02) and plan §5 in v0.30–v0.31 gave 0.22. Found while building the
+abstract's numbers manifest. No result changes; the plan is corrected in v0.32 and the 2026-11-02 entry
+stands as written.
+
+## 2026-11-03 — SABR call checked
+
+**Record:** The 2027 SABR Analytics Conference call
+(https://sabr.org/latest/submit-your-presentation-abstract-for-2027-sabr-analytics-conference/) sets
+abstracts at no more than 500 words, with a title, a review of previous work, a summary of methodology,
+preliminary or final results, and the expected contribution. Abstracts go by email to
+analytics-presentations@sabr.org, marked general or student track, and should describe audio-visual
+needs. General-track presenters submit a full research paper after review: requested December 18, due
+January 22, 2027. Finalists are notified February 19; the conference is March 12–14, 2027, in Phoenix.
+**Not addressed by the call:** whether figures or tables may be included, and whether work published
+elsewhere is eligible. Both are put to SABR by email. Until it answers, the abstract is plain text and
+the FanGraphs timing question in plan §7 stays open.
