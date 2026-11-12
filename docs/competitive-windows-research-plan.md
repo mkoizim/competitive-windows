@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.33
+## Research Plan v0.34
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.34 — Realized-outcome refit and age checks run (2026-11-11). Cushion passes on realized outcomes on both lines. The age rule passes on the berth-relative line, conditional on cushion only; not at fixed top 6.
 - v0.33 — Realized-outcome refit specified (cushion against what happened on the field in season n+1); risk-register row on projection persistence reworded. Referee pass on the analysis done (run twice, 2026-11-04). Age checks on the berth-relative line specified with a decision rule for any age claim. Prose leads with berth-relative; fixed top 6 stays the registered line. Baseball-Reference replication not run. Write-up figures moved to after the abstract. Referee disposition logged; snapshot-date corrections (2014, 2020, 2022); L and H described as alternative assumptions; no publication before the abstract.
 - v0.32 — Five-value spot check against FanGraphs done (all matched). Correction: strict survival after four years is 0.21, not 0.22. SABR call checked: silent on figures and prior publication; general-track presenters owe a full paper (requested Dec 18, due Jan 22, 2027).
 - v0.31 — Review steps before the abstract: processed data rebuilt independently from raw (all files match); a five-value spot check against FanGraphs; the referee pass moved before drafting, with a second on the draft; human technical review before the full Post 1. Opening Day snapshot gaps logged for 2019, 2024 and 2025.
@@ -820,12 +821,12 @@ Modular. Each post stands alone. Ordered so cheap wins precede expensive work.
   - Era and payroll: not detected in any definition.
   - Jordan: ex post windows run longer (survival after 4 years 0.56 vs. 0.21 strict), and about a
     third of each definition's contenders are not contenders under the other.
-- **Realized-outcome refit (specified 2026-11-11; not yet run).** M2 refit on the same F rows and
+- **Realized-outcome refit (specified and run 2026-11-11).** M2 refit on the same F rows and
   covariates with the event taken from season n+1's results instead of the next Opening Day
   projection: not contending by Jordan's rule (paired with the fixed line) and not making the
   postseason (paired with berth-relative), the other pairings alongside. Rule and detail in
   `decisions.md`, 2026-11-11.
-- **Age checks (specified 2026-11-11; not yet run).** Eight checks on the berth-relative age estimate
+- **Age checks (specified and run 2026-11-11).** Eight checks on the berth-relative age estimate
   (Firth, two-way clustering, wild score bootstrap, leave-one-club-out, functional form, model
   without cushion, rows where the line does not move, age × era). The abstract says older windows
   were more likely to close only if the rule in `decisions.md` (2026-11-11) is met; otherwise it says
@@ -1078,8 +1079,8 @@ data dictionary — re-upload when they change.
 - [x] Processed data rebuilt independently from raw (2026-11-03)
 - [x] Spot-check five raw values against the FanGraphs pages (2026-11-03: all five matched)
 - [x] Referee pass on the analysis, fresh chat (2026-11-04; run twice)
-- [ ] Realized-outcome refit (Week 4, before the redraft)
-- [ ] Age checks on the berth-relative line, with the decision rule (Week 4, before the redraft)
+- [x] Realized-outcome refit (2026-11-11)
+- [x] Age checks on the berth-relative line, with the decision rule (2026-11-11)
 - [ ] Referee pass on the draft abstract, fresh chat (Week 5)
 - [ ] Heads-up to [reviewer] and [reviewer] that a draft is coming
 

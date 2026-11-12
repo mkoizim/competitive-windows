@@ -1842,3 +1842,59 @@ within-club dependence; described that way in the write-up.
 the author may share it privately.
 **Open:** whether SABR accepts work published between submission and the March 2027 conference,
 which decides the FanGraphs timing. Put to SABR by email.
+
+## 2026-11-11 — Realized-outcome refit and age checks run (Post 1)
+
+**Record:** Run as specified in "Realized-outcome refit (Post 1): specification", "Numbers the
+abstract quotes; t-based intervals in prose" and "Age checks on the berth-relative line" (all
+2026-11-11). Three new keys, `realized_outcome_refit`, `writeup_numbers` and `age_checks`; every
+existing key byte-identical. All twelve checks passed. Refitting M2 with the original event reproduces
+the stored M2 on both lines; Jordan's rule extended to 2026 reproduces the stored 2014–2025 counts;
+the strength bootstrap reproduces exactly.
+**Implementation choices, accepted on review:**
+- Two-way covariance was not positive semi-definite on either line (smallest eigenvalue −0.031 fixed,
+  −0.18 berth-relative); the Cameron–Gelbach–Miller eigenvalue fix was applied. Without it the
+  berth-relative interval is narrower (1.49–10.59), so the fix is the conservative choice.
+- Firth is reported as odds ratios and a penalized likelihood-ratio test, without an interval.
+- Leave-one-club-out "flips" are defined only where the full-sample interval excludes 1.
+**Independent check:** In the planning chat, with separate code from the processed files: Jordan's
+rule rebuilt (147 contending, 2014–2025); all four realized-outcome fits, the band tables, M2 without
+strength, the line-change refit, leave-one-club-out, Firth (by direct penalized maximization) and the
+berth-relative long-window counts reproduced. The score statistic reproduced exactly; the bootstrap p
+with a separate seed and 200,000 draws was 0.018 (berth-relative) and 0.26 (fixed).
+**Results, for the record:**
+- **Realized outcomes:** cushion's odds ratio per projected win is 0.84 (t interval 0.75–0.94) for
+  fixed top 6 against Jordan-contending, and 0.83 (0.73–0.94) for berth-relative against making the
+  postseason. `cushion_passes` is true for both primary pairings; the other two pairings also exclude 1.
+  By band, the failure rate is similar at ≤ 2 and > 2–5 wins (0.56 and 0.60, fixed/Jordan) and falls
+  above 5 wins (0.33; > 8 wins, 4 of 23).
+- **Age, berth-relative:** all six conditions of the rule hold (`age_rule_passes` true): t interval
+  1.32–11.9; Firth 3.56, penalized LR p 0.005; two-way interval 1.36–11.6; bootstrap p 0.017; no
+  single club's removal puts 1 in the interval (odds ratios 3.40–4.95); 5.67 without the line-change
+  rows.
+- **Age, fixed top 6:** no check shows an effect (Firth p 0.08; bootstrap p 0.25; every
+  leave-one-club-out interval includes 1).
+- **Age without cushion:** odds ratio 1.26 (p_t 0.65) berth-relative and 0.81 (p_t 0.65) fixed. The age
+  effect appears only with cushion held fixed: older windows do not close more often overall, because
+  surviving windows tend to carry more cushion.
+- **Writeup numbers:** windows of four or more seasons hold 90 of 156 in-window club-seasons (fixed)
+  and 77 of 146 (berth-relative). Contention, 2014–2025: 144 fixed, 134 berth-relative, 147 Jordan, of
+  360.
+
+## 2026-11-11 — Age sentence for the abstract
+
+**Chose:** "On the berth-relative line, among windows with the same Opening Day cushion, older windows
+were more likely to close (odds ratio 3.97 per log-season; 95% interval 1.32–11.9), robust to
+penalized estimation, two-way clustering, a cluster bootstrap and dropping any single club. Older
+windows did not close more often overall, because the windows that survive tend to be the ones with
+more cushion, and the effect does not appear at the registered top-6 line." Numbers from
+`writeup_numbers` and `age_checks`; may be trimmed for length, keeping the conditional clause and the
+top-6 clause.
+**Basis for "surviving windows carry more cushion":** mean Opening Day cushion rises with window age
+on both lines (fixed: 2.4 wins at age 1, 7.0 at 4+; berth-relative: 2.9 and 7.8; correlation with ln
+age 0.43 and 0.45, sample F). Stated in words in the abstract; these figures are not in `results.json`.
+Whether cushion grows inside surviving windows or only high-cushion windows survive is not separated.
+**Revises** the disclosure in "Referee pass on the analysis: disposition" (2026-11-11): no
+age-specific "examined after results" clause. The abstract's statement that the analysis is
+exploratory, and that the age effect does not appear at the registered line, carry it; the detail
+stays here and in the paper.

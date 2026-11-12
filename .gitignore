@@ -18,3 +18,6 @@ venv/
 # OS
 .DS_Store
 data/processed/
+
+# Files the Claude app saves into the connected folder
+Claude outputs/
