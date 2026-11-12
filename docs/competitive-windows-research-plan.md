@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.32
+## Research Plan v0.33
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.33 — Realized-outcome refit specified (cushion against what happened on the field in season n+1); risk-register row on projection persistence reworded. Referee pass on the analysis done (run twice, 2026-11-04). Age checks on the berth-relative line specified with a decision rule for any age claim. Prose leads with berth-relative; fixed top 6 stays the registered line. Baseball-Reference replication not run. Write-up figures moved to after the abstract. Referee disposition logged; snapshot-date corrections (2014, 2020, 2022); L and H described as alternative assumptions; no publication before the abstract.
 - v0.32 — Five-value spot check against FanGraphs done (all matched). Correction: strict survival after four years is 0.21, not 0.22. SABR call checked: silent on figures and prior publication; general-track presenters owe a full paper (requested Dec 18, due Jan 22, 2027).
 - v0.31 — Review steps before the abstract: processed data rebuilt independently from raw (all files match); a five-value spot check against FanGraphs; the referee pass moved before drafting, with a second on the draft; human technical review before the full Post 1. Opening Day snapshot gaps logged for 2019, 2024 and 2025.
 - v0.30 — Week 3 run: robustness variants (thresholds 3–9, berth-relative, grace) in F; t(G − 1) p-values and a wild score bootstrap for strength; Jordan (2018) comparison; berth-relative cushion table. Left-censoring extended to gap-tolerant rules (grace, Jordan). Write-up framing set: cushion, not age, predicts survival; no duration-dependence claim; baseline vs. berth-relative difference traced to the five-team era.
@@ -163,7 +164,7 @@ value build allows, contrast it with growth in internally developed WAR.
 ### 2.3 Persistent contenders
 
 **Result (2026-10-26):** one club, LAD, was in a window every season 2014–2026. Its spell was
-open in 2014, so it is outside the primary (flow) sample and enters only the L and H bounds
+open in 2014, so it is outside the primary (flow) sample and enters only the L and H alternatives
 (§3.3a). Persistent contenders contribute little to hazard estimation while having the most
 conversion capacity in the sample.
 
@@ -314,10 +315,10 @@ Resolve before Post 2 and before any transaction data is examined.
 |---|---|---|---|
 | **Opening Day (OD)** | First archived date of the season, from the page's own date list | Ex-ante position: is the club in a window this season? | 15 clubs per league; Make Playoffs sums to the season's berth count; any gap between first archived date and actual Opening Day logged |
 | **Pre-deadline (PD)** | Archived date nearest to 7 days before the deadline | What was publicly visible when the club had to decide | Date falls before the deadline; Make Playoffs sums to berth count |
-| **End of season (EOS)** | Last archived regular-season date | What actually happened: final record, realized qualification | Clubs at 100% Make Playoffs match the actual postseason field; final W-L matches Baseball-Reference |
+| **End of season (EOS)** | Last archived regular-season date | What actually happened: final record, realized qualification | Clubs at 100% Make Playoffs match the actual postseason field; final W-L are FanGraphs' actual records (Baseball-Reference cross-check optional) |
 
 **Deadline dates:** July 31 (2014–2015, 2017–2019, 2025); Aug 1 (2016 — July 31 was a Sunday); Aug 31 (2020);
-July 30 (2021, 2024); Aug 1 (2023); Aug 1 or 2 (2022 — sources conflict by one day, immaterial); Aug 3 (2026).
+July 30 (2021, 2024); Aug 1 (2023); Aug 2 (2022; the pre-deadline snapshot, July 26, is exactly 7 days before); Aug 3 (2026).
 
 #### Which transactions belong to which decision point
 
@@ -439,7 +440,8 @@ the period, 30 clubs every year, no membership required.
    and top 6 from 2022, so where it differs from the baseline, the difference comes mainly from the
    five-team era, not from the change at 2022.
 3. **Era-stratified fitting** was listed as a secondary check where power allows. It is not run: F
-   has 12 closings in the 10-team era and 18 in the 12-team era (`decisions.md`, 2026-11-02).
+   has 12 closings in the pre-2022 formats (10 teams, with 2020's 16-team season grouped with them) and
+   18 in the 12-team era (`decisions.md`, 2026-11-02).
 
 **2020.** The Make Playoffs column on 2020 pages prices the old 10-team field. The correct 2020
 postseason probability is reconstructed as **Win Div + Win Div 2nd place + Clinch Wild Card**
@@ -451,7 +453,8 @@ snapshot. The author confirmed the 2020 data on 2026-10-18. 2020 stays flagged t
 years. The paper states the limit rather than extrapolating past it.
 
 **Left censoring.** The 12 spells open in 2014 have unknown start years. The primary (flow) sample
-drops them. Two bounds include them, entering at duration 1 (L) or at the top bin (H). A backcast
+drops them. Two alternative assumptions include them, entering at duration 1 (L) or at the top bin
+(H). They bound the age assigned to those windows, not the estimates. A backcast
 of their start years from Baseball-Reference preseason odds failed its validation gate (77%
 agreement against 85% required) and is not used. Under rules that tolerate a one-season gap, the
 same principle drops more: grace-rule spells starting in 2015 (a club out on 2014 Opening Day may
@@ -773,8 +776,8 @@ Modular. Each post stands alone. Ordered so cheap wins precede expensive work.
 **Post 1 — The hazard of contention.** How long windows last and what governs length.
 - **Samples (glossary).** All three use the same windows and differ only in the 12 windows already
   open on 2014 Opening Day, whose true age is unknown. **F (flow, primary):** those 12 are left
-  out, so every window's age is known. **L (low-age bound):** the 12 are included as if they opened
-  in 2014. **H (high-age bound):** the 12 are included as already in their 4th year or later. A
+  out, so every window's age is known. **L (low-age assumption):** the 12 are included as if they opened
+  in 2014. **H (high-age assumption):** the 12 are included as already in their 4th year or later. A
   result that holds in all three doesn't depend on the 2014 assumption.
 - Report the **hazard**, not an average. Length is likely bimodal, and an average pools two
   populations and describes neither.
@@ -800,7 +803,8 @@ Modular. Each post stands alone. Ordered so cheap wins precede expensive work.
   exact interval. Grace: a window closes after two straight Opening Days out; dip seasons count
   toward age but are not rows; rows run through 2024. Every clustered result also gets t(G − 1)
   p-values; strength in M2 (F) gets a wild score bootstrap (Kline & Santos, 2012; Webb weights;
-  9,999 draws) with a size check.
+  9,999 draws) with a size check (an implementation check with independent outcomes, not a test of
+  within-club dependence).
 - **Comparison with Jordan (2018).** His ex post rule (division winner, wild card, 2nd or 3rd within
   5 games of the division winner, or 87+ wins; opens after two contending seasons; closes after two
   non-contending) applied to the same 2014–2025 seasons from actual season-end records. 2020 scaled
@@ -816,6 +820,19 @@ Modular. Each post stands alone. Ordered so cheap wins precede expensive work.
   - Era and payroll: not detected in any definition.
   - Jordan: ex post windows run longer (survival after 4 years 0.56 vs. 0.21 strict), and about a
     third of each definition's contenders are not contenders under the other.
+- **Realized-outcome refit (specified 2026-11-11; not yet run).** M2 refit on the same F rows and
+  covariates with the event taken from season n+1's results instead of the next Opening Day
+  projection: not contending by Jordan's rule (paired with the fixed line) and not making the
+  postseason (paired with berth-relative), the other pairings alongside. Rule and detail in
+  `decisions.md`, 2026-11-11.
+- **Age checks (specified 2026-11-11; not yet run).** Eight checks on the berth-relative age estimate
+  (Firth, two-way clustering, wild score bootstrap, leave-one-club-out, functional form, model
+  without cushion, rows where the line does not move, age × era). The abstract says older windows
+  were more likely to close only if the rule in `decisions.md` (2026-11-11) is met; otherwise it says
+  age effects are imprecise and depend on where the line is drawn.
+- **Prose order (2026-11-11).** Prose leads with the berth-relative line ("projected to make the
+  playoffs"), which readers find more intuitive. Fixed top 6 stays the registered line, with equal
+  prominence; the primary designation is unchanged.
 - **Write-up framing (2026-11-02).**
   - The two lines, for readers: berth-relative is "projected to make the playoffs on Opening Day";
     fixed 6 is "projected in the field or the first club out" before 2022, and exactly the field
@@ -893,7 +910,7 @@ needs only the odds, which are collected.
 | 1 | Oct 19–25 | Clean the odds; build the window table; count spells (go/no-go); classify window patterns |
 | 2 | Oct 26–Nov 1 | Done 2026-10-26: hazard model (F/L/H), format era, payroll from Cot's, persistent contenders; 2027 forecasts timestamped |
 | 3 | Nov 2–8 | Done 2026-11-02: robustness variants (thresholds 3–9, berth-relative, grace); t-correction and wild score bootstrap for strength; Jordan comparison; berth-relative cushion table |
-| 4 | Nov 9–15 | Before drafting: raw-data rebuild (done 2026-11-03), five-value spot check against FanGraphs (done 2026-11-03), referee pass on the analysis in a fresh chat. Then the numbers manifest, write-up figures (survival cut at year 6) and abstract draft; send to one or two reviewers |
+| 4 | Nov 9–15 | Before drafting: raw-data rebuild (done 2026-11-03), five-value spot check against FanGraphs (done 2026-11-03), referee pass on the analysis in a fresh chat. Then the numbers manifest and abstract draft; send to one or two reviewers with the cushion table as text (figures after the abstract) |
 | 5 | Nov 16–22 | Revise; second referee pass, on the draft, in a fresh chat |
 | Buffer | Nov 23–25 | Target submission by November 22; don't rely on Thanksgiving week |
 
@@ -901,9 +918,10 @@ needs only the odds, which are collected.
 `predictions.md`, and Post 1 covariates that need the value build (core age and control, farm rank).
 The abstract needs a clean hazard result and an honest description of what follows, not the series.
 
-**FanGraphs.** The full Post 1 goes to FanGraphs Community Research after the abstract.
-**[OPEN]:** whether the SABR call accepts work already published elsewhere; if not, hold the
-FanGraphs piece until after the conference or publish a narrower piece first. The 2027 call
+**FanGraphs.** Nothing is published before the abstract (decided 2026-11-11). After it, the work may
+be shared privately; the full Post 1 goes to FanGraphs Community Research later.
+**[OPEN]:** whether SABR accepts work published between submission and the conference; if not, hold
+the FanGraphs piece until after the conference or publish a narrower piece first. The 2027 call
 (checked 2026-11-03) does not address prior publication, or whether an abstract may include figures
 or tables; both questions go to SABR by email (analytics-presentations@sabr.org). The abstract is
 drafted as plain text in the meantime.
@@ -1017,7 +1035,7 @@ data dictionary — re-upload when they change.
 | Thirteen seasons cannot estimate hazards for windows beyond ~7 years | **High** | State the censoring limit; do not extrapolate |
 | Too few window spells | Resolved | 53 spells at baseline (2026-10-20) |
 | Few clusters (22 clubs in the primary sample) make clustered standard errors unreliable | Resolved | t(G − 1) p-values and a wild score bootstrap (2026-11-02): strength holds (0.0033; 0.0003) |
-| Strength result partly reflects projections agreeing with themselves | Medium | State it in the write-up; the parked Baseball-Reference windows check offers a second instrument. Robustness across thresholds does not address it |
+| Persistent club-specific forecast error could inflate the cushion result (next year's projection updates on results and roster changes, so this is narrower than projections simply agreeing with themselves) | Low–Medium | Realized-outcome refit (§5; `decisions.md` 2026-11-11). Robustness across thresholds does not address it |
 | Sports-Reference terms (AI clause) | Low | Logged; only derived ranks published; Retrosheet as a fallback |
 | Doyle Number unstable because the future-WAR-to-title mapping is model-dependent | **High** | Report across 8–12% and the break-even rate; state if conclusions flip (§4g) |
 | Post 1 analyzed with the odds already in view | Medium | Labeled exploratory; any specification change from here logged with date |
@@ -1059,17 +1077,19 @@ data dictionary — re-upload when they change.
 - [x] Jordan comparison and berth-relative cushion table (2026-11-02)
 - [x] Processed data rebuilt independently from raw (2026-11-03)
 - [x] Spot-check five raw values against the FanGraphs pages (2026-11-03: all five matched)
-- [ ] Referee pass on the analysis, fresh chat (Week 4, before drafting)
+- [x] Referee pass on the analysis, fresh chat (2026-11-04; run twice)
+- [ ] Realized-outcome refit (Week 4, before the redraft)
+- [ ] Age checks on the berth-relative line, with the decision rule (Week 4, before the redraft)
 - [ ] Referee pass on the draft abstract, fresh chat (Week 5)
-- [ ] Build the write-up survival figure, cut at year 6 (Week 4)
 - [ ] Heads-up to [reviewer] and [reviewer] that a draft is coming
 
 **After the abstract**
 - [ ] If the abstract advances: full paper requested Dec 18, due Jan 22, 2027 (general track)
+- [ ] Build the write-up figures: survival cut at year 6, cushion chart for both lines (deferred 2026-11-11)
 - [ ] Score the 2027 forecasts on 2027 Opening Day
 - [ ] Install a current Python (3.12 or 3.13, from python.org), rebuild `.venv`, and rerun the fresh-install test
 - [ ] Second source for the Brewers' 2024 year-end payroll before R3 or P4 use it
-- [ ] Baseball-Reference cross-check of final records (deferred 2026-10-18)
+- [ ] Baseball-Reference cross-check of final records (optional; FanGraphs end-of-season W-L are actual results)
 - [ ] Name a human technical reviewer for the model (before the full Post 1)
 
 **Before Post 2**

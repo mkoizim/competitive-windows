@@ -1664,3 +1664,181 @@ January 22, 2027. Finalists are notified February 19; the conference is March 12
 **Not addressed by the call:** whether figures or tables may be included, and whether work published
 elsewhere is eligible. Both are put to SABR by email. Until it answers, the abstract is plain text and
 the FanGraphs timing question in plan §7 stays open.
+
+## 2026-11-11 — Realized-outcome refit (Post 1): specification
+
+**Question:** Both referee passes (2026-11-04) objected that cushion and closing come from the same
+FanGraphs projections a year apart. Does cushion also predict what happens on the field the next
+season?
+**Discussion:** The objection is narrower than the referees put it. The n+1 Opening Day projection
+is not carried forward from n: it takes in season n's results and the winter's roster changes. What
+remains is persistent club-specific forecast error (§4b) and the projections' shrinkage toward the
+mean. The refit is run because realized contention is the outcome a front office cares about, and
+because it answers the objection with a result rather than an argument. It is written up as cushion
+against realized outcomes, not as a test of whether the result is an artifact.
+**Chose:**
+- **Rows and covariates:** the F rows of M2, unchanged. Fixed line from `hazard_pp.csv`;
+  berth-relative from `hazard_robustness_pp.csv` (variant `berth`). Covariates as in M2: ln(duration,
+  capped at 4), era12, strength (cushion), Opening Day payroll. Only the event changes.
+- **Events, season n+1:** (i) not contending by Jordan's (2018) rule as implemented in `jordan.py`
+  (2020 scaled; ties for first broken by the actual title), extended to 2026; (ii) did not make the
+  postseason (end-of-season postseason odds below 0.999). Records and fields come from the FanGraphs
+  end-of-season snapshot, which includes 2026, so rows with n = 2025 are kept.
+- **Primary pairings, matched by meaning:** fixed line with Jordan-contending (fixed 6 is "in the
+  field or the first club out" before 2022, closer to Jordan's broader contention); berth-relative
+  with postseason ("projected to make the playoffs"). The other two pairings are reported alongside.
+- **Model:** M2 only. Standard errors clustered by club; p-values against t with G − 1 df; t-based
+  95% intervals. Also the realized-outcome rate by cushion band (≤ 2, > 2–5, > 5–8, > 8 wins), the
+  bands of `closing_by_strength_band`, which were set 2026-11-02 after the baseline results were seen.
+- **Decision rule:** the cushion result carries over to realized outcomes if cushion's odds ratio is
+  below 1 with a t-based interval excluding 1 in both primary pairings. If one pairing passes, the
+  write-up says which. If neither does, the headline becomes that windows, as defined, track the
+  projections' own persistence.
+- **2020:** rows with n + 1 = 2020 keep era12 = 0, as in M2; their count is reported, because a
+  16-team field makes the postseason outcome easier that year.
+**Seen when deciding:** M2's results in every definition and both referee reports. Fixed before the
+refit is run.
+**Also:** risk-register row "Strength result partly reflects projections agreeing with themselves"
+(Medium) reworded to persistent club-specific forecast error (Low–Medium), mitigated by this refit.
+
+## 2026-11-11 — Numbers the abstract quotes; t-based intervals in prose
+
+**Question:** The abstract will quote figures not yet in `results.json`, and the stored intervals are
+normal-reference while the prose quotes t(G − 1) p-values. At top 7 the normal interval for ln
+duration excludes 1 while p_t = 0.055 (both referee passes, 2026-11-04).
+**Chose:** Add a `writeup_numbers` key: t-based 95% intervals (t with G − 1 df) for M2 and M2b in F,
+L and H and for M2 in every variant; counts across the nine definitions for strength and ln duration;
+the share of in-window club-seasons inside windows of four or more seasons, for both lines; and
+contention rates in 2014–2025 under fixed top 6, berth-relative and Jordan's rule. Intervals quoted
+in prose are the t-based ones, matching the p-values. The normal intervals stay in `results.json` and
+in tables.
+**Why:** Arithmetic on stored values; no new model. Keeps the rule that no number in a write-up is
+typed by hand.
+
+## 2026-11-11 — Prose leads with berth-relative; fixed top 6 stays registered
+
+**Question:** The author finds the berth-relative line ("projected to make the playoffs") more
+intuitive and asked whether it should become primary.
+**Options:** Keep fixed 6 primary, prose order unchanged | Lead the prose with berth-relative, fixed 6
+still the registered line | Make berth-relative primary, with a disclosure
+**Chose:** Lead the prose with berth-relative. Fixed top 6 remains the registered line and is reported
+with equal prominence in every table and in the abstract; the primary designation is unchanged.
+**Why:** Readability is a legitimate reason to change the order of presentation. Re-designating the
+primary after results were seen is what "Berth-relative threshold reported with equal prominence in
+Post 1" (2026-11-01) ruled out, and doing it while considering an age claim that only berth-relative
+supports would choose the line by its result. Every result that holds on one line and not the other
+is stated as such.
+
+## 2026-11-11 — Age checks on the berth-relative line: specification and decision rule
+
+**Question:** Age (ln duration, M2) is significant on the berth-relative line (OR 3.97, p_t = 0.016)
+and not at fixed top 6 (1.72, p_t = 0.30). Both referee passes (2026-11-04) said the write-up cannot
+say "no claim" on age. Can it say that older windows were more likely to close, relative to the size of
+the playoff field?
+**Chose:** Eight checks, run on both lines in sample F; the rule applies to berth-relative.
+1. Firth-penalized logit (Firth 1993), with a penalized likelihood-ratio test for ln duration.
+2. Two-way clustering by club and by league-season (league × season n+1), p-values and intervals
+   against t with min(G) − 1 df.
+3. Wild score bootstrap for ln duration (Kline & Santos 2012; Webb weights; 9,999 draws), as for
+   strength on 2026-11-02.
+4. Leave-one-club-out refits of M2.
+5. Functional form: M2b (first-year indicator), M1 bins and the bins-vs-log test, from existing keys.
+6. M2 without strength (age's total association, not net of cushion).
+7. M2 dropping rows whose window line changes between n and n+1 (n = 2019, 2020, 2021 for
+   berth-relative: 5 to 8, 8 to 5, 5 to 6).
+8. M2 with an ln duration × era12 interaction.
+**Decision rule (berth-relative):** the abstract states that older windows were more likely to close
+only if all of these hold: (a) the t-based 95% interval for ln duration in M2 excludes 1; (b) under
+Firth the odds ratio is above 1 with penalized LR p < 0.05; (c) under two-way clustering the t-based
+interval excludes 1; (d) the wild score bootstrap p < 0.05; (e) no single club's removal makes the
+t-based interval include 1; (f) the odds ratio stays above 1 when the line-change rows are dropped.
+Checks 5, 6 and 8 are descriptive and inform the wording only. If the rule holds, the abstract also
+says the effect does not appear at the registered top-6 line and that age was examined after results
+were seen. If it fails, the abstract says age effects are imprecise and depend on where the line is
+drawn, with no definition showing established windows to be more durable.
+**Seen when deciding:** M2 in all nine definitions; both referee reports. Fixed before any check is
+run.
+
+## 2026-11-11 — Baseball-Reference replication of the age pattern: not run
+
+**Question:** Should berth-relative windows be rebuilt from Baseball-Reference preseason odds
+(2011–2026, already collected) to test the age pattern on a second instrument?
+**Chose:** No.
+**Why:** Baseball-Reference rates clubs on their last 100 games with regression to the mean, not on
+player projections, so its "window" means recent performance rather than projected contention. It is
+not the same construct, and a miss could not be told apart from that difference.
+
+## 2026-11-11 — Write-up figures after the abstract
+
+**Chose:** The reviewer draft carries the cushion table for both lines as text. The survival figure
+(cut at year 6) and a cushion chart are built after the abstract, for the paper.
+**Why:** The SABR abstract is plain text unless SABR says otherwise, and the table carries the same
+information as the chart. The survival figure's open design choices (which lines; the year-6 label)
+are settled when it is built.
+
+## 2026-11-11 — Referee pass on the analysis: disposition
+
+**Record:** The referee pass on the analysis (plan §11) was run twice, by accident, on 2026-11-04, in
+fresh Incognito chats with the same prompt and packet (`posts/post1-hazard/referee-1/`). The two
+reports agree on every major point.
+**Adopted:**
+- **Age.** "No claim in either direction" (2026-11-02, "Robustness variants run", write-up framing)
+  is superseded. Age is reported as unresolved, or as the claim allowed by the rule in "Age checks on
+  the berth-relative line" (2026-11-11). The berth-relative age estimate is reported with equal
+  prominence.
+- **"Windows are short."** Not used as a claim: survival is reported with its dependence on the
+  line and without the word.
+- **Jordan comparison.** The survival comparison (0.56 vs. 0.21) is not used in the abstract, because
+  Jordan's rules (two seasons to open, two to close) build in length. The club-season disagreement
+  is kept. A rule-swap decomposition is deferred to the paper.
+- **Cushion vs. projection persistence.** Answered by the realized-outcome refit (2026-11-11).
+- **Intervals.** t-based intervals in prose (2026-11-11).
+- **Disclosure.** The abstract says the analysis is exploratory and that the emphasis on cushion was
+  chosen after results were seen.
+**Not adopted, with reasons:**
+- **Persistence benchmark** (simulate windows from year-to-year cushion movement). Deferred to the
+  paper; not needed once "short" is dropped as a claim.
+- **The referees' framing of the persistence objection.** The n+1 projection updates on season n's
+  results and roster changes, so "the forecast remembers" overstates it (2026-11-11).
+**Deferred to the paper:** M2 without cushion and entry cushion beyond the age checks; hysteresis
+variant; survival under L and H; size check with a club random intercept; refits dropping 2020 and
+the early-snapshot seasons; an odds-gap version of cushion; Jordan against the berth-relative line.
+**Forking paths, recorded:**
+- The cushion bands (≤ 2, > 2–5, > 5–8, > 8 wins) were set 2026-11-02, after the baseline M2
+  results (2026-10-26) were seen and before any variant was run.
+- "Week 3 robustness specification" (2026-11-01) was written with the baseline M2 results known; it
+  was fixed before any Week 3 result.
+- `predictions.md` registers no prediction about duration dependence. Its note on the baseline
+  threshold says a looser line gives "longer measured windows and a flatter hazard, which works
+  against the thesis," which implies short windows were expected.
+- **Seen when deciding** the 2026-11-02 write-up framing (in "Robustness variants run", "Small-cluster
+  inference run" and "Jordan comparison and berth-relative cushion table run"): M2 in all nine
+  definitions, the small-cluster inference and the Jordan comparison.
+**Size check (2026-11-02):** an implementation check with independent outcomes, not a test of
+within-club dependence; described that way in the write-up.
+
+## 2026-11-11 — Corrections: snapshot dates and season-end records
+
+**Record:**
+- **2014 Opening Day.** LAD and ARI opened in Sydney on March 22–23, 2014, before the first archived
+  date (March 29), yet both show 0–0 on it. The "all clubs 0–0" check (2026-11-03) does not show the
+  snapshot predates every game. The gap is logged with the 2019, 2024 and 2025 gaps; no change made.
+  LAD's 2014 window is left-censored and not in F.
+- **2020 Opening Day** is 2020-07-22 in `odds.csv`. "2020 retained for rank-based analysis"
+  (2026-09-21) gave 2020-07-23.
+- **2022 deadline:** August 2. The pre-deadline snapshot (July 26) is exactly 7 days before, as the
+  2026-11-03 rebuild found. Replaces "Aug 1 or 2" in plan §3.2.
+- **Season-end records:** the W-L used for Jordan's rule are FanGraphs' actual records in the
+  end-of-season snapshot, including 2026. The differences noted in "Corrections from the odds audit"
+  (2026-10-18) were in projected records. The Baseball-Reference cross-check is optional.
+- **Era labels:** "12 closings in the 10-team era" (2026-11-02) groups 2020's 16-team season with the
+  10-team seasons, as M2's era term does.
+- **L and H** are alternative assumptions about the age of windows open in 2014. They bound the age
+  assigned, not the estimates.
+
+## 2026-11-11 — No publication before the abstract
+
+**Chose:** Nothing from the project is published before the SABR abstract is submitted. Afterward,
+the author may share it privately.
+**Open:** whether SABR accepts work published between submission and the March 2027 conference,
+which decides the FanGraphs timing. Put to SABR by email.
