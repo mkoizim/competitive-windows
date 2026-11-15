@@ -1063,7 +1063,7 @@ publishes derived measures only, never the raw odds tables.
  
 ## 2026-10-18 — Spec reviewers
  
-**Record:** Former colleagues [reviewer] and [reviewer], possibly others, will review the spec's
+**Record:** Two former colleagues, possibly others, will review the spec's
 definitions.
  
 ## 2026-10-18 — Reminder: judge rationality by underlying components
@@ -1898,3 +1898,39 @@ Whether cushion grows inside surviving windows or only high-cushion windows surv
 age-specific "examined after results" clause. The abstract's statement that the analysis is
 exploratory, and that the age effect does not appear at the registered line, carry it; the detail
 stays here and in the paper.
+
+## 2026-11-15 — No outside review before the abstract; reviewer names removed
+
+**Record:** The two former colleagues named as spec reviewers on 2026-10-18 will not review the
+abstract. Their names are removed from the plan and from the 2026-10-18 entry ("Spec reviewers"),
+which now reads "Two former colleagues." This is the one edit to an earlier entry in this log; it
+changes no decision, and is made so that people who did not take part are not named in a public
+repo. The abstract goes from the author's draft to the second referee pass (Week 5) and submission.
+Reviewers, including the human technical reviewer planned before the full Post 1, are not named in
+the repo.
+**Git history:** the names remain in commits from `e8053da` (2026-10-18) onward. Before the repo is
+made public they are removed from history (method in the next entry). The predictions lock
+(`33dbb7d`, 2026-09-20) predates them and is unaffected; the forecasts lock (`3fdc139`, 2026-10-26)
+follows them, so any rewrite of history changes its hash, and the old-to-new mapping is recorded
+here when that happens.
+
+## 2026-11-15 — Publishing: a scrubbed public copy; this repo stays private
+
+**Question:** How are reviewer names removed from git history before the work is public?
+**Options:** Publish a scrubbed copy as a new repo, keeping this one private | Rewrite this repo in
+place and force-push | Publish a snapshot with no history
+**Chose:** A scrubbed copy, published as a new repo. This repo is frozen as a private archive when the
+copy is made, and work continues in the public repo from then on.
+**Why:** The original lock commits stay intact and verifiable in the archive, and nothing old stays
+reachable on GitHub by hash, as it could after a force-push. A snapshot would discard the public
+record that predictions were locked before the data.
+**Procedure, when ready to publish** (only the two full names occur in history; none in commit
+messages, checked 2026-11-15):
+1. Install `git-filter-repo`. On GitHub, rename this repo (for example, to `competitive-windows-archive`).
+2. `git clone --no-local ~/competitive-windows ~/competitive-windows-public`
+3. In the clone: write a replacements file with one line per name, each mapped to `[reviewer]`, and
+   run `git filter-repo --replace-text <file>`.
+4. Check: `git rev-list --all | xargs git grep -I -E "[reviewer]|[reviewer]"` returns nothing; `33dbb7d`
+   still exists; note the new hash of "Timestamp 2027 window forecasts".
+5. Push to a new public GitHub repo, then add an entry here giving the forecasts lock's old hash
+   (`3fdc139`) and new hash, and stating that the original is in the private archive.

@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.34
+## Research Plan v0.35
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.35 — No outside spec review before the abstract; reviewer names removed from the repo. Public release will be a scrubbed copy in a new repo; this repo stays private.
 - v0.34 — Realized-outcome refit and age checks run (2026-11-11). Cushion passes on realized outcomes on both lines. The age rule passes on the berth-relative line, conditional on cushion only; not at fixed top 6.
 - v0.33 — Realized-outcome refit specified (cushion against what happened on the field in season n+1); risk-register row on projection persistence reworded. Referee pass on the analysis done (run twice, 2026-11-04). Age checks on the berth-relative line specified with a decision rule for any age claim. Prose leads with berth-relative; fixed top 6 stays the registered line. Baseball-Reference replication not run. Write-up figures moved to after the abstract. Referee disposition logged; snapshot-date corrections (2014, 2020, 2022); L and H described as alternative assumptions; no publication before the abstract.
 - v0.32 — Five-value spot check against FanGraphs done (all matched). Correction: strict survival after four years is 0.21, not 0.22. SABR call checked: silent on figures and prior publication; general-track presenters owe a full paper (requested Dec 18, due Jan 22, 2027).
@@ -911,7 +912,7 @@ needs only the odds, which are collected.
 | 1 | Oct 19–25 | Clean the odds; build the window table; count spells (go/no-go); classify window patterns |
 | 2 | Oct 26–Nov 1 | Done 2026-10-26: hazard model (F/L/H), format era, payroll from Cot's, persistent contenders; 2027 forecasts timestamped |
 | 3 | Nov 2–8 | Done 2026-11-02: robustness variants (thresholds 3–9, berth-relative, grace); t-correction and wild score bootstrap for strength; Jordan comparison; berth-relative cushion table |
-| 4 | Nov 9–15 | Before drafting: raw-data rebuild (done 2026-11-03), five-value spot check against FanGraphs (done 2026-11-03), referee pass on the analysis in a fresh chat. Then the numbers manifest and abstract draft; send to one or two reviewers with the cushion table as text (figures after the abstract) |
+| 4 | Nov 9–15 | Before drafting: raw-data rebuild (done 2026-11-03), five-value spot check against FanGraphs (done 2026-11-03), referee pass on the analysis in a fresh chat. Then the numbers manifest and abstract draft; no outside reviewers before submission (2026-11-15); figures after the abstract |
 | 5 | Nov 16–22 | Revise; second referee pass, on the draft, in a fresh chat |
 | Buffer | Nov 23–25 | Target submission by November 22; don't rely on Thanksgiving week |
 
@@ -1014,7 +1015,8 @@ data dictionary — re-upload when they change.
    five matched).
 2. **Referee pass** — fresh Incognito chat, run twice: on the analysis before the abstract is
    drafted, and on the draft.
-3. **Spec review** — former colleagues [reviewer] and [reviewer], possibly others, on definitions.
+3. **Spec review** — former colleagues, on definitions. Not done before the abstract (2026-11-15). Reviewers
+   are not named in the repo.
 4. **Human technical review** — someone who will check the model, not just the prose; after the
    abstract, before the full Post 1. Not yet named.
 5. **Publish:** personal site as permanent home; FanGraphs Community Research; SABR.
@@ -1066,7 +1068,7 @@ data dictionary — re-upload when they change.
 - [x] Count window spells under the baseline threshold — Post 1 go/no-go: 53 spells, proceed (2026-10-20)
 - [x] Spell counts and window patterns at every threshold *k* = 3–9 (2026-10-24)
 - [ ] Probe: Win WS dispersion at OD, PD and EOS (two seasons)
-- [x] Spec reviewers identified: [reviewer], [reviewer] (possibly others)
+- [x] Spec reviewers identified (2026-10-18; not used before the abstract, 2026-11-15)
 - [x] SABR Analytics abstract deadline: Nov 25, 2026, 11:59 pm MST
 - [ ] Check whether the SABR call accepts work published elsewhere first (affects FanGraphs timing). 2026-11-03: the call is silent on this and on figures; ask SABR by email
 - [x] Hazard model fit (2026-10-26)
@@ -1082,7 +1084,6 @@ data dictionary — re-upload when they change.
 - [x] Realized-outcome refit (2026-11-11)
 - [x] Age checks on the berth-relative line, with the decision rule (2026-11-11)
 - [ ] Referee pass on the draft abstract, fresh chat (Week 5)
-- [ ] Heads-up to [reviewer] and [reviewer] that a draft is coming
 
 **After the abstract**
 - [ ] If the abstract advances: full paper requested Dec 18, due Jan 22, 2027 (general track)
@@ -1091,7 +1092,8 @@ data dictionary — re-upload when they change.
 - [ ] Install a current Python (3.12 or 3.13, from python.org), rebuild `.venv`, and rerun the fresh-install test
 - [ ] Second source for the Brewers' 2024 year-end payroll before R3 or P4 use it
 - [ ] Baseball-Reference cross-check of final records (optional; FanGraphs end-of-season W-L are actual results)
-- [ ] Name a human technical reviewer for the model (before the full Post 1)
+- [ ] Name a human technical reviewer for the model (before the full Post 1; not named in the repo)
+- [ ] Before the repo goes public: publish a scrubbed copy as a new repo; this one stays private as the archive (procedure in `decisions.md`, 2026-11-15)
 
 **Before Post 2**
 - [ ] Value build: projection source, aging curve, grade-to-value table, $/WAR series — logged before any valuation is computed
