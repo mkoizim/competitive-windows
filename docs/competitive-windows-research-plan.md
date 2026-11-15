@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.35
+## Research Plan v0.36
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.36 — Abstract submitted as plain text, without figures; question to SABR not sent; prior-publication question deferred until after the abstract.
 - v0.35 — No outside spec review before the abstract; reviewer names removed from the repo. Public release will be a scrubbed copy in a new repo; this repo stays private.
 - v0.34 — Realized-outcome refit and age checks run (2026-11-11). Cushion passes on realized outcomes on both lines. The age rule passes on the berth-relative line, conditional on cushion only; not at fixed top 6.
 - v0.33 — Realized-outcome refit specified (cushion against what happened on the field in season n+1); risk-register row on projection persistence reworded. Referee pass on the analysis done (run twice, 2026-11-04). Age checks on the berth-relative line specified with a decision rule for any age claim. Prose leads with berth-relative; fixed top 6 stays the registered line. Baseball-Reference replication not run. Write-up figures moved to after the abstract. Referee disposition logged; snapshot-date corrections (2014, 2020, 2022); L and H described as alternative assumptions; no publication before the abstract.
@@ -925,8 +926,8 @@ be shared privately; the full Post 1 goes to FanGraphs Community Research later.
 **[OPEN]:** whether SABR accepts work published between submission and the conference; if not, hold
 the FanGraphs piece until after the conference or publish a narrower piece first. The 2027 call
 (checked 2026-11-03) does not address prior publication, or whether an abstract may include figures
-or tables; both questions go to SABR by email (analytics-presentations@sabr.org). The abstract is
-drafted as plain text in the meantime.
+or tables. The abstract is submitted as plain text, without figures (2026-11-15). The prior-publication
+question is deferred until after the abstract; nothing is published before then in any case.
 
 **If the abstract advances (general track):** SABR requests a full research paper on December 18,
 due January 22, 2027. Finalists are notified February 19; the conference is March 12–14, 2027, in
@@ -1070,7 +1071,7 @@ data dictionary — re-upload when they change.
 - [ ] Probe: Win WS dispersion at OD, PD and EOS (two seasons)
 - [x] Spec reviewers identified (2026-10-18; not used before the abstract, 2026-11-15)
 - [x] SABR Analytics abstract deadline: Nov 25, 2026, 11:59 pm MST
-- [ ] Check whether the SABR call accepts work published elsewhere first (affects FanGraphs timing). 2026-11-03: the call is silent on this and on figures; ask SABR by email
+- [ ] Check whether the SABR call accepts work published elsewhere first (affects FanGraphs timing). 2026-11-03: the call is silent on this and on figures; deferred until after the abstract (2026-11-15); abstract goes without figures
 - [x] Hazard model fit (2026-10-26)
 - [x] 2027 forecasts timestamped (`3fdc139`, 2026-10-26)
 - [x] Add the closing-rate-by-cushion table to `hazard.py` and `results.json` (2026-11-02)

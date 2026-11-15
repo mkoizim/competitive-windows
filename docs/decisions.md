@@ -1934,3 +1934,11 @@ messages, checked 2026-11-15):
    still exists; note the new hash of "Timestamp 2027 window forecasts".
 5. Push to a new public GitHub repo, then add an entry here giving the forecasts lock's old hash
    (`3fdc139`) and new hash, and stating that the original is in the private archive.
+
+## 2026-11-15 — Abstract without figures; prior-publication question deferred
+
+**Chose:** The SABR abstract is submitted as plain text, without figures or tables, so SABR is not
+asked whether they are allowed. The question of whether work published between submission and the
+March 2027 conference is eligible is deferred until after the abstract; nothing is published before
+the abstract in any case ("No publication before the abstract," 2026-11-11).
+**Revises:** "SABR call checked" (2026-11-03), which planned to put both questions to SABR by email.
