@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.36
+## Research Plan v0.37
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.37 — Abstract drafted by the author (2026-11-21, 487 words): berth-relative presented as the primary model, fixed top 6 reported alongside with its results; realized-outcome result left out for focus. Numbers manifest and check rebuilt for the text.
 - v0.36 — Abstract submitted as plain text, without figures; question to SABR not sent; prior-publication question deferred until after the abstract.
 - v0.35 — No outside spec review before the abstract; reviewer names removed from the repo. Public release will be a scrubbed copy in a new repo; this repo stays private.
 - v0.34 — Realized-outcome refit and age checks run (2026-11-11). Cushion passes on realized outcomes on both lines. The age rule passes on the berth-relative line, conditional on cushion only; not at fixed top 6.
@@ -1084,6 +1085,7 @@ data dictionary — re-upload when they change.
 - [x] Referee pass on the analysis, fresh chat (2026-11-04; run twice)
 - [x] Realized-outcome refit (2026-11-11)
 - [x] Age checks on the berth-relative line, with the decision rule (2026-11-11)
+- [x] Abstract drafted by the author (2026-11-21; `posts/post1-hazard/abstract.md`)
 - [ ] Referee pass on the draft abstract, fresh chat (Week 5)
 
 **After the abstract**

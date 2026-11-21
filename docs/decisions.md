@@ -1942,3 +1942,24 @@ asked whether they are allowed. The question of whether work published between s
 March 2027 conference is eligible is deferred until after the abstract; nothing is published before
 the abstract in any case ("No publication before the abstract," 2026-11-11).
 **Revises:** "SABR call checked" (2026-11-03), which planned to put both questions to SABR by email.
+
+## 2026-11-21 — Abstract drafted by the author
+
+**Record:** The author wrote the abstract from the writing brief (`posts/post1-hazard/abstract.md`;
+487 words with the title). Every number is checked against `results.json` by
+`posts/post1-hazard/check_numbers.py`, listed in `numbers-manifest.md`.
+**Chose (author):**
+- **Berth-relative is presented as the primary model.** Fixed top 6 is reported alongside with its
+  results, including the null age estimate (1.72; p = 0.30), and thresholds 3–9 as robustness checks.
+  This revises "Prose leads with berth-relative; fixed top 6 stays registered" (2026-11-11) for the
+  abstract. The abstract does not say that fixed top 6 was the pre-registered definition; the full
+  paper does.
+- **Framing:** FanGraphs Opening Day odds are described as a public proxy for clubs' internal
+  projections. The windows are projected windows by design, which is the author's answer to the
+  referees' persistence objection (2026-11-11).
+- **Left out for focus:** the realized-outcome refit (cushion against the next season's actual
+  results), the Jordan comparison and sample sizes. All remain available for the paper, the talk and
+  reviewers' questions.
+- **Intervals:** t-based 95% intervals on all four odds ratios quoted.
+- **Age:** stated conditionally on cushion, with the overall-null clause and the fixed-line result.
+**Next:** the second referee pass, on this draft.
