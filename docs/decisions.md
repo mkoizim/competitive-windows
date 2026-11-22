@@ -1966,8 +1966,9 @@ the abstract in any case ("No publication before the abstract," 2026-11-11).
 
 ## 2026-11-21 — Publishing: author email scrubbed in the public copy
 
-**Record:** `221749746+mkoizim@users.noreply.github.com` is the author email on 43 of 44 commits (every commit before 544314a)
-and appears in no file at any point in history. From 544314a on, commits use
+**Record:** The author's personal email address is the author email on 43 of 44 commits (every commit
+before 544314a). It appeared in no file until the first version of this entry quoted it; that was
+removed on 2026-11-22, and the scrub replaces it in file history as well. From 544314a on, commits use
 `221749746+mkoizim@users.noreply.github.com` (repo-level `user.email`).
 **Question:** Should the public copy keep the gmail address in commit metadata?
 **Options:** Keep it, so every commit hash survives the name scrub, 33dbb7d included | Rewrite it,
@@ -1980,10 +1981,16 @@ locked files keep their hashes in both repos and can be checked without the arch
 - `docs/predictions.md` at 2ddb3ac: `3cde6256e3c0f81fb95e1509262840022935a194` (first lock, superseded)
 - `docs/forecasts-2027.md` at 3fdc139: `501cefb20c25c58e6654b5fb962ab46e56437d4c`
 **Revises the procedure in "Publishing: a scrubbed public copy" (2026-11-15):**
-- Step 3: also write a mailmap file with the line
-  `Matt Koizim <221749746+mkoizim@users.noreply.github.com> <221749746+mkoizim@users.noreply.github.com>`, and run one pass:
-  `git filter-repo --replace-text <names file> --mailmap <mailmap file>`.
-- Step 4: `git log --all --format='%ae%n%ce' | grep gmail` returns nothing. Replaces "33dbb7d still
+- Step 3: write both files outside the repo, so neither the names nor the personal address is ever
+  committed. The mailmap file maps `Matt Koizim <personal address>` to
+  `Matt Koizim <221749746+mkoizim@users.noreply.github.com>` (commit metadata). The replacements file
+  maps each full name to `[reviewer]`, each surname on its own to `[reviewer]` with a word-boundary
+  regex (`regex:\bMarks\b==>[reviewer]`, same for [reviewer]; the procedure's own check line names them),
+  and the personal address to the noreply address (file contents). Run one pass:
+  `git filter-repo --replace-text <replacements file> --mailmap <mailmap file>`.
+- Step 4: `git log --all --format='%ae%n%ce' | grep gmail` returns nothing, and neither does
+  `git rev-list --all | xargs git grep -I -F -f <file holding the personal address>` (kept outside
+  the repo, so the check cannot match itself). Replaces "33dbb7d still
   exists": check instead that `git rev-parse <new hash>:docs/predictions.md` and
   `<new hash>:docs/forecasts-2027.md` return the file hashes above.
 - Step 5: the entry added at publication maps old to new hashes for every commit the docs cite
