@@ -2063,3 +2063,37 @@ berth-relative line equals top 6, so the two definitions differ only in 2014–2
 the age difference; FanGraphs odds as a proxy for internal projections.
 **Next:** SABR's decision. If the abstract advances, the full paper is requested December 18 and due
 January 22, 2027.
+
+## 2026-11-22 — Published: scrubbed public copy
+
+**Record:** The publishing procedure ("Publishing: a scrubbed public copy," 2026-11-15, revised
+2026-11-21) was run on 2026-11-22. The original repo was renamed `competitive-windows-archive` and
+stays private. A fresh clone was scrubbed with `git filter-repo` (names and the personal address in
+file contents; the personal address in commit metadata, via mailmap) and pushed as
+https://github.com/mkoizim/competitive-windows (public, 46 commits). Work continues in this repo.
+Untracked `data/` and `.venv/` were copied across; neither is committed.
+**Checks (all passed, run in the scrubbed copy before pushing):**
+- Commit metadata carries only the noreply address (plus `noreply@github.com` on the initial commit).
+- No file version and no commit message contains the personal address, either reviewer's name
+  (full or surname alone), or a link to a chat.
+- The locked files keep their hashes: `docs/predictions.md` `5a79be7…` (lock in force) and
+  `3cde625…` (first lock); `docs/forecasts-2027.md` `501cefb…` (full hashes in "Publishing: author
+  email scrubbed in the public copy," 2026-11-21).
+**Commit hashes.** Every commit hash changed. Hashes cited in this log and in the plan before today
+are the archive's; filter-repo updated hash references inside commit messages but not inside files.
+Map for the commits the docs cite:
+
+| Archive | Public | Commit |
+|---|---|---|
+| `2ddb3ac` | `1663b96` | Pre-registered predictions, locked (first lock, superseded) |
+| `33dbb7d` | `5468778` | Predictions re-locked at v0.8 (the lock in force) |
+| `3fdc139` | `1e95d3f` | Timestamp 2027 window forecasts |
+| `e8053da` | `1400543` | Plan v0.26 and decisions entries |
+| `1f152ea` | `cd38730` | Pin Python packages for the hazard script |
+| `544314a` | `d094faf` | Decisions: abstract drafted by the author; plan v0.37 |
+
+To check a lock in the public repo: `git rev-parse 5468778:docs/predictions.md` returns `5a79be7…`.
+The full old-to-new map is in the local clone's `.git/filter-repo/commit-map` (not committed).
+**Limit, stated plainly:** commit dates are set by the author's machine, and the archive was private,
+so nothing public independently proves that the predictions (2026-09-20) were locked before the odds
+were collected. The public record of the locks starts with today's push.

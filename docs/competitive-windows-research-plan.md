@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.39
+## Research Plan v0.40
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.40 — Repo published as a scrubbed public copy (2026-11-22); original kept private as `competitive-windows-archive`.
 - v0.39 — Abstract submitted to SABR (2026-11-22, general track, 486 words) after a cold read; realized-outcome result and per-doubling age odds ratio added.
 - v0.38 — Referee pass 2 on the abstract run and triaged; author's revision (480 words): the two definitions described in parallel, no "primary" label; threshold results for cushion and age reported; overall age clause replaced by the without-cushion result; sample size added.
 - v0.37 — Abstract drafted by the author (2026-11-21, 487 words): berth-relative presented as the primary model, fixed top 6 reported alongside with its results; realized-outcome result left out for focus. Numbers manifest and check rebuilt for the text.
