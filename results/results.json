@@ -17610,5 +17610,17 @@
     "checks": {
       "passed": true
     }
+  },
+  "abstract_derived": {
+    "age_per_doubling_berth": {
+      "source": "writeup_numbers.t_intervals.hazard_robustness.variants.berth.M2.ln_dur",
+      "note": "ln_dur is the natural log of window age (1 in a window's first season), capped at 4. The odds ratio per doubling of age is OR**ln(2); the same transform applies to the t-based interval. p-value unchanged.",
+      "odds_ratio": 2.6018205843837374,
+      "or_ci95_t": [
+        1.2130926472570847,
+        5.580340766741382
+      ],
+      "p_t": 0.016385384305047834
+    }
   }
 }

@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.37
+## Research Plan v0.39
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,8 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.39 — Abstract submitted to SABR (2026-11-22, general track, 486 words) after a cold read; realized-outcome result and per-doubling age odds ratio added.
+- v0.38 — Referee pass 2 on the abstract run and triaged; author's revision (480 words): the two definitions described in parallel, no "primary" label; threshold results for cushion and age reported; overall age clause replaced by the without-cushion result; sample size added.
 - v0.37 — Abstract drafted by the author (2026-11-21, 487 words): berth-relative presented as the primary model, fixed top 6 reported alongside with its results; realized-outcome result left out for focus. Numbers manifest and check rebuilt for the text.
 - v0.36 — Abstract submitted as plain text, without figures; question to SABR not sent; prior-publication question deferred until after the abstract.
 - v0.35 — No outside spec review before the abstract; reviewer names removed from the repo. Public release will be a scrubbed copy in a new repo; this repo stays private.
@@ -1086,7 +1088,9 @@ data dictionary — re-upload when they change.
 - [x] Realized-outcome refit (2026-11-11)
 - [x] Age checks on the berth-relative line, with the decision rule (2026-11-11)
 - [x] Abstract drafted by the author (2026-11-21; `posts/post1-hazard/abstract.md`)
-- [ ] Referee pass on the draft abstract, fresh chat (Week 5)
+- [x] Referee pass on the draft abstract, fresh chat (2026-11-21); revised
+- [x] Cold read of the revised abstract, fresh chat, abstract only (2026-11-22); revised
+- [x] Abstract approved word for word by the author and submitted to analytics-presentations@sabr.org (2026-11-22)
 
 **After the abstract**
 - [ ] If the abstract advances: full paper requested Dec 18, due Jan 22, 2027 (general track)

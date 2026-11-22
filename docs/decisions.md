@@ -1963,3 +1963,96 @@ the abstract in any case ("No publication before the abstract," 2026-11-11).
 - **Intervals:** t-based 95% intervals on all four odds ratios quoted.
 - **Age:** stated conditionally on cushion, with the overall-null clause and the fixed-line result.
 **Next:** the second referee pass, on this draft.
+
+## 2026-11-21 — Publishing: author email scrubbed in the public copy
+
+**Record:** `221749746+mkoizim@users.noreply.github.com` is the author email on 43 of 44 commits (every commit before 544314a)
+and appears in no file at any point in history. From 544314a on, commits use
+`221749746+mkoizim@users.noreply.github.com` (repo-level `user.email`).
+**Question:** Should the public copy keep the gmail address in commit metadata?
+**Options:** Keep it, so every commit hash survives the name scrub, 33dbb7d included | Rewrite it,
+which changes every commit hash
+**Chose:** Rewrite it in the same pass as the name scrub. Publishing an address can't be undone, and
+rewriting changes only commit hashes. File (blob) hashes don't depend on author metadata, so the
+locked files keep their hashes in both repos and can be checked without the archive.
+**Locked file hashes** (from this repo, 2026-11-21):
+- `docs/predictions.md` at 33dbb7d: `5a79be7ba382dda40f902f7ddbbc7a3226b0d4ae` (the lock in force)
+- `docs/predictions.md` at 2ddb3ac: `3cde6256e3c0f81fb95e1509262840022935a194` (first lock, superseded)
+- `docs/forecasts-2027.md` at 3fdc139: `501cefb20c25c58e6654b5fb962ab46e56437d4c`
+**Revises the procedure in "Publishing: a scrubbed public copy" (2026-11-15):**
+- Step 3: also write a mailmap file with the line
+  `Matt Koizim <221749746+mkoizim@users.noreply.github.com> <221749746+mkoizim@users.noreply.github.com>`, and run one pass:
+  `git filter-repo --replace-text <names file> --mailmap <mailmap file>`.
+- Step 4: `git log --all --format='%ae%n%ce' | grep gmail` returns nothing. Replaces "33dbb7d still
+  exists": check instead that `git rev-parse <new hash>:docs/predictions.md` and
+  `<new hash>:docs/forecasts-2027.md` return the file hashes above.
+- Step 5: the entry added at publication maps old to new hashes for every commit the docs cite
+  (3fdc139, 2ddb3ac, 33dbb7d, e8053da, 1f152ea), beside the file hashes, and states that the
+  originals are in the private archive.
+
+## 2026-11-21 — Referee pass 2 on the abstract: disposition and revision
+
+**Record:** Second referee pass run in a fresh chat on the 487-word draft (`posts/post1-hazard/referee-2/`).
+The author revised the abstract to 480 words (`posts/post1-hazard/abstract.md`); all 12 rows of
+`numbers-manifest.md` pass `check_numbers.py`.
+**Adopted:**
+- The berth-relative and fixed-rank definitions are described in parallel, with no "primary" label.
+  Results still lead with berth-relative. The author's view stands that fixed top 6 is the less
+  intuitive definition; the paper states that it was the registered one and that the ordering was
+  set after both lines' results were seen.
+- Threshold results are reported, because the abstract says the top 3–9 checks were run: cushion is
+  significant at five of the six robustness thresholds (not top 4); age only at top 5 and top 8.
+  Age varies with the threshold, and the berth-relative line is a top-5 line before 2022.
+- The overall age clause ("Older windows did not close more often overall because surviving windows
+  tended to carry more cushion") is replaced by "Without cushion in the model, age was not a
+  significant predictor of closing (p=0.65)." "Did not" overstated a wide interval (0.44–3.64), the
+  raw closing rates by age are not flat (berth-relative 0.28, 0.23, 0.47, 0.38), and the "because"
+  rested on figures outside `results.json`.
+- Sample size (36 windows, 28 closings) and "newly opened windows"; payroll stated as not significant
+  on either line (it is not significant without cushion either); "being or" removed; "providing a
+  method for evaluating organizational strategy" removed.
+**Rejected:** the referee's word count (473 omitted the title; 487 was right); the 11.9 rounding (the
+stored bound is 11.9455); restricting "pre-registered" to a public commit (the word is not in the
+abstract).
+**Declined (author):** the realized-outcome sentence, for focus (third time; kept for the paper and
+talk); "per doubling of window age" (2.60; 1.21–5.58), so no new key in `results.json`; shortening the
+last sentence.
+**For the talk:** FanGraphs odds as a proxy for internal projections; projection aging curves and
+expiring contracts as an alternative reading of the age effect; projected and results-based
+contention disagreeing on 107 of 360 club-seasons (top 6 vs. Jordan).
+**Correction:** the referee packet said model rows start in 2014; they start in 2015. Fixed in
+`build_packet.py`; the abstract is unaffected.
+**Revises:** "Abstract drafted by the author" (2026-11-21) on the primary label, and "Age sentence for
+the abstract" (2026-11-11) on the overall clause.
+
+## 2026-11-22 — Cold read; abstract submitted to SABR
+
+**Record:** A cold read (fresh chat, the abstract only, no packet, asked how a SABR reviewer would
+read it) was run on the 480-word revision. The author revised, approved the text word for word, and
+emailed it to analytics-presentations@sabr.org on 2026-11-22: general track, abstract in the body,
+AV needs a projector and screen for PowerPoint. The submitted text is `posts/post1-hazard/abstract.md`
+(486 words with the title); all 13 rows of `numbers-manifest.md` pass `check_numbers.py`.
+**Changed after the cold read:**
+- **Realized-outcome result added:** "Cushion also predicted actually missing the next postseason
+  (odds ratio 0.83; 95% CI 0.73–0.94; p=0.0047)" (berth-relative, `realized_outcome_refit.fits.berth_post`).
+  Revises "left out for focus" (2026-11-21, twice): all three readers raised projection
+  autocorrelation as their main question, the cold reader without seeing the packet.
+- **Age reported per doubling of window age:** 2.60 (1.21–5.58), the same estimate as 3.97 per unit of
+  ln(age) raised to ln 2; stored under the new key `abstract_derived` by
+  `src/analysis/abstract_derived.py` (other keys checked unchanged). Both readers found "per
+  log-season" opaque. A constant per-year odds ratio does not exist under log age (1→2: 2.60;
+  2→3: 1.75; 3→4: 1.49); refitting age as linear was ruled out as a post-results change.
+- **Misleading or unclear sentences fixed:** payroll and format stated as not significant in any of
+  the nine models (lowest p 0.36 and 0.11); the top-6 age result stated (p=0.30) and the failing
+  cushion threshold named (top 4); the berth-relative rule stated as a rank within the league's
+  berths; cushion timed to "that season's Opening Day"; the contribution narrowed to "projected"
+  competitive windows.
+- **Removed by the author:** "a public proxy for organizations' internal projections" and
+  "adapting for changing postseason formats."
+**For the paper and talk (from the cold read):** left truncation is not available for windows open in
+2014 because their entry age is unknown (the L/H alternative assumptions are the answer); 28
+closings for four covariates (Firth is the answer); an out-of-sample test of age; since 2022 the
+berth-relative line equals top 6, so the two definitions differ only in 2014–2021, which bears on
+the age difference; FanGraphs odds as a proxy for internal projections.
+**Next:** SABR's decision. If the abstract advances, the full paper is requested December 18 and due
+January 22, 2027.
