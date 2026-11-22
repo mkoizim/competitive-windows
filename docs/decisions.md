@@ -2097,3 +2097,23 @@ The full old-to-new map is in the local clone's `.git/filter-repo/commit-map` (n
 **Limit, stated plainly:** commit dates are set by the author's machine, and the archive was private,
 so nothing public independently proves that the predictions (2026-09-20) were locked before the odds
 were collected. The public record of the locks starts with today's push.
+
+## 2026-11-22 — Sports-Reference terms: use stated, author's reading recorded
+
+**Revises the wording of** "Baseball-Reference Opening Day odds as backcast source" (2026-10-26),
+which said the data-use page "bars using site content to prompt or instruct AI models" and that the
+author "chose to proceed." That entry stands as written; this one states the clause and the use more
+precisely.
+**The clause:** Sports-Reference's data-use page restricts copying or using site content, including
+statistics and data, to train, fine-tune, prompt or instruct AI models or technologies.
+**The use:** Baseball-Reference preseason odds (2011–2026) were collected by a script written with an
+AI coding agent, at under 20 requests per minute, and cleaned by AI-written code. They feed only the
+backcast (`src/analysis/backcast.py`; `results.json` key `backcast`), which failed its validation
+gate ("Backcast validation failed; sample B not used," 2026-10-26). No Post 1 result in the abstract
+uses them, and the B-Ref replication was not run (2026-11-11). Results computed from them were
+checked with AI tools. No model was trained or fine-tuned on them, and no raw pages are committed or
+republished.
+**Author's reading:** AI-assisted research of this kind is not the use the clause targets.
+Sports-Reference also states that facts cannot be copyrighted and may be reused. Not legal advice.
+**Revisit if:** Baseball-Reference data is used in a published result (the parked P2 benchmark).
+Then ask Sports-Reference for permission under its data request policy before publishing.

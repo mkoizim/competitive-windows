@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.40
+## Research Plan v0.41
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.41 — Sports-Reference terms note reworded to state the clause, the use and the author's reading.
 - v0.40 — Repo published as a scrubbed public copy (2026-11-22); original kept private as `competitive-windows-archive`.
 - v0.39 — Abstract submitted to SABR (2026-11-22, general track, 486 words) after a cold read; realized-outcome result and per-doubling age odds ratio added.
 - v0.38 — Referee pass 2 on the abstract run and triaged; author's revision (480 words): the two definitions described in parallel, no "primary" label; threshold results for cushion and age reported; overall age clause replaced by the without-cushion result; sample size added.
@@ -951,7 +952,7 @@ February.
 | Baseball-Reference standings | Final W-L, runs scored and allowed (Pythagorean) at season's end and as of each pre-deadline date, realized postseason field | Free | Offseason signal; one-year switch filter; end-of-season cross-check. Same Sports-Reference terms as the playoff-odds row |
 | Retrosheet / Baseball-Reference transactions | Trades by decision point, both sides, including August waiver trades 2014–2018 | Free | Cache once |
 | Cot's Contracts | Salary, arbitration, payroll, CBT position | Free | Collected 2011–2026 from club pages. Opening Day payroll used; year-end and CBT kept for R3 and P4. Cot's publishes no Opening Day CBT. 2020 is prorated (see `decisions.md`) |
-| Baseball-Reference playoff odds | Preseason odds 2011–2026 | Free | Backcast failed its gate; retained for the P2 benchmark and a robustness check. Collected at under 20 requests/min; raw pages not committed. Sports-Reference's terms bar using content to prompt AI models; the author proceeded knowingly |
+| Baseball-Reference playoff odds | Preseason odds 2011–2026 | Free | Backcast failed its gate; retained for the P2 benchmark and a robustness check. Collected at under 20 requests/min; raw pages not committed. Sports-Reference's data-use terms restrict using site content to train, fine-tune, prompt or instruct AI models. Here the data was processed by AI-written code, and results computed from it were checked with AI tools. The author's reading is that AI-assisted research is not the use the clause targets (`decisions.md`, 2026-11-22) |
 | Player projections, as-of | Surplus by season, major leaguers | TBD | Multi-year archives scarce; likely one-year projection plus a pre-specified aging curve |
 | Grade-to-value table | Surplus, prospects | Free | One published table, cited |
 | $/WAR series by year | Converts WAR to dollars | Free | One series, cited |
