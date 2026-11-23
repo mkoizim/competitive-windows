@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.42
+## Research Plan v0.43
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.43 — Post-abstract to-do items added to the checklist: paper outline, FanGraphs timing, data backup and cleanup, Sports-Reference permission trigger; public-repo item ticked.
 - v0.42 — Analysis environment moved to Python 3.15; results reproduced.
 - v0.41 — Sports-Reference terms note reworded to state the clause, the use and the author's reading.
 - v0.40 — Repo published as a scrubbed public copy (2026-11-22); original kept private as `competitive-windows-archive`.
@@ -1103,7 +1104,11 @@ data dictionary — re-upload when they change.
 - [ ] Second source for the Brewers' 2024 year-end payroll before R3 or P4 use it
 - [ ] Baseball-Reference cross-check of final records (optional; FanGraphs end-of-season W-L are actual results)
 - [ ] Name a human technical reviewer for the model (before the full Post 1; not named in the repo)
-- [ ] Before the repo goes public: publish a scrubbed copy as a new repo; this one stays private as the archive (procedure in `decisions.md`, 2026-11-15)
+- [x] Publish a scrubbed copy as the public repo; original kept private as `competitive-windows-archive` (2026-11-22)
+- [ ] Paper outline, built after the figures so it follows their order (useful for FanGraphs even if the abstract doesn't advance)
+- [ ] Decide FanGraphs timing: before or after the March 2027 conference (headline results are already public on the portfolio and in the repo)
+- [ ] Back up `data/` off the Mac; then delete the local archive folder (`~/competitive-windows-archive`). (`~/scrub` deleted 2026-11-23.)
+- [ ] If Baseball-Reference data enters a published result (the parked P2 benchmark): ask Sports-Reference for permission first (`decisions.md`, 2026-11-22)
 
 **Before Post 2**
 - [ ] Value build: projection source, aging curve, grade-to-value table, $/WAR series — logged before any valuation is computed
