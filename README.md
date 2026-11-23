@@ -54,7 +54,7 @@ The data is not included. Under FanGraphs' terms of service its tables are not r
 Baseball-Reference standings and preseason odds, and Cot's Contracts payrolls. How each was
 collected is recorded in the decisions log.
 
-With the data in place: Python 3.9, `pip install -r requirements.txt`, then the `src/clean/` and
+With the data in place: Python 3.15, `pip install -r requirements.txt`, then the `src/clean/` and
 `src/analysis/` scripts. `python3 posts/post1-hazard/check_numbers.py` confirms every number in the
 abstract against `results.json`.
 
