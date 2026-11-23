@@ -1,5 +1,5 @@
 # Competitive Windows in the Current MLB Postseason
-## Research Plan v0.41
+## Research Plan v0.42
 
 **Author:** Matt Koizim
 **Started:** September 2026
@@ -12,6 +12,7 @@ rejected, and why — lives in `decisions.md`. Choices still genuinely open are 
 **[OPEN]** where they appear and listed together in §13.
 
 **Version history** (one line each; detail in `decisions.md`)
+- v0.42 — Analysis environment moved to Python 3.15; results reproduced.
 - v0.41 — Sports-Reference terms note reworded to state the clause, the use and the author's reading.
 - v0.40 — Repo published as a scrubbed public copy (2026-11-22); original kept private as `competitive-windows-archive`.
 - v0.39 — Abstract submitted to SABR (2026-11-22, general track, 486 words) after a cold read; realized-outcome result and per-doubling age odds ratio added.
@@ -984,7 +985,7 @@ competitive-windows/
   results/figures/  results/tables/
   results/results.json   # every number that appears in prose
   posts/post1-hazard/
-  requirements.txt   # pinned packages for hazard.py
+  requirements.txt   # pinned packages for the ten analysis scripts (Python 3.15)
   .venv/             # local environment; never committed
 ```
 
@@ -1098,7 +1099,7 @@ data dictionary — re-upload when they change.
 - [ ] If the abstract advances: full paper requested Dec 18, due Jan 22, 2027 (general track)
 - [ ] Build the write-up figures: survival cut at year 6, cushion chart for both lines (deferred 2026-11-11)
 - [ ] Score the 2027 forecasts on 2027 Opening Day
-- [ ] Install a current Python (3.12 or 3.13, from python.org), rebuild `.venv`, and rerun the fresh-install test
+- [x] Move to a current Python: 3.15.2, `.venv` rebuilt, fresh-install test passed (2026-11-23)
 - [ ] Second source for the Brewers' 2024 year-end payroll before R3 or P4 use it
 - [ ] Baseball-Reference cross-check of final records (optional; FanGraphs end-of-season W-L are actual results)
 - [ ] Name a human technical reviewer for the model (before the full Post 1; not named in the repo)

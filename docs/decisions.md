@@ -2117,3 +2117,29 @@ republished.
 Sports-Reference also states that facts cannot be copyrighted and may be reused. Not legal advice.
 **Revisit if:** Baseball-Reference data is used in a published result (the parked P2 benchmark).
 Then ask Sports-Reference for permission under its data request policy before publishing.
+
+## 2026-11-23 — Analysis environment moved to Python 3.15
+
+**Question:** Can the analysis move from Python 3.9.6 to a current Python without changing any result?
+**Chose:** Python 3.15.2, the newest version available. Plan §13 named 3.12 or 3.13 only because those
+were current when it was written. The five direct packages were installed at current versions, and
+`requirements.txt` was rewritten from `pip freeze`.
+**Tolerance, amended after the first comparison was seen:** values under 1e-12, and fields from solver
+cross-checks (`scipy_*`, `*_scipy`, `max_abs_coef_diff_*`, `*_vs_stored`, `restricted_score_max_abs`),
+pass if the check they feed still passes, not on 1e-8 relative. The original rule did not anticipate
+that a relative difference is meaningless near zero. No quantity in any write-up falls under the
+amendment.
+**Record:** The ten scripts that use these packages were rerun under 3.15 in a mirror. Across 6,010
+integers and 3,675 floats in `results.json`: integers identical; 15 floats or fields outside 1e-8, all
+covered by the amended rule (machine-precision diagnostics and internals of the scipy cross-check on
+Firth, which now converges cleanly). The reported Firth estimates come from Newton and are unchanged.
+The bootstrap p-values are identical. The 2027 forecasts reproduce (largest relative difference
+1.2e-14, against the file locked at `1e95d3f`, archive `3fdc139`). A fresh install from the new
+`requirements.txt` reproduced the first 3.15 run byte for byte.
+**Also:**
+- `results.json` is kept as produced under 3.9; it is the record behind the submitted abstract.
+- The ten figures were redrawn under matplotlib 3.11 and committed after a visual check: same content,
+  slightly different layout.
+- wrapt is pinned to 2.5.2, a final release; the unpinned install had taken a development build.
+- `src/scrape/bref_odds.py` also needs `requests`, unpinned.
+- Environment change committed at `845fee3`; this entry and plan v0.42 follow in the next commit.
